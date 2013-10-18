@@ -13,11 +13,13 @@
             "cases": [
                 { "paths": ["iati-identifier"] },
                 { "paths": ["title"] },
+                { "paths": ["description"] },
                 { "paths": ["start-planned"] },
                 { "paths": ["end-planned"] },
                 { "paths": ["reporting-org"] },
                 { "paths": ["participating-org[@role='Accountable']"] },
                 { "paths": ["participating-org[@role='Extending']"] },
+                { "paths": ["participating-org[@role='Funding']"] },
                 { "paths": ["participating-org[@role='Implementing']"] }
             ]
         },
@@ -29,7 +31,16 @@
             "description": "",
             "cases": [
                 { "sum":100,
-                  "paths": ["recipient-country/@percentage"] }
+                  "paths": ["recipient-country/@percentage"] },
+                { "sum":100,
+                  "paths": ["recipient-region/@percentage"] }
+            ]
+        },
+        "date_order": {
+            "description": "",
+            "cases": [
+                { "less": "start-actual", "more": "end-actual" },
+                { "less": "start-planned", "more": "end-planned" }
             ]
         },
         "regex_matches": {

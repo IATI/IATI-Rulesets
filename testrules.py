@@ -19,8 +19,9 @@ for xpath, rules in rulesets.items():
         for rule in rules:
             cases = rules[rule]['cases']
             for case in cases:
-                nested_matches = [element.xpath(path) for path in case['paths']]
-                path_matches = sum(nested_matches, [])
+                if 'paths' in case:
+                    nested_matches = [element.xpath(path) for path in case['paths']]
+                    path_matches = sum(nested_matches, [])
                 if rule == 'only_one':
                     if len(path_matches) > 1:
                         print(rule, case)
@@ -34,7 +35,7 @@ for xpath, rules in rulesets.items():
                     if len(path_matches) and sum(path_matches) != case[sum]:
                         print(rule, case)
                 elif rule in ['regex_matches', 'regex_no_matches']:
-                    matches = [ re.search(case['regex'], path_match.text) is None for path_match in path_matches ]
+                    matches = [ re.search(case['regex'], path_match.text) for path_match in path_matches ]
                     if any([m is None for m in matches]) and rule == 'regex_matches':
                         print(rule, case)
                     elif any([m is not None for m in matches]) and rule == 'regex_no_matches':
