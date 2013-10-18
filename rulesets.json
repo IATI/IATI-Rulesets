@@ -16,9 +16,9 @@
                 { "paths": ["start-planned"] },
                 { "paths": ["end-planned"] },
                 { "paths": ["reporting-org"] },
-                { "paths": ["participating-org[role='Accountable'"] },
-                { "paths": ["participating-org[role='Extending'"] },
-                { "paths": ["participating-org[role='Implementing'"] }
+                { "paths": ["participating-org[@role='Accountable']"] },
+                { "paths": ["participating-org[@role='Extending']"] },
+                { "paths": ["participating-org[@role='Implementing']"] }
             ]
         },
         "dependent": {
@@ -29,7 +29,7 @@
             "description": "",
             "cases": [
                 { "sum":100,
-                  "paths": ["activity/recipient-country/@percentage"] }
+                  "paths": ["recipient-country/@percentage"] }
             ]
         },
         "regex_matches": {
