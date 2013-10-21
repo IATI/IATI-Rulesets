@@ -39,8 +39,8 @@
         "date_order": {
             "description": "",
             "cases": [
-                { "less": "start-actual", "more": "end-actual" },
-                { "less": "start-planned", "more": "end-planned" }
+                { "less": "activity-date[@type='start-actual']", "more": "activity-date[@type='end-actual']" },
+                { "less": "activity-date[@type='start-planned']", "more": "activity-date[@type='end-planned']" }
             ]
         },
         "regex_matches": {
