@@ -60,7 +60,4 @@ for xpath, rules in rulesets.items():
                     for path_match in path_matches:
                         if not path_match.text.startswith(start):
                             print(rule, case)
-                else:
-                    print 'Unimplemented rules, exiting.'
-                    exit()
 
