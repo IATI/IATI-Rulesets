@@ -1,0 +1,162 @@
+{
+    "//iati-activity": {
+        "only_one" : {
+            "cases": [
+                { "paths": ["reporting-org"] },
+                { "paths": ["iati-identifier"] }
+            ]
+        },
+        "atleast_one": {
+            "cases": [
+                { "paths": ["reporting-org"] },
+                { "paths": ["iati-identifier"] },
+                { "paths": ["activity-date[@type='start-planned']"] },
+                { "paths": ["activity-date[@type='end-planned']"] },
+                { "paths": ["participating-org"] },
+                { "paths": ["location", "recipient-country", "recipient-region"] },
+                { "paths": ["sector"] },
+                { "paths": ["budget"] }
+            ]
+        },
+        "sum": {
+            "description": "",
+            "cases": [
+                { "sum":100,
+                  "paths": ["recipient-country/@percentage"] },
+                { "sum":100,
+                  "paths": ["recipient-region/@percentage"] },
+                { "sum":100,
+                  "paths": ["sector/@percentage"] }
+            ]
+        },
+        "date_order": {
+            "cases": [
+                { "less": "activity-date[@type='start-planned']", "more": "activity-date[@type='end-planned']" }
+            ]
+        },
+        "startswith": {
+            "cases": [
+                { "start": "reporting-org/@ref",
+                  "paths": ["iati-identifier"] }
+            ]
+        }
+    },
+    "//reporting-org": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@ref"] },
+                { "paths": ["@type"] }
+            ]
+        }
+    },
+    "//recipient-country": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@code"] }
+            ]
+        }
+    },
+    "//recipient-region": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@code"] }
+            ]
+        }
+    },
+    "//participating-org": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@role"] },
+                { "paths": ["@type"] }
+            ]
+        }
+    },
+    "//participating-org[@role='Funding']": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@ref"] }
+            ]
+        }
+    },
+    "//sector": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@vocabulary"] },
+                { "paths": ["@code"] }
+            ]
+        }
+    },
+    "//budget": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["period-start"] },
+                { "paths": ["period-end"] },
+                { "paths": ["value"] },
+                { "paths": ["value-date"] }
+            ]
+        },
+        "date_order": {
+            "cases": [
+                { "less": "period-start", "more": "period-end" }
+            ]
+        }
+    },
+    "//transaction": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@type"] },
+                { "paths": ["transaction-date"] },
+                { "paths": ["value"] }
+            ]
+        }
+    },
+    "//transaction/value": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@value-date"] }
+            ]
+        }
+    },
+    "//transaction[@type='IF']": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@provider-org"] },
+                { "paths": ["@provider-activity-identifier"] }
+            ]
+        }
+    },
+
+
+    "//iati-organisation": {
+        "only_one": {
+            "cases": [
+                { "paths": ["reporting-org"] },
+                { "paths": ["iati-identifier"] }
+            ]
+        },
+        "atleast_one": {
+            "cases": [
+                { "paths": ["reporting-org"] },
+                { "paths": ["iati-identifier"] },
+                { "paths": ["total-budget"] }
+            ]
+        },
+        "startswith": {
+            "cases": [
+                { "start": "reporting-org/@ref",
+                  "paths": ["iati-identifier"] }
+            ]
+        }
+    },
+    "//total-budget": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["period-start"] },
+                { "paths": ["period-end"] },
+                { "paths": ["value"] },
+                { "paths": ["@value-date"] },
+                { "paths": ["@currency"] }
+            ]
+        }
+    }
+}

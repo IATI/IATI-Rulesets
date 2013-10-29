@@ -29,16 +29,16 @@ for xpath, rules in rulesets.items():
 
                 if rule == 'only_one':
                     if len(path_matches) > 1:
-                        print(rule, case)
+                        print(xpath, rule, case)
                 elif rule == 'atleast_one':
                     if len(path_matches) < 1:
-                        print(rule, case)
+                        print(xpath, rule, case)
                 elif rule == 'dependent':
                     if all(len(m) != 0 for m in nested_matches) and any(len(m) == 0 for m in nested_matches):
                         print (rule, case)
                 elif rule == 'sum':
-                    if len(path_matches) and sum(path_matches) != case[sum]:
-                        print(rule, case)
+                    if len(path_matches) and sum(map(int, path_matches)) != case['sum']:
+                        print(xpath, rule, case)
                 elif rule == 'date_order':
                     try:
                         m1 = xsDateRegex.match(element.xpath(case['less'])[0].attrib['iso-date'])
@@ -46,18 +46,18 @@ for xpath, rules in rulesets.items():
                         m2 = xsDateRegex.match(element.xpath(case['more'])[0].attrib['iso-date'])
                         more = datetime.date(*map(int, m2.groups()))
                         if not (less < more):
-                            print(rule,case)
+                            print(xpath, rule,case)
                     except IndexError:
                         pass
                 elif rule in ['regex_matches', 'regex_no_matches']:
                     matches = [ re.search(case['regex'], path_match.text) for path_match in path_matches ]
                     if any([m is None for m in matches]) and rule == 'regex_matches':
-                        print(rule, case)
+                        print(xpath, rule, case)
                     elif any([m is not None for m in matches]) and rule == 'regex_no_matches':
-                        print(rule, case)
+                        print(xpath, rule, case)
                 elif rule == 'startswith':
                     start = element.xpath(case['start'])[0] 
                     for path_match in path_matches:
                         if not path_match.text.startswith(start):
-                            print(rule, case)
+                            print(xpath, rule, case)
 

@@ -1,7 +1,6 @@
 {
     "//iati-activity": {
         "only_one" : {
-            "description": "Only one of the following fields must appear, and must not appear more than once",
             "cases": [
                 { "paths": ["iati-identifier"] },
                 { "paths": ["activity-status"] },
@@ -9,7 +8,6 @@
             ]
         },
         "atleast_one": {
-            "description": "",
             "cases": [
                 { "paths": ["iati-identifier"] },
                 { "paths": ["title"] },
@@ -24,7 +22,6 @@
             ]
         },
         "dependent": {
-            "description": "",
             "cases": []
         },
         "sum": {
@@ -37,18 +34,15 @@
             ]
         },
         "date_order": {
-            "description": "",
             "cases": [
                 { "less": "activity-date[@type='start-actual']", "more": "activity-date[@type='end-actual']" },
                 { "less": "activity-date[@type='start-planned']", "more": "activity-date[@type='end-planned']" }
             ]
         },
         "regex_matches": {
-            "description": "",
             "cases": []
         },
         "regex_no_matches": {
-            "description": "",       
             "cases": [
                 { "regex":"^\\s",
                   "paths": ["iati-identifier"] },
@@ -57,7 +51,6 @@
             ]
         },
         "startswith": {
-            "description": "",
             "cases": [
                 { "start": "reporting-org/@ref",
                   "paths": ["iati-identifier"] }
