@@ -35,16 +35,26 @@ for xpath, rules in rulesets.items():
                         print(xpath, rule, case)
                 elif rule == 'dependent':
                     if all(len(m) != 0 for m in nested_matches) and any(len(m) == 0 for m in nested_matches):
-                        print (rule, case)
+                        print (xpath, rule, case)
+                elif rule == 'unique':
+                    path_matches_text = [ x.text for x in path_matches ]
+                    if len(path_matches_text) > len(set(path_matches_text)):
+                        print(xpath, rule, case)
                 elif rule == 'sum':
                     if len(path_matches) and sum(map(int, path_matches)) != case['sum']:
                         print(xpath, rule, case)
                 elif rule == 'date_order':
                     try:
-                        m1 = xsDateRegex.match(element.xpath(case['less'])[0].attrib['iso-date'])
-                        less = datetime.date(*map(int, m1.groups()))
-                        m2 = xsDateRegex.match(element.xpath(case['more'])[0].attrib['iso-date'])
-                        more = datetime.date(*map(int, m2.groups()))
+                        if case['less'] == 'TODAY':
+                            less = datetime.date.today()
+                        else:
+                            m1 = xsDateRegex.match(element.xpath(case['less'])[0].attrib['iso-date'])
+                            less = datetime.date(*map(int, m1.groups()))
+                        if case['more'] == 'TODAY':
+                            more = datetime.date.today()
+                        else:
+                            m2 = xsDateRegex.match(element.xpath(case['more'])[0].attrib['iso-date'])
+                            more = datetime.date(*map(int, m2.groups()))
                         if not (less < more):
                             print(xpath, rule,case)
                     except IndexError:

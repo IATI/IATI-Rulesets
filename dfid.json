@@ -36,7 +36,9 @@
         },
         "date_order": {
             "cases": [
-                { "less": "activity-date[@type='start-planned']", "more": "activity-date[@type='end-planned']" }
+                { "less": "activity-date[@type='start-planned']", "more": "activity-date[@type='end-planned']" },
+                { "less": "activity-date[@type='start-actual']", "more": "activity-date[@type='end-actual']" },
+                { "less": "activity-date[@type='end-actual']", "more": "NOW" }
             ]
         },
         "startswith": {
@@ -44,6 +46,12 @@
                 { "start": "reporting-org/@ref",
                   "paths": ["iati-identifier"] }
             ]
+        },
+        "unique": {
+            "cases": [
+                { "paths": ["title", "description"] }
+            ]
+
         }
     },
     "//reporting-org": {
@@ -120,6 +128,11 @@
                 { "paths": ["transaction-date"] },
                 { "paths": ["value/@value-date"] }
             ]
+        },
+        "date_order": {
+            "cases": [
+                { "less": "transaction-date", "more": "NOW" }
+            ]
         }
     },
     "//transaction/transaction-type/[@code='IF']": {
@@ -161,8 +174,8 @@
                 { "paths": ["period-start"] },
                 { "paths": ["period-end"] },
                 { "paths": ["value"] },
-                { "paths": ["@value-date"] },
-                { "paths": ["@currency"] }
+                { "paths": ["value/@value-date"] },
+                { "paths": ["value/@currency"] }
             ]
         }
     }
