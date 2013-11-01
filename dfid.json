@@ -13,10 +13,16 @@
                 { "paths": ["title"] },
                 { "paths": ["description"] },
                 { "paths": ["activity-status"] },
-                { "paths": ["activity-date[@type='start-planned']"] },
-                { "paths": ["activity-date[@type='end-planned']"] },
+                { "paths": [
+                    "activity-date[@type='start-planned']",
+                    "activity-date[@type='start-actual']"
+                    ] },
+                { "paths": [
+                    "activity-date[@type='end-planned']",
+                    "activity-date[@type='end-actual']"
+                    ] },
                 { "paths": ["participating-org"] },
-                { "paths": ["location", "recipient-country", "recipient-region"] },
+                { "paths": ["recipient-country", "recipient-region"] },
                 { "paths": ["sector"] },
                 { "paths": ["budget"] },
                 { "paths": ["document-link"] },
