@@ -5,6 +5,13 @@ import datetime
 from lxml import etree as ET
 
 
+def print_result(element, xpath, rule, case):
+    try:
+        iati_identifier = element.xpath('ancestor-or-self::iati-activity/iati-identifier')[0].text
+    except IndexError: iati_identifier = ''
+    print(iati_identifier, xpath, rule, case)
+
+
 if len(sys.argv) < 3:
     print('Usage python testrules.py rulesets.json file.xml')
     exit()
@@ -29,45 +36,47 @@ for xpath, rules in rulesets.items():
 
                 if rule == 'only_one':
                     if len(path_matches) > 1:
-                        print(xpath, rule, case)
+                        print_result(element, xpath, rule, case)
                 elif rule == 'atleast_one':
                     if len(path_matches) < 1:
-                        print(xpath, rule, case)
+                        print_result(element, xpath, rule, case)
                 elif rule == 'dependent':
                     if all(len(m) != 0 for m in nested_matches) and any(len(m) == 0 for m in nested_matches):
                         print (xpath, rule, case)
                 elif rule == 'unique':
                     path_matches_text = [ x.text for x in path_matches ]
                     if len(path_matches_text) > len(set(path_matches_text)):
-                        print(xpath, rule, case)
+                        print_result(element, xpath, rule, case)
                 elif rule == 'sum':
                     if len(path_matches) and sum(map(int, path_matches)) != case['sum']:
-                        print(xpath, rule, case)
+                        print_result(element, xpath, rule, case)
                 elif rule == 'date_order':
-                    try:
-                        if case['less'] == 'TODAY':
+                    def parse_date(date_xpath):
+                        if date_xpath == 'TODAY':
                             less = datetime.date.today()
                         else:
-                            m1 = xsDateRegex.match(element.xpath(case['less'])[0].attrib['iso-date'])
-                            less = datetime.date(*map(int, m1.groups()))
-                        if case['more'] == 'TODAY':
-                            more = datetime.date.today()
-                        else:
-                            m2 = xsDateRegex.match(element.xpath(case['more'])[0].attrib['iso-date'])
-                            more = datetime.date(*map(int, m2.groups()))
+                            date_text = element.xpath(date_xpath)[0].attrib.get('iso-date')
+                            if date_text:
+                                m1 = xsDateRegex.match(date_text)
+                                return datetime.date(*map(int, m1.groups()))
+                            else:
+                                raise IndexError
+                    try:
+                        less = parse_date(case['less'])
+                        more = parse_date(case['more'])
                         if not (less < more):
-                            print(xpath, rule,case)
+                            print_result(element, xpath, rule,case)
                     except IndexError:
                         pass
                 elif rule in ['regex_matches', 'regex_no_matches']:
                     matches = [ re.search(case['regex'], path_match.text) for path_match in path_matches ]
                     if any([m is None for m in matches]) and rule == 'regex_matches':
-                        print(xpath, rule, case)
+                        print_result(element, xpath, rule, case)
                     elif any([m is not None for m in matches]) and rule == 'regex_no_matches':
-                        print(xpath, rule, case)
+                        print_result(element, xpath, rule, case)
                 elif rule == 'startswith':
                     start = element.xpath(case['start'])[0] 
                     for path_match in path_matches:
                         if not path_match.text.startswith(start):
-                            print(xpath, rule, case)
+                            print_result(element, xpath, rule, case)
 
