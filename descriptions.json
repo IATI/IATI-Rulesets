@@ -1,6 +1,6 @@
 {
-    "only_one": "There should be no more than one of any of the listed elements",
-    "atleast_one": "There should be at least one of one of the listed elements",
+    "no_more_than_one": "There should be no more than one of any of:",
+    "atleast_one": "There should be at least one of:",
     "dependent": "If one of the listed elements exists, they should all exist",
     "sum": "The sum of the listed elements should be the given value",
     "date_order": "The iso-date attribute of the 'less' element should be before that of the 'more element",

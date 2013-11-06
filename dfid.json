@@ -152,7 +152,7 @@
 
 
     "//iati-organisation": {
-        "only_one": {
+        "no_more_than_one": {
             "cases": [
                 { "paths": ["reporting-org"] },
                 { "paths": ["iati-identifier"] }
