@@ -12,13 +12,10 @@ if len(sys.argv) < 2:
 rulesets = json.load(open(sys.argv[1]))
 descriptions = json.load(open('descriptions.json'))
 
-
-xsDateRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})')
-
-# FIXME use .text only after checking is an element
-
 for xpath, rules in rulesets.items():
     print xpath
+    print '~'*len(xpath)
+    print
     for rule in rules:
         cases = rules[rule]['cases']
         for case in cases:
@@ -26,7 +23,16 @@ for xpath, rules in rulesets.items():
                 pass
 
             if rule not in ['date_order']:
-                print '   ', descriptions[rule], case['paths']
+                print descriptions[rule]+'::'
+                print
+                for path in case['paths']:
+                    print '   ', path
             elif rule == 'date_order':
-                print '   ', descriptions[rule], case['less'], case['more']
+                print descriptions[rule]+'::'
+                print
+                print '   less:', case['less']
+                print '   more:', case['more']
+            print
+        print
+
 

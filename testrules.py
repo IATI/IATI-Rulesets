@@ -1,22 +1,26 @@
+from __future__ import unicode_literals
 import json
 import sys
 import re
 import datetime
+import collections
 from lxml import etree as ET
 
+import csv
+writer = csv.writer(sys.stdout, delimiter='\t')
 
 def print_result(element, xpath, rule, case):
     try:
         iati_identifier = element.xpath('ancestor-or-self::iati-activity/iati-identifier')[0].text
     except IndexError: iati_identifier = ''
-    print(iati_identifier, xpath, rule, case)
+    writer.writerow(list(map(str, [iati_identifier, xpath, rule, dict(case)])))
 
 
 if len(sys.argv) < 3:
     print('Usage python testrules.py rulesets.json file.xml')
     exit()
 
-rulesets = json.load(open(sys.argv[1]))
+rulesets = json.load(open(sys.argv[1]), object_pairs_hook=collections.OrderedDict)
 
 tree = ET.parse(sys.argv[2])
 root = tree.getroot()
