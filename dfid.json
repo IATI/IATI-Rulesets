@@ -21,11 +21,12 @@
                     "activity-date[@type='end-planned']",
                     "activity-date[@type='end-actual']"
                     ] },
+                { "paths": ["activity-date[@type='end-actual']"], "condition": "activity-status/@code = 3 or activity-status/@code = 4" },
                 { "paths": ["participating-org"] },
                 { "paths": ["recipient-country", "recipient-region"] },
                 { "paths": ["sector"] },
-                { "paths": ["budget"] },
-                { "paths": ["document-link"] },
+                { "paths": ["budget"], "condition": "activity-status/@code != 1" },
+                { "paths": ["document-link"], "condition": "activity-status/@code != 1" },
                 { "paths": ["contact-info"] },
                 { "paths": ["contact-info/email"] }
             ]
@@ -78,14 +79,16 @@
     "//recipient-country": {
         "atleast_one": {
             "cases": [
-                { "paths": ["@code"] }
+                { "paths": ["@code"] },
+                { "paths": ["@percentage"], "condition": "count(../recipient-country)>1" }
             ]
         }
     },
     "//recipient-region": {
         "atleast_one": {
             "cases": [
-                { "paths": ["@code"] }
+                { "paths": ["@code"] },
+                { "paths": ["@percentage"], "condition": "count(../recipient-region)>1" }
             ]
         }
     },
@@ -107,8 +110,8 @@
     "//sector": {
         "atleast_one": {
             "cases": [
-                { "paths": ["@vocabulary"] },
-                { "paths": ["@code"] }
+                { "paths": ["@code"] },
+                { "paths": ["@percentage"], "condition": "count(../sector)>1" }
             ]
         }
     },

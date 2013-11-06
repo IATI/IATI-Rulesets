@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 import json
 import sys
 import re
@@ -34,6 +33,10 @@ for xpath, rules in rulesets.items():
         for rule in rules:
             cases = rules[rule]['cases']
             for case in cases:
+                if 'condition' in case:
+                    if not element.xpath(case['condition']):
+                        continue
+
                 if 'paths' in case:
                     nested_matches = [element.xpath(path) for path in case['paths']]
                     path_matches = sum(nested_matches, [])
