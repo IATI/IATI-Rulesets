@@ -25,13 +25,16 @@ for xpath, rules in rulesets.items():
             if rule not in ['date_order']:
                 print descriptions[rule]+'::'
                 print
+                if 'start' in case:
+                    print '    start:', case['start'] 
+                    print
                 for path in case['paths']:
                     print '   ', path
             elif rule == 'date_order':
                 print descriptions[rule]+'::'
                 print
-                print '   less:', case['less']
-                print '   more:', case['more']
+                print '    less:', case['less']
+                print '    more:', case['more']
             print
         print
 

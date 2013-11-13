@@ -6,6 +6,6 @@
     "date_order": "The iso-date attribute of the ``less`` element should be before that of the ``more`` element",
     "regex_matches": "The regex should match all of the listed elements",
     "regex_no_matches": "The regex should not match any of the listed elements",
-    "startswith": "The elements should start with the text of the 'start' element",
+    "startswith": "The elements should start with the text of the ``start`` element",
     "unique": "The text of all the listed elements should be unique"
 }
