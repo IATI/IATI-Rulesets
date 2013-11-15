@@ -7,8 +7,12 @@ from lxml import etree as ET
 
 import csv
 writer = csv.writer(sys.stdout, delimiter='\t')
-
 def print_result(element, xpath, rule, case):
+    """
+    Prints information to stdout about the current element, xpath, rule and
+    case.
+    
+    """
     try:
         iati_identifier = element.xpath('ancestor-or-self::iati-activity/iati-identifier')[0].text
     except IndexError: iati_identifier = ''
@@ -26,12 +30,13 @@ root = tree.getroot()
 
 xsDateRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})')
 
-def get_text(e):
+def get_text(element_or_attribute):
+    """ Returns the text of the given element or attribute """ 
     # use .text only after checking is an element
-    if type(e) == ET._Element:
-        return e.text
+    if type(element_or_attribute) == ET._Element:
+        return element_or_attribute.text
     else:
-        return unicode(e)
+        return unicode(element_or_attribute)
 
 for xpath, rules in rulesets.items():
     for element in tree.findall(xpath):
