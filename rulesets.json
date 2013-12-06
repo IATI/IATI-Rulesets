@@ -1,6 +1,6 @@
 {
     "//iati-activity": {
-        "only_one" : {
+        "no_more_than_one" : {
             "cases": [
                 { "paths": ["iati-identifier"] },
                 { "paths": ["activity-status"] },

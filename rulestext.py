@@ -10,7 +10,7 @@ if len(sys.argv) < 2:
     exit()
 
 rulesets = json.load(open(sys.argv[1]))
-descriptions = json.load(open('descriptions.json'))
+descriptions = json.load(open('descriptions-en.json'))
 
 for xpath, rules in rulesets.items():
     print xpath
