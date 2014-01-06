@@ -121,7 +121,7 @@
                 { "paths": ["period-start"] },
                 { "paths": ["period-end"] },
                 { "paths": ["value"] },
-                { "paths": ["value-date"] }
+                { "paths": ["value/@value-date"] }
             ]
         },
         "date_order": {
@@ -144,11 +144,10 @@
             ]
         }
     },
-    "//transaction/transaction-type/[@code='IF']": {
+    "//transaction/transaction-type/[@code='IF']/..": {
         "atleast_one": {
             "cases": [
-                { "paths": ["@provider-org"] },
-                { "paths": ["@provider-activity-identifier"] }
+                { "paths": ["provider-org/@provider-activity-id"] }
             ]
         }
     },
