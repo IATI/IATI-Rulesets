@@ -1,5 +1,10 @@
 <?php
 
+/*
+// NOTE: This PHP implementation of testing rulesets is INCOMPLETE!
+// Unless you specifically want PHP, please look at testrules.py instead.
+*/
+
 function print_result($rule, $case) {
     echo $rule."\n";
     print_r($case);

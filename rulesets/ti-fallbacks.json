@@ -1,0 +1,16 @@
+{
+    "//activity-date": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["@iso-date"] }
+            ]
+        }
+    },
+    "//transaction": {
+        "atleast_one": {
+            "cases": [
+                { "paths": ["transaction-date"] }
+            ]
+        }
+    }
+}
