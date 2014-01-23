@@ -12,7 +12,7 @@ function print_result($rule, $case) {
 }
 
 if (count($argv) < 3) {
-    echo 'Usage php testrules.php rulesets.json file.xml';
+    echo 'Usage php testrules.php rulesets/standard.json file.xml';
     exit();
 }
 

@@ -6,7 +6,7 @@ from lxml import etree as ET
 
 
 if len(sys.argv) < 2:
-    print('Usage python rulestext.py rulesets.json')
+    print('Usage python rulestext.py rulesets/standard.json')
     exit()
 
 rulesets = json.load(open(sys.argv[1]))

@@ -20,7 +20,7 @@ def print_result(element, xpath, rule, case):
 
 
 if len(sys.argv) < 3:
-    print('Usage python testrules.py rulesets.json file.xml')
+    print('Usage python testrules.py rulesets/standard.json file.xml')
     exit()
 
 rulesets = json.load(open(sys.argv[1]), object_pairs_hook=collections.OrderedDict)
