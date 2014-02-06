@@ -6,31 +6,15 @@
 */
 
 function print_result($rule, $case) {
-    echo $rule."\n";
-    print_r($case);
-    echo "\n";
+    return array(
+       'rule'=>$rule,
+       'case'=>$case
+    );
 }
 
-if (count($argv) < 3) {
-    echo 'Usage php testrules.php rulesets/standard.json file.xml';
-    exit();
-}
-
-$rulesets = json_decode(file_get_contents($argv[1]));
-
-$reader = new XMLReader();
-$reader->open($argv[2]);
-
-
-while ($reader->read() && $reader->name !== 'iati-activity');
-
-while ($reader->name === 'iati-activity')
-{
-    $doc = new DOMDocument;
-    $doc->loadXML("<iati-activities></iati-activities>");
-    $dom = $doc->importNode($reader->expand(), true);
-    $doc->documentElement->appendChild($dom);
+function test_ruleset_dom($rulesets, $doc) {
     $xpath = new DOMXpath($doc);
+    $errors = array();
     foreach($rulesets as $xpath_query => $rules) {
         foreach($xpath->query($xpath_query) as $element) {
             foreach ($rules as $rule => $rule_data) {
@@ -50,11 +34,11 @@ while ($reader->name === 'iati-activity')
                     }
                     if ($rule == 'only_one') {
                         if (count($path_matches) > 1)
-                            print_result($rule, $case);
+                            $errors[] = print_result($rule, $case);
                     }
                     elseif ($rule == 'atleast_one') {
                         if (count($path_matches) < 1)
-                            print_result($rule, $case);
+                            $errors[] = print_result($rule, $case);
                     }
                     elseif ($rule == 'dependent') {
                         $allzero = TRUE;
@@ -64,7 +48,7 @@ while ($reader->name === 'iati-activity')
                             else $allzero = FALSE;
                         }
                         if ((!$allzero) && (!$nonezero)) {
-                            print_result($rule, $case);
+                            $errors[] = print_result($rule, $case);
                         }
                     }
                     elseif ($rule == 'sum') {
@@ -82,9 +66,9 @@ while ($reader->name === 'iati-activity')
                         foreach($path_matches as $path_match) {
                             $matches = preg_match('/'.$case->regex.'/', $path_match->nodeValue);
                             if (!$matches && $rule == 'regex_matches')
-                                print_result($rule, $case);
+                                $errors[] = print_result($rule, $case);
                             if ($matches && $rule == 'regex_no_matches')
-                                print_result($rule, $case);
+                                $errors[] = print_result($rule, $case);
                         }
 
                     }
@@ -92,7 +76,7 @@ while ($reader->name === 'iati-activity')
                         $start = $xpath->query($case->start, $element)->item(0)->value;
                         foreach($path_matches as $path_match) {
                             if (strpos($start, $path_match->nodeValue) !== 0) {
-                                print_result($rule, $case);
+                                $errors[] = print_result($rule, $case);
                             }
                         }
                     }
@@ -100,6 +84,36 @@ while ($reader->name === 'iati-activity')
             }
         }
     }
+    return $errors;
+}
 
-    $reader->next('iati-activity');
+function test_ruleset($ruleset, $filename) {
+    $rulesets = json_decode(file_get_contents($ruleset));
+
+    $reader = new XMLReader();
+    $reader->open($filename);
+
+
+    while ($reader->read() && $reader->name !== 'iati-activity');
+
+    while ($reader->name === 'iati-activity')
+    {
+        $doc = new DOMDocument;
+        $doc->loadXML("<iati-activities></iati-activities>");
+        $dom = $doc->importNode($reader->expand(), true);
+        $doc->documentElement->appendChild($dom);
+        print_r(test_ruleset_dom($rulesets, $doc));
+
+        $reader->next('iati-activity');
+    }
+}
+
+if (isset($argv[0]) && realpath($argv[0]) == realpath(__FILE__)) {
+    if (count($argv) < 3) {
+        echo 'Usage php testrules.php rulesets/standard.json file.xml';
+        exit();
+    }
+    else {
+        test_ruleset($argv[1], $argv[2]);
+    }
 }
