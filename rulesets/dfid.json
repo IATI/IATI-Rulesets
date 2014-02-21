@@ -45,7 +45,7 @@
             "cases": [
                 { "less": "activity-date[@type='start-planned']", "more": "activity-date[@type='end-planned']" },
                 { "less": "activity-date[@type='start-actual']", "more": "activity-date[@type='end-actual']" },
-                { "less": "activity-date[@type='end-actual']", "more": "NOW" }
+                { "less": "activity-date[@type='end-actual']", "more": "TODAY" }
             ]
         },
         "startswith": {
@@ -140,7 +140,7 @@
         },
         "date_order": {
             "cases": [
-                { "less": "transaction-date", "more": "NOW" }
+                { "less": "transaction-date", "more": "TODAY" }
             ]
         }
     },
