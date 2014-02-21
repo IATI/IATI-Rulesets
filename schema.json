@@ -1,0 +1,219 @@
+{
+    "title": "Ruleset",
+    "description": "A set of rules describing constraints on an XML document",
+    "type": "object",
+    "patternProperties": {
+        ".+": {
+            "properties": {
+                "no_more_than_one": {
+                    "name": "No More Than One",
+                    "description": "There must be at least one element matched by the given paths.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "condition": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "atleast_one": {
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "condition": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "dependent": {
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "condition": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "sum": {
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "condition": {
+                                        "type": "string"
+                                    },
+                                    "sum": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "date_order": {
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "condition": {
+                                        "type": "string"
+                                    },
+                                    "less": {
+                                        "type": "string"
+                                    },
+                                    "more": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "regex_matches": {
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "condition": {
+                                        "type": "string"
+                                    },
+                                    "regex": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "regex_no_matches": {
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "condition": {
+                                        "type": "string"
+                                    },
+                                    "regex": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "startswith": {
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "condition": {
+                                        "type": "string"
+                                    },
+                                    "start": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "unique": {
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "condition": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}
