@@ -87,7 +87,7 @@ function test_ruleset_dom($rulesets, $doc) {
     return $errors;
 }
 
-function test_ruleset($ruleset, $filename) {
+function test_ruleset($ruleset, $filename, $verbose=false) {
     $rulesets = json_decode(file_get_contents($ruleset));
 
     $reader = new XMLReader();
@@ -96,16 +96,22 @@ function test_ruleset($ruleset, $filename) {
 
     while ($reader->read() && $reader->name !== 'iati-activity');
 
+    $error_count = 0;
+
     while ($reader->name === 'iati-activity')
     {
         $doc = new DOMDocument;
         $doc->loadXML("<iati-activities></iati-activities>");
         $dom = $doc->importNode($reader->expand(), true);
         $doc->documentElement->appendChild($dom);
-        print_r(test_ruleset_dom($rulesets, $doc));
+        $errors = test_ruleset_dom($rulesets, $doc);
+        if ($verbose) print_r($errors);
+
+        $error_count += count($errors);
 
         $reader->next('iati-activity');
     }
+    return ($error_count == 0);
 }
 
 if (isset($argv[0]) && realpath($argv[0]) == realpath(__FILE__)) {
@@ -114,6 +120,12 @@ if (isset($argv[0]) && realpath($argv[0]) == realpath(__FILE__)) {
         exit();
     }
     else {
-        test_ruleset($argv[1], $argv[2]);
+        if (count($argv) > 3 && $argv[3] == '--no-breakdown') $breakdown = false;
+        else $breakdown = true;
+        $result = test_ruleset($argv[1], $argv[2], $breakdown);
+        if (!$breakdown) {
+            if ($result) echo "True\n";
+            else echo "False\n";
+        }
     }
 }
