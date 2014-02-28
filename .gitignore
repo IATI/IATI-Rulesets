@@ -1,3 +1,7 @@
 *.swp
 *.pyc
-pyenv
+*.egg-info
+dist
+pyenv*
+doc/_build
+build
