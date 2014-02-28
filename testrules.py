@@ -1,3 +1,4 @@
+from __future__ import print_function
 import json
 import sys
 import re
@@ -11,7 +12,7 @@ def get_text(element_or_attribute):
     if type(element_or_attribute) == ET._Element:
         return element_or_attribute.text
     else:
-        return unicode(element_or_attribute)
+        return element_or_attribute
 
 xsDateRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})')
 
@@ -21,7 +22,7 @@ class Rules(object):
         if 'paths' in case:
             self.nested_matches = [element.xpath(path) for path in case['paths']]
             self.path_matches = sum(self.nested_matches, [])
-            self.path_matches_text = map(get_text, self.path_matches)
+            self.path_matches_text = list(map(get_text, self.path_matches))
 
     def no_more_than_one(self, case):
         return len(self.path_matches) <= 1
@@ -62,13 +63,13 @@ class Rules(object):
         else: return less <= more
 
     def _regex_matches(self, case):
-        matches = [ re.search(case['regex'], get_text(path_match)) for path_match in path_matches ]
+        return [ re.search(case['regex'], get_text(path_match)) for path_match in self.path_matches ]
 
     def regex_matches(self, case):
-        return all([m is None for m in _regex_matches(self, case)])
+        return all([m is None for m in self._regex_matches(case)])
 
     def regex_no_matches(self, case):
-        return all([m is not None for m in _regex_matches(self, case)]) 
+        return all([m is not None for m in self._regex_matches(case)]) 
 
     def startswith(self, case):
         start = get_text(self.element.xpath(case['start'])[0])

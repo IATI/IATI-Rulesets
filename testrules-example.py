@@ -1,3 +1,4 @@
+from __future__ import print_function
 import lxml.etree as ET
 import json
 from testrules import ruleset_bool
@@ -6,4 +7,4 @@ import collections
 
 ruleset = json.load(open(sys.argv[1]), object_pairs_hook=collections.OrderedDict)
 tree = ET.parse(sys.argv[2])
-print ruleset_bool(ruleset,tree)
+print(ruleset_bool(ruleset,tree))
