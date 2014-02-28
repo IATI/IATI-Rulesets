@@ -81,7 +81,7 @@ regex_no_matches
 startswith
     Keys: ``condition``, ``paths``, ``start``
 
-    
+    The text of the each element matched by ``paths`` must start with the text of the element matched by ``start``
 
 unique
     Keys: ``condition``, ``paths``

@@ -173,7 +173,6 @@
                 },
                 "startswith": {
                     "description": "The text of the each element matched by ``paths`` must start with the text of the element matched by ``start``",
-                    "description": "",
                     "type": "object",
                     "properties": {
                         "cases": {

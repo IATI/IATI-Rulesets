@@ -96,10 +96,6 @@ def test_rule(context_xpath, element, rule, case):
         }
 
 def test_ruleset_verbose(ruleset, tree):
-    """
-    A verbose version of ``test_ruleset``. Returns an iterator which yields a dictionary for each test.
-
-    """
     for context_xpath, rules in ruleset.items():
         for element in tree.findall(context_xpath):
             for rule in rules:
@@ -107,10 +103,20 @@ def test_ruleset_verbose(ruleset, tree):
                 for case in cases:
                     yield test_rule(context_xpath, element, rule, case) 
 
-def test_ruleset(ruleset, tree):
+def test_ruleset(ruleset, tree, verbose=False):
     """
-    Returns ``True`` or ``False`` depending on whether a ruleset passes or fails.
+    Default behaviour: Returns ``True`` or ``False`` depending on whether a ruleset passes or fails.
+
+    If verbose=True: Returns an iterator which yields a dictionary for each test.
 
     """
-    return all(x['result'] for x in test_ruleset_verbose(ruleset, tree) if x['result'] is not None)
+    if verbose:
+        return test_ruleset_verbose(ruleset, tree)
+    else:
+        return all(x['result'] for x in test_ruleset_verbose(ruleset, tree) if x['result'] is not None)
+
+def test_ruleset_subelement(ruleset, element, *args, **kwargs):
+    fakeroot = ET.Element('fakeroot')
+    fakeroot.append(element)
+    return test_ruleset(ruleset, ET.ElementTree(fakeroot), *args, **kwargs)
 

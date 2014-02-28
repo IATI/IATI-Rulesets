@@ -24,7 +24,8 @@ A ruleset is a JSON file which applies different rules to various paths in diffe
 
 Here we have a context: ``iati-activity``, with a single name rule `atleast_one` which is applied in a number of cases - here just one, with a single path.
 
-Descriptions of each of the named rules can be found in `<descriptions-en.json>`_
+A more thorough description of this, along with a list of all rule names can be found in the `Spec <https://github.com/IATI/IATI-Rulesets/blob/master/SPEC.rst>`.
+
 
 Ruleset Tester
 ==============
