@@ -6,8 +6,7 @@
         ".+": {
             "properties": {
                 "no_more_than_one": {
-                    "name": "No More Than One",
-                    "description": "There must be at least one element matched by the given paths.",
+                    "description": "There must be no more than one element described by the given paths.",
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
@@ -30,6 +29,7 @@
                     }
                 },
                 "atleast_one": {
+                    "description": "There must be at least one element described by the given paths.",
                     "type": "object",
                     "properties": {
                         "cases": {
@@ -51,6 +51,7 @@
                     }
                 },
                 "dependent": {
+                    "description": "If one of the provided paths exists, they must all exist.",
                     "type": "object",
                     "properties": {
                         "cases": {
@@ -72,6 +73,7 @@
                     }
                 },
                 "sum": {
+                    "description": "The numerical sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key",
                     "type": "object",
                     "properties": {
                         "cases": {
@@ -88,7 +90,7 @@
                                         "type": "string"
                                     },
                                     "sum": {
-                                        "type": "integer"
+                                        "type": "number"
                                     }
                                 }
                             }
@@ -96,6 +98,7 @@
                     }
                 },
                 "date_order": {
+                    "description": "The date matched by ``less`` must be less than the date matched by ``more``. If either of these dates is not found, the rule is ignored.",
                     "type": "object",
                     "properties": {
                         "cases": {
@@ -119,6 +122,7 @@
                     }
                 },
                 "regex_matches": {
+                    "description": "The provided ``regex`` must match the text of all elements matched by ``paths``",
                     "type": "object",
                     "properties": {
                         "cases": {
@@ -143,6 +147,7 @@
                     }
                 },
                 "regex_no_matches": {
+                    "description": "The provided ``regex`` must match the text of none of the elements matched by ``paths``",
                     "type": "object",
                     "properties": {
                         "cases": {
@@ -167,6 +172,8 @@
                     }
                 },
                 "startswith": {
+                    "description": "The text of the each element matched by ``paths`` must start with the text of the element matched by ``start``",
+                    "description": "",
                     "type": "object",
                     "properties": {
                         "cases": {
@@ -191,6 +198,7 @@
                     }
                 },
                 "unique": {
+                    "description": "The text of each of the elements described by ``paths`` must be unique",
                     "type": "object",
                     "properties": {
                         "cases": {
