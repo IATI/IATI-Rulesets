@@ -1,0 +1,10 @@
+{
+    "//iati-activity": {
+        "no_more_than_one": {
+            "cases": [ {
+                "paths": [ "title" ]
+             } ]
+        }
+    }
+}
+

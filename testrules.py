@@ -23,8 +23,9 @@ if breakdown:
     for element in root:
         for result in iatirulesets.test_ruleset_subelement(ruleset, element, verbose=True):
             if result['result'] is False:
+                iati_identifier = element.find('iati-identifier')
                 writer.writerow(list(map(str, [
-                    element.find('iati-identifier').text,
+                    iati_identifier.text if iati_identifier else '',
                     result['context'],
                     result['rule'],
                     result['case']

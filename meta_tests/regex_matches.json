@@ -1,0 +1,11 @@
+{
+    "//iati-activity": {
+        "regex_matches": {
+            "cases": [ {
+                "paths": [ "title" ],
+                "regex": "D.D$"
+             } ]
+        }
+    }
+}
+

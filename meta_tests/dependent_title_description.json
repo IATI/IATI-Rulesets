@@ -1,0 +1,10 @@
+{
+    "//iati-activity": {
+        "dependent": {
+            "cases": [ {
+                "paths": [ "title", "description" ]
+             } ]
+        }
+    }
+}
+

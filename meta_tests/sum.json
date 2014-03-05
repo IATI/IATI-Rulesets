@@ -1,0 +1,11 @@
+{
+    "//iati-activity": {
+        "sum": {
+            "cases": [ {
+                "paths": [ "test/@number" ],
+                "sum": 9
+             } ]
+        }
+    }
+}
+

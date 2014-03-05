@@ -20,6 +20,13 @@ function test_ruleset_dom($rulesets, $doc) {
             foreach ($rules as $rule => $rule_data) {
                 $cases = $rule_data->cases;
                 foreach ($cases as $case) {
+                    // Handle case conditions
+                    if (isset($case->condition)) {
+                        if (!$xpath->evaluate($case->condition, $element)) {
+                            continue;
+                        }
+                    }
+
                     if (isset($case->paths)) {
                         $nested_matches = array();
                         $path_matches = array();
@@ -32,7 +39,7 @@ function test_ruleset_dom($rulesets, $doc) {
                             $nested_matches[] = $single_path_matches;
                         }
                     }
-                    if ($rule == 'only_one') {
+                    if ($rule == 'no_more_than_one') {
                         if (count($path_matches) > 1)
                             $errors[] = print_result($rule, $case);
                     }
@@ -75,10 +82,13 @@ function test_ruleset_dom($rulesets, $doc) {
                     elseif ($rule == 'startswith') {
                         $start = $xpath->query($case->start, $element)->item(0)->value;
                         foreach($path_matches as $path_match) {
-                            if (strpos($start, $path_match->nodeValue) !== 0) {
+                            if (strpos($path_match->nodeValue, $start) !== 0) {
                                 $errors[] = print_result($rule, $case);
                             }
                         }
+                    }
+                    elseif ($rule == 'unique') {
+                        // FIXME
                     }
                 }
             }

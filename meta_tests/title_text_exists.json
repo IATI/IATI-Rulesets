@@ -1,0 +1,10 @@
+{
+    "//iati-activity": {
+        "atleast_one": {
+            "cases": [ {
+                "paths": [ "title/text()" ]
+             } ]
+        }
+    }
+}
+

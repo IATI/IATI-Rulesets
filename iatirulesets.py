@@ -2,6 +2,7 @@ from __future__ import print_function
 import re
 import datetime
 from lxml import etree as ET
+from decimal import Decimal
 
 def get_text(element_or_attribute):
     """ Helper function: Returns the text of the given lxml element or attribute """
@@ -28,16 +29,13 @@ class Rules(object):
         return len(self.path_matches) >= 1
 
     def dependent(self, case):
-        return not(
-            all(len(m) != 0 for m in self.nested_matches) and
-            any(len(m) == 0 for m in self.nested_matches)
-            )
+        return all(len(m) != 0 for m in self.nested_matches) or all(len(m) == 0 for m in self.nested_matches)
 
     def unique(self, case):
-        return len(self.path_matches_text) <= len(set(self.path_matches_text)),
+        return len(self.path_matches_text) <= len(set(self.path_matches_text))
 
     def sum(self, case):
-        return not(len(self.path_matches)) or sum(map(int, map(get_text, self.path_matches))) == case['sum'],
+        return not(len(self.path_matches)) or sum(map(Decimal, map(get_text, self.path_matches))) == Decimal(case['sum'])
 
     def _parse_date(self, date_xpath):
         if date_xpath == 'TODAY':
@@ -65,10 +63,10 @@ class Rules(object):
         return [ re.search(case['regex'], get_text(path_match)) for path_match in self.path_matches ]
 
     def regex_matches(self, case):
-        return all([m is None for m in self._regex_matches(case)])
+        return all([m is not None for m in self._regex_matches(case)])
 
     def regex_no_matches(self, case):
-        return all([m is not None for m in self._regex_matches(case)])
+        return all([m is None for m in self._regex_matches(case)])
 
     def startswith(self, case):
         start = get_text(self.element.xpath(case['start'])[0])
