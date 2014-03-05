@@ -44,6 +44,8 @@ test starts_with identifiers_bad False
 
 test unique unique_good True
 test unique unique_bad False
+#test unique_title_description title_description False # FIXME
+test unique_title_description title_description_content True
 
 # Test conditions
 test condition empty_activity True

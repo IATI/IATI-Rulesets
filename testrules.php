@@ -62,7 +62,7 @@ function test_ruleset_dom($rulesets, $doc) {
                         if (count($path_matches) > 0) {
                             $sum = 0.0;
                             foreach ($path_matches as $path_match) {
-                                $sum += $path_match->value;
+                                $sum += $path_match->textContent;
                             }
                             if ($sum != $case->sum) {
                                 $errors[] = print_result($rule, $case);
@@ -95,7 +95,7 @@ function test_ruleset_dom($rulesets, $doc) {
 
                     }
                     elseif ($rule == 'startswith') {
-                        $start = $xpath->query($case->start, $element)->item(0)->value;
+                        $start = $xpath->query($case->start, $element)->item(0)->textContent;
                         foreach($path_matches as $path_match) {
                             if (strpos($path_match->nodeValue, $start) !== 0) {
                                 $errors[] = print_result($rule, $case);
@@ -105,11 +105,11 @@ function test_ruleset_dom($rulesets, $doc) {
                     elseif ($rule == 'unique') {
                         $values = array();
                         foreach ($path_matches as $path_match) {
-                            if (in_array($path_match->value, $values)) {
+                            if (in_array($path_match->textContent, $values)) {
                                 $errors[] = print_result($rule, $case);
                                 break;
                             }
-                            $values[] = $path_match->value;
+                            $values[] = $path_match->textContent;
                         }
                     }
                 }
