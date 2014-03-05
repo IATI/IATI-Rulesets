@@ -59,14 +59,29 @@ function test_ruleset_dom($rulesets, $doc) {
                         }
                     }
                     elseif ($rule == 'sum') {
-                        /*if (count($path_matches) > 0) {
-                            print_r($path_matches);
-                        }*/
-                        // FIXME
+                        if (count($path_matches) > 0) {
+                            $sum = 0.0;
+                            foreach ($path_matches as $path_match) {
+                                $sum += $path_match->value;
+                            }
+                            if ($sum != $case->sum) {
+                                $errors[] = print_result($rule, $case);
+                            }
+                        }
                     }
                     elseif ($rule == 'date_order') {
-                        //$start = $xpath->query($case->start, $element)->item(0)->value;
+                        $less_item = $xpath->query($case->less, $element)->item(0);
+                        if (!$less_item) continue;
+                        $less = $less_item->getAttribute('iso-date');
+                        $more_item = $xpath->query($case->more, $element)->item(0);
+                        if (!$more_item) continue;
+                        $more = $more_item->getAttribute('iso-date');
                         // FIXME
+                        // Should probably check that it's an ISO date, as this behaviour differs from
+                        // the python implementation (and breaks for the year 10000)
+                        if ($less > $more) {
+                            $errors[] = print_result($rule, $case);
+                        }
 
                     }
                     elseif ($rule == 'regex_matches' || $rule == 'regex_no_matches') {
@@ -88,7 +103,14 @@ function test_ruleset_dom($rulesets, $doc) {
                         }
                     }
                     elseif ($rule == 'unique') {
-                        // FIXME
+                        $values = array();
+                        foreach ($path_matches as $path_match) {
+                            if (in_array($path_match->value, $values)) {
+                                $errors[] = print_result($rule, $case);
+                                break;
+                            }
+                            $values[] = $path_match->value;
+                        }
                     }
                 }
             }
