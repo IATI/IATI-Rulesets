@@ -15,6 +15,7 @@ function print_result($rule, $case) {
 function test_ruleset_dom($rulesets, $doc) {
     $xpath = new DOMXpath($doc);
     $errors = array();
+    $rules_total = 0;
     foreach($rulesets as $xpath_query => $rules) {
         foreach($xpath->query($xpath_query) as $element) {
             foreach ($rules as $rule => $rule_data) {
@@ -26,6 +27,8 @@ function test_ruleset_dom($rulesets, $doc) {
                             continue;
                         }
                     }
+
+                    $rules_total += 1;
 
                     if (isset($case->paths)) {
                         $nested_matches = array();
@@ -116,7 +119,11 @@ function test_ruleset_dom($rulesets, $doc) {
             }
         }
     }
-    return $errors;
+    return array(
+        'errors' => $errors,
+        'rules_total' => $rules_total,
+        'rules_failed' => count($errors)
+    );
 }
 
 function test_ruleset($ruleset, $filename, $verbose=false) {
@@ -136,7 +143,7 @@ function test_ruleset($ruleset, $filename, $verbose=false) {
         $doc->loadXML("<iati-activities></iati-activities>");
         $dom = $doc->importNode($reader->expand(), true);
         $doc->documentElement->appendChild($dom);
-        $errors = test_ruleset_dom($rulesets, $doc);
+        $errors = test_ruleset_dom($rulesets, $doc)['errors'];
         if ($verbose) print_r($errors);
 
         $error_count += count($errors);
