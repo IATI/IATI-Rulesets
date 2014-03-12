@@ -143,7 +143,8 @@ function test_ruleset($ruleset, $filename, $verbose=false) {
         $doc->loadXML("<iati-activities></iati-activities>");
         $dom = $doc->importNode($reader->expand(), true);
         $doc->documentElement->appendChild($dom);
-        $errors = test_ruleset_dom($rulesets, $doc)['errors'];
+        $result = test_ruleset_dom($rulesets, $doc);
+        $errors = $result['errors'];
         if ($verbose) print_r($errors);
 
         $error_count += count($errors);

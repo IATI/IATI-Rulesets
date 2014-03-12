@@ -1,11 +1,14 @@
 #!/bin/bash
 tester=$@
+exitcode=0
 function test() {
     result=`$tester meta_tests/${1}.json meta_tests/${2}.xml --no-breakdown`
     if [ $result = $3 ]; then echo -n .
     else
         echo
         echo Fail: test $1 $2 $3 
+        echo $result
+        exitcode=1
     fi
 }
 
@@ -54,4 +57,10 @@ test condition activity_status_3 False
 
 # End with a newline
 echo
+
+if [ $exitcode = 0 ]; then
+    echo "Success: All tests passed."
+fi
+
+exit $exitcode
 
