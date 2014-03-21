@@ -5,10 +5,11 @@
 // Unless you specifically want PHP, please look at testrules.py instead.
 */
 
-function print_result($rule, $case) {
+function print_result($xpath_query, $rule, $case) {
     return array(
        'rule'=>$rule,
-       'case'=>$case
+       'case'=>$case,
+       'context'=>$xpath_query
     );
 }
 
@@ -44,11 +45,11 @@ function test_ruleset_dom($rulesets, $doc) {
                     }
                     if ($rule == 'no_more_than_one') {
                         if (count($path_matches) > 1)
-                            $errors[] = print_result($rule, $case);
+                            $errors[] = print_result($xpath_query, $rule, $case);
                     }
                     elseif ($rule == 'atleast_one') {
                         if (count($path_matches) < 1)
-                            $errors[] = print_result($rule, $case);
+                            $errors[] = print_result($xpath_query, $rule, $case);
                     }
                     elseif ($rule == 'dependent') {
                         $allzero = TRUE;
@@ -58,7 +59,7 @@ function test_ruleset_dom($rulesets, $doc) {
                             else $allzero = FALSE;
                         }
                         if ((!$allzero) && (!$nonezero)) {
-                            $errors[] = print_result($rule, $case);
+                            $errors[] = print_result($xpath_query, $rule, $case);
                         }
                     }
                     elseif ($rule == 'sum') {
@@ -68,7 +69,7 @@ function test_ruleset_dom($rulesets, $doc) {
                                 $sum += $path_match->textContent;
                             }
                             if ($sum != $case->sum) {
-                                $errors[] = print_result($rule, $case);
+                                $errors[] = print_result($xpath_query, $rule, $case);
                             }
                         }
                     }
@@ -83,7 +84,7 @@ function test_ruleset_dom($rulesets, $doc) {
                         // Should probably check that it's an ISO date, as this behaviour differs from
                         // the python implementation (and breaks for the year 10000)
                         if ($less > $more) {
-                            $errors[] = print_result($rule, $case);
+                            $errors[] = print_result($xpath_query, $rule, $case);
                         }
 
                     }
@@ -91,9 +92,9 @@ function test_ruleset_dom($rulesets, $doc) {
                         foreach($path_matches as $path_match) {
                             $matches = preg_match('/'.$case->regex.'/', $path_match->nodeValue);
                             if (!$matches && $rule == 'regex_matches')
-                                $errors[] = print_result($rule, $case);
+                                $errors[] = print_result($xpath_query, $rule, $case);
                             if ($matches && $rule == 'regex_no_matches')
-                                $errors[] = print_result($rule, $case);
+                                $errors[] = print_result($xpath_query, $rule, $case);
                         }
 
                     }
@@ -101,7 +102,7 @@ function test_ruleset_dom($rulesets, $doc) {
                         $start = $xpath->query($case->start, $element)->item(0)->textContent;
                         foreach($path_matches as $path_match) {
                             if (strpos($path_match->nodeValue, $start) !== 0) {
-                                $errors[] = print_result($rule, $case);
+                                $errors[] = print_result($xpath_query, $rule, $case);
                             }
                         }
                     }
@@ -109,7 +110,7 @@ function test_ruleset_dom($rulesets, $doc) {
                         $values = array();
                         foreach ($path_matches as $path_match) {
                             if (in_array($path_match->textContent, $values)) {
-                                $errors[] = print_result($rule, $case);
+                                $errors[] = print_result($xpath_query, $rule, $case);
                                 break;
                             }
                             $values[] = $path_match->textContent;
