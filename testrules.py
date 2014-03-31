@@ -25,7 +25,7 @@ if breakdown:
             if result['result'] is False:
                 iati_identifier = element.find('iati-identifier')
                 writer.writerow(list(map(str, [
-                    iati_identifier.text if iati_identifier else '',
+                    iati_identifier.text if iati_identifier is not None else '',
                     result['context'],
                     result['rule'],
                     result['case']

@@ -3,13 +3,37 @@
         "date_order": {
             "cases": [
                 { "less": "activity-date[@type='start-actual']", "more": "activity-date[@type='end-actual']" },
-                { "less": "activity-date[@type='start-planned']", "more": "activity-date[@type='end-planned']" }
+                { "less": "activity-date[@type='start-planned']", "more": "activity-date[@type='end-planned']" },
+                { "less": "activity-date[@type='start-actual']", "more": "NOW" },
+                { "less": "activity-date[@type='end-actual']", "more": "NOW" }
             ]
         },
         "startswith": {
             "cases": [
                 { "start": "reporting-org/@ref",
                   "paths": ["iati-identifier"] }
+            ]
+        }
+    },
+    "//transaction": {
+        "date_order": {
+            "cases": [
+                { "less": "transaction-date", "more": "NOW" },
+                { "less": "value-date", "more": "NOW" }
+            ]
+        }
+    },
+    "//planned-disbursement": {
+        "date_order": {
+            "cases": [
+                { "less": "period-start", "more": "period-end" }
+            ]
+        }
+    },
+    "//result/indicator/period": {
+        "date_order": {
+            "cases": [
+                { "less": "period-start", "more": "period-end" }
             ]
         }
     }
