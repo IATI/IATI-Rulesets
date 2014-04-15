@@ -1,5 +1,6 @@
 from __future__ import print_function
 import re
+import copy
 
 def rules_text(rules, reduced_path, show_all=False):
     out = []
@@ -11,7 +12,7 @@ def rules_text(rules, reduced_path, show_all=False):
                 for case_path in case['paths']:
                     # Don't forget [@ ]
                     if show_all or simplify_xpath(case_path) == reduced_path:
-                        other_paths = case['paths']
+                        other_paths = copy.deepcopy(case['paths'])
                         other_paths.remove(case_path)
                         if rule == 'only_one':
                             out.append('``{0}`` must be present only once.'.format(case_path))
