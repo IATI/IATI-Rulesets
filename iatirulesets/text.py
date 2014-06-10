@@ -2,6 +2,12 @@ from __future__ import print_function
 import re
 import copy
 
+def human_list(other_paths):
+    if len(other_paths) == 1:
+        return other_paths[0]
+    else:
+        return '`` or ``'.join(other_paths)
+
 def rules_text(rules, reduced_path, show_all=False):
     out = []
     for rule in rules:
@@ -25,6 +31,8 @@ def rules_text(rules, reduced_path, show_all=False):
                                 out.append('``{0}`` must be present.\n\n'.format(case_path))
                         elif rule == 'startswith':
                             out.append('``{0}`` should start with the value in ``{1}``'.format(case_path, case['start']))
+                        elif rule == 'regex_matches':
+                            out.append('``{0}`` should match the regex ``{1}``'.format(case_path, case['regex']))
                         else: print('Not implemented', case_path, rule, case['paths'])
             elif rule == 'date_order':
                 if show_all or simplify_xpath(case['less']) == reduced_path or simplify_xpath(case['more']) == reduced_path:
