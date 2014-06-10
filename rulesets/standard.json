@@ -8,17 +8,17 @@
                 { "paths": [ "title" ] },
                 { "paths": [ "description" ] },
                 { "paths": [ "activity-date" ] },
-                { "paths": [ "activity-date[@type='start-actual' or @type='start-planned']" ] },
+                { "paths": [ "activity-date[@type='1' or @type='3']" ] },
                 { "paths": [ "sector" ] },
                 { "paths": [ "transaction" ] }
             ]
         },
         "date_order": {
             "cases": [
-                { "less": "activity-date[@type='start-actual']", "more": "activity-date[@type='end-actual']" },
-                { "less": "activity-date[@type='start-planned']", "more": "activity-date[@type='end-planned']" },
-                { "less": "activity-date[@type='start-actual']", "more": "NOW" },
-                { "less": "activity-date[@type='end-actual']", "more": "NOW" }
+                { "less": "activity-date[@type='1']", "more": "activity-date[@type='2']" },
+                { "less": "activity-date[@type='3']", "more": "activity-date[@type='4']" },
+                { "less": "activity-date[@type='1']", "more": "NOW" },
+                { "less": "activity-date[@type='2']", "more": "NOW" }
             ]
         },
         "regex_matches": {
