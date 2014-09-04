@@ -2,15 +2,8 @@
     "//iati-activity": {
         "atleast_one": {
             "cases": [
-                { "paths": [ "reporting-org/@ref" ] },
-                { "paths": [ "iati-identifier" ] },
-                { "paths": [ "participating-org" ] },
-                { "paths": [ "title" ] },
-                { "paths": [ "description" ] },
-                { "paths": [ "activity-date" ] },
                 { "paths": [ "activity-date[@type='1' or @type='3']" ] },
-                { "paths": [ "sector" ] },
-                { "paths": [ "transaction" ] }
+                { "paths": [ "sector", "transaction/sector" ] }
             ]
         },
         "date_order": {
@@ -25,12 +18,6 @@
             "cases": [
                 { "regex": "[A-Za-z0-9\\-_:\\.]+",
                   "paths": [ "reporting-org/@ref", "iati-identifier" ] }
-            ]
-        },
-        "startswith": {
-            "cases": [
-                { "start": "reporting-org/@ref",
-                  "paths": ["iati-identifier"] }
             ]
         }
     },
@@ -49,20 +36,14 @@
             ]
         }
     },
-    "//budget": {
-        "atleast_one": {
+    "//planned-disbursement": {
+        "date_order": {
             "cases": [
-                { "paths": [ "period-start" ] },
-                { "paths": [ "period-end" ] }
+                { "less": "period-start", "more": "period-end" }
             ]
         }
     },
-    "//planned-disbursement": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "period-start" ] }
-            ]
-        },
+    "//budget": {
         "date_order": {
             "cases": [
                 { "less": "period-start", "more": "period-end" }
