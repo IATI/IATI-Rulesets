@@ -10,8 +10,8 @@
             "cases": [
                 { "less": "activity-date[@type='1']", "more": "activity-date[@type='2']" },
                 { "less": "activity-date[@type='3']", "more": "activity-date[@type='4']" },
-                { "less": "activity-date[@type='1']", "more": "NOW" },
-                { "less": "activity-date[@type='2']", "more": "NOW" }
+                { "less": "activity-date[@type='3']", "more": "NOW" },
+                { "less": "activity-date[@type='4']", "more": "NOW" }
             ]
         },
         "regex_matches": {
