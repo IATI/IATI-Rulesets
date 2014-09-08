@@ -33,6 +33,9 @@ test dependent_title_description title_description True
 test sum sum_good True
 test sum sum_bad False
 
+test sum_two sum_two_good True
+test sum_two sum_two_bad False
+
 test date_order empty_activity True
 test date_order date_good True
 test date_order date_bad False

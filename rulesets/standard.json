@@ -19,6 +19,12 @@
                 { "regex": "[A-Za-z0-9\\-_:\\.]+",
                   "paths": [ "reporting-org/@ref", "iati-identifier" ] }
             ]
+        },
+        "sum": {
+            "cases": [ {
+                "paths": [ "recipient-country/@percentage", "recipient-region/@percentage" ],
+                "sum": 100
+             } ]
         }
     },
     "//participating-org": {
