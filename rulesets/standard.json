@@ -30,7 +30,7 @@
     "//participating-org": {
         "atleast_one": {
             "cases": [
-                { "paths": [ "@ref", "text()" ] }
+                { "paths": [ "@ref", "narrative" ] }
             ]
         }
     },
