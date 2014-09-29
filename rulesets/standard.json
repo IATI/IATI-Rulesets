@@ -56,6 +56,27 @@
             ]
         }
     },
+    "//total-budget": {
+        "date_order": {
+            "cases": [
+                { "less": "period-start", "more": "period-end" }
+            ]
+        }
+    },
+    "//recipient-country-budget": {
+        "date_order": {
+            "cases": [
+                { "less": "period-start", "more": "period-end" }
+            ]
+        }
+    },
+    "//recipient-org-budget": {
+        "date_order": {
+            "cases": [
+                { "less": "period-start", "more": "period-end" }
+            ]
+        }
+    },
     "//result/indicator/period": {
         "date_order": {
             "cases": [
