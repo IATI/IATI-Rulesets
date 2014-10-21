@@ -16,8 +16,8 @@
         },
         "regex_matches": {
             "cases": [
-                { "regex": "[A-Za-z0-9\\-_:\\.]+",
-                  "paths": [ "reporting-org/@ref", "iati-identifier" ] }
+                { "regex": "[^\\/\\&\\|\\?]+",
+                  "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] }
             ]
         },
         "sum": {
@@ -25,6 +25,14 @@
                 "paths": [ "recipient-country/@percentage", "recipient-region/@percentage" ],
                 "sum": 100
              } ]
+        }
+    },
+    "//iati-organisation": {
+        "regex_matches": {
+            "cases": [
+                { "regex": "[^\\/\\&\\|\\?]+",
+                  "paths": [ "reporting-org/@ref", "organisation-identifier" ] }
+            ]
         }
     },
     "//participating-org": {
