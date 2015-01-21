@@ -4,7 +4,7 @@ IATI Ruleset Spec
 
 An IATI Ruleset is a JSON document. The structure is described below.
 
-A `JSON schema <https://github.com/IATI/IATI-Rulesets/blob/master/schema.json>`_ is availible to test that the structure of a Ruleset is correct.
+A `JSON schema <https://github.com/IATI/IATI-Rulesets/blob/version-2.01/schema.json>`_ is availible to test that the structure of a Ruleset is correct.
 
 Each JSON document has the form.::
 
