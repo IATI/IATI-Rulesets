@@ -1,5 +1,16 @@
 IATI-Rulesets
-=============
+^^^^^^^^^^^^^
+
+.. image:: https://travis-ci.org/IATI/IATI-Rulesets.svg?branch=version-2.01
+    :target: https://travis-ci.org/IATI/IATI-Rulesets
+.. image:: https://requires.io/github/IATI/IATI-Rulesets/requirements.svg?branch=version-2.01
+    :target: https://requires.io/github/IATI/IATI-Rulesets/requirements/?branch=version-2.01
+    :alt: Requirements Status
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+    :target: https://github.com/IATI/IATI-Rulesets/blob/version-2.01/LICENSE
+
+Introduction
+============
 
 This is the source repository for the rulesets, more general information can be found on the IATIStandard website: http://iatistandard.org/rulesets/
 
