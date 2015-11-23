@@ -85,6 +85,13 @@
             ]
         }
     },
+    "//recipient-region-budget": {
+        "date_order": {
+            "cases": [
+                { "less": "period-start", "more": "period-end" }
+            ]
+        }
+    },
     "//result/indicator/period": {
         "date_order": {
             "cases": [
