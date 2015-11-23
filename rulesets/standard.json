@@ -98,5 +98,12 @@
                 { "less": "period-start", "more": "period-end" }
             ]
         }
-    }
+    },
+    "//total-expenditure": {
+        "date_order": {
+            "cases": [
+                { "less": "period-start", "more": "period-end" }
+            ]
+        }
+    },
 }
