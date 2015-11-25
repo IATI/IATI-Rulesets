@@ -105,5 +105,5 @@
                 { "less": "period-start", "more": "period-end" }
             ]
         }
-    },
+    }
 }
