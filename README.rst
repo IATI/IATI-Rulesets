@@ -41,7 +41,7 @@ A more thorough description of this, along with a list of all rule names can be 
 Ruleset Tester
 ==============
 
-A program is required to test whether a given xml file conforms to the rules in a ruleset JSON file. The rulesets is designed such that implementations of this can be made in multiple programming languages, so long as they implement the `Spec <https://github.com/IATI/IATI-Rulesets/blob/master/SPEC.rst>`_.
+A program is required to test whether a given xml file conforms to the rules in a ruleset JSON file. The rulesets is designed such that implementations of this can be made in multiple programming languages, so long as they implement the `Spec <https://github.com/IATI/IATI-Rulesets/blob/version-2.02/SPEC.rst>`_.
 
 Currently there are completed Python `<testrules.py>`_ and PHP `<testrules.php>`_ implementations. E.g.
 
@@ -51,7 +51,7 @@ Currently there are completed Python `<testrules.py>`_ and PHP `<testrules.php>`
    python testrules.py rulesets/standard.json file.xml
    php testrules.php rulesets/standard.json file.xml
 
-The PHP implementation forms the basis for the ongoing work to `add Rulesets to the Public Validator <https://github.com/IATI/IATI-Public-Validator/compare/master...rulesets>`_
+The PHP implementation forms the basis for the ongoing work to `add Rulesets to the Public Validator <https://github.com/IATI/IATI-Public-Validator/compare/master...rulesets>`_ (NOTE: The PHP version of the validator is due to be replaced by one written in Python that contains a range of enhanced functionality)
 
 Tests for Testers
 -----------------
@@ -72,7 +72,7 @@ Different Rulesets
 Rules not describable by a Ruleset
 ==================================
 
-* Testing whether an element is on a certain codelist - this belongs in the IATI-Codelists (see `testcodelists.py <https://github.com/IATI/IATI-Codelists/blob/master/testcodelists.py>`_)
+* Testing whether an element is on a certain codelist - this belongs in the IATI-Codelists (see `testcodelists.py <https://github.com/IATI/IATI-Codelists/blob/version-2.02/testcodelists.py>`_)
 
 * Testing whether identifier are correct (e.g. uniqueness etc) - this requires information outside the scope of a single activity/file, whereas currently the rulesets operate in just this context. This may change in the future.
 
