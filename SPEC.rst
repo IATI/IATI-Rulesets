@@ -17,73 +17,77 @@ Each JSON document has the form.::
 
     }
 
-Where ``CONTEXT`` is some xpath expression. This will be used to select the XML elements that the contained rules will be tested against.
+Where ``CONTEXT`` is an xpath expression. This will be used to select the XML elements that the contained rules will be tested against.
 ``RULE_NAME`` is one of rule names listed below
-``CASE_DICT`` is a dictionary who's contents depends on ``RULE_NAME``
-``CASE_DICT_ARRAY`` is an array of case dictionaries. The contents of each dictionary depends on the ``RULE_NAME``
+``CASE_DICT`` is a dictionary where the contents depend on ``RULE_NAME``
+``CASE_DICT_ARRAY`` is an array of case dictionaries. The contents of each dictionary depend on the ``RULE_NAME``
 
 The possible keys in a case dictionary are:
 
 ``condition``
     An xpath string. If this evaluates to True, the rule will be ignored.
 ``paths``
-    An array of xpath strings. These are evaluated to give a list of elements that the named rule then operates on.
+    An array of xpath strings. These are evaluated to give a list of elements that the named rule then operates upon.
 ``less``
-    A string containing the xpath of the value that should be smaller
+    A string containing the xpath of the smaller value (or older value when working with dates).
 ``more``
-    A string containing the xpath of the value that should be larger
+    A string containing the xpath of the larger value (or more recent value when working with dates).
 ``regex``
-    A string containing a perl style regular expression
+    A string containing a perl style regular expression.
 ``sum``
     A number.
 
 Rule Names
 ----------
 
-Rule names are listed in bold, along with a description and what keys must be in the case dictionary.
+
+**Rule names are listed in bold**
+    Keys: The keys for each rule are then listed.
+    
+    Followed by a brief description of the rule's function.
 
 
-no_more_than_one
+**no_more_than_one**
     Keys: ``condition``, ``paths``
 
     There must be no more than one element described by the given paths.
 
-atleast_one
+**atleast_one**
     Keys: ``condition``, ``paths``
 
     There must be at least one element described by the given paths.
 
-dependent
+**dependent**
     Keys: ``condition``, ``paths``
 
     If one of the provided paths exists, they must all exist.
 
-sum
+**sum**
     Keys: ``condition``, ``paths``, ``sum``
 
     The numerical sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key
 
-date_order
+**date_order**
     Keys: ``condition``, ``less``, ``more``
 
     The date matched by ``less`` must be less than the date matched by ``more``. If either of these dates is not found, the rule is ignored.
 
-regex_matches
+**regex_matches**
     Keys: ``condition``, ``paths``, ``regex``
 
     The provided ``regex`` must match the text of all elements matched by ``paths``
 
-regex_no_matches
+**regex_no_matches**
     Keys: ``condition``, ``paths``, ``regex``
 
     The provided ``regex`` must match the text of none of the elements matched by ``paths``
 
-startswith
+**startswith**
     Keys: ``condition``, ``paths``, ``start``
 
-    The text of the each element matched by ``paths`` must start with the text of the element matched by ``start``
+    The text of each element matched by ``paths`` must start with the text of the element matched by ``start``
 
-unique
+**unique**
     Keys: ``condition``, ``paths``
 
     The text of each of the elements described by ``paths`` must be unique
