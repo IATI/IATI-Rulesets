@@ -2,7 +2,7 @@
     "//iati-activity": {
         "atleast_one": {
             "cases": [
-                { "paths": [ "activity-date[@type='1' or @type='2']/@iso-date" ] },
+                { "paths": [ "activity-date[@type='1' or @type='2']" ] },
                 { "paths": [ "sector", "transaction/sector" ] }
             ]
         },
