@@ -8,10 +8,10 @@
         },
         "date_order": {
             "cases": [
-                { "less": "activity-date[@type='1']", "more": "activity-date[@type='3']" },
-                { "less": "activity-date[@type='2']", "more": "activity-date[@type='4']" },
-                { "less": "activity-date[@type='2']", "more": "NOW" },
-                { "less": "activity-date[@type='4']", "more": "NOW" }
+                { "less": "activity-date[@type='1']/@iso-date", "more": "activity-date[@type='3']/@iso-date" },
+                { "less": "activity-date[@type='2']/@iso-date", "more": "activity-date[@type='4']/@iso-date" },
+                { "less": "activity-date[@type='2']/@iso-date", "more": "NOW" },
+                { "less": "activity-date[@type='4']/@iso-date", "more": "NOW" }
             ]
         },
         "regex_matches": {
@@ -45,50 +45,50 @@
     "//transaction": {
         "date_order": {
             "cases": [
-                { "less": "transaction-date", "more": "NOW" },
-                { "less": "value-date", "more": "NOW" }
+                { "less": "transaction-date/@iso-date", "more": "NOW" },
+                { "less": "value/@value-date", "more": "NOW" }
             ]
         }
     },
     "//planned-disbursement": {
         "date_order": {
             "cases": [
-                { "less": "period-start", "more": "period-end" }
+                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
             ]
         }
     },
     "//budget": {
         "date_order": {
             "cases": [
-                { "less": "period-start", "more": "period-end" }
+                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
             ]
         }
     },
     "//total-budget": {
         "date_order": {
             "cases": [
-                { "less": "period-start", "more": "period-end" }
+                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
             ]
         }
     },
     "//recipient-country-budget": {
         "date_order": {
             "cases": [
-                { "less": "period-start", "more": "period-end" }
+                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
             ]
         }
     },
     "//recipient-org-budget": {
         "date_order": {
             "cases": [
-                { "less": "period-start", "more": "period-end" }
+                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
             ]
         }
     },
     "//result/indicator/period": {
         "date_order": {
             "cases": [
-                { "less": "period-start", "more": "period-end" }
+                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
             ]
         }
     }
