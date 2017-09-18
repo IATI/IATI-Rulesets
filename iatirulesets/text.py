@@ -31,7 +31,7 @@ def rules_text(rules, reduced_path, show_all=False):
                     if case['less'] == 'NOW':
                         out.append('``{0}`` must be in the future.\n\n'.format(case['more']))
                     elif case['more'] == 'NOW':
-                        out.append('``{0}`` must be today, or in the past.\n\n'.format(case['less']))
+                        out.append('``{0}`` must be in the past.\n\n'.format(case['less']))
                     else:
                         out.append('``{0}`` must be before ``{1}``\n\n'.format(case['less'], case['more']))
             else: print('Not implemented', case_path, rule, case['paths'])
