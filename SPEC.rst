@@ -66,7 +66,7 @@ sum
 date_order
     Keys: ``condition``, ``less``, ``more``
 
-    The date matched by ``less`` must be less than the date matched by ``more``. If either of these dates is not found, the rule is ignored.
+    The date matched by ``less`` must not be after the date matched by ``more``. If either of these dates is not found, the rule is ignored.
 
 regex_matches
     Keys: ``condition``, ``paths``, ``regex``
