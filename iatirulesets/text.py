@@ -37,11 +37,11 @@ def rules_text(rules, reduced_path, show_all=False):
             elif rule == 'date_order':
                 if show_all or simplify_xpath(case['less']) == reduced_path or simplify_xpath(case['more']) == reduced_path:
                     if case['less'] == 'NOW':
-                        out.append('``{0}`` must be in the future.'.format(case['more']))
+                        out.append('``{0}`` must not be in the past.'.format(case['more']))
                     elif case['more'] == 'NOW':
-                        out.append('``{0}`` must be in the past.'.format(case['less']))
+                        out.append('``{0}`` must not be in the future.'.format(case['less']))
                     else:
-                        out.append('``{0}`` must be before ``{1}``'.format(case['less'], case['more']))
+                        out.append('``{0}`` must be before or the same as ``{1}``'.format(case['less'], case['more']))
             else: print('Not implemented', case_path, rule, case['paths'])
     return out
 
