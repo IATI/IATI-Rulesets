@@ -57,6 +57,14 @@
             ]
         }
     },
+    "//planned-disbursement/provider-org | //planned-disbursement/receiver-org | //transaction/provider-org | //transaction/receiver-org | //recipient-org-budget/recipient-org": {
+        "regex_matches": {
+            "cases": [
+                { "regex": "^(?!\s*$).+",
+                  "paths": [ "narrative" ], "condition": "count(@ref)==1" }
+            ]
+        }
+    },
     "//budget": {
         "date_order": {
             "cases": [
