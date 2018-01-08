@@ -100,6 +100,13 @@
             ]
         }
     },
+    "//result/indicator": {
+        "no_more_than_one": {
+            "cases": [
+                { "paths": [ "reference", "../reference" ] }
+            ]
+        }
+    },
     "//result/indicator/period": {
         "date_order": {
             "cases": [
