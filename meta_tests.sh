@@ -58,6 +58,9 @@ test condition empty_activity True
 test condition activity_status_2 True
 test condition activity_status_3 False
 
+test selector_with_conditions results_value_good True
+test selector_with_conditions results_value_bad False
+
 # End with a newline
 echo
 
