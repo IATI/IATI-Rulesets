@@ -47,6 +47,7 @@ test regex_no_matches regex_good False
 
 test regex_org_name org_name_good True
 test regex_org_name org_name_bad False
+test regex_org_name org_name_not_relevant True
 
 test starts_with identifiers True
 test starts_with identifiers_bad False
