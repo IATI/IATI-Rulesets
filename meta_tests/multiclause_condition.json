@@ -1,0 +1,11 @@
+{
+    "//result/indicator": {
+        "atleast_one": {
+            "cases": [
+                { "paths": [ "baseline/@value" ],
+                  "condition": "@measure = 1 or @measure = 2 or @measure = 3 or @measure = 4"
+                }
+            ]
+        }
+    }
+}

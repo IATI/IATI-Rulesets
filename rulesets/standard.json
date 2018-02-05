@@ -114,24 +114,33 @@
             ]
         }
     },
-    "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/baseline": {
+    "//result/indicator": {
         "atleast_one": {
             "cases": [
-                { "paths": [ "@value" ] }
+                {
+                    "paths": [ "baseline/@value" ],
+                    "condition": "@measure = 1 or @measure = 2 or @measure = 3 or @measure = 4"
+                }
             ]
         }
     },
-    "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/target": {
+    "//result/indicator": {
         "atleast_one": {
             "cases": [
-                { "paths": [ "@value" ] }
+                {
+                    "paths": [ "period/target/@value" ],
+                    "condition": "@measure = 1 or @measure = 2 or @measure = 3 or @measure = 4"
+                }
             ]
         }
     },
-    "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/actual": {
+    "//result/indicator": {
         "atleast_one": {
             "cases": [
-                { "paths": [ "@value" ] }
+                {
+                    "paths": [ "period/actual/@value" ],
+                    "condition": "@measure = 1 or @measure = 2 or @measure = 3 or @measure = 4"
+                }
             ]
         }
     },
