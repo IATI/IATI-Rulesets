@@ -1,0 +1,10 @@
+{
+    "//transaction/provider-org": {
+        "regex_matches": {
+            "cases": [
+                { "regex": "^(?!\\s*$).+",
+                  "paths": [ "narrative" ], "condition": "count(@ref)==1" }
+            ]
+        }
+    }
+}
