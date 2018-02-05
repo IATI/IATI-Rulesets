@@ -6,7 +6,7 @@ function test() {
     if [ $result = $3 ]; then echo -n .
     else
         echo
-        echo Fail: test $1 $2 $3 
+        echo Fail: test $1 $2 $3
         echo $result
         exitcode=1
     fi
@@ -60,6 +60,7 @@ test condition activity_status_3 False
 
 test selector_with_conditions results_value_good True
 test selector_with_conditions results_value_bad False
+test selector_with_conditions results_value_not_relevant True
 
 # End with a newline
 echo
