@@ -1,5 +1,5 @@
 {
-    "//transaction/provider-org": {
+    "//transaction/provider-org | //transaction/receiver-org": {
         "regex_matches": {
             "cases": [
                 { "regex": "\\S",
