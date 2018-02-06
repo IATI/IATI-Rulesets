@@ -1,0 +1,9 @@
+{
+    "//result/indicator": {
+        "no_more_than_one": {
+            "cases": [
+                { "paths": [ "reference", "../reference" ] }
+            ]
+        }
+    }
+}
