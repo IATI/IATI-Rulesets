@@ -1,0 +1,6 @@
+<iati-activities><iati-activity>
+    <transaction>
+      <provider-org ref="abcd">
+      </provider-org>
+    </transaction>
+</iati-activity></iati-activities>
