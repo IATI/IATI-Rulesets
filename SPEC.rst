@@ -25,7 +25,7 @@ Where ``CONTEXT`` is an xpath expression. This will be used to select the XML el
 The possible keys in a case dictionary are:
 
 ``condition``
-    An xpath string. If this evaluates to True, the rule will be ignored.
+    An xpath string. If this evaluates to False, the rule will be ignored.
 ``paths``
     An array of xpath strings. These are evaluated to give a list of elements that the named rule then operates upon.
 ``less``
