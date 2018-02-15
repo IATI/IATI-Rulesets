@@ -6,7 +6,7 @@ function test() {
     if [ $result = $3 ]; then echo -n .
     else
         echo
-        echo Fail: test $1 $2 $3 
+        echo Fail: test $1 $2 $3
         echo $result
         exitcode=1
     fi
@@ -58,6 +58,18 @@ test condition empty_activity True
 test condition activity_status_2 True
 test condition activity_status_3 False
 
+test result_indicator_baseline_selector_with_conditions results_indicator_baseline_value_good True
+test result_indicator_baseline_selector_with_conditions results_indicator_baseline_value_bad False
+test result_indicator_baseline_selector_with_conditions results_indicator_baseline_value_not_relevant True
+
+test result_indicator_period_target_selector_with_conditions results_indicator_period_target_value_good True
+test result_indicator_period_target_selector_with_conditions results_indicator_period_target_value_bad False
+test result_indicator_period_target_selector_with_conditions results_indicator_period_target_value_not_relevant True
+
+test result_indicator_period_actual_selector_with_conditions results_indicator_period_actual_value_good True
+test result_indicator_period_actual_selector_with_conditions results_indicator_period_actual_value_bad False
+test result_indicator_period_actual_selector_with_conditions results_indicator_period_actual_value_not_relevant True
+
 # End with a newline
 echo
 
@@ -66,4 +78,3 @@ if [ $exitcode = 0 ]; then
 fi
 
 exit $exitcode
-

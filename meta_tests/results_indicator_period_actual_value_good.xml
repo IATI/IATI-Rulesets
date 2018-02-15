@@ -1,0 +1,11 @@
+<iati-activities>
+    <iati-activity>
+        <result>
+            <indicator measure="1">
+                <period>
+                    <actual value="1"></actual>
+                </period>
+            </indicator>
+        </result>
+    </iati-activity>
+</iati-activities>
