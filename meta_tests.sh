@@ -58,6 +58,10 @@ test condition empty_activity True
 test condition activity_status_2 True
 test condition activity_status_3 False
 
+test multiclause_condition results_value_good True
+test multiclause_condition results_value_bad False
+test multiclause_condition results_value_not_relevant True
+
 # End with a newline
 echo
 
