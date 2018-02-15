@@ -2,7 +2,7 @@
     "//result/indicator": {
         "no_more_than_one": {
             "cases": [
-                { "paths": [ "reference", "../reference" ] }
+                { "paths": [ "reference[1]", "../reference[1]" ] }
             ]
         }
     }
