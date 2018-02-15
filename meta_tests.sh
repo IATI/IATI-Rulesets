@@ -3,10 +3,10 @@ tester=$@
 exitcode=0
 function test() {
     result=`$tester meta_tests/${1}.json meta_tests/${2}.xml --no-breakdown`
-    if [ $result = $3 ]; then echo -n .
+    if [[ $result = $3 ]]; then echo -n .
     else
         echo
-        echo Fail: test $1 $2 $3 
+        echo Fail: test $1 $2 $3
         echo $result
         exitcode=1
     fi
@@ -70,4 +70,3 @@ if [ $exitcode = 0 ]; then
 fi
 
 exit $exitcode
-
