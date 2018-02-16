@@ -95,7 +95,7 @@ def test_rule(context_xpath, element, rule, case):
 
 def test_ruleset_verbose(ruleset, tree):
     for context_xpath, rules in ruleset.items():
-        for element in tree.findall(context_xpath):
+        for element in tree.xpath(context_xpath):
             for rule in rules:
                 cases = rules[rule]['cases']
                 for case in cases:
