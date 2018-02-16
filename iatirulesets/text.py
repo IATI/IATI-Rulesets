@@ -33,9 +33,11 @@ def rules_text(rules, reduced_path, show_all=False):
                             out.append('``{0}`` should start with the value in ``{1}``'.format(case_path, case['start']))
                         elif rule == 'regex_matches':
                             out.append('``{0}`` should match the regex ``{1}``'.format(case_path, case['regex']))
-                        if rule == 'no_more_than_one':
+                        elif rule == 'no_more_than_one':
                             if other_paths:
-                                out.append('There must be no more than one element or attribute matched at ``{1}`` within each ``{0}``.'.format(case_path, human_list(other_paths, 'or')))
+                                out.append('There must be no more than one element or attribute matched at ``{0}`` or ``{1}``.'.format(case_path, human_list(other_paths)))
+                            else:
+                                out.append('There must be no more than one element or attribute matched at ``{0}``.'.format(case_path))
                         elif rule == 'sum':
                             sum_total = case['sum']
                             if other_paths:
