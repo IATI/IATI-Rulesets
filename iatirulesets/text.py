@@ -6,7 +6,9 @@ def human_list(other_paths, separator='or'):
     if len(other_paths) == 1:
         return other_paths[0]
     else:
-        return '`` {0} ``'.format(separator).join(other_paths)
+        out = '``, ``'.join(other_paths[:-1])
+        out += '`` {0} ``{1}'.format(separator, other_paths[-1])
+        return out
 
 def rules_text(rules, reduced_path, show_all=False):
     out = []
