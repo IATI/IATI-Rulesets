@@ -3,7 +3,8 @@ import re
 import copy
 
 
-def human_list(*args, separator='or'):
+def human_list(*args, **kwargs):
+    separator = kwargs.get('separator', 'or')
     other_paths = []
     for x in args:
         other_paths += x
@@ -48,7 +49,7 @@ def rules_text(rules, reduced_path, show_all=False):
                         elif rule == 'sum':
                             sum_total = case['sum']
                             if other_paths:
-                                out.append('The sum of values matched at ``{0}`` must be ``{1}``.'.format(human_list(case_path, other_paths, 'and'), sum_total))
+                                out.append('The sum of values matched at ``{0}`` must be ``{1}``.'.format(human_list(case_path, other_paths, separator='and'), sum_total))
                             else:
                                 out.append('The sum of values matched at ``{0}`` must be ``{2}``.'.format(case_path, sum_total))
                         else: print('Not implemented', case_path, rule, case['paths'])
