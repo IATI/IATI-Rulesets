@@ -10,7 +10,9 @@ def human_list(*args, separator='or'):
     if len(other_paths) == 1:
         return other_paths[0]
     else:
-        return '`` {0} ``'.format(separator).join(other_paths)
+        out = '``, ``'.join(other_paths[:-1])
+        out += '`` {1} ``{2}'.format(separator, other_paths[-1])
+        return out
 
 
 def rules_text(rules, reduced_path, show_all=False):
