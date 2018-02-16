@@ -2,11 +2,16 @@ from __future__ import print_function
 import re
 import copy
 
-def human_list(other_paths, separator='or'):
+
+def human_list(*args, separator='or'):
+    other_paths = []
+    for x in args:
+        other_paths += x
     if len(other_paths) == 1:
         return other_paths[0]
     else:
         return '`` {0} ``'.format(separator).join(other_paths)
+
 
 def rules_text(rules, reduced_path, show_all=False):
     out = []
