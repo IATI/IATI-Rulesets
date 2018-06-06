@@ -44,7 +44,7 @@ class Rules(object):
             date_elements = self.element.xpath(date_xpath)
             if len(date_elements) < 1:
                 return None
-            date_text = date_elements[0].attrib.get('iso-date')
+            date_text = date_elements[0]
             if date_text:
                 m1 = xsDateRegex.match(date_text)
                 return datetime.date(*map(int, m1.groups()))
