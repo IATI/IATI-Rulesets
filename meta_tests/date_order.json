@@ -2,8 +2,8 @@
     "//iati-activity": {
         "date_order": {
             "cases": [ {
-                "less": "activity-date[@type='start-planned']",
-                "more": "activity-date[@type='end-planned']"
+                "less": "activity-date[@type='start-planned']/@iso-date",
+                "more": "activity-date[@type='end-planned']/@iso-date"
              } ]
         }
     }
