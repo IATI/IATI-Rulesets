@@ -62,8 +62,8 @@ function test_ruleset_dom($rulesets, $doc) {
                             $errors[] = print_result($xpath_query, $rule, $case);
                         }
                     }
-                    elseif ($rule == 'sum') {
-                        if (count($path_matches) > 0) {
+                    elseif (in_array($rule, array('sum', 'strict_sum'))) {
+                        if ($rule == 'strict_sum' || count($path_matches) > 0) {
                             $sum = 0.0;
                             foreach ($path_matches as $path_match) {
                                 $sum += $path_match->textContent;

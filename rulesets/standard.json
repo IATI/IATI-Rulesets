@@ -25,6 +25,14 @@
                 "paths": [ "recipient-country/@percentage", "recipient-region/@percentage" ],
                 "sum": 100
              } ]
+        },
+        "strict_sum": {
+            "cases": [
+                {
+                    "paths": [ "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage" ],
+                    "sum": 100
+                }
+            ]
         }
     },
     "//iati-organisation": {

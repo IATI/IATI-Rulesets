@@ -36,6 +36,9 @@ test dependent_title_description title_description True
 test sum sum_good True
 test sum sum_bad False
 
+test sector_percentage_sum sector_percentage_sum_good True
+test sector_percentage_sum sector_percentage_sum_bad False
+
 test sum_two sum_two_good True
 test sum_two sum_two_bad False
 

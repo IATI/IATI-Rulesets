@@ -34,6 +34,9 @@ class Rules(object):
     def unique(self, case):
         return len(self.path_matches_text) <= len(set(self.path_matches_text))
 
+    def strict_sum(self, case):
+        return sum(map(Decimal, map(get_text, self.path_matches))) == Decimal(case['sum'])
+
     def sum(self, case):
         return not(len(self.path_matches)) or sum(map(Decimal, map(get_text, self.path_matches))) == Decimal(case['sum'])
 
