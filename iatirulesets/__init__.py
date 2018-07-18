@@ -37,6 +37,21 @@ class Rules(object):
     def strict_sum(self, case):
         return sum(map(Decimal, map(get_text, self.path_matches))) == Decimal(case['sum'])
 
+    def loop(self, case):
+        for rule, sub_cases in case['do'].items():
+            for sub_case in sub_cases['cases']:
+                subs = {sub: sub_case[sub] for sub in case['subs']}
+                for val in list(set(self.element.xpath(case['foreach']))):
+                    for k, v in subs.items():
+                        if type(v) is list:
+                            sub_case[k] = [vi.replace('$1', val) for vi in v]
+                        else:
+                            sub_case[k] = v.replace('$1', val)
+                    result = test_rule(None, self.element, rule, sub_case)['result']
+                    if not result:
+                        return False
+        return True
+
     def sum(self, case):
         return not(len(self.path_matches)) or sum(map(Decimal, map(get_text, self.path_matches))) == Decimal(case['sum'])
 

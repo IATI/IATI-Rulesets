@@ -26,6 +26,24 @@
                 "sum": 100
              } ]
         },
+        "loop": {
+            "cases": [
+                {
+                    "foreach": "sector[@vocabulary != '1']/@vocabulary",
+                    "do": {
+                        "strict_sum": {
+                            "cases": [
+                                {
+                                    "paths": [ "sector[@vocabulary = '$1']/@percentage" ],
+                                    "sum": 100
+                                }
+                            ]
+                        }
+                    },
+                    "subs": ["paths"]
+                }
+            ]
+        },
         "strict_sum": {
             "cases": [
                 {
