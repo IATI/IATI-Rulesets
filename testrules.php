@@ -116,6 +116,17 @@ function test_ruleset_dom($rulesets, $doc) {
                             $values[] = $path_match->textContent;
                         }
                     }
+                    elseif ($rule == 'loop') {
+                        $do_copy = $case->do;
+                        foreach ($xpath->query($case->foreach, $element) as $replacement_el) {
+                            $replacement_value = $replacement_el->value;
+                            $subrule_data = json_decode(str_replace('$1', $replacement_value, json_encode($do_copy)));
+                            $sub_ruleset = array($xpath_query => $subrule_data);
+                            $result = test_ruleset_dom($sub_ruleset, $doc);
+                            $errors = $errors + $result['errors'];
+                            $rules_total = $rules_total + $result['rules_total'];
+                        }
+                    }
                 }
             }
         }
