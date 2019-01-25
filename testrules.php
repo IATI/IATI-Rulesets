@@ -76,10 +76,10 @@ function test_ruleset_dom($rulesets, $doc) {
                     elseif ($rule == 'date_order') {
                         $less_item = $xpath->query($case->less, $element)->item(0);
                         if (!$less_item) continue;
-                        $less = $less_item->getAttribute('iso-date');
+                        $less = $less_item->value;
                         $more_item = $xpath->query($case->more, $element)->item(0);
                         if (!$more_item) continue;
-                        $more = $more_item->getAttribute('iso-date');
+                        $more = $more_item->value;
                         // FIXME
                         // Should probably check that it's an ISO date, as this behaviour differs from
                         // the python implementation (and breaks for the year 10000)
