@@ -1,0 +1,12 @@
+{
+    "//iati-activity": {
+        "strict_sum": {
+            "cases": [
+                {
+                    "paths": [ "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage" ],
+                    "sum": 100
+                }
+            ]
+        }
+    }
+}
