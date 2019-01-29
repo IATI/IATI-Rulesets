@@ -24,9 +24,11 @@ def rules_text(rules, reduced_path, show_all=False):
                             out.append('``{0}`` must be present only once.'.format(case_path))
                             if other_paths:
                                 out.append('``{0}`` must not be present if ``{1}`` are present.'.format(case_path, human_list(other_paths)))
+                                break
                         elif rule == 'atleast_one':
                             if other_paths:
                                 out.append('Either ``{0}`` or ``{1}`` must be present.'.format(case_path, human_list(other_paths)))
+                                break
                             else:
                                 out.append('``{0}`` must be present.'.format(case_path))
                         elif rule == 'startswith':
@@ -37,6 +39,7 @@ def rules_text(rules, reduced_path, show_all=False):
                             sum_total = case['sum']
                             if other_paths:
                                 out.append('The sum of values matched at ``{0}`` and ``{1}`` must be ``{2}``.'.format(case_path, human_list(other_paths, 'and'), sum_total))
+                                break
                             else:
                                 out.append('The sum of values matched at ``{0}`` must be ``{2}``.'.format(case_path, sum_total))
                         else: print('Not implemented', case_path, rule, case['paths'])
