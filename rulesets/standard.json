@@ -17,7 +17,7 @@
         "regex_matches": {
             "cases": [
                 { "regex": "[^\\/\\&\\|\\?]+",
-                  "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] }
+                  "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] },
             ]
         },
         "sum": {
@@ -49,6 +49,13 @@
                 {
                     "paths": [ "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage" ],
                     "sum": 100
+                }
+            ]
+        },
+        "no_percent": {
+            "cases": [
+                {
+                    "paths": [ "crs-add/loan-terms/@rate-1", "crs-add/loan-terms/@rate-2" ]
                 }
             ]
         }

@@ -39,6 +39,8 @@ def rules_text(rules, reduced_path, show_all=False):
                                 out.append('The sum of values matched at ``{0}`` and ``{1}`` must be ``{2}``.'.format(case_path, human_list(other_paths, 'and'), sum_total))
                             else:
                                 out.append('The sum of values matched at ``{0}`` must be ``{2}``.'.format(case_path, sum_total))
+                        elif rule == 'no_percent':
+                            out.append('The value must not contain a ``%`` sign.')
                         else: print('Not implemented', case_path, rule, case['paths'])
             elif rule == 'date_order':
                 if show_all or simplify_xpath(case['less']) == reduced_path or simplify_xpath(case['more']) == reduced_path:

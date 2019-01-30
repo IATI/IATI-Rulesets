@@ -93,6 +93,10 @@ class Rules(object):
                 return False
         return True
 
+    def no_percent(self, case):
+        return "%" not in self.path_matches_text[0]
+
+
 def test_rule(context_xpath, element, rule, case):
     """
     Tests a specific rule type for a specific case.
