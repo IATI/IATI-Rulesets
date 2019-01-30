@@ -19,6 +19,11 @@
                 { "less": "activity-date[@type='4']/@iso-date", "more": "NOW" }
             ]
         },
+        "time_limit": {
+            "cases": [
+                { "start": "budget/period-start/@iso-date", "end": "budget/period-end/@iso-date"}
+            ]
+        },
         "regex_matches": {
             "cases": [
                 { "regex": "[^\\/\\&\\|\\?]+",
