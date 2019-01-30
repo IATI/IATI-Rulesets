@@ -13,6 +13,8 @@ def get_text(element_or_attribute):
         return element_or_attribute
 
 xsDateRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})')
+xsDateTimeRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})')
+
 
 class Rules(object):
     def __init__(self, element, case):
@@ -76,6 +78,12 @@ class Rules(object):
             return None
         else:
             return less <= more
+
+    def date_now(self, case):
+        datetime_element = self.element.xpath(case['date'])
+        m1 = xsDateTimeRegex.match(datetime_element[0])
+        mapped_datetime = datetime.datetime(*map(int, m1.groups()))
+        return mapped_datetime < datetime.datetime.now()
 
     def _regex_matches(self, case):
         return [ re.search(case['regex'], get_text(path_match)) for path_match in self.path_matches ]
