@@ -93,6 +93,10 @@ class Rules(object):
                 return False
         return True
 
+    def positive_decimal(self, case):
+        return Decimal(self.path_matches_text[0]) >= 0.0
+
+
 def test_rule(context_xpath, element, rule, case):
     """
     Tests a specific rule type for a specific case.
