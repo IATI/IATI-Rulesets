@@ -97,6 +97,15 @@ function test_ruleset_dom($rulesets, $doc) {
                         $end = new DateTime($end_item->value);
                         $date_diff = $start->diff($end);
                         if ($date_diff->y >= 1) {
+                          $errors[] = print_result($xpath_query, $rule, $case);
+                        }
+                    }
+                    elseif ($rule == 'date_now') {
+                        $update_date = $xpath->query($case->date, $element)->item(0);
+                        if (!$update_date) continue;
+                        $update = $update_date->value;
+                        $current = date("Y-m-d\TH:i:s");
+                        if ($update > $current){
                             $errors[] = print_result($xpath_query, $rule, $case);
                         }
                     }

@@ -29,7 +29,8 @@ english = {
     'sum': 'Must sum to {0}',
     'startswith': 'Must start with ``{0}``',
     'unique': 'Unique',
-    'time_limit': 'Length must be under a year'
+    'time_limit': 'Length must be under a year',
+    'date_now': 'Date must not be more recent than the current date'
 }
 
 for xpath, rules in rulesets.items():

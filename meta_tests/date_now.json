@@ -2,7 +2,7 @@
     "//iati-activity": {
         "date_now": {
             "cases": [
-                { "iati-activity/@last-updated-datetime" }
+                { "date":"@last-updated-datetime" }
             ]
         }
     }
