@@ -31,7 +31,8 @@ english = {
     'unique': 'Unique',
     'positive_decimal'; 'Must be a positive decimal number',
     'time_limit': 'Length must be under a year',
-    'date_now': 'Date must not be more recent than the current date'
+    'date_now': 'Date must not be more recent than the current date',
+    'no_percent': "The value must not contain the ```%``` sign"
 }
 
 for xpath, rules in rulesets.items():
