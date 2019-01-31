@@ -116,6 +116,16 @@ function test_ruleset_dom($rulesets, $doc) {
                             $values[] = $path_match->textContent;
                         }
                     }
+                    elseif ($rule == 'no_percent') {
+                        $values = array();
+                        foreach ($path_matches as $path_match) {
+                            if (strpos($path_match->textContent, '%') !== false) {
+                                $errors[] = print_result($xpath_query, $rule, $case);
+                                break;
+                            }
+                            $values[] = $path_match->textContent;
+                        }
+                    }
                     elseif ($rule == 'loop') {
                         $do_copy = $case->do;
                         foreach ($xpath->query($case->foreach, $element) as $replacement_el) {
