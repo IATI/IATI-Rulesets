@@ -74,9 +74,12 @@ function test_ruleset_dom($rulesets, $doc) {
                         }
                     }
                     elseif ($rule == 'positive_decimal') {
-                        $number = $path_matches[0]->textContent;
-                        if ($number < 0.0) {
-                            $errors[] = print_result($xpath_query, $rule, $case);
+                        $values = array();
+                        foreach ($path_matches as $path_match) {
+                            if ( $path_match->textContent< 0.0) {
+                                $errors[] = print_result($xpath_query, $rule, $case);
+                                break;
+                            }
                         }
                     }
                     elseif ($rule == 'date_order') {

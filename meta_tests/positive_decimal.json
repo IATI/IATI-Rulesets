@@ -2,7 +2,7 @@
     "//iati-activity": {
         "positive_decimal": {
             "cases": [ {
-                "paths": ["test/@number" ]
+                "paths": [ "test/@number", "toast/@number" ]
              } ]
         }
     }

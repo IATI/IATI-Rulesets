@@ -110,7 +110,9 @@ class Rules(object):
         return True
 
     def positive_decimal(self, case):
-        return Decimal(self.path_matches_text[0]) >= 0.0
+        return all(
+            Decimal(item) >= 0.0 for item in self.path_matches_text
+        )
 
 
 def test_rule(context_xpath, element, rule, case):
