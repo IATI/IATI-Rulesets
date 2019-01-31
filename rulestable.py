@@ -28,7 +28,8 @@ english = {
     'atleast_one': 'Atleast one must be present',
     'sum': 'Must sum to {0}',
     'startswith': 'Must start with ``{0}``',
-    'unique': 'Unique'
+    'unique': 'Unique',
+    'date_now': 'Date must not be more recent than the current date'
 }
 
 for xpath, rules in rulesets.items():
