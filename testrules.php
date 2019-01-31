@@ -88,6 +88,18 @@ function test_ruleset_dom($rulesets, $doc) {
                         }
 
                     }
+                    elseif ($rule == 'time_limit') {
+                        $start_item = $xpath->query($case->start, $element)->item(0);
+                        if (!$start_item) continue;
+                        $start = new DateTime($start_item->value);
+                        $end_item = $xpath->query($case->end, $element)->item(0);
+                        if (!$end_item) continue;
+                        $end = new DateTime($end_item->value);
+                        $date_diff = $start->diff($end);
+                        if ($date_diff->y >= 1) {
+                          $errors[] = print_result($xpath_query, $rule, $case);
+                        }
+                    }
                     elseif ($rule == 'date_now') {
                         $update_date = $xpath->query($case->date, $element)->item(0);
                         if (!$update_date) continue;
