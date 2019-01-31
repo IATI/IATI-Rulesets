@@ -53,6 +53,9 @@ test unique unique_bad False
 #test unique_title_description title_description False # FIXME
 test unique_title_description title_description_content True
 
+test positive_decimal positive_decimal_good True
+test positive_decimal positive_decimal_bad False
+
 # Test conditions
 test condition empty_activity True
 test condition activity_status_2 True

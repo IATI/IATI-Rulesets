@@ -29,6 +29,7 @@ english = {
     'sum': 'Must sum to {0}',
     'startswith': 'Must start with ``{0}``',
     'unique': 'Unique',
+    'positive_decimal'; 'Must be a positive decimal number',
     'time_limit': 'Length must be under a year',
     'date_now': 'Date must not be more recent than the current date'
 }

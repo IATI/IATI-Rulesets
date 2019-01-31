@@ -88,6 +88,11 @@ unique
 
     The text of each of the elements described by ``paths`` must be unique
 
+positive_decimal
+    Keys: ``condition``, ``paths``
+
+    The text of each of the elements described by ``paths`` must a positive decimal number
+
 
 
 

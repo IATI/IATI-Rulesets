@@ -63,6 +63,11 @@
             ]
         }
     },
+    "positive_decimal": {
+        "cases": [ {
+            "paths": [ "recipient-country/@percentage", "recipient-region/@percentage", "sector/@percentage", "capital-spend/@percentage" ]
+         } ]
+    },
     "//iati-organisation": {
         "regex_matches": {
             "cases": [
