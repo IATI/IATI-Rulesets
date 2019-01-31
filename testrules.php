@@ -91,6 +91,27 @@ function test_ruleset_dom($rulesets, $doc) {
                         }
 
                     }
+                    elseif ($rule == 'time_limit') {
+                        $start_item = $xpath->query($case->start, $element)->item(0);
+                        if (!$start_item) continue;
+                        $start = new DateTime($start_item->value);
+                        $end_item = $xpath->query($case->end, $element)->item(0);
+                        if (!$end_item) continue;
+                        $end = new DateTime($end_item->value);
+                        $date_diff = $start->diff($end);
+                        if ($date_diff->y >= 1) {
+                          $errors[] = print_result($xpath_query, $rule, $case);
+                        }
+                    }
+                    elseif ($rule == 'date_now') {
+                        $update_date = $xpath->query($case->date, $element)->item(0);
+                        if (!$update_date) continue;
+                        $update = $update_date->value;
+                        $current = date("Y-m-d\TH:i:s");
+                        if ($update > $current){
+                            $errors[] = print_result($xpath_query, $rule, $case);
+                        }
+                    }
                     elseif ($rule == 'regex_matches' || $rule == 'regex_no_matches') {
                         foreach($path_matches as $path_match) {
                             $matches = preg_match('/'.$case->regex.'/', $path_match->nodeValue);

@@ -60,6 +60,13 @@ test condition activity_status_3 False
 
 test only_one_of only_one_of_activity_bad False
 test only_one_of only_one_of_activity_good True
+
+test period_time period_time_good True
+test period_time period_time_bad False
+
+test date_now date_now_good True
+test date_now date_now_bad False
+
 # End with a newline
 echo
 

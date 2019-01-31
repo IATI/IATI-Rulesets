@@ -16,6 +16,9 @@
                     "excluded": [ "recipient-region", "recipient-country" ],
                     "paths": ["transaction/recipient-country", "transaction/recipient-region"]
                 }
+        "date_now": {
+            "cases": [
+                { "date": "@last-updated-datetime" }
             ]
         },
         "date_order": {
@@ -24,6 +27,11 @@
                 { "less": "activity-date[@type='2']/@iso-date", "more": "activity-date[@type='4']/@iso-date" },
                 { "less": "activity-date[@type='2']/@iso-date", "more": "NOW" },
                 { "less": "activity-date[@type='4']/@iso-date", "more": "NOW" }
+            ]
+        },
+        "time_limit": {
+            "cases": [
+                { "start": "budget/period-start/@iso-date", "end": "budget/period-end/@iso-date"}
             ]
         },
         "regex_matches": {
@@ -54,7 +62,7 @@
                     },
                     "subs": ["paths"]
                 }
-            ]
+            ]<<<<<<< 201-88-only-one-of-rule
         },
         "strict_sum": {
             "cases": [

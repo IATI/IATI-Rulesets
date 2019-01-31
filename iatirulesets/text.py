@@ -48,6 +48,10 @@ def rules_text(rules, reduced_path, show_all=False):
                         out.append('``{0}`` must not be in the future.'.format(case['less']))
                     else:
                         out.append('``{0}`` must be before or the same as ``{1}``'.format(case['less'], case['more']))
+            elif rule == 'time_limit':
+                out.append('The time between ``{0}`` and {1} must not be over a year'.format(case['start'], case['end']))
+            elif rule == 'date_now':
+                out.append('``{0}`` must not be more recent than the current date'.format(case['date']))
             else: print('Not implemented', case_path, rule, case['paths'])
     return out
 
