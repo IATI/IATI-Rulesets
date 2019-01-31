@@ -91,10 +91,10 @@ function test_ruleset_dom($rulesets, $doc) {
                     elseif ($rule == 'time_limit') {
                         $start_item = $xpath->query($case->start, $element)->item(0);
                         if (!$start_item) continue;
-                        $start = $start_item->value;
+                        $start = new DateTime($start_item->value);
                         $end_item = $xpath->query($case->end, $element)->item(0);
                         if (!$end_item) continue;
-                        $end = $end_item->value;
+                        $end = new DateTime($end_item->value);
                         $date_diff = $start->diff($end);
                         if ($date_diff->y >= 1) {
                             $errors[] = print_result($xpath_query, $rule, $case);
