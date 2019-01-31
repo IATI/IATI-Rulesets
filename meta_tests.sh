@@ -56,6 +56,9 @@ test unique_title_description title_description_content True
 test no_percent no_percent_good True
 test no_percent no_percent_bad False
 
+test positive_decimal positive_decimal_good True
+test positive_decimal positive_decimal_bad False
+
 # Test conditions
 test condition empty_activity True
 test condition activity_status_2 True

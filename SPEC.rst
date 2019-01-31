@@ -93,6 +93,11 @@ no_percent
 
     The text of each of the elements described by ``paths`` must be not contain a ``%`` sign
 
+positive_decimal
+    Keys: ``condition``, ``paths``
+
+    The text of each of the elements described by ``paths`` must a positive decimal number
+
 
 
 
