@@ -16,6 +16,8 @@
                     "excluded": [ "recipient-region", "recipient-country" ],
                     "paths": ["transaction/recipient-country", "transaction/recipient-region"]
                 }
+            ]
+        },
         "date_now": {
             "cases": [
                 { "date": "@last-updated-datetime" }
@@ -62,7 +64,7 @@
                     },
                     "subs": ["paths"]
                 }
-            ]<<<<<<< 201-88-only-one-of-rule
+            ]
         },
         "strict_sum": {
             "cases": [

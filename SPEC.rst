@@ -36,6 +36,14 @@ The possible keys in a case dictionary are:
     A string containing a perl style regular expression
 ``sum``
     A number.
+``excluded``
+    An array of xpath strings. Evaluate which elements should not coexist with other elements. 
+``date``
+    A string containing the xpath to a date.
+``start``
+    A string containing the xpath to a start date.
+``end``
+    A string containing the xpath to an end date.
 
 Rule Names
 ----------
@@ -53,6 +61,10 @@ atleast_one
 
     There must be at least one element described by the given paths.
 
+only_one_of
+    Keys: ``excluded``, ``paths``
+
+    If there's a match of the elements in ``paths``, there can't be any elements that match ``excluded``.
 dependent
     Keys: ``condition``, ``paths``
 
@@ -67,6 +79,16 @@ date_order
     Keys: ``condition``, ``less``, ``more``
 
     The date matched by ``less`` must not be after the date matched by ``more``. If either of these dates is not found, the rule is ignored.
+
+date_now
+    Keys: ``date``
+
+    The ``date`` must not be after the current date.
+
+time_limit
+    Keys: ``start``, ``end``
+
+    The difference between the ``start`` date and the ``end`` date must not be greater than a year.
 
 regex_matches
     Keys: ``condition``, ``paths``, ``regex``
