@@ -6,6 +6,18 @@
                 { "paths": [ "sector", "transaction/sector" ] }
             ]
         },
+        "only_one_of": {
+            "cases": [
+                { 
+                    "excluded": ["transaction/recipient-country", "transaction/recipient-region"],
+                    "paths": [ "recipient-region", "recipient-country" ]
+                },
+                {
+                    "excluded": [ "recipient-region", "recipient-country" ],
+                    "paths": ["transaction/recipient-country", "transaction/recipient-region"]
+                }
+            ]
+        },
         "date_order": {
             "cases": [
                 { "less": "activity-date[@type='1']/@iso-date", "more": "activity-date[@type='3']/@iso-date" },

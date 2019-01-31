@@ -28,6 +28,14 @@ class Rules(object):
     def atleast_one(self, case):
         return len(self.path_matches) >= 1
 
+    def only_one_of(self, case):
+        for excluded in case['excluded']:
+            if self.element.xpath(excluded):
+                for path in case['paths']:
+                    if self.element.xpath(path):
+                        return False
+        return True
+
     def dependent(self, case):
         return all(len(m) != 0 for m in self.nested_matches) or all(len(m) == 0 for m in self.nested_matches)
 

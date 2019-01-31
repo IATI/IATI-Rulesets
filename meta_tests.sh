@@ -58,6 +58,8 @@ test condition empty_activity True
 test condition activity_status_2 True
 test condition activity_status_3 False
 
+test only_one_of only_one_of_activity_bad False
+test only_one_of only_one_of_activity_good True
 # End with a newline
 echo
 

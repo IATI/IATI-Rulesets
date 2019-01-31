@@ -51,6 +51,9 @@ function test_ruleset_dom($rulesets, $doc) {
                         if (count($path_matches) < 1)
                             $errors[] = print_result($xpath_query, $rule, $case);
                     }
+                    elseif ($rule == 'only_one_of') {
+                        #TODO
+                    }
                     elseif ($rule == 'dependent') {
                         $allzero = TRUE;
                         $nonezero = TRUE;
