@@ -48,6 +48,8 @@ def rules_text(rules, reduced_path, show_all=False):
                         out.append('``{0}`` must not be in the future.'.format(case['less']))
                     else:
                         out.append('``{0}`` must be before or the same as ``{1}``'.format(case['less'], case['more']))
+            elif rule == 'date_now':
+                out.append('``{0}`` must not be more recent than the current date'.format(case['date']))
             else: print('Not implemented', case_path, rule, case['paths'])
     return out
 

@@ -6,6 +6,11 @@
                 { "paths": [ "sector", "transaction/sector" ] }
             ]
         },
+        "date_now": {
+            "cases": [
+                { "date": "@last-updated-datetime" }
+            ]
+        },
         "date_order": {
             "cases": [
                 { "less": "activity-date[@type='1']/@iso-date", "more": "activity-date[@type='3']/@iso-date" },

@@ -88,6 +88,15 @@ function test_ruleset_dom($rulesets, $doc) {
                         }
 
                     }
+                    elseif ($rule == 'date_now') {
+                        $update_date = $xpath->query($case->date, $element)->item(0);
+                        if (!$update_date) continue;
+                        $update = $update_date->value;
+                        $current = date("Y-m-d\TH:i:s");
+                        if ($update > $current){
+                            $errors[] = print_result($xpath_query, $rule, $case);
+                        }
+                    }
                     elseif ($rule == 'regex_matches' || $rule == 'regex_no_matches') {
                         foreach($path_matches as $path_match) {
                             $matches = preg_match('/'.$case->regex.'/', $path_match->nodeValue);

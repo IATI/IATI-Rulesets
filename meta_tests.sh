@@ -58,6 +58,9 @@ test condition empty_activity True
 test condition activity_status_2 True
 test condition activity_status_3 False
 
+test date_now date_now_good True
+test date_now date_now_bad False
+
 # End with a newline
 echo
 
