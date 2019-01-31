@@ -96,7 +96,7 @@ function test_ruleset_dom($rulesets, $doc) {
                         if (!$end_item) continue;
                         $end = $end_item->value;
                         $date_diff = $start->diff($end);
-                        if ($date_diff->y => 1) {
+                        if ($date_diff->y >= 1) {
                             $errors[] = print_result($xpath_query, $rule, $case);
                         }
                     }
