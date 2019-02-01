@@ -157,8 +157,8 @@ function test_ruleset_dom($rulesets, $doc) {
                         }
                     }
                     elseif ($rule == 'if_then') {
-                        if($xpath->query($case->if) == true) {
-                            if($xpath->query($case->then) == false ) {
+                        if($xpath->evaluate($case->if, $element) == true) {
+                            if($xpath->evaluate($case->then, $element) == false ) {
                                 $errors[] = print_result($xpath_query, $rule, $case);
                             }
                         }
