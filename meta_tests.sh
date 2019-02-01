@@ -59,6 +59,9 @@ test no_percent no_percent_bad False
 test positive_decimal positive_decimal_good True
 test positive_decimal positive_decimal_bad False
 
+test if_then if_then_good True
+test if_then if_then_bad False
+
 # Test conditions
 test condition empty_activity True
 test condition activity_status_2 True

@@ -156,6 +156,13 @@ function test_ruleset_dom($rulesets, $doc) {
                             $values[] = $path_match->textContent;
                         }
                     }
+                    elseif ($rule == 'if_then') {
+                        if($xpath->query($case->if) == true) {
+                            if($xpath->query($case->then) == false ) {
+                                $errors[] = print_result($xpath_query, $rule, $case);
+                            }
+                        }
+                    }
                     elseif ($rule == 'loop') {
                         $do_copy = $case->do;
                         foreach ($xpath->query($case->foreach, $element) as $replacement_el) {

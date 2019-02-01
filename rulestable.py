@@ -32,7 +32,8 @@ english = {
     'positive_decimal'; 'Must be a positive decimal number',
     'time_limit': 'Length must be under a year',
     'date_now': 'Date must not be more recent than the current date',
-    'no_percent': "The value must not contain the ```%``` sign"
+    'no_percent': 'The value must not contain the ```%``` sign',
+    'if_then': 'If ```if``` evaluates to true, ```then``` must evaluate to true'
 }
 
 for xpath, rules in rulesets.items():

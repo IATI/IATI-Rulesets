@@ -117,6 +117,8 @@ class Rules(object):
             Decimal(item) >= 0.0 for item in self.path_matches_text
         )
 
+    def if_then(self, case):
+        return self.element.xpath(case['then']) if self.element.xpath(case['if']) else True
 
 
 def test_rule(context_xpath, element, rule, case):

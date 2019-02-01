@@ -98,6 +98,11 @@ positive_decimal
 
     The text of each of the elements described by ``paths`` must a positive decimal number
 
+if_then
+    Keys: ``condition``, ``cases``, ``if``, ``then``
+
+    If the condition evaluated in ``if`` is true, then ``then`` must resolve to true as well
+
 
 
 
