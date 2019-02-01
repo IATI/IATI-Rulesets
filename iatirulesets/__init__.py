@@ -47,11 +47,6 @@ class Rules(object):
                     if not currency.xpath("@currency"):
                         return False
 
-
-# at least one ([A] iati-activity/xml-lang OR [B] all[narrative must specify lang])
-# at least one ([A] iati-activity/default-currency OR [B] all[monetary values must specify currency])
-# at least one ([A] iati-activity/sector OR [B] all(transaction/sector))
-
     def dependent(self, case):
         return all(len(m) != 0 for m in self.nested_matches) or all(len(m) == 0 for m in self.nested_matches)
 
