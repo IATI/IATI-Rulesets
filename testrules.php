@@ -52,7 +52,9 @@ function test_ruleset_dom($rulesets, $doc) {
                             $errors[] = print_result($xpath_query, $rule, $case);
                     }
                     elseif ($rule == 'only_one_of') {
-                        #TODO
+                        $exclude = $xpath->query($case->excluded)->item(0);
+                        if (len(array_intersect($exclude, $path_matches))>0)
+                            $errors[] = print_result($xpath_query, $rule, $case); 
                     }
                     elseif ($rule == 'dependent') {
                         $allzero = TRUE;
