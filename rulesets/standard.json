@@ -39,7 +39,7 @@
         "regex_matches": {
             "cases": [
                 { "regex": "[^\\/\\&\\|\\?]+",
-                  "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] },
+                  "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] }
             ]
         },
         "sum": {
