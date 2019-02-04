@@ -43,15 +43,12 @@ Ruleset Tester
 
 A program is required to test whether a given xml file conforms to the rules in a ruleset JSON file. The rulesets is designed such that implementations of this can be made in multiple programming languages, so long as they implement the `Spec <https://github.com/IATI/IATI-Rulesets/blob/version-2.02/SPEC.rst>`_.
 
-Currently there are completed Python `<testrules.py>`_ and PHP `<testrules.php>`_ implementations. E.g.
+Currently, a Python `<testrules.py>`_ tester is available. E.g.
 
 .. code-block:: bash
 
    # These commands output a line for each problem found
    python testrules.py rulesets/standard.json file.xml
-   php testrules.php rulesets/standard.json file.xml
-
-The PHP implementation forms the basis for the ongoing work to `add Rulesets to the Public Validator <https://github.com/IATI/IATI-Public-Validator/compare/master...rulesets>`_ (NOTE: The PHP version of the validator is due to be replaced by one written in Python that contains a range of enhanced functionality)
 
 Tests for Testers
 -----------------
