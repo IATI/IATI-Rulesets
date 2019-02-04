@@ -39,7 +39,7 @@
         "regex_matches": {
             "cases": [
                 { "regex": "[^\\/\\&\\|\\?]+",
-                  "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] }
+                  "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] },
             ]
         },
         "sum": {
@@ -73,7 +73,19 @@
                     "sum": 100
                 }
             ]
+        },
+        "no_percent": {
+            "cases": [
+                {
+                    "paths": [ "crs-add/loan-terms/@rate-1", "crs-add/loan-terms/@rate-2" ]
+                }
+            ]
         }
+    },
+    "positive_decimal": {
+        "cases": [ {
+            "paths": [ "recipient-country/@percentage", "recipient-region/@percentage", "sector/@percentage", "capital-spend/@percentage" ]
+         } ]
     },
     "//iati-organisation": {
         "regex_matches": {
