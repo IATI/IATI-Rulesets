@@ -5,5 +5,3 @@ before_install:
 script:
     - ./meta_tests.sh python2 testrules.py
     - ./meta_tests.sh python3 testrules.py
-    - ./meta_tests.sh php testrules.php
-
