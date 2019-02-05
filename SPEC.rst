@@ -68,7 +68,7 @@ atleast_one
 only_one_of
     Keys: ``excluded``, ``paths``
 
-    If there's a match of the elements in ``paths``, there can't be any elements that match ``excluded``.
+    If there's a match of the elements in ``excluded``, there must not be any matches in ``paths``, if there are no matches in ``excluded``, there must be exactly one element from ``paths``.
 
 one_or_all
     Keys: ``one``, ``all``
