@@ -44,6 +44,10 @@ The possible keys in a case dictionary are:
     A string containing the xpath to a start date.
 ``end``
     A string containing the xpath to an end date.
+``one``
+    A string containing the xpath of something that must exist or ``all`` must be followed
+``all``
+    A string containing the condition that must be met for all elements if ``one`` is not met
 
 Rule Names
 ----------
@@ -65,6 +69,12 @@ only_one_of
     Keys: ``excluded``, ``paths``
 
     If there's a match of the elements in ``paths``, there can't be any elements that match ``excluded``.
+
+one_or_all
+    Keys: ``one``, ``all``
+
+    ``one`` must exist otherwise ``all`` other attributes or elements must exist.
+
 dependent
     Keys: ``condition``, ``paths``
 

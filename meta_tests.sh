@@ -75,6 +75,23 @@ test period_time period_time_bad False
 test date_now date_now_good True
 test date_now date_now_bad False
 
+test at_least_one at_least_one_bad False
+test at_least_one at_least_one_ref True
+test at_least_one at_least_one_narrative True
+
+test one_or_all one_or_all_lang_bad False
+test one_or_all one_or_all_lang_good True
+test one_or_all one_or_all_lang_bad_all False
+test one_or_all one_or_all_lang_good_all True
+test one_or_all one_or_all_sector_bad False
+test one_or_all one_or_all_sector_good True
+test one_or_all one_or_all_sector_all_good True
+test one_or_all one_or_all_sector_all_bad False
+test one_or_all one_or_all_currency_bad False
+test one_or_all one_or_all_currency_good True
+test one_or_all one_or_all_currency_all_bad False
+test one_or_all one_or_all_currency_all_good True
+
 # End with a newline
 echo
 
