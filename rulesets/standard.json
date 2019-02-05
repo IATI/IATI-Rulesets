@@ -3,7 +3,15 @@
         "atleast_one": {
             "cases": [
                 { "paths": [ "activity-date[@type='1' or @type='2']" ] },
-                { "paths": [ "sector", "transaction/sector" ] }
+                { "paths": [ "sector", "transaction/sector" ] },
+                { "paths": [ "other-identifier/owner-org/@ref", "other-identifier/owner-org/narrative"]},
+            ]
+        },
+        "one_or_all": {
+            "cases": [
+                { "one":"@xml-lang", "all":"lang" },
+                { "one":"sector", "all":"sector" },
+                { "one":"@default-currency", "all":"currency" }
             ]
         },
         "date_now": {

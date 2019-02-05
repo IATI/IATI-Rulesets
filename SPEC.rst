@@ -36,6 +36,10 @@ The possible keys in a case dictionary are:
     A string containing a perl style regular expression
 ``sum``
     A number.
+``one``
+    A string containing the xpath of something that must exist or ``all`` must be followed
+``all``
+    A string containing the condition that must be met for all elements if ``one`` is not met
 
 Rule Names
 ----------
@@ -52,6 +56,11 @@ atleast_one
     Keys: ``condition``, ``paths``
 
     There must be at least one element described by the given paths.
+
+one_or_all
+    Keys: ``one``, ``all``
+
+    ``one`` must exist otherwise ``all`` other attributes or elements must exist.
 
 dependent
     Keys: ``condition``, ``paths``

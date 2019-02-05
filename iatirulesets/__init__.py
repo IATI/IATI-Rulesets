@@ -15,7 +15,6 @@ def get_text(element_or_attribute):
 xsDateRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})')
 xsDateTimeRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})')
 
-
 class Rules(object):
     def __init__(self, element, case):
         self.element = element
@@ -29,6 +28,24 @@ class Rules(object):
 
     def atleast_one(self, case):
         return len(self.path_matches) >= 1
+
+    def one_or_all(self, case):
+        if len(self.element.xpath(case['one'])) > 0:
+            return True
+        elif case['all'] == 'lang':
+            for narrative in self.element.xpath("descendant::narrative"):
+                if not narrative.xpath("@xml:lang"):
+                    return False
+        elif case['all'] == 'sector':
+            for transaction in self.element.xpath("transaction"):
+                if not transaction.xpath("sector"):
+                    return False
+        elif case['all'] == 'currency':
+            currency_paths = ["value", "forecast", "loan-status"]
+            for cpath in currency_paths:
+                for currency in self.element.xpath("descendant::" + cpath):
+                    if not currency.xpath("@currency"):
+                        return False
 
     def dependent(self, case):
         return all(len(m) != 0 for m in self.nested_matches) or all(len(m) == 0 for m in self.nested_matches)

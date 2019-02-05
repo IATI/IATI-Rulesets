@@ -26,10 +26,11 @@ english = {
     'date_order': 'Dates must be in correct order',
     'no_more_than_one': 'No more than one',
     'atleast_one': 'Atleast one must be present',
+    'one_or_all': 'One must be present or all of the others must be',
     'sum': 'Must sum to {0}',
     'startswith': 'Must start with ``{0}``',
     'unique': 'Unique',
-    'positive_decimal'; 'Must be a positive decimal number',
+    'positive_decimal': 'Must be a positive decimal number',
     'time_limit': 'Length must be under a year',
     'date_now': 'Date must not be more recent than the current date',
     'no_percent': "The value must not contain the ```%``` sign"
