@@ -8,10 +8,6 @@
         },
         "only_one_of": {
             "cases": [
-                { 
-                    "excluded": ["transaction/recipient-country", "transaction/recipient-region"],
-                    "paths": [ "recipient-region", "recipient-country" ]
-                },
                 {
                     "excluded": [ "recipient-region", "recipient-country" ],
                     "paths": ["transaction/recipient-country", "transaction/recipient-region"]
