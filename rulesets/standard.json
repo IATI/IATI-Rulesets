@@ -78,10 +78,13 @@
             ]
         }
     },
-    "positive_decimal": {
-        "cases": [ {
-            "paths": [ "recipient-country/@percentage", "recipient-region/@percentage", "sector/@percentage", "capital-spend/@percentage" ]
-         } ]
+    "evaluates_to_true": {
+        "cases": [
+            {"eval": "number(recipient-country/@percentage) >= 0.0"},
+            {"eval": "number(recipient-region/@percentage) >= 0.0"},
+            {"eval": "number(sector/@percentage) >= 0.0"},
+            {"eval": "number(capital-spend/@percentage) >= 0.0"}
+        ]
     },
     "if_then": {
         "cases":[

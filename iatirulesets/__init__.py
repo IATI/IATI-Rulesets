@@ -129,10 +129,8 @@ class Rules(object):
     def no_percent(self, case):
         return all("%" not in item for item in self.path_matches_text)
 
-    def positive_decimal(self, case):
-        return all(
-            Decimal(item) >= 0.0 for item in self.path_matches_text
-        )
+    def evaluates_to_true(self, case):
+        return self.element.xpath(case['eval'])
 
     def if_then(self, case):
         return self.element.xpath(case['then']) if self.element.xpath(case['if']) else True

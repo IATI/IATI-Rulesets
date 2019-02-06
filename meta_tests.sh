@@ -56,8 +56,8 @@ test unique_title_description title_description_content True
 test no_percent no_percent_good True
 test no_percent no_percent_bad False
 
-test positive_decimal positive_decimal_good True
-test positive_decimal positive_decimal_bad False
+test evaluates_to_true evaluates_to_true_good True
+test evaluates_to_true evaluates_to_true_bad False
 
 test if_then if_then_good True
 test if_then if_then_bad False
