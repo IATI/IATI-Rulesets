@@ -97,9 +97,10 @@ class Rules(object):
             return less <= more
 
     def time_limit(self, case):
-        start = self._parse_date(case['start'])
-        end = self._parse_date(case['end'])
-        return (end.year - start.year) < 1
+        if self.element.xpath(case['start']) and self.element.xpath(case['end']):
+            start = self._parse_date(case['start'])
+            end = self._parse_date(case['end'])
+            return (end.year - start.year) < 1
 
     def date_now(self, case):
         datetime_element = self.element.xpath(case['date'])
