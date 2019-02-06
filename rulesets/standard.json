@@ -97,6 +97,12 @@
                 { "regex": "[^\\/\\&\\|\\?]+",
                   "paths": [ "reporting-org/@ref", "organisation-identifier" ] }
             ]
+        },
+        "one_or_all": {
+            "cases": [
+                { "one":"@xml-lang", "all":"lang" },
+                { "one":"@default-currency", "all":"currency" }
+            ]
         }
     },
     "//participating-org": {
