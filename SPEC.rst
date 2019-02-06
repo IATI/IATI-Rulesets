@@ -77,6 +77,11 @@ date_order
 
     The date matched by ``less`` must not be after the date matched by ``more``. If either of these dates is not found, the rule is ignored.
 
+between_dates:
+    Keys: ``date``, ``start``, ``end``
+
+    The ``date`` must be between the ``start`` and ``end`` dates.
+
 regex_matches
     Keys: ``condition``, ``paths``, ``regex``
 

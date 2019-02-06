@@ -90,6 +90,8 @@ test one_or_all one_or_all_currency_good True
 test one_or_all one_or_all_currency_all_bad False
 test one_or_all one_or_all_currency_all_good True
 
+test between_dates between_dates_good True
+test between_dates between_dates_bad False
 # End with a newline
 echo
 

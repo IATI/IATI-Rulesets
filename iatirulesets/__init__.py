@@ -110,6 +110,10 @@ class Rules(object):
         else:
             return None
 
+    def between_dates(self, case):
+        if self.element.xpath(case['date']):
+            return self._parse_date(case['start']) < self._parse_date(case['date']) < self._parse_date(case['end'])
+
     def _regex_matches(self, case):
         return [ re.search(case['regex'], get_text(path_match)) for path_match in self.path_matches ]
 
