@@ -26,6 +26,8 @@ The possible keys in a case dictionary are:
 
 ``condition``
     An xpath string. If this evaluates to True, the rule will be ignored.
+``eval``
+    An xpath string. Can evaluate to True or False.
 ``paths``
     An array of xpath strings. These are evaluated to give a list of elements that the named rule then operates on.
 ``less``
@@ -102,10 +104,10 @@ no_percent
 
     The text of each of the elements described by ``paths`` must be not contain a ``%`` sign
 
-positive_decimal
-    Keys: ``condition``, ``paths``
+evaluates_to_true
+    Keys: ``cases``, ``eval``
 
-    The text of each of the elements described by ``paths`` must a positive decimal number
+    Each expression defined in ``eval`` must resolve to true
 
 if_then
     Keys: ``condition``, ``cases``, ``if``, ``then``

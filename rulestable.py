@@ -30,7 +30,7 @@ english = {
     'sum': 'Must sum to {0}',
     'startswith': 'Must start with ``{0}``',
     'unique': 'Unique',
-    'positive_decimal': 'Must be a positive decimal number',
+    'evaluates_to_true': '```eval``` must evaluate to true',
     'time_limit': 'Length must be under a year',
     'date_now': 'Date must not be more recent than the current date',
     'no_percent': 'The value must not contain the ```%``` sign',
