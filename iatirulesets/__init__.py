@@ -32,8 +32,13 @@ class Rules(object):
     def only_one_of(self, case):
         for excluded in case['excluded']:
             if self.element.xpath(excluded):
-                return len(self.path_matches) < 1
+                # no elements from group A can be present
+                # if group B exists
+                return not len(self.path_matches)
             else:
+                # if no element from group B exists
+                # then at least one and no more than one element
+                # from group A can exist
                 if len(self.path_matches) == 1:
                     return True
                 else:
