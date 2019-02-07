@@ -33,6 +33,7 @@ english = {
     'evaluates_to_true': '```eval``` must evaluate to true',
     'time_limit': 'Length must be under a year',
     'date_now': 'Date must not be more recent than the current date',
+    'between_dates': 'Date must be within a defined time period',
     'no_percent': 'The value must not contain the ```%``` sign',
     'if_then': 'If ```if``` evaluates to true, ```then``` must evaluate to true'
 }
