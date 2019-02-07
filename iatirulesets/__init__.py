@@ -29,6 +29,21 @@ class Rules(object):
     def atleast_one(self, case):
         return len(self.path_matches) >= 1
 
+    def only_one_of(self, case):
+        for excluded in case['excluded']:
+            if self.element.xpath(excluded):
+                # no elements from group A can be present
+                # if group B exists
+                return not len(self.path_matches)
+            else:
+                # if no element from group B exists
+                # then at least one and no more than one element
+                # from group A can exist
+                if len(self.path_matches) == 1:
+                    return True
+                else:
+                    return False
+
     def one_or_all(self, case):
         if len(self.element.xpath(case['one'])) > 0:
             return True

@@ -29,6 +29,8 @@ def rules_text(rules, reduced_path, show_all=False):
                                 out.append('Either ``{0}`` or ``{1}`` must be present.'.format(case_path, human_list(other_paths)))
                             else:
                                 out.append('``{0}`` must be present.'.format(case_path))
+                        elif rule == 'only_one_of':
+                            out.append('``{0}`` must not be present alongisde ``{1}``.'.format(case_path, case['excludes']))
                         elif rule == 'startswith':
                             out.append('``{0}`` should start with the value in ``{1}``'.format(case_path, case['start']))
                         elif rule == 'regex_matches':

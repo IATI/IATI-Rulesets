@@ -25,6 +25,7 @@ print """
 english = {
     'date_order': 'Dates must be in correct order',
     'no_more_than_one': 'No more than one',
+    'only_one_of': 'Excluded elements must not coexist with selected elements, and only one of these elements must exist',
     'atleast_one': 'Atleast one must be present',
     'one_or_all': 'One must be present or all of the others must be',
     'sum': 'Must sum to {0}',

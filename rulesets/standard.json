@@ -14,6 +14,14 @@
                 { "one":"@default-currency", "all":"currency" }
             ]
         },
+        "only_one_of": {
+            "cases": [
+                {
+                    "excluded": [ "recipient-region", "recipient-country" ],
+                    "paths": ["transaction/recipient-country", "transaction/recipient-region"]
+                }
+            ]
+        },
         "date_now": {
             "cases": [
                 { "date": "@last-updated-datetime" }

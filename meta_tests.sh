@@ -67,6 +67,11 @@ test condition empty_activity True
 test condition activity_status_2 True
 test condition activity_status_3 False
 
+test only_one_of only_one_of_activity_bad False
+test only_one_of only_one_of_activity_good True
+test only_one_of only_one_of_transaction_bad False
+test only_one_of only_one_of_transaction_good True
+
 test period_time period_time_good True
 test period_time period_time_bad False
 test time_limit time_limit_good True
