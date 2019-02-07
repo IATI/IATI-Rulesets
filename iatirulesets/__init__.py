@@ -107,9 +107,10 @@ class Rules(object):
             return less <= more
 
     def time_limit(self, case):
-        start = self._parse_date(case['start'])
-        end = self._parse_date(case['end'])
-        return (end.year - start.year) < 1
+        if self.element.xpath(case['start']) and self.element.xpath(case['end']):
+            start = self._parse_date(case['start'])
+            end = self._parse_date(case['end'])
+            return (end.year - start.year) < 1
 
     def date_now(self, case):
         datetime_element = self.element.xpath(case['date'])
@@ -119,6 +120,10 @@ class Rules(object):
             return mapped_datetime < datetime.datetime.now()
         else:
             return None
+
+    def between_dates(self, case):
+        if self.element.xpath(case['date']):
+            return self._parse_date(case['start']) < self._parse_date(case['date']) < self._parse_date(case['end'])
 
     def _regex_matches(self, case):
         return [ re.search(case['regex'], get_text(path_match)) for path_match in self.path_matches ]
@@ -139,11 +144,11 @@ class Rules(object):
     def no_percent(self, case):
         return all("%" not in item for item in self.path_matches_text)
 
-    def positive_decimal(self, case):
-        return all(
-            Decimal(item) >= 0.0 for item in self.path_matches_text
-        )
+    def evaluates_to_true(self, case):
+        return self.element.xpath(case['eval'])
 
+    def if_then(self, case):
+        return self.element.xpath(case['then']) if self.element.xpath(case['if']) else True
 
 
 def test_rule(context_xpath, element, rule, case):
