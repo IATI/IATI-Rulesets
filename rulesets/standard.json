@@ -114,6 +114,12 @@
                   "paths": [ "reporting-org/@ref", "organisation-identifier" ] }
             ]
         },
+        "one_or_all": {
+            "cases": [
+                { "one":"@xml-lang", "all":"lang" },
+                { "one":"@default-currency", "all":"currency" }
+            ]
+        },
         "time_limit": {
             "cases": [
                 { "start": "recipient-country-budget/period-start/@iso-date", "end": "recipient-country-budget/period-end/@iso-date"},
