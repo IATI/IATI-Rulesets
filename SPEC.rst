@@ -26,6 +26,8 @@ The possible keys in a case dictionary are:
 
 ``condition``
     An xpath string. If this evaluates to True, the rule will be ignored.
+``eval``
+    An xpath string. Can evaluate to True or False.
 ``paths``
     An array of xpath strings. These are evaluated to give a list of elements that the named rule then operates on.
 ``less``
@@ -100,6 +102,11 @@ time_limit
 
     The difference between the ``start`` date and the ``end`` date must not be greater than a year.
 
+between_dates:
+    Keys: ``date``, ``start``, ``end``
+
+    The ``date`` must be between the ``start`` and ``end`` dates.
+
 regex_matches
     Keys: ``condition``, ``paths``, ``regex``
 
@@ -125,10 +132,15 @@ no_percent
 
     The text of each of the elements described by ``paths`` must be not contain a ``%`` sign
 
-positive_decimal
-    Keys: ``condition``, ``paths``
+evaluates_to_true
+    Keys: ``cases``, ``eval``
 
-    The text of each of the elements described by ``paths`` must a positive decimal number
+    Each expression defined in ``eval`` must resolve to true
+
+if_then
+    Keys: ``condition``, ``cases``, ``if``, ``then``
+
+    If the condition evaluated in ``if`` is true, then ``then`` must resolve to true as well
 
 
 

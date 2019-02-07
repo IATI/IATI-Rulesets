@@ -56,8 +56,11 @@ test unique_title_description title_description_content True
 test no_percent no_percent_good True
 test no_percent no_percent_bad False
 
-test positive_decimal positive_decimal_good True
-test positive_decimal positive_decimal_bad False
+test evaluates_to_true evaluates_to_true_good True
+test evaluates_to_true evaluates_to_true_bad False
+
+test if_then if_then_good True
+test if_then if_then_bad False
 
 # Test conditions
 test condition empty_activity True
@@ -71,6 +74,8 @@ test only_one_of only_one_of_transaction_good True
 
 test period_time period_time_good True
 test period_time period_time_bad False
+test time_limit time_limit_good True
+test time_limit time_limit_bad False
 
 test date_now date_now_good True
 test date_now date_now_bad False
@@ -93,6 +98,10 @@ test one_or_all one_or_all_currency_all_bad False
 test one_or_all one_or_all_currency_all_good True
 test one_or_all_org one_or_all_org_currency_good True
 test one_or_all_org one_or_all_org_currency_bad False
+
+test between_dates between_dates_good True
+test between_dates between_dates_bad False
+
 # End with a newline
 echo
 
