@@ -19,7 +19,7 @@ These rulesets are part of IATI Standard Single Source of Truth (SSOT). For more
 Ruleset Structure
 =================
 
-A ruleset is a JSON file which applies different rules to various paths in different element. Strutucure:
+A ruleset is a JSON file which applies different rules to various paths in different elements. Structure:
 
 .. code-block:: json
     

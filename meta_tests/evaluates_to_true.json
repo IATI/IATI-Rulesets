@@ -1,0 +1,9 @@
+{
+    "//iati-activity": {
+        "evaluates_to_true": {
+            "cases": [ {
+                "eval": "test/@number >= 0"
+             } ]
+        }
+    }
+}
