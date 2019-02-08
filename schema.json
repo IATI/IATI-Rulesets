@@ -176,7 +176,7 @@
                                                                         "items":{"type":"string"}
                                                                     },
                                                                     "sum": {
-                                                                        "type": "number",
+                                                                        "type": "number"
                                                                     }
                                                                 }
                                                             }
@@ -210,7 +210,7 @@
                                         "items":{"type":"string"}
                                     },
                                     "sum": {
-                                        "type": "number",
+                                        "type": "number"
                                     }
                                 }
                             }
