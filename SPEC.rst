@@ -31,11 +31,11 @@ The possible keys in a case dictionary are:
 ``paths``
     An array of xpath strings. These are evaluated to give a list of elements that the named rule then operates on.
 ``less``
-    A string containing the xpath of the value that should be smaller
+    A string containing the xpath of the value that should be smaller.
 ``more``
-    A string containing the xpath of the value that should be larger
+    A string containing the xpath of the value that should be larger.
 ``regex``
-    A string containing a perl style regular expression
+    A string containing a perl style regular expression.
 ``sum``
     A number.
 ``excluded``
@@ -47,9 +47,15 @@ The possible keys in a case dictionary are:
 ``end``
     A string containing the xpath to an end date.
 ``one``
-    A string containing the xpath of something that must exist or ``all`` must be followed
+    A string containing the xpath of something that must exist or ``all`` must be followed.
 ``all``
-    A string containing the condition that must be met for all elements if ``one`` is not met
+    A string containing the condition that must be met for all elements if ``one`` is not met.
+``foreach``
+    An array of xpath strings. Containing a set of xpaths to be evaluated under a different rule.
+``do``
+    An array of rules. To evaluate with ``foreach``.
+``subs``
+    An array of xpath strings. These are to be evaluated with the rules in ``do``.
 
 Rule Names
 ----------
@@ -142,6 +148,12 @@ if_then
 
     If the condition evaluated in ``if`` is true, then ``then`` must resolve to true as well
 
+loop
+    Keys: ``foreach``, ``do``, ``cases``, ``subs``
 
+    All elements in ``foreach`` are evaluated under the rules inside ``do``
 
+strict_sum
+    Keys: ``paths``, ``sum``
 
+    The decimal sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key

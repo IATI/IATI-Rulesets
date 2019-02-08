@@ -19,7 +19,7 @@ These rulesets are part of IATI Standard Single Source of Truth (SSOT). For more
 Ruleset Structure
 =================
 
-A ruleset is a JSON file which applies different rules to various paths in different element. Strutucure:
+A ruleset is a JSON file which applies different rules to various paths in different elements. Structure:
 
 .. code-block:: json
     
@@ -41,7 +41,7 @@ A more thorough description of this, along with a list of all rule names can be 
 Ruleset Tester
 ==============
 
-A program is required to test whether a given xml file conforms to the rules in a ruleset JSON file. The rulesets is designed such that implementations of this can be made in multiple programming languages, so long as they implement the `Spec <https://github.com/IATI/IATI-Rulesets/blob/master/SPEC.rst>`_.
+A program is required to test whether a given xml file conforms to the rules in a ruleset JSON file. The ruleset is designed such that implementations of this can be made in multiple programming languages, so long as they implement the `Spec <https://github.com/IATI/IATI-Rulesets/blob/master/SPEC.rst>`_.
 
 Currently, a Python `<testrules.py>`_ tester is available. E.g.
 
