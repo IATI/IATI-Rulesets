@@ -3,6 +3,7 @@ import re
 import datetime
 from lxml import etree as ET
 from decimal import Decimal
+from dateutil.relativedelta import relativedelta
 
 def get_text(element_or_attribute):
     """ Helper function: Returns the text of the given lxml element or attribute """
@@ -115,7 +116,7 @@ class Rules(object):
         if self.element.xpath(case['start']) and self.element.xpath(case['end']):
             start = self._parse_date(case['start'])
             end = self._parse_date(case['end'])
-            return (end.year - start.year) < 1
+            return (relativedelta(end, start).years) < 1
 
     def date_now(self, case):
         datetime_element = self.element.xpath(case['date'])
