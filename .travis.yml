@@ -11,6 +11,5 @@ install:
   - pip install -U pip wheel
   - pip install -r requirements.txt
 script:
-    - ./meta_tests.sh python2 testrules.py
-    - ./meta_tests.sh python3 testrules.py
+    - ./meta_tests.sh python testrules.py
     - jsonlint -q rulesets/standard.json
