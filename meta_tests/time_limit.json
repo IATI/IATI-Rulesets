@@ -1,11 +1,7 @@
 {
-    "//iati-organisation": {
-        "time_limit": {
-            "cases": [
-                { "start": "recipient-country-budget/period-start/@iso-date", "end": "recipient-country-budget/period-end/@iso-date"},
-                { "start": "recipient-org-budget/period-start/@iso-date", "end": "recipient-org-budget/period-end/@iso-date"},
-                { "start": "total-budget/period-start/@iso-date", "end": "total-budget/period-end/@iso-date"}
-            ]
-        }
+    "//total-budget": {
+	"time_limit": {
+            "cases": [{ "start": "period-start/@iso-date", "end": "period-end/@iso-date"}]
+    	}
     }
 }
