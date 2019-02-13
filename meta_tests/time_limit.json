@@ -1,7 +1,7 @@
 {
     "//total-budget": {
 	"time_limit": {
-       	    "cases": [{ "start": "period-start/@iso-date", "end": "period-end/@iso-date"}]
+            "cases": [{ "start": "period-start/@iso-date", "end": "period-end/@iso-date"}]
     	}
     }
 }
