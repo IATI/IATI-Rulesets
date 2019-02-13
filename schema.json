@@ -152,32 +152,28 @@
                                 "additionalProperties": false,
                                 "properties": {
                                     "foreach":{
-                                        "type":"array",
-                                        "items":{"type":"string"}
+                                        "type":"string"
                                     },
                                     "do":{
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "properties": {
-                                                "strict_sum": {
-                                                    "type":"object",
-                                                    "additionalProperties": false,
-                                                    "properties": {
-                                                        "cases":{
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "object",
-                                                                "additionalProperties": false,
-                                                                "properties": {
-                                                                    "paths": {
-                                                                        "type": "array",
-                                                                        "items":{"type":"string"}
-                                                                    },
-                                                                    "sum": {
-                                                                        "type": "number",
-                                                                    }
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "strict_sum": {
+                                                "type":"object",
+                                                "additionalProperties": false,
+                                                "properties": {
+                                                    "cases":{
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "additionalProperties": false,
+                                                            "properties": {
+                                                                "paths": {
+                                                                    "type": "array",
+                                                                    "items":{"type":"string"}
+                                                                },
+                                                                "sum": {
+                                                                    "type": "number"
                                                                 }
                                                             }
                                                         }
@@ -210,7 +206,7 @@
                                         "items":{"type":"string"}
                                     },
                                     "sum": {
-                                        "type": "number",
+                                        "type": "number"
                                     }
                                 }
                             }

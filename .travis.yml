@@ -1,9 +1,13 @@
-dist: precise
+language: python
+python:
+    - "2.7"
+    - "3.5"
 before_install:
     - sudo apt-get update -qq
     - sudo apt-get install -qq python-lxml python3-lxml
-    - npm install -g jsonlint
-script:
-    - ./meta_tests.sh python2 testrules.py
-    - ./meta_tests.sh python3 testrules.py
-    - jsonlint -q rulesets/standard.json
+install:
+    - pip install jsonschema
+    - pip install -r requirements.txt
+ script:
+    - python -m jsonschema -i rulesets/standard.json schema.json
+    - ./meta_tests.sh python testrules.py

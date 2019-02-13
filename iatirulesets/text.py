@@ -32,7 +32,7 @@ def rules_text(rules, reduced_path, show_all=False):
                             else:
                                 out.append('``{0}`` must be present.'.format(case_path))
                         elif rule == 'only_one_of':
-                            out.append('``{0}`` must not be present alongisde ``{1}``.'.format(case_path, case['excludes']))
+                            out.append('``{0}`` must not be present alongisde ``{1}``.'.format(case_path, case['excluded']))
                         elif rule == 'startswith':
                             out.append('``{0}`` should start with the value in ``{1}``'.format(case_path, case['start']))
                         elif rule == 'regex_matches':
@@ -44,6 +44,8 @@ def rules_text(rules, reduced_path, show_all=False):
                                 break
                             else:
                                 out.append('The sum of values matched at ``{0}`` must be ``{2}``.'.format(case_path, sum_total))
+                        elif rule == 'strict_sum':
+                            out.append('The sum of values matched at ``{0}`` must be ``{1}``.'.format(case_path, case['sum']))
                         elif rule == 'no_percent':
                             out.append('The value must not contain a ``%`` sign.')
                         elif rule == 'evaluates_to_true':
@@ -63,5 +65,14 @@ def rules_text(rules, reduced_path, show_all=False):
                 out.append('``{0}`` must not be more recent than the current date'.format(case['date']))
             elif rule == 'if_then':
                 out.append('If ``{0}`` evaluates to true, then ``{1}`` must evaluate to true.'.format(case['if'], case['then']))
-            else: print('Not implemented', case_path, rule, case['paths'])
+            elif rule == 'one_or_all':
+                out.append('``{0}`` must exist, otherwise all ``{1}`` must exist.'.format(case['one'], case['all']))
+            elif rule == 'evaluates_to_true':
+                out.append('Each expression defined in ``{0}`` must resolve to true.'.format(case['eval']))
+            elif rule == 'between_dates':
+                out.append('The ``{0}`` must be between the ``{1}`` and ``{2}`` dates.'.format(case['date'],case['start'],case['end']))
+            elif rule == 'loop':
+                out.append('All elements in ``{0}`` are evaluated under the rules inside ``{1}``.'.format(case['foreach'],case['do']))
+            else:
+                print('Not implemented', case_path, rule, case['paths'])
     return out
