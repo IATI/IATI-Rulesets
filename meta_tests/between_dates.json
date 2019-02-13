@@ -1,8 +1,8 @@
 {
-    "//iati-organisation": {
+    "//recipient-country-budget": {
         "between_dates": {
             "cases": [
-                { "date": "recipient-country-budget/budget-line/@value-date", "start": "recipient-country-budget/period-start/@iso-date", "end": "recipient-country-budget/period-end/@iso-date"}
+                { "date": "budget-line/value/@value-date", "start": "period-start/@iso-date", "end": "period-end/@iso-date"}
             ]
         }
     }

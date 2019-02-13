@@ -116,7 +116,10 @@ class Rules(object):
         if self.element.xpath(case['start']) and self.element.xpath(case['end']):
             start = self._parse_date(case['start'])
             end = self._parse_date(case['end'])
-            return (relativedelta(end, start).years) < 1
+            delta = relativedelta(end, start)
+            if delta.years == 1:
+                return (delta.years + delta.months + delta.days) <= 1
+            return (relativedelta(end, start).years) <= 1
 
     def date_now(self, case):
         datetime_element = self.element.xpath(case['date'])
