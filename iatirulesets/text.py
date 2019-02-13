@@ -30,7 +30,7 @@ def rules_text(rules, reduced_path, show_all=False):
                             else:
                                 out.append('``{0}`` must be present.'.format(case_path))
                         elif rule == 'only_one_of':
-                            out.append('``{0}`` must not be present alongisde ``{1}``.'.format(case_path, case['excluded']))
+                            out.append('``{0}`` must not be present alongisde ``{1}``.'.format(case_path, human_list(case['excluded'], 'and'))
                         elif rule == 'startswith':
                             out.append('``{0}`` should start with the value in ``{1}``'.format(case_path, case['start']))
                         elif rule == 'regex_matches':
@@ -44,7 +44,7 @@ def rules_text(rules, reduced_path, show_all=False):
                         elif rule == 'strict_sum':
                             out.append('The sum of values matched at ``{0}`` must be ``{1}``.'.format(case_path, case['sum']))
                         elif rule == 'no_percent':
-                            out.append('The value must not contain a ``%`` sign.')
+                            out.append('```{0}``` must not contain a ``%`` sign.'.format(case_path))
                         elif rule == 'evaluates_to_true':
                             out.append('The conditional expression must evaluate to true.')
                         else: print('Not implemented', case_path, rule, case['paths'])
