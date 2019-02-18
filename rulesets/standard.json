@@ -216,6 +216,24 @@
             ]
         }
     },
+    "//recipient-region-budget": {
+        "time_limit": {
+            "cases": [
+                {
+                    "start": "period-start/@iso-date", "end": "period-end/@iso-date"
+                }
+            ]
+        }
+    },
+    "//total-expenditure": {
+        "time_limit": {
+            "cases": [
+                {
+                    "start": "period-start/@iso-date", "end": "period-end/@iso-date"
+                }
+            ]
+        }
+    },
     "//result/indicator/period": {
         "date_order": {
             "cases": [
