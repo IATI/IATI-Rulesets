@@ -102,7 +102,7 @@
                 {"if": "count(@default-currency) = 0", "then": "count(fss/forecast/@currency) > 0"},
                 {"if": "count(transaction/receiver-org/@ref) = 0", "then": "count(transaction/provider-org/narrative) > 0"},
                 {"if": "count(other-identifier/owner-org/@ref) = 0", "then": "count(other-identifier/owner-org/narrative) > 0"},
-                {"if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0", "then": "count(sector/narrative) > 0"},
+                {"if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0", "then": "count(sector/narrative) > 0"}
             ]
         }
     },
