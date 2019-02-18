@@ -8,6 +8,6 @@ before_install:
 install:
     - pip install jsonschema
     - pip install -r requirements.txt
- script:
+script:
     - python -m jsonschema -i rulesets/standard.json schema.json
     - ./meta_tests.sh python testrules.py
