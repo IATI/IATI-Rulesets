@@ -102,6 +102,12 @@ test one_or_all_org one_or_all_org_currency_bad False
 test between_dates between_dates_good True
 test between_dates between_dates_bad False
 
+test recipient_region_budget recipient_region_budget_good True
+test recipient_region_budget recipient_region_budget_bad False
+
+test total_expenditure total_expenditure_good True
+test total_expenditure total_expenditure_bad False
+
 # End with a newline
 echo
 
