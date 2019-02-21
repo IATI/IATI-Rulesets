@@ -48,13 +48,12 @@ def rules_text(rules, reduced_path, show_all=False):
                         elif rule == 'evaluates_to_true':
                             out.append('The conditional expression must evaluate to true.')
                         elif rule == 'date_order':
-                            if show_all or simplify_xpath(case['less']) == reduced_path or simplify_xpath(case['more']) == reduced_path:
-                                if case['less'] == 'NOW':
-                                    out.append('``{0}`` must not be in the past.'.format(case['more']))
-                                elif case['more'] == 'NOW':
-                                    out.append('``{0}`` must not be in the future.'.format(case['less']))
-                                else:
-                                    out.append('``{0}`` must be before or the same as ``{1}``'.format(case['less'], case['more']))
+                            if case['less'] == 'NOW':
+                                out.append('``{0}`` must not be in the past.'.format(case['more']))
+                            elif case['more'] == 'NOW':
+                                out.append('``{0}`` must not be in the future.'.format(case['less']))
+                            else:
+                                out.append('``{0}`` must be before or the same as ``{1}``'.format(case['less'], case['more']))
                         elif rule == 'time_limit':
                             out.append('The time between ``{0}`` and {1} must not be over a year'.format(case['start'], case['end']))
                         elif rule == 'date_now':
