@@ -73,6 +73,6 @@ def rules_text(rules, reduced_path, show_all=False):
                     elif rule == 'loop':
                         out.append('All elements in ``{0}`` are evaluated under the rules inside ``{1}``.'.format(case['foreach'],case['do']))
                 else:
-                    print('Not implemented', case_path, rule, case['paths'])
+                    print('Not implemented', rule, reduced_path)
     return out
 
