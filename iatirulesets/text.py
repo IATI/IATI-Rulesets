@@ -43,6 +43,8 @@ def rules_text(rules, reduced_path, show_all=False):
                                 out.append('The sum of values matched at ``{0}`` must be ``{2}``.'.format(case_path, sum_total))
                         elif rule == 'strict_sum':
                             out.append('The sum of values matched at ``{0}`` must be ``{1}``.'.format(case_path, case['sum']))
+                        else:
+                            print('Not implemented', rule, reduced_path)
             else:
                 # rather than checking line-by-line wether reduced_path is in either one of the specific cases
                 # we do a generic check to assess we're rendering the right rule for the right element
@@ -72,7 +74,7 @@ def rules_text(rules, reduced_path, show_all=False):
                         out.append('The ``{0}`` must be between the ``{1}`` and ``{2}`` dates.'.format(case['date'],case['start'],case['end']))
                     elif rule == 'loop':
                         out.append('All elements in ``{0}`` are evaluated under the rules inside ``{1}``.'.format(case['foreach'],case['do']))
-                else:
-                    print('Not implemented', rule, reduced_path)
+                    else:
+                        print('Not implemented', rule, reduced_path)
     return out
 
