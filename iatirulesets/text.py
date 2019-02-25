@@ -46,15 +46,15 @@ def rules_text(rules, reduced_path, show_all=False):
                                 out.append('The sum of values matched at ``{0}`` must be ``{2}``.'.format(case_path, sum_total))
                         elif rule == 'strict_sum':
                             out.append('The sum of values matched at ``{0}`` must be ``{1}``.'.format(case_path, case['sum']))
+                        elif rule == 'no_percent':
+                            out.append('``{0}`` must not contain a ``%`` sign.'.format(case_path))
+                        else:
+                            print('Not implemented', rule, reduced_path)
             else:
                 # rather than checking line-by-line wether reduced_path is in either one of the specific cases
                 # we do a generic check to assess we're rendering the right rule for the right element
                 if any(reduced_path in val for val in case.values()):               
-                    if rule == 'no_percent':
-                        out.append('```{0}``` must not contain a ``%`` sign.'.format(case_path))
-                    elif rule == 'evaluates_to_true':
-                        out.append('The conditional expression must evaluate to true.')
-                    elif rule == 'date_order':
+                    if rule == 'date_order':
                         if case['less'] == 'NOW':
                             out.append('``{0}`` must not be in the past.'.format(case['more']))
                         elif case['more'] == 'NOW':
@@ -62,7 +62,7 @@ def rules_text(rules, reduced_path, show_all=False):
                         else:
                             out.append('``{0}`` must be before or the same as ``{1}``'.format(case['less'], case['more']))
                     elif rule == 'time_limit':
-                        out.append('The time between ``{0}`` and {1} must not be over a year'.format(case['start'], case['end']))
+                        out.append('The time between ``{0}`` and ``{1}`` must not be over a year'.format(case['start'], case['end']))
                     elif rule == 'date_now':
                         out.append('``{0}`` must not be more recent than the current date'.format(case['date']))
                     elif rule == 'if_then':
@@ -70,11 +70,11 @@ def rules_text(rules, reduced_path, show_all=False):
                     elif rule == 'one_or_all':
                         out.append('``{0}`` must exist, otherwise all ``{1}`` must exist.'.format(case['one'], case['all']))
                     elif rule == 'evaluates_to_true':
-                        out.append('Each expression defined in ``{0}`` must resolve to true.'.format(case['eval']))
+                        out.append('``{0}`` must resolve to true.'.format(case['eval']))
                     elif rule == 'between_dates':
                         out.append('The ``{0}`` must be between the ``{1}`` and ``{2}`` dates.'.format(case['date'],case['start'],case['end']))
                     elif rule == 'loop':
                         out.append('All elements in ``{0}`` are evaluated under the rules inside ``{1}``.'.format(case['foreach'],case['do']))
-                else:
-                    print('Not implemented', rule, reduced_path)
+                    else:
+                        print('Not implemented', rule, reduced_path)
     return out
