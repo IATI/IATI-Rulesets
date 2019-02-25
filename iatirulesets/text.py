@@ -44,7 +44,7 @@ def rules_text(rules, reduced_path, show_all=False):
                         elif rule == 'strict_sum':
                             out.append('The sum of values matched at ``{0}`` must be ``{1}``.'.format(case_path, case['sum']))
                         elif rule == 'no_percent':
-                            out.append('```{0}``` must not contain a ``%`` sign.'.format(case_path))
+                            out.append('``{0}`` must not contain a ``%`` sign.'.format(case_path))
                         else:
                             print('Not implemented', rule, reduced_path)
             else:
