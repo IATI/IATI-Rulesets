@@ -51,7 +51,7 @@ def rules_text(rules, reduced_path, show_all=False):
                 # rather than checking line-by-line wether reduced_path is in either one of the specific cases
                 # we do a generic check to assess we're rendering the right rule for the right element
                 if show_all or any(reduced_path in val for val in case.values()):               
-                    elif rule == 'date_order':
+                    if rule == 'date_order':
                         if case['less'] == 'NOW':
                             out.append('``{0}`` must not be in the past.'.format(case['more']))
                         elif case['more'] == 'NOW':
