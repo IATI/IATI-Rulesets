@@ -194,10 +194,7 @@
         },
         "time_limit": {
             "cases": [
-                {
-                    "start": "period-start/@iso-date",
-                    "end": "period-end/@iso-date"
-                }
+                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
             ]
         }
     },
@@ -209,19 +206,14 @@
         },
         "time_limit": {
             "cases": [
-                {
-                    "start": "period-start/@iso-date",
-                    "end": "period-end/@iso-date"
-                }
+                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
             ]
         }
     },
     "//recipient-region-budget": {
         "time_limit": {
             "cases": [
-                {
-                    "start": "period-start/@iso-date", "end": "period-end/@iso-date"
-                }
+                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
             ]
         }
     },
@@ -235,18 +227,14 @@
     "//result/indicator/period": {
         "date_order": {
             "cases": [
-                {
-                    "start": "period-start/@iso-date", "end": "period-end/@iso-date"
-                }
+                {  "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
             ]
         }
     },
     "//total-expenditure": {
         "time_limit": {
             "cases": [
-                {
-                    "start": "period-start/@iso-date", "end": "period-end/@iso-date"
-                }
+                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
             ]
         },
         "date_order": {
