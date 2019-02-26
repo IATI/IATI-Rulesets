@@ -25,7 +25,9 @@ Where ``CONTEXT`` is an xpath expression. This will be used to select the XML el
 The possible keys in a case dictionary are:
 
 ``condition``
-    An xpath string. If this evaluates to False, the rule will be ignored.
+    An xpath string. If this evaluates to True, the rule will be ignored.
+``eval``
+    An xpath string. Can evaluate to True or False.
 ``paths``
     An array of xpath strings. These are evaluated to give a list of elements that the named rule then operates upon.
 ``less``
@@ -36,6 +38,24 @@ The possible keys in a case dictionary are:
     A string containing a perl style regular expression.
 ``sum``
     A number.
+``excluded``
+    An array of xpath strings. Evaluate which elements should not coexist with other elements.
+``date``
+    A string containing the xpath to a date.
+``start``
+    A string containing the xpath to a start date.
+``end``
+    A string containing the xpath to an end date.
+``one``
+    A string containing the xpath of something that must exist or ``all`` must be followed.
+``all``
+    A string containing the condition that must be met for all elements if ``one`` is not met.
+``foreach``
+    An array of xpath strings. Containing a set of xpaths to be evaluated under a different rule.
+``do``
+    An array of rules. To evaluate with ``foreach``.
+``subs``
+    An array of xpath strings. These are to be evaluated with the rules in ``do``.
 
 Rule Names
 ----------
@@ -57,6 +77,16 @@ Rule Names
 
     There must be at least one element described by the given paths.
 
+**only_one_of**
+    Keys: ``excluded``, ``paths``
+
+    If there's a match of the elements in ``excluded``, there must not be any matches in ``paths``, if there are no matches in ``excluded``, there must be exactly one element from ``paths``.
+
+**one_or_all**
+    Keys: ``one``, ``all``
+
+    ``one`` must exist otherwise ``all`` other attributes or elements must exist.
+
 **dependent**
     Keys: ``condition``, ``paths``
 
@@ -71,6 +101,21 @@ Rule Names
     Keys: ``condition``, ``less``, ``more``
 
     The date matched by ``less`` must not be after the date matched by ``more``. If either of these dates is not found, the rule is ignored.
+
+**date_now**
+    Keys: ``date``
+
+    The ``date`` must not be after the current date.
+
+**time_limit**
+    Keys: ``start``, ``end``
+
+    The difference between the ``start`` date and the ``end`` date must not be greater than a year.
+
+**between_dates**
+    Keys: ``date``, ``start``, ``end``
+
+    The ``date`` must be between the ``start`` and ``end`` dates.
 
 **regex_matches**
     Keys: ``condition``, ``paths``, ``regex``
@@ -92,6 +137,27 @@ Rule Names
 
     The text of each of the elements described by ``paths`` must be unique
 
+**no_percent**
+    Keys: ``condition``, ``paths``
 
+    The text of each of the elements described by ``paths`` must be not contain a ``%`` sign
 
+**evaluates_to_true**
+    Keys: ``cases``, ``eval``
 
+    Each expression defined in ``eval`` must resolve to true
+
+**if_then**
+    Keys: ``condition``, ``cases``, ``if``, ``then``
+
+    If the condition evaluated in ``if`` is true, then ``then`` must resolve to true as well
+
+**loop**
+    Keys: ``foreach``, ``do``, ``cases``, ``subs``
+
+    All elements in ``foreach`` are evaluated under the rules inside ``do``
+
+**strict_sum**
+    Keys: ``paths``, ``sum``
+
+    The decimal sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key

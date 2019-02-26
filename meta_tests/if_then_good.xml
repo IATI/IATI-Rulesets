@@ -1,3 +1,4 @@
 <iati-activities><iati-activity>
-    <title>ABC&amp;D</title>
+    <test example="1"></test>
+    <other />
 </iati-activity></iati-activities>
