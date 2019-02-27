@@ -3,7 +3,7 @@
         "regex_no_matches": {
             "cases": [ {
                 "paths": [ "title" ],
-                "regex": "D.D$"
+                "regex": "^[^\\/\\&\\|\\?]+$"
              } ]
         }
     }

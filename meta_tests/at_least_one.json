@@ -1,0 +1,11 @@
+{
+    "//iati-activity": {
+        "atleast_one": {
+            "cases": [
+                {
+                    "paths": [ "other-identifier/owner-org/@ref", "other-identifier/owner-org/narrative"]
+                }
+            ]
+        }
+    }
+}

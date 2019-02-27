@@ -1,0 +1,7 @@
+{
+    "//total-expenditure": {
+        "time_limit": {
+            "cases": [{ "start": "period-start/@iso-date", "end": "period-end/@iso-date"}]
+    	}
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "//iati-activity": {
+        "strict_sum": {
+            "cases": [
+                {
+                    "paths": [ "recipient-country/@percentage" ],
+                    "sum": 100
+                }
+            ]
+        }
+    }
+}
