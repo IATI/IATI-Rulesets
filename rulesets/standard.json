@@ -84,16 +84,25 @@
         "no_percent": {
             "cases": [
                 {
-                    "paths": [ "crs-add/loan-terms/@rate-1", "crs-add/loan-terms/@rate-2" ]
+                    "paths": [
+                        "crs-add/loan-terms/@rate-1",
+                        "crs-add/loan-terms/@rate-2",
+                        "recipient-country/@percentage",
+                        "recipient-region/@percentage",
+                        "sector/@percentage",
+                        "country-budget-items/budget-item/@percentage",
+                        "capital-spend/@percentage"
+                    ]
                 }
             ]
         },
         "evaluates_to_true": {
             "cases": [
-                {"eval": "number(recipient-country/@percentage) >= 0.0"},
-                {"eval": "number(recipient-region/@percentage) >= 0.0"},
-                {"eval": "number(sector/@percentage) >= 0.0"},
-                {"eval": "number(capital-spend/@percentage) >= 0.0"}
+                {"eval": "number(recipient-country/@percentage) >= 0.0 and number(recipient-country/@percentage) <= 100.0"},
+                {"eval": "number(recipient-region/@percentage) >= 0.0 and number(recipient-region/@percentage) <= 100.0"},
+                {"eval": "number(sector/@percentage) >= 0.0 and number(sector/@percentage) <= 100.0"},
+                {"eval": "number(capital-spend/@percentage) >= 0.0 and number(capital-spend/@percentage) <= 100.0"},
+                {"eval": "number(country-budget-items/budget-item/@percentage) >= 0.0 and number(country-budget-items/budget-item/@percentage) <= 100.0"}
             ]
         },
         "if_then": {

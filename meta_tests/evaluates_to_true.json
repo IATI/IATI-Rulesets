@@ -2,7 +2,7 @@
     "//iati-activity": {
         "evaluates_to_true": {
             "cases": [ {
-                "eval": "test/@number >= 0"
+                "eval": "number(test/@number) >= 0.0 and number(test/@number) <= 100.0"
              } ]
         }
     }
