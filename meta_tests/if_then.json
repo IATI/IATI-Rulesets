@@ -2,7 +2,8 @@
     "//iati-activity": {
         "if_then": {
             "cases": [ 
-                {"if": "count(test[@example = 1 or @example=2]) > 0", "then": "count(other) > 0"}
+                {"if": "count(test[@example = 1 or @example=2]) > 0", "then": "count(other) > 0"},
+                {"if": "test/@example", "then": "number(test/@example) = test/@example"}
             ]
         }
     }
