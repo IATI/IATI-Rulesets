@@ -427,6 +427,9 @@
                                 "properties": {
                                     "eval": {
                                         "type": "string"
+                                    },
+                                    "condition": {
+                                        "type": "string"
                                     }
                                 }
                             }
