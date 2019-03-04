@@ -96,7 +96,19 @@
                 {"eval": "number(recipient-region/@percentage) >= 0.0 and number(recipient-region/@percentage) <= 100.0"},
                 {"eval": "number(sector/@percentage) >= 0.0 and number(sector/@percentage) <= 100.0"},
                 {"eval": "number(capital-spend/@percentage) >= 0.0 and number(capital-spend/@percentage) <= 100.0"},
-                {"eval": "number(country-budget-items/budget-item/@percentage) >= 0.0 and number(country-budget-items/budget-item/@percentage) <= 100.0"}
+                {"eval": "number(country-budget-items/budget-item/@percentage) >= 0.0 and number(country-budget-items/budget-item/@percentage) <= 100.0"},
+                {
+                    "condition": "activity-status/@code='1'",
+                    "eval": "not(activity-date[@type='2'])"
+                },
+                {
+                    "condition": "activity-status/@code='1'",
+                    "eval": "not(activity-date[@type='4'])"
+                },
+                {
+                    "condition": "activity-status/@code='2'",
+                    "eval": "not(activity-date[@type='4'])"
+                }
             ]
         },
         "if_then": {
