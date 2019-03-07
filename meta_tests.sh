@@ -127,6 +127,9 @@ test total_expenditure total_expenditure_bad False
 test status_date status_date_good True
 test status_date status_date_bad False
 
+test range range_good True
+test range range_bad False
+
 # End with a newline
 echo
 

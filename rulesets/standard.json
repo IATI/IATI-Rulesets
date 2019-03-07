@@ -92,11 +92,6 @@
         },
         "evaluates_to_true": {
             "cases": [
-                {"eval": "number(recipient-country/@percentage) >= 0.0 and number(recipient-country/@percentage) <= 100.0"},
-                {"eval": "number(recipient-region/@percentage) >= 0.0 and number(recipient-region/@percentage) <= 100.0"},
-                {"eval": "number(sector/@percentage) >= 0.0 and number(sector/@percentage) <= 100.0"},
-                {"eval": "number(capital-spend/@percentage) >= 0.0 and number(capital-spend/@percentage) <= 100.0"},
-                {"eval": "number(country-budget-items/budget-item/@percentage) >= 0.0 and number(country-budget-items/budget-item/@percentage) <= 100.0"},
                 {
                     "condition": "activity-status/@code='1'",
                     "eval": "not(activity-date[@type='2'])"
@@ -108,6 +103,30 @@
                 {
                     "condition": "activity-status/@code='2'",
                     "eval": "not(activity-date[@type='4'])"
+                }
+            ]
+        },
+        "range": {
+            "cases": [
+                {
+                    "paths": ["recipient-country/@percentage"],
+                    "min": 0.0, "max": 100.0
+                },
+                {
+                    "paths": ["recipient-region/@percentage"],
+                    "min": 0.0, "max": 100.0
+                },
+                {
+                    "paths": ["sector/@percentage"],
+                    "min": 0.0, "max": 100.0
+                },
+                {
+                    "paths": ["capital-spend/@percentage"],
+                    "min": 0.0, "max": 100.0
+                },
+                {
+                    "paths": ["country-budget-items/budget-item/@percentage"],
+                    "min": 0.0, "max": 100.0
                 }
             ]
         },

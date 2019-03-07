@@ -457,6 +457,31 @@
                             }
                         }
                     }
+                },
+                "range": {
+                    "description": "The value of each of the elements described by ``paths`` must be between the values of ```min`` and ```max```",
+                    "type": "object",
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "min": {
+                                        "type": "number"
+                                    },
+                                    "max": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }                 
                 }
             },
             "additionalProperties": false

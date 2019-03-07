@@ -160,6 +160,11 @@ class Rules(object):
     def if_then(self, case):
         return self.element.xpath(case['then']) if self.element.xpath(case['if']) else True
 
+    def range(self, case):
+        return all([
+            Decimal(case['min']) <= Decimal(val) <= Decimal(case['max']) for val in self.path_matches_text
+        ])
+
 
 def test_rule(context_xpath, element, rule, case):
     """
