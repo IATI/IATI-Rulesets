@@ -88,20 +88,32 @@
                 }
             ]
         },
-        "evaluates_to_true": {
-            "cases": [
-                {"eval": "number(recipient-country/@percentage) >= 0.0"},
-                {"eval": "number(recipient-region/@percentage) >= 0.0"},
-                {"eval": "number(sector/@percentage) >= 0.0"},
-                {"eval": "number(capital-spend/@percentage) >= 0.0"}
-            ]
-        },
         "if_then": {
             "cases":[
                 {"if": "count(@lang) = 0", "then": "count(narrative/@lang) > 0 and (count(narrative) = count(narrative/@lang))"},
                 {"if": "count(@default-currency) = 0", "then": "count(crs-add/loan-status/@currency) > 0"},
                 {"if": "count(@default-currency) = 0", "then": "count(fss/forecast/@currency) > 0"},
                 {"if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0", "then": "count(sector/narrative) > 0"}
+            ]
+        },
+        "range": {
+            "cases": [
+                {
+                    "paths": ["recipient-country/@percentage"],
+                    "min": 0.0
+                },
+                {
+                    "paths": ["recipient-region/@percentage"],
+                    "min": 0.0
+                },
+                {
+                    "paths": ["sector/@percentage"],
+                    "min": 0.0
+                },
+                {
+                    "paths": ["capital-spend/@percentage"],
+                    "min": 0.0
+                }
             ]
         }
     },
