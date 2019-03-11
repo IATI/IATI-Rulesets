@@ -459,7 +459,7 @@
                     }
                 },
                 "range": {
-                    "description": "The value of each of the elements described by ``paths`` must be between the values of ```min`` and ```max```",
+                    "description": "The value of each of the elements described by ``paths`` must be between the values of ```min`` and ```max```. Min/max can be excluded, to check that the value is at least or no more the specified key.",
                     "type": "object",
                     "properties": {
                         "cases": {

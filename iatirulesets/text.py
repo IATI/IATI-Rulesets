@@ -56,7 +56,7 @@ def rules_text(rules, reduced_path, show_all=False):
                         elif rule == 'no_percent':
                             out.append('``{0}`` must not contain a ``%`` sign.'.format(case_path))
                         elif rule == 'range':
-                            out.append('The value of ``{0}`` must be between ``{1}`` and ``{2}`` (inclusive).'.format(case_path, case['min'], case['max']))
+                            out.append('The value of each of the elements described by ``paths`` must be at least ``min`` and no more than ``max`` (inclusive).')
                         else:
                             print('Not implemented', rule, reduced_path)
             else:

@@ -161,8 +161,11 @@ class Rules(object):
         return self.element.xpath(case['then']) if self.element.xpath(case['if']) else True
 
     def range(self, case):
+        # if min/max are missing, we use val as the sentinel
+        # so we can check also that val is at_least_value or no_more_than_value
         return all([
-            Decimal(case['min']) <= Decimal(val) <= Decimal(case['max']) for val in self.path_matches_text
+           Decimal(case.get('min', val)) <= Decimal(val) <= Decimal(case.get('max', val))
+           for val in self.path_matches_text
         ])
 
 

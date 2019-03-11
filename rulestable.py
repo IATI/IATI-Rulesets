@@ -31,7 +31,7 @@ english = {
     'sum': 'Must sum to {0}',
     'startswith': 'Must start with ``{0}``',
     'unique': 'Unique',
-    'range': 'The value must be between {0} and {1} (inclusive).',
+    'range': 'The value must be at least ``min`` and no more than ``max`` (inclusive).',
     'evaluates_to_true': '```eval``` must evaluate to true',
     'time_limit': 'Length must be under a year',
     'date_now': 'Date must not be more recent than the current date',
@@ -59,8 +59,6 @@ for xpath, rules in rulesets.items():
                     requirement = requirement.format(case['sum'])
                 elif rule == 'startswith':
                     requirement = requirement.format(case['start'])
-                elif rule == 'range':
-                    requirement = requirement.format(case['min'], case['max'])
             else:
                 requirement = rule
             print '    -', requirement
