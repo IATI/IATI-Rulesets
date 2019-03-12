@@ -108,6 +108,9 @@ test recipient_region_budget recipient_region_budget_bad False
 test total_expenditure total_expenditure_good True
 test total_expenditure total_expenditure_bad False
 
+test range range_good True
+test range range_bad False
+
 # End with a newline
 echo
 
