@@ -102,6 +102,10 @@ test one_or_all_org one_or_all_org_currency_bad False
 test between_dates between_dates_good True
 test between_dates between_dates_bad False
 
+test range range_good True
+test range range_bad False
+
+
 # End with a newline
 echo
 
