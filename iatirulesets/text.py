@@ -35,11 +35,15 @@ def rules_text(rules, reduced_path, show_all=False):
                                 out.append('``{0}`` must not be present if ``{1}`` are present.'.format(case_path, human_list(other_paths)))
                                 break
                         elif rule == 'atleast_one':
+                            cond = case.get('condition', None)
+                            cond = '.' if not cond else ' if {}'.format(cond)
+                            
                             if other_paths:
-                                out.append('Either ``{0}`` or ``{1}`` must be present.'.format(case_path, human_list(other_paths)))
+                                out.append('Either ``{0}`` or ``{1}`` must be present{2}'.format(case_path, human_list(other_paths), cond))
                                 break
                             else:
-                                out.append('``{0}`` must be present.'.format(case_path))
+                                out.append('``{0}`` must be present{1}'.format(case_path, cond))
+
                         elif rule == 'only_one_of':
                             out.append('``{0}`` must not be present alongisde ``{1}``.'.format(case_path, human_list(case['excluded'], 'and')))
                         elif rule == 'startswith':
