@@ -66,6 +66,16 @@ def rules_text(rules, reduced_path, show_all=False):
                             out.append('The sum of values matched at ``{0}`` must be ``{1}``.'.format(case_path, case['sum']))
                         elif rule == 'no_percent':
                             out.append('``{0}`` must not contain a ``%`` sign.'.format(case_path))
+                        elif rule == 'range':
+                            min_val = case.get('min')
+                            max_val = case.get('max')
+                            if min_val is not None or max_val is not None:
+                                # only proceed if one of the two exists
+                                txt = 'The value of each of the elements described by ``{0}`` must be'.format(case_path)
+                                txt += ' at least ``{0}``'.format(min_val) if min_val is not None else ''
+                                txt += ' no more than ``{0}``'.format(max_val) if max_val is not None else ''
+                                txt += ' (inclusive).'
+                                out.append(txt)
                         else:
                             print('Not implemented', rule, reduced_path)
             else:

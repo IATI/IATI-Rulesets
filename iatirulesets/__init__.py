@@ -160,6 +160,14 @@ class Rules(object):
     def if_then(self, case):
         return self.element.xpath(case['then']) if self.element.xpath(case['if']) else True
 
+    def range(self, case):
+        # if min/max are missing, we use val as the sentinel
+        # so we can check also that val is at_least_value or no_more_than_value
+        return all([
+           Decimal(case.get('min', val)) <= Decimal(val) <= Decimal(case.get('max', val))
+           for val in self.path_matches_text
+        ])
+
 
 def test_rule(context_xpath, element, rule, case):
     """
