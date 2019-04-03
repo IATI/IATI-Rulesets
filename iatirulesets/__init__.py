@@ -62,6 +62,7 @@ class Rules(object):
                 for currency in self.element.xpath("descendant::" + cpath):
                     if not currency.xpath("@currency"):
                         return False
+        return True
 
     def dependent(self, case):
         return all(len(m) != 0 for m in self.nested_matches) or all(len(m) == 0 for m in self.nested_matches)
