@@ -11,7 +11,7 @@
         },
         "one_or_all": {
             "cases": [
-                { "one":"@xml-lang", "all":"lang" },
+                { "one":"@xml:lang", "all":"lang" },
                 { "one":"sector", "all":"sector" },
                 { "one":"@default-currency", "all":"currency" }
             ]
@@ -140,7 +140,7 @@
         },
         "one_or_all": {
             "cases": [
-                { "one":"@xml-lang", "all":"lang" },
+                { "one":"@xml:lang", "all":"lang" },
                 { "one":"@default-currency", "all":"currency" }
             ]
         }
