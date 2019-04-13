@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  stylesheet="../../../data-quality/rules/iati.xslt"
+  xslt-version="3.0">
+
+  <x:import href="lib/countries-regions.xspec"/>
+
+  <x:scenario label="Recipient countries and regions (IATI versions 2.0x)">
+  </x:scenario>
+
+  <x:scenario pending="to be discussed" label="There are recipient-country elements, and recipient-region elements in multiple vocabularies:"/>
+</x:description>

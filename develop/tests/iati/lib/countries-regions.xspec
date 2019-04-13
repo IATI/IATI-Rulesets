@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Recipient countries only">
+  </x:scenario>
+
+  <x:scenario label="Recipient regions only (single vocabulary)">
+  </x:scenario>
+
+  <x:scenario label="Recipient regions only (multiple vocabularies)">
+  </x:scenario>
+
+</x:description>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta xmlns="http://iati.me">
+  <categories>
+    <category class="iati">
+      <title>IATI file</title>
+    </category>
+    
+    <!-- following IATI main categories -->
+    <category class="identifiers">
+      <title>Identification</title>
+    </category>
+    <category class="organisation">
+      <title>Basic organisation information</title>
+    </category>
+    <category class="information">
+      <title>Basic activity information</title>
+    </category>
+    <category class="participating">
+      <title>Participating organisations</title>
+    </category>
+    <category class="geo">
+      <title>Geopolitical information</title>
+    </category>
+    <category class="classifications">
+      <title>Classifications</title>
+    </category>
+    <category class="financial">
+      <title>Financial</title>
+    </category>
+    <category class="documents">
+      <title>Related documents</title>
+    </category>
+    <category class="relations">
+      <title>Relations</title>
+    </category>    
+    <category class="performance">
+      <title>Performance</title>
+    </category>    
+      </categories>
+
+  <severities>
+    <severity type="danger">Error</severity>
+    <severity type="warning">Warning</severity>
+    <severity type="info">Improvement</severity>
+    <severity type="success">Information</severity>
+  </severities>
+
+  <sources>
+    <source id="iati" logo="iati.png">IATI Standard</source>
+  </sources>
+</meta>
