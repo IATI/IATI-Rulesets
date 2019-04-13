@@ -1,0 +1,3 @@
+[submodule "develop/xspec"]
+	path = develop/xspec
+	url = git@github.com:data4development/xspec.git

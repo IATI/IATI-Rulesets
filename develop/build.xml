@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <description>
+    Developer targets
+  </description>
+
+  <property name="xspec.fail" value="false"/>
+  <import file="xspec/build.xml" optional="yes"/>
+  
+</project>
