@@ -1,7 +1,0 @@
-<iati-organisations><iati-organisation>
-    <recipient-country-budget>
-    	<period-start iso-date="2019-01-01"></period-start>
-    	<period-end iso-date="2020-01-01"></period-end>
-    	<budget-line value-date="2019-05-01"></budget-line>
-    </recipient-country-budget>
-</iati-organisation></iati-organisations>

@@ -1,9 +1,0 @@
-{
-  "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/actual": {
-      "atleast_one": {
-          "cases": [
-              { "paths": [ "@value" ] }
-          ]
-      }
-  }
-}
