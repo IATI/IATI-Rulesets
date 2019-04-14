@@ -9,7 +9,7 @@
 
   <xsl:template match="iati-activity[sector]" mode="rules" priority="6.6">
     <xsl:if test="transaction/sector">
-      <me:feedback type="error" class="classifications" id="6.6.2">
+      <me:feedback type="danger" class="classifications" id="6.6.2">
         <me:src ref="iati" versions="any"/>
         <me:message>If the activity has a sector classification, none of the transactions should have a sector classification.</me:message>
       </me:feedback>
@@ -21,13 +21,13 @@
   <xsl:template match="iati-activity[not(sector)]" mode="rules" priority="6.7">
     <xsl:choose>
       <xsl:when test="not(transaction[sector])">
-        <me:feedback type="error" class="classifications" id="6.2.2">
+        <me:feedback type="danger" class="classifications" id="6.2.2">
           <me:src ref="iati" versions="any"/>
           <me:message>The activity should have a sector classification for either the activity or for all transactions.</me:message>
         </me:feedback>
       </xsl:when>
       <xsl:when test="transaction[not(sector)]">
-        <me:feedback type="error" class="classifications" id="6.7.2">
+        <me:feedback type="danger" class="classifications" id="6.7.2">
           <me:src ref="iati" versions="any"/>
           <me:message>If transactions have a sector classification, they must be used for all transactions.</me:message>
         </me:feedback>
@@ -39,7 +39,7 @@
 
   <xsl:template match="owner-org" mode="rules" priority="6.8">
     <xsl:if test="not(@ref) and not(narrative)">
-      <me:feedback type="error" class="information" id="6.8.1">
+      <me:feedback type="danger" class="information" id="6.8.1">
         <me:src ref="iati" versions="any"/>
         <me:message>The owner organisation must have an identifier or a narrative name.</me:message>
       </me:feedback>      
@@ -50,7 +50,7 @@
 
   <xsl:template match="provider-org|receiver-org" mode="rules" priority="6.9">
     <xsl:if test="not(@ref) and not(narrative)">
-      <me:feedback type="error" class="financial" id="6.9.1">
+      <me:feedback type="danger" class="financial" id="6.9.1">
         <me:src ref="iati" versions="any"/>
         <me:message>The organisation must have an identifier or a narrative name.</me:message>
       </me:feedback>      
@@ -61,7 +61,7 @@
 
   <xsl:template match="participating-org" mode="rules" priority="6.10">
     <xsl:if test="not(@ref) and not(narrative)">
-      <me:feedback type="error" class="participating" id="6.10.1">
+      <me:feedback type="danger" class="participating" id="6.10.1">
         <me:src ref="iati" versions="any"/>
         <me:message>The participating organisation must have an identifier or a narrative name.</me:message>
       </me:feedback>      
