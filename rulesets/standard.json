@@ -1,11 +1,5 @@
 {
     "//iati-activity": {
-        "regex_matches": {
-            "cases": [
-                { "regex": "[^\\/\\&\\|\\?]+",
-                  "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] }
-            ]
-        },
         "no_percent": {
             "cases": [
                 {
@@ -62,14 +56,6 @@
                     "condition": "@vocabulary='99'",
                     "paths": [ "narrative" ]
                 }
-            ]
-        }
-    },
-    "//iati-organisation": {
-        "regex_matches": {
-            "cases": [
-                { "regex": "[^\\/\\&\\|\\?]+",
-                  "paths": [ "reporting-org/@ref", "organisation-identifier" ] }
             ]
         }
     },
