@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="DataWorkbench">
+<project name="IATI-Rules">
   
-  <import file="develop/xspec/build.xml" />
-  <target name="tests" description="Run Xspec tests for versions 1.0x and 2.0x"
-    depends="iati-1.0x-tests, iati-2.0x-tests">
-    <echo>
-      See files develop/tests/xspec/iati-activities-1.0x-result.html and develop/tests/xspec/iati-activities-2.0x-result.html
-    </echo>
-  </target>
-
-  <target name="iati-1.0x-tests">
-    <antcall target="xspec.xspec" inheritall="false">
-      <param name="xspec.xml" location="develop/tests/iati-activities-1.0x.xspec"/>
-    </antcall>
-  </target>
-  
-  <target name="iati-2.0x-tests">
-    <antcall target="xspec.xspec" inheritall="false">
-      <param name="xspec.xml" location="develop/tests/iati-activities-2.0x.xspec"/>
-    </antcall>
-  </target>
-  
+  <import file="develop/build.xml" optional="true"/>
 </project>

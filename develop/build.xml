@@ -4,15 +4,8 @@
     Developer targets
   </description>
 
-  <property name="xspec.fail" value="false"/>
   <import file="xspec/build.xml" optional="yes"/>
-  
-  <target name="non-iati-file-tests" depends="xml-check, rules">
-    <antcall target="xspec.xspec" inheritall="false">
-      <param name="xspec.xml" location="develop/tests/non-iati-files.xspec"/>
-    </antcall>
-  </target>
-  
+
   <target name="iati-1.0x-tests">
     <antcall target="xspec.xspec" inheritall="false">
       <param name="xspec.xml" location="develop/tests/iati-activities-1.0x.xspec"/>
@@ -25,8 +18,14 @@
     </antcall>
   </target>
   
-  <target name="tests" description="Run the tests" 
-    depends="non-iati-file-tests, iati-1.0x-tests, iati-2.0x-tests">
+  <target name="test" description="Run the tests" 
+    depends="iati-1.0x-tests, iati-2.0x-tests">
     <!-- TODO: as we use a global variable to pass around the IATI version to use in checks, we can't test 1.05 and 2.03 in the same run -->
+  </target>
+
+  <target name="tests" description="Run all the tests (don't stop at first failure)">
+    <antcall target="test">
+      <param name="xspec.fail" value="false"/>
+    </antcall>
   </target>
 </project>
