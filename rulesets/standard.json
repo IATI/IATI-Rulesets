@@ -146,13 +146,6 @@
             ]
         }
     },
-    "//total-budget": {
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date"}
-            ]
-        }
-    },
     "//recipient-country-budget": {
         "between_dates": {
             "cases": [
@@ -162,38 +155,12 @@
                     "end": "period-end/@iso-date"
                 }
             ]
-        },
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//recipient-org-budget": {
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//recipient-region-budget": {
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
         }
     },
     "//result/indicator": {
         "no_more_than_one": {
             "cases": [
                 { "paths": [ "reference[1]", "../reference[1]" ] }
-            ]
-        }
-    },
-    "//total-expenditure": {
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
             ]
         }
     },
