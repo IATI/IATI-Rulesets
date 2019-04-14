@@ -16,19 +16,6 @@
                 }
             ]
         },
-        "date_now": {
-            "cases": [
-                { "date": "@last-updated-datetime" }
-            ]
-        },
-        "date_order": {
-            "cases": [
-                { "less": "activity-date[@type='1']/@iso-date", "more": "activity-date[@type='3']/@iso-date" },
-                { "less": "activity-date[@type='2']/@iso-date", "more": "activity-date[@type='4']/@iso-date" },
-                { "less": "activity-date[@type='2']/@iso-date", "more": "NOW" },
-                { "less": "activity-date[@type='4']/@iso-date", "more": "NOW" }
-            ]
-        },
         "regex_matches": {
             "cases": [
                 { "regex": "[^\\/\\&\\|\\?]+",
@@ -122,14 +109,6 @@
         "atleast_one": {
             "cases": [
                 { "paths": [ "@ref", "narrative" ] }
-            ]
-        }
-    },
-    "//transaction": {
-        "date_order": {
-            "cases": [
-                { "less": "transaction-date/@iso-date", "more": "NOW" },
-                { "less": "value/@value-date", "more": "NOW" }
             ]
         }
     },
