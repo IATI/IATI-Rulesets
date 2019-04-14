@@ -7,6 +7,80 @@
   <x:import href="lib/countries-regions.xspec"/>
 
   <x:scenario label="Recipient countries and regions (IATI versions 2.0x)">
+
+    <x:scenario label="If there are one or more recipient-country and one or more recipient-region">
+      <x:context>
+        <iati-activities>
+          <iati-activity>
+            <recipient-country code="AL"/>
+            <recipient-region code="89"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-country code="AL"/>
+            <recipient-region code="89"/>
+            <recipient-region code="389"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-country code="AL"/>
+            <recipient-region code="89" percentage="100"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-country code="AL"/>
+            <recipient-region code="89" percentage="33"/>
+            <recipient-region code="389"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce 'geo' message 3.4.1 if no percentages are given (2 items)." test="boolean(//iati-activity[1]/me:feedback[@id='3.4.1'])"/>
+      <x:expect label="It should produce 'geo' message 3.4.1 if no percentages are given (3 or more)." test="boolean(//iati-activity[2]/me:feedback[@id='3.4.1'])"/>
+      <x:expect label="It should produce 'geo' message 3.4.1 if one percentage is given (100%)." test="boolean(//iati-activity[3]/me:feedback[@id='3.4.1'])"/>
+      <x:expect label="It should produce 'geo' message 3.4.1 if one percentage is given (other than 100%)." test="boolean(//iati-activity[4]/me:feedback[@id='3.4.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If a single element has no percentage">
+      <x:context>
+        <iati-activity>
+          <recipient-country code="AL"/>
+          <recipient-region code="89" percentage="33"/>
+          <recipient-region code="389" percentage="33"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce 'geo' message 3.4.1." test="boolean(//me:feedback[@id='3.4.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If percentages do not add up to 100">
+      <x:context>
+        <iati-activity>
+          <recipient-country code="AL" percentage="33"/>
+          <recipient-region code="89" percentage="33"/>
+          <recipient-region code="389" percentage="33"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce 'geo' message 3.4.2." test="boolean(//me:feedback[@id='3.4.2'])"/>
+    </x:scenario>
+
+    <x:scenario label="If percentages do not add up to 100 ± 0.01">
+      <x:context>
+        <iati-activity>
+          <recipient-country code="AL" percentage="33.3"/>
+          <recipient-region code="89" percentage="33.3"/>
+          <recipient-region code="389" percentage="33.3"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce 'geo' message 3.4.2." test="boolean(//me:feedback[@id='3.4.2'])"/>
+    </x:scenario>
+
+    <x:scenario label="If percentages add up to 100 ± 0.01">
+      <x:context>
+        <iati-activity>
+          <recipient-country code="AL" percentage="33.33"/>
+          <recipient-region code="89" percentage="33.33"/>
+          <recipient-region code="389" percentage="33.33"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should not produce any 'geo' feedback." test="not(//me:feedback[@class='geo'])"/>
+    </x:scenario>
+
   </x:scenario>
 
   <x:scenario pending="to be discussed" label="There are recipient-country elements, and recipient-region elements in multiple vocabularies:"/>
