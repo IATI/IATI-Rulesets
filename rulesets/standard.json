@@ -42,32 +42,6 @@
                   "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] }
             ]
         },
-        "loop": {
-            "cases": [
-                {
-                    "foreach": "sector[@vocabulary != '1']/@vocabulary",
-                    "do": {
-                        "strict_sum": {
-                            "cases": [
-                                {
-                                    "paths": [ "sector[@vocabulary = '$1']/@percentage" ],
-                                    "sum": 100
-                                }
-                            ]
-                        }
-                    },
-                    "subs": ["paths"]
-                }
-            ]
-        },
-        "strict_sum": {
-            "cases": [
-                {
-                    "paths": [ "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage" ],
-                    "sum": 100
-                }
-            ]
-        },
         "no_percent": {
             "cases": [
                 {
