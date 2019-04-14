@@ -197,7 +197,7 @@
   <x:scenario label="Recipient regions only (multiple vocabularies)">
 
     <x:scenario label="There is only one recipient-region element per vocabulary:">
-      <x:scenario label="If it has no percentage or the percentage is 100">
+      <x:scenario label="If not all have percentages">
         <x:context>
           <iati-activity>
             <recipient-region code="89"/>
@@ -209,17 +209,7 @@
             <recipient-region code="X1" vocabulary="99" percentage="100"/>
           </iati-activity>
         </x:context>
-        <x:expect label="It should not produce any 'geo' feedback." test="not(//me:feedback[@class='geo'])"/>
-      </x:scenario>
-
-      <x:scenario label="If a percentage is other than 100">
-        <x:context>
-          <iati-activity>
-            <recipient-region code="89"/>
-            <recipient-region code="X1" vocabulary="99" percentage="33"/>
-          </iati-activity>
-        </x:context>
-        <x:expect label="It should produce 'geo' message 3.4.4." test="boolean(//me:feedback[@id='3.4.4'])"/>
+        <x:expect label="It should produce 'geo' message 3.4.1." test="boolean(//me:feedback[@id='3.4.1'])"/>
       </x:scenario>
     </x:scenario>
 
@@ -249,7 +239,7 @@
       <x:scenario label="If percentages do not add up to 100">
         <x:context>
           <iati-activity>
-            <recipient-region code="89"/>
+            <recipient-region code="89" percentage="10"/>
             <recipient-region code="X1" vocabulary="99" percentage="33.33"/>
             <recipient-region code="X2" vocabulary="99" percentage="33.33"/>
           </iati-activity>
@@ -260,8 +250,8 @@
       <x:scenario label="If percentages do not add up to 100 ± 0.01">
         <x:context>
           <iati-activity>
-            <recipient-region code="89"/>
-            <recipient-region code="X1" vocabulary="99" percentage="66.6"/>
+            <recipient-region code="89" percentage="10"/>
+            <recipient-region code="X1" vocabulary="99" percentage="56.6"/>
             <recipient-region code="X2" vocabulary="99" percentage="33.6"/>
           </iati-activity>
         </x:context>
@@ -271,8 +261,8 @@
       <x:scenario label="If percentages add up to 100 ± 0.01">
         <x:context>
           <iati-activity>
-            <recipient-region code="89"/>
-            <recipient-region code="X1" vocabulary="99" percentage="66.66"/>
+            <recipient-region code="89" percentage="10"/>
+            <recipient-region code="X1" vocabulary="99" percentage="56.66"/>
             <recipient-region code="X2" vocabulary="99" percentage="33.33"/>
           </iati-activity>
         </x:context>

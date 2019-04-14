@@ -42,12 +42,6 @@
                   "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] }
             ]
         },
-        "sum": {
-            "cases": [ {
-                "paths": [ "recipient-country/@percentage", "recipient-region/@percentage" ],
-                "sum": 100
-             } ]
-        },
         "loop": {
             "cases": [
                 {
@@ -80,9 +74,6 @@
                     "paths": [
                         "crs-add/loan-terms/@rate-1",
                         "crs-add/loan-terms/@rate-2",
-                        "recipient-country/@percentage",
-                        "recipient-region/@percentage",
-                        "sector/@percentage",
                         "country-budget-items/budget-item/@percentage",
                         "capital-spend/@percentage"
                     ]
