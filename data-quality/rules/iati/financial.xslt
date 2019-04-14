@@ -6,6 +6,17 @@
   xmlns:functx="http://www.functx.com"
   exclude-result-prefixes="functx"
   expand-text="yes">
+
+  <xsl:template match="budget" mode="rules" priority="7.5">
+    <xsl:if test="xs:date(period-start/@iso-date) + xs:yearMonthDuration('P1Y') lt xs:date(period-end/@iso-date)">
+      <me:feedback type="danger" class="financial" id="7.5.3">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The budget period is longer than a year.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
   
   <xsl:template match="loan-status|forecast" mode="rules" priority="7.8">
     <xsl:if test="(not(@currency) or currency='')

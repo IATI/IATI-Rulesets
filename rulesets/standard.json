@@ -158,11 +158,6 @@
             "cases": [
                 { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
             ]
-        },
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
         }
     },
     "//total-budget": {
