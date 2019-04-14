@@ -65,4 +65,15 @@
     
     <xsl:next-match/>
   </xsl:template>
+  
+  <xsl:template match="recipient-country-budget" mode="rules" priority="11.3">
+    <xsl:if test="budget-line/value/@value-date lt period-start/@iso-date or budget-line/value/@value-date gt period-end/@iso-date">
+      <me:feedback type="danger" class="financial" id="11.3.1">
+        <me:src ref="iati"/>
+        <me:message>The budget line value date is not in the budget period.</me:message>
+      </me:feedback>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:next-match/>
 </xsl:stylesheet>
