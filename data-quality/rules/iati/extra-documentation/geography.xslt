@@ -67,4 +67,33 @@
     </xsl:call-template>    
   </xsl:template>
   
+  <xsl:template match="iati-activity[recipient-country or recipient-region]" mode="rules" priority="3.6">
+    <xsl:if test="transaction/recipient-country or transaction/recipient-region">
+      <me:feedback type="danger" class="classifications" id="3.6.2">
+        <me:src ref="iati" versions="any"/>
+        <me:message>If the activity has recipient-country or recipient-region information, none of the transactions should have a recipient-country or recipient-region.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
+  <xsl:template match="iati-activity[not(recipient-country or recipient-region)]" mode="rules" priority="3.7">
+    <xsl:choose>
+      <xsl:when test="not(transaction[recipient-country or recipient-region])">
+        <me:feedback type="danger" class="classifications" id="3.7.1">
+          <me:src ref="iati" versions="any"/>
+          <me:message>The activity should have recipient-country or recipient-region information for either the activity or for all transactions.</me:message>
+        </me:feedback>
+      </xsl:when>
+      <xsl:when test="transaction[not(recipient-country or recipient-region)]">
+        <me:feedback type="danger" class="classifications" id="3.7.2">
+          <me:src ref="iati" versions="any"/>
+          <me:message>If transactions have a recipient-country or recipient-region, they must be used for all transactions.</me:message>
+        </me:feedback>
+      </xsl:when>      
+    </xsl:choose>
+    
+    <xsl:next-match/>
+  </xsl:template>
 </xsl:stylesheet>
