@@ -2,10 +2,7 @@
     "//iati-activity": {
         "atleast_one": {
             "cases": [
-                { "paths": [ "activity-date[@type='1' or @type='2']" ] },
-                { "paths": [ "other-identifier/owner-org/@ref", "other-identifier/owner-org/narrative" ] },
-                { "paths": [ "transaction/provider-org/@ref", "transaction/provider-org/narrative" ] },
-                { "paths": [ "transaction/receiver-org/@ref", "transaction/receiver-org/narrative" ] }
+                { "paths": [ "activity-date[@type='1' or @type='2']" ] }
             ]
         },
         "only_one_of": {
@@ -102,13 +99,6 @@
             "cases": [
                 { "regex": "[^\\/\\&\\|\\?]+",
                   "paths": [ "reporting-org/@ref", "organisation-identifier" ] }
-            ]
-        }
-    },
-    "//participating-org": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "@ref", "narrative" ] }
             ]
         }
     },

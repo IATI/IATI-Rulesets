@@ -36,5 +36,38 @@
     
     <xsl:next-match/>
   </xsl:template>
+
+  <xsl:template match="owner-org" mode="rules" priority="6.8">
+    <xsl:if test="not(@ref) and not(narrative)">
+      <me:feedback type="error" class="information" id="6.8.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The owner organisation must have an identifier or a narrative name.</me:message>
+      </me:feedback>      
+    </xsl:if>
     
+    <xsl:next-match/>
+  </xsl:template>
+
+  <xsl:template match="provider-org|receiver-org" mode="rules" priority="6.9">
+    <xsl:if test="not(@ref) and not(narrative)">
+      <me:feedback type="error" class="financial" id="6.9.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The organisation must have an identifier or a narrative name.</me:message>
+      </me:feedback>      
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+
+  <xsl:template match="participating-org" mode="rules" priority="6.10">
+    <xsl:if test="not(@ref) and not(narrative)">
+      <me:feedback type="error" class="participating" id="6.10.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The participating organisation must have an identifier or a narrative name.</me:message>
+      </me:feedback>      
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
 </xsl:stylesheet>
