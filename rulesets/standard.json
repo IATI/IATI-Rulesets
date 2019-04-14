@@ -224,13 +224,6 @@
             ]
         }
     },
-    "//result/indicator/period": {
-        "date_order": {
-            "cases": [
-                {  "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        }
-    },
     "//total-expenditure": {
         "time_limit": {
             "cases": [
