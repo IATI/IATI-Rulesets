@@ -8,11 +8,6 @@
                 { "paths": [ "transaction/receiver-org/@ref", "transaction/receiver-org/narrative" ] }
             ]
         },
-        "one_or_all": {
-            "cases": [
-                { "one":"@default-currency", "all":"currency" }
-            ]
-        },
         "only_one_of": {
             "cases": [
                 {
@@ -124,8 +119,7 @@
         },
         "one_or_all": {
             "cases": [
-                { "one":"@xml:lang", "all":"lang" },
-                { "one":"@default-currency", "all":"currency" }
+                { "one":"@xml:lang", "all":"lang" }
             ]
         }
     },
