@@ -96,7 +96,6 @@
         },
         "if_then": {
             "cases":[
-                {"if": "count(@default-currency) = 0", "then": "count(crs-add/loan-status/@currency) > 0"},
                 {"if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0", "then": "count(sector/narrative) > 0"},
                 {"if": "result/indicator/baseline/@value", "then": "number(result/indicator/baseline/@value) = number(result/indicator/baseline/@value)"},
                 {"if": "result/indicator/period/target/@value", "then": "number(result/indicator/period/target/@value) = number(result/indicator/period/target/@value)"},
