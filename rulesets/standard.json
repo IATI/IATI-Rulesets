@@ -146,26 +146,7 @@
             ]
         }
     },
-    "//planned-disbursement": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        }
-    },
     "//total-budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        },
         "time_limit": {
             "cases": [
                 { "start": "period-start/@iso-date", "end": "period-end/@iso-date"}
@@ -173,11 +154,6 @@
         }
     },
     "//recipient-country-budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        },
         "between_dates": {
             "cases": [
                 {
@@ -194,11 +170,6 @@
         }
     },
     "//recipient-org-budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        },
         "time_limit": {
             "cases": [
                 { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
@@ -206,11 +177,6 @@
         }
     },
     "//recipient-region-budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        },
         "time_limit": {
             "cases": [
                 { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
@@ -228,11 +194,6 @@
         "time_limit": {
             "cases": [
                 { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
-        },
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
             ]
         }
     },

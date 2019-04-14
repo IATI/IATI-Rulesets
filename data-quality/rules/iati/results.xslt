@@ -7,7 +7,7 @@
   exclude-result-prefixes="xs functx"
   expand-text="yes">
 
-  <xsl:template match="period" mode="rules" priority="8.6">
+  <xsl:template match="period|budget|total-budget|total-expenditure|recipient-org-budget|recipient-country-budget|recipient-region-budget|planned-disbursement" mode="rules" priority="8.6">
     
     <xsl:if test="period-start/@iso-date gt period-end/@iso-date">
       <me:feedback type="danger" class="performance" id="8.6.1">
