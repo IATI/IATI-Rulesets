@@ -70,4 +70,34 @@
     <xsl:next-match/>
   </xsl:template>
   
+  <!-- activity status and dates -->
+  <xsl:template match="iati-activity" mode="rules" priority="6.11">
+    <xsl:if test="not(activity-date[@type=('1', '2')])">
+      <me:feedback type="danger" class="information" id="6.11.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The activity must have a planned or actual start date.</me:message>
+      </me:feedback>      
+    </xsl:if>
+        
+    <xsl:next-match/>
+  </xsl:template>
+
+  <xsl:template match="iati-activity[activity-status/@code='1']" mode="rules" priority="6.12">
+    <xsl:if test="boolean(activity-date[@type='2'])">
+      <me:feedback type="danger" class="information" id="6.12.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>A activity in status pipeline/identification must not have an actual start date.</me:message>
+      </me:feedback>      
+    </xsl:if>
+
+    <xsl:if test="boolean(activity-date[@type='4'])">
+      <me:feedback type="danger" class="information" id="6.12.2">
+        <me:src ref="iati" versions="any"/>
+        <me:message>A activity in status pipeline/identification must not have an actual end date.</me:message>
+      </me:feedback>      
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
 </xsl:stylesheet>

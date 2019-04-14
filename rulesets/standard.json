@@ -1,10 +1,5 @@
 {
     "//iati-activity": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "activity-date[@type='1' or @type='2']" ] }
-            ]
-        },
         "only_one_of": {
             "cases": [
                 {
@@ -28,22 +23,6 @@
                         "country-budget-items/budget-item/@percentage",
                         "capital-spend/@percentage"
                     ]
-                }
-            ]
-        },
-        "evaluates_to_true": {
-            "cases": [
-                {
-                    "condition": "activity-status/@code='1'",
-                    "eval": "not(activity-date[@type='2'])"
-                },
-                {
-                    "condition": "activity-status/@code='1'",
-                    "eval": "not(activity-date[@type='4'])"
-                },
-                {
-                    "condition": "activity-status/@code='2'",
-                    "eval": "not(activity-date[@type='4'])"
                 }
             ]
         },
