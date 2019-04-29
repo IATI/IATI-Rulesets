@@ -81,13 +81,6 @@
                 }
             ]
         },
-        "no_percent": {
-            "cases": [
-                {
-                    "paths": [ "crs-add/loan-terms/@rate-1", "crs-add/loan-terms/@rate-2" ]
-                }
-            ]
-        },
         "if_then": {
             "cases":[
                 {"if": "count(@lang) = 0", "then": "count(narrative/@lang) > 0 and (count(narrative) = count(narrative/@lang))"},
