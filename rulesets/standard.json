@@ -93,7 +93,10 @@
                 {"if": "count(@lang) = 0", "then": "count(narrative/@lang) > 0 and (count(narrative) = count(narrative/@lang))"},
                 {"if": "count(@default-currency) = 0", "then": "count(crs-add/loan-status/@currency) > 0"},
                 {"if": "count(@default-currency) = 0", "then": "count(fss/forecast/@currency) > 0"},
-                {"if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0", "then": "count(sector/narrative) > 0"}
+                {
+                    "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
+                    "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
+                }
             ]
         },
         "range": {

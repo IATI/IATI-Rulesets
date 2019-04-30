@@ -1,4 +1,7 @@
 <iati-activities><iati-activity>
     <test example="1"></test>
     <other />
+    <sector vocabulary="98">
+        <narrative>narrative</narrative>
+    </sector>
 </iati-activity></iati-activities>
