@@ -15,7 +15,7 @@ print("""
     - Requirement
     - Tested if
 
-""")
+""")  # noqa
 
 
 english = {
