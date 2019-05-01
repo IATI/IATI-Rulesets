@@ -5,6 +5,7 @@ from lxml import etree as ET
 from decimal import Decimal
 from dateutil.relativedelta import relativedelta
 
+
 def get_text(element_or_attribute):
     """ Helper function: Returns the text of the given lxml element or attribute """
     # use .text only after checking is an element
@@ -13,8 +14,10 @@ def get_text(element_or_attribute):
     else:
         return element_or_attribute
 
+
 xsDateRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})')
 xsDateTimeRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})')
+
 
 class Rules(object):
     def __init__(self, element, case):
@@ -122,7 +125,6 @@ class Rules(object):
                 return (delta.years + delta.months + delta.days) <= 1
             return (relativedelta(end, start).years) <= 1
 
-
     def date_now(self, case):
         datetime_element = self.element.xpath(case['date'])
         if len(datetime_element) > 0:
@@ -137,7 +139,7 @@ class Rules(object):
             return self._parse_date(case['start']) < self._parse_date(case['date']) < self._parse_date(case['end'])
 
     def _regex_matches(self, case):
-        return [ re.search(case['regex'], get_text(path_match)) for path_match in self.path_matches ]
+        return [re.search(case['regex'], get_text(path_match)) for path_match in self.path_matches]
 
     def regex_matches(self, case):
         return all([m is not None for m in self._regex_matches(case)])
@@ -164,10 +166,12 @@ class Rules(object):
     def range(self, case):
         # if min/max are missing, we use val as the sentinel
         # so we can check also that val is at_least_value or no_more_than_value
-        return all([
-           Decimal(case.get('min', val)) <= Decimal(val) <= Decimal(case.get('max', val))
-           for val in self.path_matches_text
-        ])
+        return all(
+            [
+                Decimal(case.get('min', val)) <= Decimal(val) <= Decimal(case.get('max', val))
+                for val in self.path_matches_text
+            ]
+        )
 
 
 def test_rule(context_xpath, element, rule, case):
@@ -181,12 +185,13 @@ def test_rule(context_xpath, element, rule, case):
         rules_ = Rules(element, case)
         result = getattr(rules_, rule)(case)
     return {
-        'result':result,
-        'element':element,
-        'context':context_xpath,
-        'rule':rule,
-        'case':case
-        }
+        'result': result,
+        'element': element,
+        'context': context_xpath,
+        'rule': rule,
+        'case': case
+    }
+
 
 def test_ruleset_verbose(ruleset, tree):
     for context_xpath, rules in ruleset.items():
@@ -194,7 +199,8 @@ def test_ruleset_verbose(ruleset, tree):
             for rule in rules:
                 cases = rules[rule]['cases']
                 for case in cases:
-                    yield test_rule(context_xpath, element, rule, case) 
+                    yield test_rule(context_xpath, element, rule, case)
+
 
 def test_ruleset(ruleset, tree, verbose=False):
     """
@@ -208,8 +214,8 @@ def test_ruleset(ruleset, tree, verbose=False):
     else:
         return all(x['result'] for x in test_ruleset_verbose(ruleset, tree) if x['result'] is not None)
 
+
 def test_ruleset_subelement(ruleset, element, *args, **kwargs):
     fakeroot = ET.Element('fakeroot')
     fakeroot.append(element)
     return test_ruleset(ruleset, ET.ElementTree(fakeroot), *args, **kwargs)
-

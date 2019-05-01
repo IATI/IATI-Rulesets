@@ -1,9 +1,5 @@
 import json
 import sys
-import re
-import datetime
-from lxml import etree as ET
-
 
 if len(sys.argv) < 2:
     print('Usage python rulestable.py rulesets/standard.json')
@@ -13,14 +9,14 @@ rulesets = json.load(open(sys.argv[1]))
 print """
 .. list-table::
   :header-rows: 1
-  
+
   * - Context
     - Element/Attribute
     - Requirement
     - Tested if
 
 """
-                
+
 
 english = {
     'date_order': 'Dates must be in correct order',
@@ -48,7 +44,7 @@ for xpath, rules in rulesets.items():
         for case in cases:
             print '  * -', xpath
             if rule not in ['date_order']:
-                for i,path in enumerate(case['paths']):
+                for i, path in enumerate(case['paths']):
                     print ('     ' if i else '    -'), '``{0}``'.format(path)
             elif rule == 'date_order':
                 print '    -', case['less']
