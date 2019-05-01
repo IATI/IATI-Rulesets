@@ -124,7 +124,7 @@
     "//iati-activity/transaction/provider-org": {
         "atleast_one": {
             "cases": [
-                { "paths": [ "@ref", "narrative" ]},
+                { "paths": [ "@ref", "narrative" ]}
             ]
         }
     },
