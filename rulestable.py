@@ -6,7 +6,7 @@ if len(sys.argv) < 2:
     exit()
 
 rulesets = json.load(open(sys.argv[1]))
-print """
+print("""
 .. list-table::
   :header-rows: 1
 
@@ -15,7 +15,7 @@ print """
     - Requirement
     - Tested if
 
-"""
+""")
 
 
 english = {
@@ -45,7 +45,7 @@ for xpath, rules in rulesets.items():
             print '  * -', xpath
             if rule not in ['date_order']:
                 for i, path in enumerate(case['paths']):
-                    print ('     ' if i else '    -'), '``{0}``'.format(path)
+                    print('     ' if i else '    -'), '``{0}``'.format(path)
             elif rule == 'date_order':
                 print '    -', case['less']
                 print '     ', case['more']
