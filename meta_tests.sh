@@ -83,6 +83,7 @@ test date_now date_now_bad False
 test at_least_one at_least_one_bad False
 test at_least_one at_least_one_ref True
 test at_least_one at_least_one_narrative True
+test at_least_one at_least_one_no_element_good True
 
 test one_or_all one_or_all_lang_bad False
 test one_or_all one_or_all_lang_good True
