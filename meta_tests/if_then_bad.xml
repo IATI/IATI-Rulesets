@@ -1,3 +1,4 @@
 <iati-activities><iati-activity>
     <test example="1"></test>
+    <sector vocabulary="98"></sector>
 </iati-activity></iati-activities>
