@@ -42,13 +42,13 @@ for xpath, rules in rulesets.items():
     for rule in rules:
         cases = rules[rule]['cases']
         for case in cases:
-            print '  * -', xpath
+            print('  * -', xpath)
             if rule not in ['date_order']:
                 for i, path in enumerate(case['paths']):
-                    print('     ' if i else '    -'), '``{0}``'.format(path)
+                    print('     ' if i else '    -', '``{0}``'.format(path))
             elif rule == 'date_order':
-                print '    -', case['less']
-                print '     ', case['more']
+                print('    -', case['less'])
+                print('     ', case['more'])
             if rule in english:
                 requirement = english[rule]
                 if rule == 'sum':
@@ -57,6 +57,5 @@ for xpath, rules in rulesets.items():
                     requirement = requirement.format(case['start'])
             else:
                 requirement = rule
-            print '    -', requirement
-            print '    -', '``{0}``'.format(case['condition']) if 'condition' in case else ''
-            print
+            print('    -', requirement)
+            print('    -', '``{0}``'.format(case['condition']) if 'condition' in case else '')
