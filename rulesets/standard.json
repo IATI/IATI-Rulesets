@@ -142,6 +142,27 @@
             ]
         }
     },
+    "//iati-activity/other-identifier/owner-org": {
+        "atleast_one": {
+            "cases": [
+                { "paths": [ "@ref", "narrative" ]}
+            ]
+        }
+    },
+    "//iati-activity/transaction/provider-org": {
+        "atleast_one": {
+            "cases": [
+                { "paths": [ "@ref", "narrative" ]}
+            ]
+        }
+    },
+    "//iati-activity/transaction/receiver-org": {
+        "atleast_one": {
+            "cases": [
+                { "paths": [ "@ref", "narrative" ]}
+            ]
+        }
+    },
     "//policy-marker": {
         "atleast_one": {
             "cases": [
