@@ -75,21 +75,6 @@
                 }
             ]
         },
-        "no_percent": {
-            "cases": [
-                {
-                    "paths": [
-                        "crs-add/loan-terms/@rate-1",
-                        "crs-add/loan-terms/@rate-2",
-                        "recipient-country/@percentage",
-                        "recipient-region/@percentage",
-                        "sector/@percentage",
-                        "country-budget-items/budget-item/@percentage",
-                        "capital-spend/@percentage"
-                    ]
-                }
-            ]
-        },
         "evaluates_to_true": {
             "cases": [
                 {
