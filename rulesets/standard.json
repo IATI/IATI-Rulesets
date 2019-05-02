@@ -137,10 +137,7 @@
                 {
                     "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
                     "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
-                },
-                {"if": "result/indicator/baseline/@value", "then": "number(result/indicator/baseline/@value) = number(result/indicator/baseline/@value)"},
-                {"if": "result/indicator/period/target/@value", "then": "number(result/indicator/period/target/@value) = number(result/indicator/period/target/@value)"},
-                {"if": "result/indicator/period/actual/@value", "then": "number(result/indicator/period/actual/@value) = number(result/indicator/period/actual/@value)"}
+                }
             ]
         }
     },
