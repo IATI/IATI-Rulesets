@@ -3,10 +3,7 @@
         "atleast_one": {
             "cases": [
                 { "paths": [ "activity-date[@type='1' or @type='2']" ] },
-                { "paths": [ "sector", "transaction/sector" ] },
-                { "paths": [ "other-identifier/owner-org/@ref", "other-identifier/owner-org/narrative" ] },
-                { "paths": [ "transaction/provider-org/@ref", "transaction/provider-org/narrative" ] },
-                { "paths": [ "transaction/receiver-org/@ref", "transaction/receiver-org/narrative" ] }
+                { "paths": [ "sector", "transaction/sector" ] }
             ]
         },
         "one_or_all": {
@@ -107,6 +104,27 @@
                     "paths": ["capital-spend/@percentage"],
                     "min": 0.0
                 }
+            ]
+        }
+    },
+    "//iati-activity/other-identifier/owner-org": {
+        "atleast_one": {
+            "cases": [
+                { "paths": [ "@ref", "narrative" ]}
+            ]
+        }
+    },
+    "//iati-activity/transaction/provider-org": {
+        "atleast_one": {
+            "cases": [
+                { "paths": [ "@ref", "narrative" ]}
+            ]
+        }
+    },
+    "//iati-activity/transaction/receiver-org": {
+        "atleast_one": {
+            "cases": [
+                { "paths": [ "@ref", "narrative" ]}
             ]
         }
     },
