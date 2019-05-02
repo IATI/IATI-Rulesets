@@ -133,11 +133,6 @@ unique
 
     The text of each of the elements described by ``paths`` must be unique
 
-no_percent
-    Keys: ``condition``, ``paths``
-
-    The text of each of the elements described by ``paths`` must be not contain a ``%`` sign
-
 evaluates_to_true
     Keys: ``cases``, ``eval``
 
