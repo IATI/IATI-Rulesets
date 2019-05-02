@@ -1,4 +1,4 @@
 <iati-activities><iati-activity>
     <test example="1"></test>
-    <test example="not a number"></test>
+    <sector vocabulary="98"></sector>
 </iati-activity></iati-activities>
