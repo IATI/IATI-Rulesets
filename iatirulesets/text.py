@@ -44,7 +44,9 @@ def rules_text(rules, reduced_path, show_all=False):
                             else:
                                 out.append('``{0}`` must be present{1}'.format(case_path, cond))
                         elif rule == 'only_one_of':
-                            out.append('``{0}`` must not be present alongisde ``{1}``.'.format(case_path, human_list(case['excluded'], 'and')))
+                            msg = case.get('message',
+                                '``{0}`` must not be present alongisde ``{1}``.'.format(case_path, human_list(case['excluded'], 'and')))
+                            out.append(msg)
                         elif rule == 'startswith':
                             out.append('``{0}`` should start with the value in ``{1}``'.format(case_path, case['start']))
                         elif rule == 'regex_matches':
@@ -98,7 +100,9 @@ def rules_text(rules, reduced_path, show_all=False):
                 elif rule == 'if_then':
                     if_case = extract_from_expr(case['if'])
                     if show_all or (if_case.startswith(reduced_path) or if_case.endswith(reduced_path)):
-                        out.append('If ``{0}`` evaluates to true, then ``{1}`` must evaluate to true.'.format(case['if'], case['then']))
+                        msg = case.get('message',
+                            'If ``{0}`` evaluates to true, then ``{1}`` must evaluate to true.'.format(case['if'], case['then']))
+                        out.append(msg)
                 
                 elif rule == 'one_or_all':
                     if show_all or reduced_path == case['one']:
@@ -107,7 +111,9 @@ def rules_text(rules, reduced_path, show_all=False):
                 elif rule == 'evaluates_to_true':
                     eval_case = extract_from_expr(case['eval'])
                     if show_all or (eval_case.startswith(reduced_path) or eval_case.endswith(reduced_path)):
-                        out.append('``{0}`` must resolve to true.'.format(case['eval']))
+                        msg = case.get('message',
+                            '``{0}`` must resolve to true.'.format(case['eval']))
+                        out.append(msg)
                 
                 elif rule == 'between_dates':
                     if show_all or reduced_path == case['date']:

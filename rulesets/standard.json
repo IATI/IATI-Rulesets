@@ -17,7 +17,8 @@
             "cases": [
                 {
                     "excluded": [ "recipient-region", "recipient-country" ],
-                    "paths": ["transaction/recipient-country", "transaction/recipient-region"]
+                    "paths": ["transaction/recipient-country", "transaction/recipient-region"],
+                    "message": "If either ``recipient-region`` or ``recipient-country`` exists, then they must not exist at ``transaction`` level. If none between ``recipient-region`` and ``recipient-country`` exist, then one and only one from``recipient-region`` or ``recipient-country`` must exist at ``transaction`` level."
                 }
             ]
         },
@@ -82,7 +83,8 @@
             "cases":[
                 {
                     "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
-                    "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
+                    "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])",
+                    "message": "If a ``vocabulary`` value of 98 or 99 is used, then the ``narrative`` element must exist as well."
                 }
             ]
         },
