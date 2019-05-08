@@ -17,8 +17,7 @@
             "cases": [
                 {
                     "excluded": [ "recipient-region", "recipient-country" ],
-                    "paths": ["transaction/recipient-country", "transaction/recipient-region"],
-                    "message": "If either ``recipient-region`` or ``recipient-country`` exists, then they must not exist at ``transaction`` level. If none between ``recipient-region`` and ``recipient-country`` exist, then one and only one from``recipient-region`` or ``recipient-country`` must exist at ``transaction`` level."
+                    "paths": ["transaction/recipient-country", "transaction/recipient-region"]
                 }
             ]
         },

@@ -44,9 +44,15 @@ def rules_text(rules, reduced_path, show_all=False):
                             else:
                                 out.append('``{0}`` must be present{1}'.format(case_path, cond))
                         elif rule == 'only_one_of':
-                            msg = case.get('message',
-                                '``{0}`` must not be present alongisde ``{1}``.'.format(case_path, human_list(case['excluded'], 'and')))
-                            out.append(msg)
+                            # this rule is implemented in standard.json upside down
+                            # hence the replace, it should be read activity->transaction, not transaction->activity
+                            # TODO: improve
+                            out.append(
+                                'If ``{0}`` is used, then ``{1}`` must not be used at transaction level. If ``{0}`` doesn`t exist, one between ``{1}`` must exist at ``transaction`` level.'.format(
+                                    case_path.replace('transaction/', ''),
+                                    human_list(case['excluded'], 'and')
+                                )
+                            )
                         elif rule == 'startswith':
                             out.append('``{0}`` should start with the value in ``{1}``'.format(case_path, case['start']))
                         elif rule == 'regex_matches':
