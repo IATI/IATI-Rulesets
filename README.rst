@@ -16,6 +16,15 @@ This is the source repository for the rulesets, more general information can be 
 
 These rulesets are part of IATI Standard Single Source of Truth (SSOT). For more detailed information about the SSOT, please see http://iatistandard.org/developer/ssot/
 
+Information for developers
+==========================
+
+This tool supports Python 3.x. To use this script, we recommend the use of a virtual environment::
+
+    python3 -m venv pyenv
+    source pyenv/bin/activate
+    pip install -r requirements.txt
+
 Ruleset Structure
 =================
 
