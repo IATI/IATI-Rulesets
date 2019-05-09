@@ -79,15 +79,18 @@
             "cases": [
                 {
                     "condition": "activity-status/@code='1'",
-                    "eval": "not(activity-date[@type='2'])"
+                    "eval": "not(activity-date[@type='2'])",
+                    "message": "If ``@code=1`` for an ``activity-status`` is used, then ``activity-date[@type=2]`` must not be present."
                 },
                 {
                     "condition": "activity-status/@code='1'",
-                    "eval": "not(activity-date[@type='4'])"
+                    "eval": "not(activity-date[@type='4'])",
+                    "message": "If ``@code=1`` for an ``activity-status`` is used, then ``activity-date[@type=4]`` must not be present."
                 },
                 {
                     "condition": "activity-status/@code='2'",
-                    "eval": "not(activity-date[@type='4'])"
+                    "eval": "not(activity-date[@type='4'])",
+                    "message": "If ``@code=2`` for an ``activity-status`` is used, then ``activity-date[@type=4]`` must not be present."
                 }
             ]
         },
@@ -119,7 +122,8 @@
             "cases":[
                 {
                     "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
-                    "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
+                    "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])",
+                    "message": "If a ``vocabulary`` value of 98 or 99 is used, then the ``narrative`` element must exist as well."
                 }
             ]
         }
