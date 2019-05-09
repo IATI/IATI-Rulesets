@@ -79,7 +79,7 @@
                             "type": "array",
                             "items": {
                                 "type": "object",
-                                "additionalProperties": false,
+                                "additionalProperties": true,
                                 "properties": {
                                     "excluded": {
                                         "type": "array",
@@ -383,7 +383,7 @@
                             "type": "array",
                             "items": {
                                 "type": "object",
-                                "additionalProperties": false,
+                                "additionalProperties": true,
                                 "properties": {
                                     "if": {
                                         "type": "string"
@@ -404,7 +404,7 @@
                             "type": "array",
                             "items": {
                                 "type": "object",
-                                "additionalProperties": false,
+                                "additionalProperties": true,
                                 "properties": {
                                     "eval": {
                                         "type": "string"

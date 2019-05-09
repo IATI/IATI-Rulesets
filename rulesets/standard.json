@@ -82,7 +82,8 @@
             "cases":[
                 {
                     "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
-                    "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
+                    "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])",
+                    "message": "If a ``vocabulary`` value of 98 or 99 is used, then the ``narrative`` element must exist as well."
                 }
             ]
         },
