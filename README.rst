@@ -16,6 +16,15 @@ This is the source repository for the rulesets, more general information can be 
 
 These rulesets are part of IATI Standard Single Source of Truth (SSOT). For more detailed information about the SSOT, please see http://iatistandard.org/developer/ssot/
 
+Information for developers
+==========================
+
+This tool supports Python 3.x. To use this script, we recommend the use of a virtual environment::
+
+    python3 -m venv pyenv
+    source pyenv/bin/activate
+    pip install -r requirements.txt
+
 Ruleset Structure
 =================
 
@@ -35,13 +44,13 @@ A ruleset is a JSON file which applies different rules to various paths in diffe
 
 Here we have a context: ``iati-activity``, with a single name rule `atleast_one` which is applied in a number of cases - here just one, with a single path.
 
-A more thorough description of this, along with a list of all rule names can be found in the `Spec <https://github.com/IATI/IATI-Rulesets/blob/master/SPEC.rst>`_.
+A more thorough description of this, along with a list of all rule names can be found in the `Spec <https://github.com/IATI/IATI-Rulesets/blob/version-2.02/SPEC.rst>`_.
 
 
 Ruleset Tester
 ==============
 
-A program is required to test whether a given xml file conforms to the rules in a ruleset JSON file. The ruleset is designed such that implementations of this can be made in multiple programming languages, so long as they implement the `Spec <https://github.com/IATI/IATI-Rulesets/blob/master/SPEC.rst>`_.
+A program is required to test whether a given xml file conforms to the rules in a ruleset JSON file. The rulesets is designed such that implementations of this can be made in multiple programming languages, so long as they implement the `Spec <https://github.com/IATI/IATI-Rulesets/blob/version-2.02/SPEC.rst>`_.
 
 Currently, a Python `<testrules.py>`_ tester is available. E.g.
 
@@ -49,7 +58,6 @@ Currently, a Python `<testrules.py>`_ tester is available. E.g.
 
    # These commands output a line for each problem found
    python testrules.py rulesets/standard.json file.xml
-
 
 Tests for Testers
 -----------------
@@ -70,7 +78,7 @@ Different Rulesets
 Rules not describable by a Ruleset
 ==================================
 
-* Testing whether an element is on a certain codelist - this belongs in the IATI-Codelists (see `testcodelists.py <https://github.com/IATI/IATI-Codelists/blob/master/testcodelists.py>`_)
+* Testing whether an element is on a certain codelist - this belongs in the IATI-Codelists (see `testcodelists.py <https://github.com/IATI/IATI-Codelists/blob/version-2.02/testcodelists.py>`_)
 
 * Testing whether identifier are correct (e.g. uniqueness etc) - this requires information outside the scope of a single activity/file, whereas currently the rulesets operate in just this context. This may change in the future.
 
