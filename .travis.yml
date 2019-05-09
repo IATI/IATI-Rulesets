@@ -1,8 +1,22 @@
+---
+dist: xenial
+language: python
+python: 3.7
 before_install:
     - sudo apt-get update -qq
-    - sudo apt-get install -qq php5-cli python-lxml python3-lxml
-script:
-    - ./meta_tests.sh python2 testrules.py
-    - ./meta_tests.sh python3 testrules.py
-    - ./meta_tests.sh php testrules.php
-
+    - sudo apt-get install -qq php7.0-cli python-lxml python3-lxml
+install:
+    - pip install jsonschema==3.0.1
+    - pip install -r requirements.txt
+jobs:
+    include:
+        - stage: flake8 lint
+          script: flake8 --exclude=doc/conf.py --ignore=E501,E731,W605
+        - stage: test
+          script:
+            - ./meta_tests.sh python2 testrules.py
+            - ./meta_tests.sh python3 testrules.py
+            - ./meta_tests.sh php testrules.php
+stages:
+    - flake8 lint
+    - test
