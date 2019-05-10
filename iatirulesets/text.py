@@ -23,7 +23,7 @@ def rules_text(rules, reduced_path, show_all=False):
     for rule in rules:
         cases = rules[rule]['cases']
         for case in cases:
-            simplify_xpath = lambda x: re.sub('\[[^\]]*\]', '', x)
+            simplify_xpath = lambda x: re.sub(r'\[[^\]]*\]', '', x)
             if 'paths' in case:
                 for case_path in case['paths']:
                     # Don't forget [@ ]
