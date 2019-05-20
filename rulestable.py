@@ -1,26 +1,21 @@
 import json
 import sys
-import re
-import datetime
-from lxml import etree as ET
-
 
 if len(sys.argv) < 2:
     print('Usage python rulestable.py rulesets/standard.json')
     exit()
 
 rulesets = json.load(open(sys.argv[1]))
-print """
+print("""
 .. list-table::
   :header-rows: 1
-  
+
   * - Context
     - Element/Attribute
     - Requirement
     - Tested if
 
-"""
-                
+""")
 
 english = {
     'date_order': 'Dates must be in correct order',
@@ -45,13 +40,13 @@ for xpath, rules in rulesets.items():
     for rule in rules:
         cases = rules[rule]['cases']
         for case in cases:
-            print '  * -', xpath
+            print('  * -', xpath)
             if rule not in ['date_order']:
-                for i,path in enumerate(case['paths']):
-                    print ('     ' if i else '    -'), '``{0}``'.format(path)
+                for i, path in enumerate(case['paths']):
+                    print('     ' if i else '    -'), '``{0}``'.format(path)
             elif rule == 'date_order':
-                print '    -', case['less']
-                print '     ', case['more']
+                print('    -', case['less'])
+                print('     ', case['more'])
             if rule in english:
                 requirement = english[rule]
                 if rule == 'sum':
@@ -60,6 +55,6 @@ for xpath, rules in rulesets.items():
                     requirement = requirement.format(case['start'])
             else:
                 requirement = rule
-            print '    -', requirement
-            print '    -', '``{0}``'.format(case['condition']) if 'condition' in case else ''
-            print
+            print('    -', requirement)
+            print('    -', '``{0}``'.format(case['condition']) if 'condition' in case else '')
+            print()

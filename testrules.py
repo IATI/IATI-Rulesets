@@ -1,9 +1,11 @@
 from __future__ import print_function
-import sys, json, collections
+import sys
+import json
+import collections
 from lxml import etree as ET
 import iatirulesets
 import csv
-                        
+
 if len(sys.argv) < 3:
     print('Usage python testrules.py rulesets/standard.json file.xml [--no-breakdown]')
     exit()
@@ -29,6 +31,6 @@ if breakdown:
                     result['context'],
                     result['rule'],
                     result['case']
-                        ])))
+                ])))
 else:
-    print(iatirulesets.test_ruleset(ruleset, tree)) 
+    print(iatirulesets.test_ruleset(ruleset, tree))
