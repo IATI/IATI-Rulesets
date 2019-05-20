@@ -77,5 +77,15 @@
     <xsl:next-match/>
   </xsl:template>
   
-  
+  <xsl:template match="iati-organisation" mode="rules" priority="11.4">
+    <xsl:if test="@last-updated-datetime gt $now">
+      <me:feedback type="danger" class="information" id="11.4.1">
+        <me:src ref="iati"/>
+        <me:message>The last-updated-datetime of the organisation must not be in the future.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+
 </xsl:stylesheet>
