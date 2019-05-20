@@ -4,6 +4,7 @@ import datetime
 from lxml import etree as ET
 from decimal import Decimal
 
+
 def get_text(element_or_attribute):
     """ Helper function: Returns the text of the given lxml element or attribute """
     # use .text only after checking is an element
@@ -12,7 +13,9 @@ def get_text(element_or_attribute):
     else:
         return element_or_attribute
 
+
 xsDateRegex = re.compile('(-?[0-9]{4,})-([0-9]{2})-([0-9]{2})')
+
 
 class Rules(object):
     def __init__(self, element, case):
@@ -60,7 +63,7 @@ class Rules(object):
             return less <= more
 
     def _regex_matches(self, case):
-        return [ re.search(case['regex'], get_text(path_match)) for path_match in self.path_matches ]
+        return [re.search(case['regex'], get_text(path_match)) for path_match in self.path_matches]
 
     def regex_matches(self, case):
         return all([m is not None for m in self._regex_matches(case)])
@@ -75,6 +78,7 @@ class Rules(object):
                 return False
         return True
 
+
 def test_rule(context_xpath, element, rule, case):
     """
     Tests a specific rule type for a specific case.
@@ -86,12 +90,13 @@ def test_rule(context_xpath, element, rule, case):
         rules_ = Rules(element, case)
         result = getattr(rules_, rule)(case)
     return {
-        'result':result,
-        'element':element,
-        'context':context_xpath,
-        'rule':rule,
-        'case':case
-        }
+        'result': result,
+        'element': element,
+        'context': context_xpath,
+        'rule': rule,
+        'case': case
+    }
+
 
 def test_ruleset_verbose(ruleset, tree):
     for context_xpath, rules in ruleset.items():
@@ -99,7 +104,8 @@ def test_ruleset_verbose(ruleset, tree):
             for rule in rules:
                 cases = rules[rule]['cases']
                 for case in cases:
-                    yield test_rule(context_xpath, element, rule, case) 
+                    yield test_rule(context_xpath, element, rule, case)
+
 
 def test_ruleset(ruleset, tree, verbose=False):
     """
@@ -113,8 +119,8 @@ def test_ruleset(ruleset, tree, verbose=False):
     else:
         return all(x['result'] for x in test_ruleset_verbose(ruleset, tree) if x['result'] is not None)
 
+
 def test_ruleset_subelement(ruleset, element, *args, **kwargs):
     fakeroot = ET.Element('fakeroot')
     fakeroot.append(element)
     return test_ruleset(ruleset, ET.ElementTree(fakeroot), *args, **kwargs)
-
