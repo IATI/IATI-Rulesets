@@ -22,7 +22,7 @@ Each JSON document has the form.::
 
     }""")
 
-print ("""
+print("""
 Where ``CONTEXT`` is some xpath expression. This will be used to select the XML elements that the contained rules will be tested against.
 ``RULE_NAME`` is one of rule names listed below
 ``CASE_DICT`` is a dictionary who's contents depends on ``RULE_NAME``
@@ -57,12 +57,12 @@ for rule_name, rule_schema in schema['patternProperties']['.+']['properties'].it
     assert(rule_schema['type'] == 'object')
     assert(list(rule_schema['properties'].keys()) == ['cases'])
     assert(rule_schema['properties']['cases']['type'] == 'array')
-    print('    Keys: '+', '.join('``'+x+'``' for x in sorted(rule_schema['properties']['cases']['items']['properties'].keys())))
+    print('    Keys: ' + ', '.join('``' + x + '``' for x in sorted(rule_schema['properties']['cases']['items']['properties'].keys())))
     print()
-    print('    '+rule_schema['description'])
+    print('    ' + rule_schema['description'])
     print()
-    #for prop_name, prop in rule_schema['properties']['cases']['items']['properties'].items():
-        #print(prop_name, 'array of {0}'.format(prop['items']['type']) if prop['type'] == 'array' else prop['type'])
+    # for prop_name, prop in rule_schema['properties']['cases']['items']['properties'].items():
+    # # print(prop_name, 'array of {0}'.format(prop['items']['type']) if prop['type'] == 'array' else prop['type'])
 
 print("""
 
