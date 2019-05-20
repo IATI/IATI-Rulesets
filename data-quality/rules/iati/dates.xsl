@@ -73,7 +73,9 @@
         <me:message>The budget line value date is not in the budget period.</me:message>
       </me:feedback>
     </xsl:if>
+    
+    <xsl:next-match/>
   </xsl:template>
   
-  <xsl:next-match/>
+  
 </xsl:stylesheet>
