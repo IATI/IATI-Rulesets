@@ -1,17 +1,5 @@
 {
     "//iati-activity": {
-        "no_percent": {
-            "cases": [
-                {
-                    "paths": [
-                        "crs-add/loan-terms/@rate-1",
-                        "crs-add/loan-terms/@rate-2",
-                        "country-budget-items/budget-item/@percentage",
-                        "capital-spend/@percentage"
-                    ]
-                }
-            ]
-        },
         "range": {
             "cases": [
                 {
@@ -38,10 +26,10 @@
         },
         "if_then": {
             "cases":[
-                {"if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0", "then": "count(sector/narrative) > 0"},
-                {"if": "result/indicator/baseline/@value", "then": "number(result/indicator/baseline/@value) = number(result/indicator/baseline/@value)"},
-                {"if": "result/indicator/period/target/@value", "then": "number(result/indicator/period/target/@value) = number(result/indicator/period/target/@value)"},
-                {"if": "result/indicator/period/actual/@value", "then": "number(result/indicator/period/actual/@value) = number(result/indicator/period/actual/@value)"}
+                {
+                    "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
+                    "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
+                }
             ]
         }
     },
@@ -56,6 +44,13 @@
                     "condition": "@vocabulary='99'",
                     "paths": [ "narrative" ]
                 }
+            ]
+        }
+    },
+    "//iati-organisation": {
+        "date_now": {
+            "cases": [
+                { "date": "@last-updated-datetime" }
             ]
         }
     },
