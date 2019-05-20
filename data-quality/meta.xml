@@ -40,6 +40,7 @@
       </categories>
 
   <severities>
+    <severity type="critical">Critical</severity>
     <severity type="danger">Error</severity>
     <severity type="warning">Warning</severity>
     <severity type="info">Improvement</severity>
