@@ -39,7 +39,7 @@
         },
         "regex_matches": {
             "cases": [
-                { "regex": "[^\\/\\&\\|\\?]+",
+                { "regex": "^[^\\/\\&\\|\\?]+$",
                   "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] }
             ]
         },
@@ -162,7 +162,7 @@
     "//iati-organisation": {
         "regex_matches": {
             "cases": [
-                { "regex": "[^\\/\\&\\|\\?]+",
+                { "regex": "^[^\\/\\&\\|\\?]+$",
                   "paths": [ "reporting-org/@ref", "organisation-identifier" ] }
             ]
         },
