@@ -4,6 +4,28 @@
   xslt-version="3.0">
 
   <x:scenario label="Organisation identifiers">
+    <x:scenario label="If an organisation identifier in an activities file contains no forbidden characters">
+      <x:context>
+        <iati-activity>
+          <reporting-org ref="XM-IATI-123"/>
+          <participating-org ref="GB-1"/>
+          <transaction>
+            <provider-org ref="NL-KVK-123"/>
+            <receiver-org ref="US-EIN-98765"/>
+          </transaction>
+          <other-identifier>
+            <owner-org ref="XM-DAC-7"/>
+          </other-identifier>
+        </iati-activity>
+      </x:context>
+
+      <x:expect label="It should not produce message 1.14.13 for reporting-org." test="not(//reporting-org/me:feedback[@id='1.14.13'])"/>
+      <x:expect label="It should not produce message 1.8.13 for participating-org." test="not(//participating-org/me:feedback[@id='1.8.13'])"/>
+      <x:expect label="It should not produce message 1.10.13 for provider-org." test="not(//provider-org/me:feedback[@id='1.10.13'])"/>
+      <x:expect label="It should not produce message 1.15.13 for receiver-org." test="not(//receiver-org/me:feedback[@id='1.15.13'])"/>
+      <x:expect label="It should not produce message 1.11.13 for owner-org." test="not(//owner-org/me:feedback[@id='1.11.13'])"/>
+    </x:scenario>
+
     <x:scenario label="If an organisation identifier in an activities file contains forbidden characters">
       <x:context>
         <iati-activity>

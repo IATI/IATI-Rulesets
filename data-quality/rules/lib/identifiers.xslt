@@ -13,7 +13,7 @@
     <xsl:param name="versions" select="'any'"></xsl:param>
    
     <xsl:choose>
-      <xsl:when test="matches($item, '[^/&amp;|?]+')">
+      <xsl:when test="matches($item, '[/&amp;|?]')">
         <me:feedback type="danger" class="{$class}" id="{$idclass}.13">
           <me:src ref="iati" versions="any" href="me:iati-url('organisation-identifiers/')"/>
           <me:message>The identifier must not contain any of the symbols /, &amp;, | or ?.</me:message>
