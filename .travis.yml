@@ -6,7 +6,11 @@ addons:
 
 branches:
     only:
-    - migrate-to-xslt-rules
+    - develop
+    - master
+    - /^feature\/.*/
+    - /^release\/.*/
+    - /^hotfix\/.*/
 
 env:
     global:
