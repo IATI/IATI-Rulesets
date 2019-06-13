@@ -10,7 +10,7 @@
   
   <xsl:param name="filename"/>
   
-  <xsl:variable name="schemaVersion">0.9.15</xsl:variable>
+  <xsl:variable name="schemaVersion">0.11.5</xsl:variable>
   
   <!-- support functions and templates -->
   <xsl:include href="../../lib/functx.xslt"/>
@@ -57,6 +57,7 @@
       </xsl:if>
       <xsl:if test="name(.)=('iati-activities', 'iati-organisations')">
         <xsl:attribute name="me:schemaVersion">{$schemaVersion}</xsl:attribute>  
+        <xsl:attribute name="me:iatiVersion">{$iati-version}</xsl:attribute>  
       </xsl:if>
       <xsl:apply-templates select="@*|node()"/>
       <xsl:apply-templates select="@*" mode="rules"/>
