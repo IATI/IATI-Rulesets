@@ -1,4 +1,12 @@
 language: java
+addons:
+    apt:
+        packages:
+            - ant
+
+branches:
+    only:
+    - migrate-to-xslt-rules
 
 env:
     global:
