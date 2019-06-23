@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Test files" focus="true">
+  
+    <x:scenario label="#1 There are no validation errors (Activity)">
+      <x:context href="testfiles/1.xml"/>
+      <x:expect label="It should not produce error messages." test="not(//me:feedback[@type=('danger', 'critical')])"/>
+    </x:scenario>
+
+    <x:scenario label="#2 There are no validation errors (Organisation)">
+      <x:context href="testfiles/2.xml"/>
+      <x:expect label="It should not produce error messages." test="not(//me:feedback[@type=('danger', 'critical')])"/>    
+    </x:scenario>
+
+    <x:scenario label="#137 Percentages are missing for Sector">
+      <x:context href="testfiles/137.xml"/>
+      <x:expect label="It should produce sector percentage error message 2.1.1." test="boolean(//me:feedback[@id='2.1.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="#138 Sector percentages do not add up to 100%">
+      <x:context href="testfiles/138.xml"/>
+      <x:expect label="It should produce sector percentage error message 2.1.2." test="boolean(//me:feedback[@id='2.1.2'])"/>
+    </x:scenario>
+
+    <x:scenario label="#139 Sector percentage (vocabulary 98) is set to 80">
+      <x:context href="testfiles/139.xml"/>
+      <x:expect label="It should produce sector percentage error message 2.1.2." test="boolean(//me:feedback[@id='2.1.4'])"/>
+    </x:scenario>
+    
+  </x:scenario>    
+</x:description>
