@@ -12,7 +12,7 @@
     </antcall>
   </target>
   
-  <target name="iati-2.0x-tests">
+  <target name="iati-2.0x-tests" description="Run 2.0x tests">
     <antcall target="xspec.xspec" inheritall="false">
       <param name="xspec.xml" location="develop/tests/iati-activities-2.0x.xspec"/>
     </antcall>
