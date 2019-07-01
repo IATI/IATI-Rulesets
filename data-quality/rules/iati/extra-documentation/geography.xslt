@@ -6,51 +6,59 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
-  <xsl:template match="iati-activity[(recipient-country or recipient-region) and starts-with($iati-version, '1.')]" mode="rules" priority="2.2">
-    <!--* When declaring multiple ``recipient-country`` or ``recipient-region`` then a ``@percentage`` must be declared.  These must sum to 100%.-->
-    
-    <xsl:call-template name="percentage-checks">
-      <xsl:with-param name="group" select="recipient-country"/>
-      <xsl:with-param name="class" select="'geo'"/>
-      <xsl:with-param name="idclass" select="'3.1'"/>
-      <xsl:with-param name="item" select="'recipient country'"/>
-      <xsl:with-param name="items" select="'recipient countries'"/>
-    </xsl:call-template>
-    
-    <!-- Check for percentages for multiple recipient regions for the default vocabulary. -->    
-    <xsl:call-template name="percentage-checks">
-      <xsl:with-param name="group" select="recipient-region"/>
-      <xsl:with-param name="class" select="'geo'"/>
-      <xsl:with-param name="idclass" select="'3.4'"/>
-      <xsl:with-param name="item" select="'recipient region'"/>
-      <xsl:with-param name="items" select="'recipient regions'"/>
-      <xsl:with-param name="vocabulary" select="'1'"/>
-      <xsl:with-param name="iativersion" select="'1.x'"/>
-    </xsl:call-template>
-    
+  <xsl:template match="iati-activity[(recipient-country or recipient-region)]" mode="rules" priority="3.2">
+    <xsl:param name="iati-version" tunnel="yes"/>
+    <xsl:if test="starts-with($iati-version, '1.')">
+      
+      <!--* When declaring multiple ``recipient-country`` or ``recipient-region`` then a ``@percentage`` must be declared.  These must sum to 100%.-->
+      <xsl:call-template name="percentage-checks">
+        <xsl:with-param name="group" select="recipient-country"/>
+        <xsl:with-param name="class" select="'geo'"/>
+        <xsl:with-param name="idclass" select="'3.1'"/>
+        <xsl:with-param name="item" select="'recipient country'"/>
+        <xsl:with-param name="items" select="'recipient countries'"/>
+      </xsl:call-template>
+      
+      <!-- Check for percentages for multiple recipient regions for the default vocabulary. -->    
+      <xsl:call-template name="percentage-checks">
+        <xsl:with-param name="group" select="recipient-region"/>
+        <xsl:with-param name="class" select="'geo'"/>
+        <xsl:with-param name="idclass" select="'3.2'"/>
+        <xsl:with-param name="item" select="'recipient region'"/>
+        <xsl:with-param name="items" select="'recipient regions'"/>
+        <xsl:with-param name="vocabulary" select="'1'"/>
+        <xsl:with-param name="iativersion" select="'1.x'"/>
+      </xsl:call-template>
+    </xsl:if>
+
     <xsl:next-match/>
   </xsl:template>
-  
-  <xsl:template match="iati-activity[recipient-country and not(recipient-region) and starts-with($iati-version, '2.')]" mode="rules" priority="2.4">
-    <xsl:call-template name="percentage-checks">
-      <xsl:with-param name="group" select="recipient-country"/>
-      <xsl:with-param name="class" select="'geo'"/>
-      <xsl:with-param name="idclass" select="'3.1'"/>
-      <xsl:with-param name="item" select="'recipient country'"/>
-      <xsl:with-param name="items" select="'recipient countries'"/>
-      <xsl:with-param name="iativersion" select="'2.x'"/>
-    </xsl:call-template>
-    
-    <xsl:next-match/>
+
+  <xsl:template match="iati-activity[recipient-region]" mode="rules" priority="3.4">
+    <xsl:param name="iati-version" tunnel="yes"/>
+
+    <!--* It is possible to have both a ``recipient-country`` and ``recipient-region`` in the same ``iati-activity``.  In such cases, the ``@percentage`` must be declared, and sum to 100 across both elements.-->
+    <xsl:if test="starts-with($iati-version, '2.')">
+      <xsl:call-template name="geography-percentage-checks">
+        <xsl:with-param name="group" select="recipient-country|recipient-region"/>
+      </xsl:call-template>      
+    </xsl:if>    
+    <xsl:next-match/>    
   </xsl:template>
-  
-  <!--* It is possible to have both a ``recipient-country`` and ``recipient-region`` in the same ``iati-activity``.  In such cases, the ``@percentage`` must be declared, and sum to 100 across both elements.-->
-  <xsl:template match="iati-activity[recipient-region and starts-with($iati-version, '2.')]" mode="rules" priority="2.5">    
-    <xsl:call-template name="geography-percentage-checks">
-      <xsl:with-param name="group" select="recipient-country|recipient-region"/>
-    </xsl:call-template>
-    
-    <xsl:next-match/>
+
+  <xsl:template match="iati-activity[(recipient-country and not(recipient-region))]"   mode="rules" priority="3.1">
+    <xsl:param name="iati-version" tunnel="yes"/>
+    <xsl:if test="starts-with($iati-version, '2.')">
+      <xsl:call-template name="percentage-checks">
+        <xsl:with-param name="group" select="recipient-country"/>
+        <xsl:with-param name="class" select="'geo'"/>
+        <xsl:with-param name="idclass" select="'3.1'"/>
+        <xsl:with-param name="item" select="'recipient country'"/>
+        <xsl:with-param name="items" select="'recipient countries'"/>
+        <xsl:with-param name="iativersion" select="'2.x'"/>
+      </xsl:call-template>
+    </xsl:if>    
+    <xsl:next-match/>    
   </xsl:template>
   
   <xsl:template name="geography-percentage-checks">

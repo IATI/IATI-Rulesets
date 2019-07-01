@@ -19,6 +19,7 @@
           </iati-activity>
         </iati-activities>
       </x:context>
+      <x:expect label="It should select IATI version 1.05" test="/iati-activities/@me:iatiVersion='1.05'"/>
       <x:expect label="It should not produce any 'geo' feedback." test="not(//me:feedback[@class='geo'])"/>
     </x:scenario>
     
