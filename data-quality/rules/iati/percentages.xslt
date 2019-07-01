@@ -31,7 +31,7 @@
     <xsl:next-match/>
   </xsl:template>
 
-  <xsl:template match="capital-spend[@percentage]" mode="rules" priority="12.2">
+  <xsl:template match="(capital-spend|budget-item)[@percentage]" mode="rules" priority="12.2">
     <xsl:param name="iati-version" tunnel="yes"/>
     
     <xsl:if test="$iati-version = '2.03' and
