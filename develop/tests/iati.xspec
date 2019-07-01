@@ -16,6 +16,7 @@
   <x:import href="iati/locations.xspec"/>
   <x:import href="iati/geography.xspec"/>
   <x:import href="iati/results.xspec"/>
+  <x:import href="iati/percentages.xspec"/>
   <x:import href="iati/text-1.0x.xspec"/>
   <x:import href="iati/text-2.0x.xspec"/>
 </x:description>

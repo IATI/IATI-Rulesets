@@ -3,14 +3,6 @@
         "range": {
             "cases": [
                 {
-                    "paths": ["recipient-country/@percentage"],
-                    "min": 0.0, "max": 100.0
-                },
-                {
-                    "paths": ["recipient-region/@percentage"],
-                    "min": 0.0, "max": 100.0
-                },
-                {
                     "paths": ["sector/@percentage"],
                     "min": 0.0, "max": 100.0
                 },

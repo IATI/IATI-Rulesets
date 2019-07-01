@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Percentages">
+      
+    <x:scenario label="2.03: If recipient-country or recipient-region has a negative percentage">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <recipient-country percentage="-1"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-region percentage="-122"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.1.1 for recipient-country" test="boolean(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should produce message 12.1.1 for recipient-region" test="boolean(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="2.03: If recipient-country or recipient-region has percentage above 100">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <recipient-country percentage="101"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-region percentage="122"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.1.1 for recipient-country" test="boolean(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should produce message 12.1.1 for recipient-region" test="boolean(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If recipient-country or recipient-region has a negative percentage">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <recipient-country percentage="-1"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-region percentage="-122"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.1.1 for recipient-country" test="not(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should not produce message 12.1.1 for recipient-region" test="not(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should produce message 12.1.2 for recipient-country" test="boolean(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.2'])"/>
+      <x:expect label="It should produce message 12.1.2 for recipient-region" test="boolean(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.2'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If recipient-country or recipient-region has percentage above 100">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <recipient-country percentage="101"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-region percentage="122"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.1.1 for recipient-country" test="not(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should not produce message 12.1.1 for recipient-region" test="not(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should not produce message 12.1.2 for recipient-country" test="not(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.2'])"/>
+      <x:expect label="It should not produce message 12.1.2 for recipient-region" test="not(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.2'])"/>
+    </x:scenario>
+    
+  </x:scenario>  
+  
+</x:description>

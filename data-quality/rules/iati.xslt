@@ -30,6 +30,7 @@
   <xsl:include href="iati/financial.xslt"/>
   <xsl:include href="iati/results.xslt"/>
   <xsl:include href="iati/dates.xslt"/>
+  <xsl:include href="iati/percentages.xslt"/>
 
   <xsl:output indent="yes"/>
   
