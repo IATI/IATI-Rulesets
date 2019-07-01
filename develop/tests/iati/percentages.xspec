@@ -69,6 +69,52 @@
       <x:expect label="It should not produce message 12.1.2 for recipient-region" test="not(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.2'])"/>
     </x:scenario>
     
+    <x:scenario label="2.03: If capital-spend has a negative percentage">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <capital-spend percentage="-1"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.2.1" test="boolean(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.03: If capital-spend has percentage above 100">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <capital-spend percentage="101"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.2.1" test="boolean(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If capital-spend has a negative percentage">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <capital-spend percentage="-1"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.2.1" test="not(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.1'])"/>
+      <x:expect label="It should produce message 12.2.2" test="boolean(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.2'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If capital-spend has percentage above 100">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <capital-spend percentage="101"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.2.1" test="not(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.1'])"/>
+      <x:expect label="It should not produce message 12.2.2" test="not(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.2'])"/>
+    </x:scenario>
+    
   </x:scenario>  
   
 </x:description>

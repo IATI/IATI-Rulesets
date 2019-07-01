@@ -7,10 +7,6 @@
                     "min": 0.0, "max": 100.0
                 },
                 {
-                    "paths": ["capital-spend/@percentage"],
-                    "min": 0.0, "max": 100.0
-                },
-                {
                     "paths": ["country-budget-items/budget-item/@percentage"],
                     "min": 0.0, "max": 100.0
                 }
