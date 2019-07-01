@@ -33,36 +33,47 @@
 
   <xsl:output indent="yes"/>
   
-  <xsl:variable name="iati-version-declared" select="//(iati-activities|iati-organisations)[1]/@version"/>
-  <xsl:variable name="iati-version-valid"
-      select="$iati-version-declared=('1.01','1.02','1.03','1.04','1.05','2.01','2.02','2.03')"/>
-  <xsl:variable name="iati-version">
-    <xsl:choose>
-      <xsl:when test="$iati-version-valid">{$iati-version-declared}</xsl:when>
-      <xsl:when test="starts-with($iati-version-declared, '1.')">1.05</xsl:when>
-      <xsl:otherwise>2.03</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
   <xsl:function name="me:iati-url">
     <xsl:param name="href"/>
     <xsl:if test="$href!=''">http://reference.iatistandard.org/{replace($iati-version, '\.', '')}/{$href}</xsl:if>
   </xsl:function>
-    
+
+  <xsl:function name="me:iati-version">
+    <xsl:param name="declared-version"/>
+
+    <xsl:choose>
+      <xsl:when test="$declared-version=('1.01','1.02','1.03','1.04','1.05','2.01','2.02','2.03')">{$declared-version}</xsl:when>
+      <xsl:when test="starts-with($declared-version, '1.')">1.05</xsl:when>
+      <xsl:otherwise>2.03</xsl:otherwise>
+    </xsl:choose>    
+  </xsl:function>
+  
 <!--  <xsl:variable name="validation-errors" select="saxon:validate(/)"/>-->
   
   <xsl:template match="@*|node()">
+    <xsl:param name="iati-version" tunnel="yes"/>
     <xsl:copy>
-      <xsl:if test="name(.)='iati-identifier'">
-        <xsl:attribute name="me:id">{iati-identifier}</xsl:attribute>  
-      </xsl:if>
+      <xsl:variable name="use-iati-version">
+        <xsl:choose>
+          <xsl:when test="name(.)=('iati-activities', 'iati-organisations')">{me:iati-version(@version)}</xsl:when>
+          <xsl:when test="$iati-version">{$iati-version}</xsl:when>
+          <xsl:otherwise>2.03</xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
       <xsl:if test="name(.)=('iati-activities', 'iati-organisations')">
+        <xsl:attribute name="me:id">{iati-identifier}</xsl:attribute>  
         <xsl:attribute name="me:schemaVersion">{$schemaVersion}</xsl:attribute>  
-        <xsl:attribute name="me:iatiVersion">{$iati-version}</xsl:attribute>  
+        <xsl:attribute name="me:iatiVersion">{$use-iati-version}</xsl:attribute>  
       </xsl:if>
-      <xsl:apply-templates select="@*|node()"/>
-      <xsl:apply-templates select="@*" mode="rules"/>
-      <xsl:apply-templates select="." mode="rules"/>
+      <xsl:apply-templates select="@*|node()">
+        <xsl:with-param name="iati-version" select="$use-iati-version" tunnel="yes"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="@*" mode="rules">
+        <xsl:with-param name="iati-version" select="$use-iati-version" tunnel="yes"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="." mode="rules">
+        <xsl:with-param name="iati-version" select="$use-iati-version" tunnel="yes"/>
+      </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
 

@@ -8,6 +8,7 @@
   <x:scenario label="Recipient countries and regions (IATI versions 1.0x)">
     <x:scenario label="If there is one recipient-country and one recipient-region and no percentage or percentage 100">
       <x:context>
+        <iati-activities version="1.05">          
           <iati-activity>
             <recipient-country code="AL"/>
             <recipient-region code="89"/>
@@ -16,6 +17,7 @@
             <recipient-country code="AL"/>
             <recipient-region code="89" percentage="100"/>
           </iati-activity>
+        </iati-activities>
       </x:context>
       <x:expect label="It should not produce any 'geo' feedback." test="not(//me:feedback[@class='geo'])"/>
     </x:scenario>
