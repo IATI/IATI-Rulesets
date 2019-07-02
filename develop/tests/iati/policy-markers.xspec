@@ -4,7 +4,17 @@
   xslt-version="3.0">
 
   <x:scenario label="Policy markers">
-      
+    <x:scenario label="If a policy marker is in vocabulary 1 or without a vocabulary">
+      <x:context>
+        <iati-activity>
+          <policy-marker code="A1" vocabulary="1"/>
+          <policy-marker code="A2"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '6.14.1' for missing significance with vocabulary='1'." test="boolean(/iati-activity/policy-marker[1]/me:feedback[@id='6.14.1'])"/>
+      <x:expect label="It should produce message '6.14.1' for missing significance without vocabulary." test="boolean(/iati-activity/policy-marker[2]/me:feedback[@id='6.14.1'])"/>
+    </x:scenario>
+  
     <x:scenario label="If there is a reporting organisation policy marker">
       <x:context>
         <iati-activity>

@@ -1,14 +1,4 @@
 {
-    "//policy-marker": {
-        "atleast_one": {
-            "cases": [
-                {
-                    "condition": "@vocabulary='1' or not(@vocabulary)",
-                    "paths": [ "@significance" ]
-                }
-            ]
-        }
-    },
     "//result/indicator": {
         "no_more_than_one": {
             "cases": [
