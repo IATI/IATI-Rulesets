@@ -100,4 +100,14 @@
     <xsl:next-match/>
   </xsl:template>
   
+  <xsl:template match="policy-marker[@vocabulary=('99')]" mode="rules" priority="6.13">
+    <xsl:if test="not(narrative)">
+      <me:feedback type="danger" class="classifications" id="6.13.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>When using a reporting organisation policy marker, it must include a narrative name.</me:message>
+      </me:feedback>
+    </xsl:if>
+    <xsl:next-match/>
+  </xsl:template>
+  
 </xsl:stylesheet>

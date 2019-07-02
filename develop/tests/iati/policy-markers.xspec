@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Policy markers">
+      
+    <x:scenario label="If there is a reporting organisation policy marker">
+      <x:context>
+        <iati-activity>
+          <policy-marker code="A1" vocabulary="99"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '6.13.1' for vocabulary 99." test="boolean(/iati-activity/policy-marker/me:feedback[@id='6.13.1'])"/>
+    </x:scenario>
+  </x:scenario>
+</x:description>

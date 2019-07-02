@@ -11,6 +11,7 @@
   <x:import href="iati/organisation-identifiers.xspec"/>
   <x:import href="iati/activity-identifiers.xspec"/>
   <x:import href="iati/sectors.xspec"/>
+  <x:import href="iati/policy-markers.xspec"/>
   <x:import href="iati/countries-regions-1.0x.xspec"/>
   <x:import href="iati/countries-regions-2.0x.xspec"/>
   <x:import href="iati/locations.xspec"/>
