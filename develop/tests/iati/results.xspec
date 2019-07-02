@@ -117,6 +117,20 @@
       <x:expect label="It should not produce message '8.9.1'." test="not(//me:feedback[@id='8.9.1'])"/>
       <x:expect label="It should not produce message '8.10.1'." test="not(//me:feedback[@id='8.10.1'])"/>
     </x:scenario>
+    
+    <x:scenario label="If a result and indicator both have a reference code">
+      <x:context>
+        <iati-activity>
+          <result>
+            <reference code="R1"/>
+            <indicator>
+              <reference code="I1"/>
+            </indicator>
+          </result>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '8.11.1'." test="boolean(//me:feedback[@id='8.11.1'])"/>
+    </x:scenario>
   </x:scenario>  
     
 </x:description>

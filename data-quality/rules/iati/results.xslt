@@ -66,5 +66,17 @@
     
     <xsl:next-match/>
   </xsl:template>
+
+  <xsl:template match="indicator[reference]" mode="rules" priority="8.11">
+    
+    <xsl:if test="../reference">
+      <me:feedback type="danger" class="performance" id="8.11.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>If a result has a reference code, the indicator must not have a reference code.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
   
 </xsl:stylesheet>
