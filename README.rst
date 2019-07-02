@@ -11,9 +11,7 @@ Introduction
 
 This is the source repository for the rulesets.
 
-As part of the Validator work, the XSLT-based rules are migrated into the repository to replace the JSON-based rules.
-
-The branch `migrate-to-xslt-rules` tracks work on this.
+As part of the Validator work, the XSLT-based rules have been migrated to replace the earlier JSON-based rules.
 
 Rules
 =====
@@ -27,4 +25,4 @@ Testing the rules
 
 The `developer` folder contains Xspec scenarios for IATI data with expected messages.
 
-The scenarios can be run using Ant: `ant tests` will run tests for version 1.0x and 2.0x and generate two HTML reports.
+The scenarios can be run using Ant: `ant tests` will run tests and generate an HTML report in `develop/tests/xspec/iati-result.html`.
