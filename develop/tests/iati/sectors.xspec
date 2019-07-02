@@ -113,4 +113,14 @@
     
   </x:scenario>  
   
+  <x:scenario label="If there is a reporting organisation sector code">
+    <x:context>
+      <iati-activity>
+        <sector code="A1" vocabulary="98"/>
+        <sector code="A2" vocabulary="99"/>
+      </iati-activity>
+    </x:context>
+    <x:expect label="It should produce message '2.2.1' for vocabulary 98." test="boolean(/iati-activity/sector[1]/me:feedback[@id='2.2.1'])"/>
+    <x:expect label="It should produce message '2.2.1' for vocabulary 99." test="boolean(/iati-activity/sector[2]/me:feedback[@id='2.2.1'])"/>
+  </x:scenario>
 </x:description>
