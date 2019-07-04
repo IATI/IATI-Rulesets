@@ -48,7 +48,7 @@
   <participating-org ref="CC-CCC-123456789" role="2" type="10" activity-id="CC-CCC-123456789-1234">
    <narrative>Name of Agency C</narrative>
   </participating-org>
-  <participating-org ref="AA-AAA-123456789" role="3" type="21" activity-id="AA-AAA-123456789-1234" crs-channel-code="000000">
+  <participating-org ref="AA-AAA-123456789" role="3" type="21" activity-id="AA-AAA-123456789-1234" crs-channel-code="10000">
    <narrative>Name of Agency A</narrative>
    <narrative xml:lang="fr">Nom de l'agence A</narrative>
   </participating-org>
@@ -159,9 +159,11 @@
   <!--location-additional ends-->
 
   <!--sector starts-->
-  <sector vocabulary="1" code="111" percentage="50" />
-  <sector vocabulary="1" code="112" percentage="50" />
-  <sector vocabulary="98" vocabulary-uri="http://example.com/vocab.html" code="A1" percentage="100" />
+  <sector vocabulary="1" code="11110" percentage="50" />
+  <sector vocabulary="1" code="11230" percentage="50" />
+  <sector vocabulary="98" vocabulary-uri="http://example.com/vocab.html" code="A1" percentage="100">
+   <narrative>Code A1</narrative>
+  </sector>
   <!--sector ends-->
 
   <!--tag starts-->
@@ -201,7 +203,9 @@
   <!--policy-marker starts-->
   <policy-marker vocabulary="1" code="2" significance="3" />
   <policy-marker vocabulary="1" code="9" significance="4" />
-  <policy-marker vocabulary="99" vocabulary-uri="http://example.com/vocab.html" code="A1" significance="3" />
+  <policy-marker vocabulary="99" vocabulary-uri="http://example.com/vocab.html" code="A1" significance="3">
+   <narrative>Code A1</narrative>
+  </policy-marker>
   <!--policy-marker ends-->
 
   <!--collaboration-type starts-->
@@ -338,7 +342,7 @@
    </document-link>
 <!--result-document-link example ends-->
 <!--result-reference starts-->
-   <reference vocabulary="99" code="B1" vocabulary-uri="http://example.com/indicators.html" />
+<!--   <reference vocabulary="99" code="B1" vocabulary-uri="http://example.com/indicators.html" />-->
 <!--result-reference ends-->
 <!--result-indicator starts-->
    <indicator measure="1" ascending="1" aggregation-status="1">

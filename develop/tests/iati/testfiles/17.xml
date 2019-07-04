@@ -29,9 +29,9 @@
   <total-budget status="2">
    <period-start iso-date="2014-01-01" />
    <period-end iso-date="2014-12-31" />
-   <value currency="USD" value-date="2014-01-01">250000000</value>
+   <value currency="AAA" value-date="2014-01-01">250000000</value>
    <budget-line ref="1234">
-    <value currency="AAA" value-date="2014-01-01">200000000</value>
+    <value currency="USD" value-date="2014-01-01">200000000</value>
     <narrative>Budget Line</narrative>
    </budget-line>
   </total-budget>

@@ -160,7 +160,7 @@
 
   <!--sector starts-->
   <sector vocabulary="1" code="111" />
-  <sector vocabulary="2" code="112" />
+  <sector vocabulary="1" code="112" />
   <sector vocabulary="98" vocabulary-uri="http://example.com/vocab.html" code="A1" percentage="100" />
   <!--sector ends-->
 
