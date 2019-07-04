@@ -20,7 +20,7 @@
     <x:scenario label="#139 Sector percentage (vocabulary 98) is set to 80">
       <x:context href="testfiles/139.xml"/>
       <x:expect label="It should produce error message 2.1.4."
-        test="boolean(//me:feedback[@id='{$idclass}.4'])"/>
+        test="boolean(//me:feedback[@id='2.1.4'])"/>
     </x:scenario>
     <x:scenario label="#135 No Recipient Country or Recipient Region provided">
       <x:context href="testfiles/135.xml"/>
