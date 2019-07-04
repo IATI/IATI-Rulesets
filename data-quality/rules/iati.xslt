@@ -36,6 +36,8 @@
   
   <xsl:function name="me:iati-url">
     <xsl:param name="href"/>
+    <!-- TODO: include iati-version in function call to use proper version -->
+    <xsl:variable name="iati-version">2.03</xsl:variable>
     <xsl:if test="$href!=''">http://reference.iatistandard.org/{replace($iati-version, '\.', '')}/{$href}</xsl:if>
   </xsl:function>
 
