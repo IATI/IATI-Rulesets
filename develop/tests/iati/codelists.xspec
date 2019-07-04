@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Codelists">
+    <x:scenario label="If there are activity-status codes">
+      <x:context>
+        <iati-activity>
+          <activity-status code="1"/>
+        </iati-activity>
+        <iati-activity>
+          <activity-status code="0"/>
+        </iati-activity>
+      </x:context>      
+      <x:expect label="It should not provide codelist feedback on a valid code." test="not(//iati-activity[1]//me:feedback[starts-with(@id, '9.')])"/>
+      <x:expect label="It should provide codelist feedback on an invalid code." test="boolean(//iati-activity[2]//me:feedback[starts-with(@id, '9.')])"/>
+    </x:scenario>
+  </x:scenario>  
+  
+</x:description>
