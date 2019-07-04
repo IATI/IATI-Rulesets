@@ -463,7 +463,7 @@
    <forecast year="2014" value-date="2013-07-03" currency="GBP">10000</forecast>
   </fss>
   <!--fss ends-->
-  
+  </iati-activity>
   <iati-activity xml:lang="en" default-currency="USD" last-updated-datetime="2014-09-10T07:15:37Z" humanitarian="1" linked-data-uri="http://data.example.org/123456789" hierarchy="1" budget-not-provided="1">
 
   <!--iati-identifier starts-->

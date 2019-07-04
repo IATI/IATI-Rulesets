@@ -229,7 +229,7 @@
   <budget type="1" status="1">
    <period-start iso-date="2014-01-01" />
    <period-end iso-date="2014-12-31" />
-   <value currency="EUR"</value>
+   <value currency="EUR"></value>
   </budget>
   <!--budget ends-->
 
