@@ -726,4 +726,12 @@
         <class ref="geo"/>
         <message>The location type code is invalid.</message>
     </mapping>
+    
+    <!-- additional mapping (appended to prevent renumbering earlier message ids -->
+    <mapping>
+        <path>//iati-organisation/recipient-country-budget/budget-line/value/@currency</path>
+        <codelist ref="Currency" />
+        <class ref="financial"/>
+        <message>The currency code is invalid.</message>
+    </mapping>
 </mappings>

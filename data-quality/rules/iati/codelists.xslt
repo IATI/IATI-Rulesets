@@ -1391,4 +1391,18 @@
       </xsl:if>
       <xsl:next-match/>
    </xsl:template>
+    
+    
+    <xsl:template match="//iati-organisation/recipient-country-budget/budget-line/value"
+                 mode="rules"
+                 priority="9.122">
+      <xsl:param name="iati-version" tunnel="yes"/>
+      <xsl:if test="me:codeListFail(@currency, 'Currency', $iati-version)">
+         <me:feedback type="danger" class="financial" id="9.122.1">
+            <me:src ref="iati" versions="any"/>
+            <me:message>The currency code is invalid.</me:message>
+         </me:feedback>
+      </xsl:if>
+      <xsl:next-match/>
+   </xsl:template>
 </xsl:stylesheet>
