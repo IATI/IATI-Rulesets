@@ -17,793 +17,898 @@
         test="not(//me:feedback[@type=('danger', 'critical')])"/>
     </x:scenario>
 
-    <x:scenario label="#139 Sector percentage (vocabulary 98) is set to 80">
+    <x:scenario label="#137 Percentages are missing for Sector in //iati-activities/sector">
+      <x:context href="testfiles/137.xml"/>
+      <x:expect label="It should produce error message 2.1.1."
+        test="boolean(//me:feedback[@id='2.1.1'])"/>
+    </x:scenario>
+    <x:scenario label="#138 Sector percentages do not add up to 100% in //iati-activities/sector">
+      <x:context href="testfiles/138.xml"/>
+      <x:expect label="It should produce error message 2.1.2."
+        test="boolean(//me:feedback[@id='2.1.2'])"/>
+    </x:scenario>
+    <x:scenario
+      label="#139 Sector percentage (vocabulary 98) is set to 80 in //iati-activities/sector">
       <x:context href="testfiles/139.xml"/>
       <x:expect label="It should produce error message 2.1.4."
         test="boolean(//me:feedback[@id='2.1.4'])"/>
     </x:scenario>
-    <x:scenario label="#135 No Recipient Country or Recipient Region provided">
+    <x:scenario
+      label="#135 No Recipient Country or Recipient Region provided in iati-activity[not(recipient-country) and not(recipient-region)]">
       <x:context href="testfiles/135.xml"/>
       <x:expect label="It should produce error message 3.1.3."
         test="boolean(//me:feedback[@id='3.1.3'])"/>
     </x:scenario>
-    <x:scenario label="#136 Version number is invalid">
+    <x:scenario label="#136 Version number is invalid in //iati-activities">
       <x:context href="testfiles/136.xml"/>
       <x:expect label="It should produce error message 9.1.1."
         test="boolean(//me:feedback[@id='9.1.1'])"/>
     </x:scenario>
-    <x:scenario label="#3 Collaboration Type Code is invalid">
+    <x:scenario label="#3 Collaboration Type Code is invalid in //iati-activity/collaboration-type">
       <x:context href="testfiles/3.xml"/>
       <x:expect label="It should produce error message 9.10.1."
         test="boolean(//me:feedback[@id='9.10.1'])"/>
     </x:scenario>
-    <x:scenario label="#4 Language Code is invalid">
+    <x:scenario label="#4 Language Code is invalid in //iati-organisation/document-link/language">
       <x:context href="testfiles/4.xml"/>
       <x:expect label="It should produce error message 9.100.1."
         test="boolean(//me:feedback[@id='9.100.1'])"/>
     </x:scenario>
-    <x:scenario label="#5 Country Code is invalid">
+    <x:scenario
+      label="#5 Country Code is invalid in //iati-organisation/document-link/recipient-country">
       <x:context href="testfiles/5.xml"/>
       <x:expect label="It should produce error message 9.101.1."
         test="boolean(//me:feedback[@id='9.101.1'])"/>
     </x:scenario>
-    <x:scenario label="#6 Budget Status Code is invalid">
+    <x:scenario
+      label="#6 Budget Status Code is invalid in //iati-organisation/recipient-country-budget">
       <x:context href="testfiles/6.xml"/>
       <x:expect label="It should produce error message 9.102.1."
         test="boolean(//me:feedback[@id='9.102.1'])"/>
     </x:scenario>
-    <x:scenario label="#7 Country Code is invalid">
+    <x:scenario
+      label="#7 Country Code is invalid in //iati-organisation/recipient-country-budget/recipient-country">
       <x:context href="testfiles/7.xml"/>
       <x:expect label="It should produce error message 9.103.1."
         test="boolean(//me:feedback[@id='9.103.1'])"/>
     </x:scenario>
-    <x:scenario label="#8 Currency Code is invalid">
+    <x:scenario
+      label="#8 Currency Code is invalid in //iati-organisation/recipient-country-budget/value">
       <x:context href="testfiles/8.xml"/>
       <x:expect label="It should produce error message 9.104.1."
         test="boolean(//me:feedback[@id='9.104.1'])"/>
     </x:scenario>
-    <x:scenario label="#9 Budget Status Code is invalid">
+    <x:scenario label="#9 Budget Status Code is invalid in //iati-organisation/recipient-org-budget">
       <x:context href="testfiles/9.xml"/>
       <x:expect label="It should produce error message 9.105.1."
         test="boolean(//me:feedback[@id='9.105.1'])"/>
     </x:scenario>
-    <x:scenario label="#10 Currency Code is invalid">
+    <x:scenario
+      label="#10 Currency Code is invalid in //iati-organisation/recipient-org-budget/value">
       <x:context href="testfiles/10.xml"/>
       <x:expect label="It should produce error message 9.106.1."
         test="boolean(//me:feedback[@id='9.106.1'])"/>
     </x:scenario>
-    <x:scenario label="#11 Budget Status Code is invalid">
+    <x:scenario
+      label="#11 Budget Status Code is invalid in //iati-organisation/recipient-region-budget">
       <x:context href="testfiles/11.xml"/>
       <x:expect label="It should produce error message 9.107.1."
         test="boolean(//me:feedback[@id='9.107.1'])"/>
     </x:scenario>
-    <x:scenario label="#27 Region Code is invalid">
+    <x:scenario
+      label="#27 Region Code is invalid in //iati-organisation/recipient-region-budget[@vocabulary = '1' or not(@vocabulary)]">
       <x:context href="testfiles/27.xml"/>
       <x:expect label="It should produce error message 9.108.1."
         test="boolean(//me:feedback[@id='9.108.1'])"/>
     </x:scenario>
-    <x:scenario label="#28 Region Vocabulary Code is invalid">
+    <x:scenario
+      label="#28 Region Vocabulary Code is invalid in //iati-organisation/recipient-region-budget/recipient-region">
       <x:context href="testfiles/28.xml"/>
       <x:expect label="It should produce error message 9.109.1."
         test="boolean(//me:feedback[@id='9.109.1'])"/>
     </x:scenario>
-    <x:scenario label="#12 Condition Type Code is invalid">
+    <x:scenario label="#12 Condition Type Code is invalid in //iati-activity/conditions/condition">
       <x:context href="testfiles/12.xml"/>
       <x:expect label="It should produce error message 9.11.1."
         test="boolean(//me:feedback[@id='9.11.1'])"/>
     </x:scenario>
-    <x:scenario label="#13 Currency Code is invalid">
+    <x:scenario
+      label="#13 Currency Code is invalid in //iati-organisation/recipient-region-budget/budget-line/value">
       <x:context href="testfiles/13.xml"/>
       <x:expect label="It should produce error message 9.110.1."
         test="boolean(//me:feedback[@id='9.110.1'])"/>
     </x:scenario>
-    <x:scenario label="#14 Currency Code is invalid">
+    <x:scenario
+      label="#14 Currency Code is invalid in //iati-organisation/recipient-region-budget/value">
       <x:context href="testfiles/14.xml"/>
       <x:expect label="It should produce error message 9.111.1."
         test="boolean(//me:feedback[@id='9.111.1'])"/>
     </x:scenario>
-    <x:scenario label="#15 Organisation Type Code is invalid">
+    <x:scenario label="#15 Organisation Type Code is invalid in //iati-organisation/reporting-org">
       <x:context href="testfiles/15.xml"/>
       <x:expect label="It should produce error message 9.112.1."
         test="boolean(//me:feedback[@id='9.112.1'])"/>
     </x:scenario>
-    <x:scenario label="#16 Budget Status Code is invalid">
+    <x:scenario label="#16 Budget Status Code is invalid in //iati-organisation/total-budget">
       <x:context href="testfiles/16.xml"/>
       <x:expect label="It should produce error message 9.113.1."
         test="boolean(//me:feedback[@id='9.113.1'])"/>
     </x:scenario>
-    <x:scenario label="#17 Currency Code is invalid">
+    <x:scenario label="#17 Currency Code is invalid in //iati-organisation/total-budget/value">
       <x:context href="testfiles/17.xml"/>
       <x:expect label="It should produce error message 9.114.1."
         test="boolean(//me:feedback[@id='9.114.1'])"/>
     </x:scenario>
-    <x:scenario label="#18 Contact Type Code is invalid">
+    <x:scenario label="#18 Contact Type Code is invalid in //iati-activity/contact-info">
       <x:context href="testfiles/18.xml"/>
       <x:expect label="It should produce error message 9.12.1."
         test="boolean(//me:feedback[@id='9.12.1'])"/>
     </x:scenario>
-    <x:scenario label="#19 Country Budget Identifier Vocabulary Code is invalid">
+    <x:scenario
+      label="#19 Country Budget Identifier Vocabulary Code is invalid in //iati-activity/country-budget-items">
       <x:context href="testfiles/19.xml"/>
       <x:expect label="It should produce error message 9.13.1."
         test="boolean(//me:feedback[@id='9.13.1'])"/>
     </x:scenario>
-    <x:scenario label="#29 Budget Identifier Code is invalid">
+    <x:scenario
+      label="#29 Budget Identifier Code is invalid in //iati-activity/country-budget-items/budget-item[@vocabulary = '1']">
       <x:context href="testfiles/29.xml"/>
       <x:expect label="It should produce error message 9.14.1."
         test="boolean(//me:feedback[@id='9.14.1'])"/>
     </x:scenario>
 
-    <x:scenario label="#20 CRS Channel Code is invalid">
+    <x:scenario label="#20 CRS Channel Code is invalid in //iati-activity/crs-add/channel-code">
       <x:context href="testfiles/20.xml"/>
       <x:expect label="It should produce error message 9.16.1."
         test="boolean(//me:feedback[@id='9.16.1'])"/>
     </x:scenario>
-    <x:scenario label="#21 CRS Other Flag Code is invalid">
+    <x:scenario label="#21 CRS Other Flag Code is invalid in //iati-activity/crs-add/other-flags">
       <x:context href="testfiles/21.xml"/>
       <x:expect label="It should produce error message 9.17.1."
         test="boolean(//me:feedback[@id='9.17.1'])"/>
     </x:scenario>
-    <x:scenario label="#22 Currency Code is invalid">
+    <x:scenario label="#22 Currency Code is invalid in //iati-activity/crs-add/loan-status">
       <x:context href="testfiles/22.xml"/>
       <x:expect label="It should produce error message 9.18.1."
         test="boolean(//me:feedback[@id='9.18.1'])"/>
     </x:scenario>
-    <x:scenario label="#23 Repayment Plan Code is invalid">
+    <x:scenario
+      label="#23 Repayment Plan Code is invalid in //iati-activity/crs-add/loan-terms/repayment-plan">
       <x:context href="testfiles/23.xml"/>
       <x:expect label="It should produce error message 9.19.1."
         test="boolean(//me:feedback[@id='9.19.1'])"/>
     </x:scenario>
-    <x:scenario label="#24 Budget Not Provided Code is invalid">
+    <x:scenario label="#24 Budget Not Provided Code is invalid in //iati-activity">
       <x:context href="testfiles/24.xml"/>
       <x:expect label="It should produce error message 9.2.1."
         test="boolean(//me:feedback[@id='9.2.1'])"/>
     </x:scenario>
-    <x:scenario label="#25 Loan Repayment Type is invalid">
+    <x:scenario
+      label="#25 Loan Repayment Type is invalid in //iati-activity/crs-add/loan-terms/repayment-type">
       <x:context href="testfiles/25.xml"/>
       <x:expect label="It should produce error message 9.20.1."
         test="boolean(//me:feedback[@id='9.20.1'])"/>
     </x:scenario>
-    <x:scenario label="#26 Aid Type Code is invalid">
+    <x:scenario
+      label="#26 Aid Type Code is invalid in //iati-activity/default-aid-type[@vocabulary = '1' or not(@vocabulary)]">
       <x:context href="testfiles/26.xml"/>
       <x:expect label="It should produce error message 9.21.1."
         test="boolean(//me:feedback[@id='9.21.1'])"/>
     </x:scenario>
-    <x:scenario label="#30 Aid Type Vocabulary Code is invalid">
+    <x:scenario label="#30 Aid Type Vocabulary Code is invalid in //iati-activity/default-aid-type">
       <x:context href="testfiles/30.xml"/>
       <x:expect label="It should produce error message 9.22.1."
         test="boolean(//me:feedback[@id='9.22.1'])"/>
     </x:scenario>
-    <x:scenario label="#31 Finance Type Code is invalid">
+    <x:scenario label="#31 Finance Type Code is invalid in //iati-activity/default-finance-type">
       <x:context href="testfiles/31.xml"/>
       <x:expect label="It should produce error message 9.23.1."
         test="boolean(//me:feedback[@id='9.23.1'])"/>
     </x:scenario>
-    <x:scenario label="#32 Flow Type Code is invalid">
+    <x:scenario label="#32 Flow Type Code is invalid in //iati-activity/default-flow-type">
       <x:context href="testfiles/32.xml"/>
       <x:expect label="It should produce error message 9.24.1."
         test="boolean(//me:feedback[@id='9.24.1'])"/>
     </x:scenario>
-    <x:scenario label="#33 Tied Status Code is invalid">
+    <x:scenario label="#33 Tied Status Code is invalid in //iati-activity/default-tied-status">
       <x:context href="testfiles/33.xml"/>
       <x:expect label="It should produce error message 9.25.1."
         test="boolean(//me:feedback[@id='9.25.1'])"/>
     </x:scenario>
-    <x:scenario label="#34 Description Type Code is invalid">
+    <x:scenario label="#34 Description Type Code is invalid in //iati-activity/description">
       <x:context href="testfiles/34.xml"/>
       <x:expect label="It should produce error message 9.26.1."
         test="boolean(//me:feedback[@id='9.26.1'])"/>
     </x:scenario>
-    <x:scenario label="#35 File Format Code is invalid">
+    <x:scenario label="#35 File Format Code is invalid in //iati-activity/document-link">
       <x:context href="testfiles/35.xml"/>
       <x:expect label="It should produce error message 9.27.1."
         test="boolean(//me:feedback[@id='9.27.1'])"/>
     </x:scenario>
-    <x:scenario label="#36 Document Category Code is invalid">
+    <x:scenario
+      label="#36 Document Category Code is invalid in //iati-activity/document-link/category">
       <x:context href="testfiles/36.xml"/>
       <x:expect label="It should produce error message 9.28.1."
         test="boolean(//me:feedback[@id='9.28.1'])"/>
     </x:scenario>
-    <x:scenario label="#37 Language Code is invalid">
+    <x:scenario label="#37 Language Code is invalid in //iati-activity/document-link/language">
       <x:context href="testfiles/37.xml"/>
       <x:expect label="It should produce error message 9.29.1."
         test="boolean(//me:feedback[@id='9.29.1'])"/>
     </x:scenario>
-    <x:scenario label="#38 Currency Code is invalid">
+    <x:scenario label="#38 Currency Code is invalid in //iati-activity">
       <x:context href="testfiles/38.xml"/>
       <x:expect label="It should produce error message 9.3.1."
         test="boolean(//me:feedback[@id='9.3.1'])"/>
     </x:scenario>
-    <x:scenario label="#39 Currency Code is invalid">
+    <x:scenario label="#39 Currency Code is invalid in //iati-activity/fss/forecast">
       <x:context href="testfiles/39.xml"/>
       <x:expect label="It should produce error message 9.30.1."
         test="boolean(//me:feedback[@id='9.30.1'])"/>
     </x:scenario>
-    <x:scenario label="#40 Humanitarian Scope Type Code is invalid">
+    <x:scenario
+      label="#40 Humanitarian Scope Type Code is invalid in //iati-activity/humanitarian-scope">
       <x:context href="testfiles/40.xml"/>
       <x:expect label="It should produce error message 9.31.1."
         test="boolean(//me:feedback[@id='9.31.1'])"/>
     </x:scenario>
-    <x:scenario label="#41 Humanitarian Scope Vocabulary Code is invalid">
+    <x:scenario
+      label="#41 Humanitarian Scope Vocabulary Code is invalid in //iati-activity/humanitarian-scope">
       <x:context href="testfiles/41.xml"/>
       <x:expect label="It should produce error message 9.32.1."
         test="boolean(//me:feedback[@id='9.32.1'])"/>
     </x:scenario>
-    <x:scenario label="#42 Geographic Vocabulary Code is invalid">
+    <x:scenario
+      label="#42 Geographic Vocabulary Code is invalid in //iati-activity/location/administrative">
       <x:context href="testfiles/42.xml"/>
       <x:expect label="It should produce error message 9.33.1."
         test="boolean(//me:feedback[@id='9.33.1'])"/>
     </x:scenario>
-    <x:scenario label="#43 Location Type Code is invalid">
+    <x:scenario
+      label="#43 Location Type Code is invalid in //iati-activity/location/feature-designation">
       <x:context href="testfiles/43.xml"/>
       <x:expect label="It should produce error message 9.34.1."
         test="boolean(//me:feedback[@id='9.34.1'])"/>
     </x:scenario>
-    <x:scenario label="#44 Geographic Location Class Code is invalid">
+    <x:scenario
+      label="#44 Geographic Location Class Code is invalid in //iati-activity/location/location-class">
       <x:context href="testfiles/44.xml"/>
       <x:expect label="It should produce error message 9.35.1."
         test="boolean(//me:feedback[@id='9.35.1'])"/>
     </x:scenario>
-    <x:scenario label="#45 Geographic Vocabulary Code is invalid">
+    <x:scenario
+      label="#45 Geographic Vocabulary Code is invalid in //iati-activity/location/location-id">
       <x:context href="testfiles/45.xml"/>
       <x:expect label="It should produce error message 9.36.1."
         test="boolean(//me:feedback[@id='9.36.1'])"/>
     </x:scenario>
-    <x:scenario label="#46 Geographic Location Reach Code is invalid">
+    <x:scenario
+      label="#46 Geographic Location Reach Code is invalid in //iati-activity/location/location-reach">
       <x:context href="testfiles/46.xml"/>
       <x:expect label="It should produce error message 9.37.1."
         test="boolean(//me:feedback[@id='9.37.1'])"/>
     </x:scenario>
-    <x:scenario label="#47 Geographic Exactness Code is invalid">
+    <x:scenario
+      label="#47 Geographic Exactness Code is invalid in //iati-activity/location/exactness">
       <x:context href="testfiles/47.xml"/>
       <x:expect label="It should produce error message 9.38.1."
         test="boolean(//me:feedback[@id='9.38.1'])"/>
     </x:scenario>
-    <x:scenario label="#48 Other Identifier Type Code is invalid">
+    <x:scenario
+      label="#48 Other Identifier Type Code is invalid in //iati-activity/other-identifier">
       <x:context href="testfiles/48.xml"/>
       <x:expect label="It should produce error message 9.39.1."
         test="boolean(//me:feedback[@id='9.39.1'])"/>
     </x:scenario>
-    <x:scenario label="#49 Activity Date Type Code is invalid">
+    <x:scenario label="#49 Activity Date Type Code is invalid in //iati-activity/activity-date">
       <x:context href="testfiles/49.xml"/>
       <x:expect label="It should produce error message 9.4.1."
         test="boolean(//me:feedback[@id='9.4.1'])"/>
     </x:scenario>
-    <x:scenario label="#50 CRS Channel Code is invalid">
+    <x:scenario label="#50 CRS Channel Code is invalid in //iati-activity/participating-org">
       <x:context href="testfiles/50.xml"/>
       <x:expect label="It should produce error message 9.40.1."
         test="boolean(//me:feedback[@id='9.40.1'])"/>
     </x:scenario>
-    <x:scenario label="#51 Organisation Role Code is invalid">
+    <x:scenario label="#51 Organisation Role Code is invalid in //iati-activity/participating-org">
       <x:context href="testfiles/51.xml"/>
       <x:expect label="It should produce error message 9.41.1."
         test="boolean(//me:feedback[@id='9.41.1'])"/>
     </x:scenario>
-    <x:scenario label="#52 Organisation Type Code is invalid">
+    <x:scenario label="#52 Organisation Type Code is invalid in //iati-activity/participating-org">
       <x:context href="testfiles/52.xml"/>
       <x:expect label="It should produce error message 9.42.1."
         test="boolean(//me:feedback[@id='9.42.1'])"/>
     </x:scenario>
-    <x:scenario label="#53 Budget Type Code is invalid">
+    <x:scenario label="#53 Budget Type Code is invalid in //iati-activity/planned-disbursement">
       <x:context href="testfiles/53.xml"/>
       <x:expect label="It should produce error message 9.43.1."
         test="boolean(//me:feedback[@id='9.43.1'])"/>
     </x:scenario>
-    <x:scenario label="#54 Organisation Type Code is invalid">
+    <x:scenario
+      label="#54 Organisation Type Code is invalid in //iati-activity/planned-disbursement/provider-org">
       <x:context href="testfiles/54.xml"/>
       <x:expect label="It should produce error message 9.44.1."
         test="boolean(//me:feedback[@id='9.44.1'])"/>
     </x:scenario>
-    <x:scenario label="#55 Organisation Type Code is invalid">
+    <x:scenario
+      label="#55 Organisation Type Code is invalid in //iati-activity/planned-disbursement/receiver-org">
       <x:context href="testfiles/55.xml"/>
       <x:expect label="It should produce error message 9.45.1."
         test="boolean(//me:feedback[@id='9.45.1'])"/>
     </x:scenario>
-    <x:scenario label="#56 Currency Code is invalid">
+    <x:scenario label="#56 Currency Code is invalid in //iati-activity/planned-disbursement/value">
       <x:context href="testfiles/56.xml"/>
       <x:expect label="It should produce error message 9.46.1."
         test="boolean(//me:feedback[@id='9.46.1'])"/>
     </x:scenario>
-    <x:scenario label="#57 Policy Marker Code is invalid">
+    <x:scenario
+      label="#57 Policy Marker Code is invalid in //iati-activity/policy-marker[@vocabulary = '1' or not(@vocabulary)]">
       <x:context href="testfiles/57.xml"/>
       <x:expect label="It should produce error message 9.47.1."
         test="boolean(//me:feedback[@id='9.47.1'])"/>
     </x:scenario>
-    <x:scenario label="#58 Policy Significance Code is invalid">
+    <x:scenario label="#58 Policy Significance Code is invalid in //iati-activity/policy-marker">
       <x:context href="testfiles/58.xml"/>
       <x:expect label="It should produce error message 9.48.1."
         test="boolean(//me:feedback[@id='9.48.1'])"/>
     </x:scenario>
-    <x:scenario label="#59 Policy Marker Vocabulary Code is invalid">
+    <x:scenario
+      label="#59 Policy Marker Vocabulary Code is invalid in //iati-activity/policy-marker">
       <x:context href="testfiles/59.xml"/>
       <x:expect label="It should produce error message 9.49.1."
         test="boolean(//me:feedback[@id='9.49.1'])"/>
     </x:scenario>
-    <x:scenario label="#60 Activity Status Code is invalid">
+    <x:scenario label="#60 Activity Status Code is invalid in //iati-activity/activity-status">
       <x:context href="testfiles/60.xml"/>
       <x:expect label="It should produce error message 9.5.1."
         test="boolean(//me:feedback[@id='9.5.1'])"/>
     </x:scenario>
-    <x:scenario label="#61 Country Code is invalid">
+    <x:scenario label="#61 Country Code is invalid in //iati-activity/recipient-country">
       <x:context href="testfiles/61.xml"/>
       <x:expect label="It should produce error message 9.50.1."
         test="boolean(//me:feedback[@id='9.50.1'])"/>
     </x:scenario>
-    <x:scenario label="#62 Region Code is invalid">
+    <x:scenario
+      label="#62 Region Code is invalid in //iati-activity/recipient-region[@vocabulary = '1' or not(@vocabulary)]">
       <x:context href="testfiles/62.xml"/>
       <x:expect label="It should produce error message 9.51.1."
         test="boolean(//me:feedback[@id='9.51.1'])"/>
     </x:scenario>
-    <x:scenario label="#63 Region Vocabulary is invalid">
+    <x:scenario label="#63 Region Vocabulary is invalid in //iati-activity/recipient-region">
       <x:context href="testfiles/63.xml"/>
       <x:expect label="It should produce error message 9.52.1."
         test="boolean(//me:feedback[@id='9.52.1'])"/>
     </x:scenario>
-    <x:scenario label="#64 Related Activity Type Code is invalid">
+    <x:scenario
+      label="#64 Related Activity Type Code is invalid in //iati-activity/related-activity">
       <x:context href="testfiles/64.xml"/>
       <x:expect label="It should produce error message 9.53.1."
         test="boolean(//me:feedback[@id='9.53.1'])"/>
     </x:scenario>
-    <x:scenario label="#65 Organisation Type Code is invalid">
+    <x:scenario label="#65 Organisation Type Code is invalid in //iati-activity/reporting-org">
       <x:context href="testfiles/65.xml"/>
       <x:expect label="It should produce error message 9.54.1."
         test="boolean(//me:feedback[@id='9.54.1'])"/>
     </x:scenario>
-    <x:scenario label="#66 Result Type Code is invalid">
+    <x:scenario label="#66 Result Type Code is invalid in //iati-activity/result">
       <x:context href="testfiles/66.xml"/>
       <x:expect label="It should produce error message 9.55.1."
         test="boolean(//me:feedback[@id='9.55.1'])"/>
     </x:scenario>
 
-    <x:scenario label="#67 File Format Code is invalid">
+    <x:scenario label="#67 File Format Code is invalid in //iati-activity/result/document-link">
       <x:context href="testfiles/67.xml"/>
       <x:expect label="It should produce error message 9.57.1."
         test="boolean(//me:feedback[@id='9.57.1'])"/>
     </x:scenario>
-    <x:scenario label="#68 Document Category Code is invalid">
+    <x:scenario
+      label="#68 Document Category Code is invalid in //iati-activity/result/document-link/category">
       <x:context href="testfiles/68.xml"/>
       <x:expect label="It should produce error message 9.58.1."
         test="boolean(//me:feedback[@id='9.58.1'])"/>
     </x:scenario>
-    <x:scenario label="#69 Language Code is invalid">
+    <x:scenario
+      label="#69 Language Code is invalid in //iati-activity/result/document-link/language">
       <x:context href="testfiles/69.xml"/>
       <x:expect label="It should produce error message 9.59.1."
         test="boolean(//me:feedback[@id='9.59.1'])"/>
     </x:scenario>
-    <x:scenario label="#70 Activity Scope Code is invalid">
+    <x:scenario label="#70 Activity Scope Code is invalid in //iati-activity/activity-scope">
       <x:context href="testfiles/70.xml"/>
       <x:expect label="It should produce error message 9.6.1."
         test="boolean(//me:feedback[@id='9.6.1'])"/>
     </x:scenario>
-    <x:scenario label="#71 Indicator Measure Code is invalid">
+    <x:scenario label="#71 Indicator Measure Code is invalid in //iati-activity/result/indicator">
       <x:context href="testfiles/71.xml"/>
       <x:expect label="It should produce error message 9.60.1."
         test="boolean(//me:feedback[@id='9.60.1'])"/>
     </x:scenario>
-    <x:scenario label="#72 File Format Code is invalid">
+    <x:scenario
+      label="#72 File Format Code is invalid in //iati-activity/result/indicator/baseline/document-link">
       <x:context href="testfiles/72.xml"/>
       <x:expect label="It should produce error message 9.61.1."
         test="boolean(//me:feedback[@id='9.61.1'])"/>
     </x:scenario>
-    <x:scenario label="#73 Document Category Code is invalid">
+    <x:scenario
+      label="#73 Document Category Code is invalid in //iati-activity/result/indicator/baseline/document-link/category">
       <x:context href="testfiles/73.xml"/>
       <x:expect label="It should produce error message 9.62.1."
         test="boolean(//me:feedback[@id='9.62.1'])"/>
     </x:scenario>
-    <x:scenario label="#74 Language Code is invalid">
+    <x:scenario
+      label="#74 Language Code is invalid in //iati-activity/result/indicator/baseline/document-link/language">
       <x:context href="testfiles/74.xml"/>
       <x:expect label="It should produce error message 9.63.1."
         test="boolean(//me:feedback[@id='9.63.1'])"/>
     </x:scenario>
-    <x:scenario label="#75 File Format Code is invalid">
+
+    <x:scenario
+      label="#75 File Format Code is invalid in //iati-activity/result/indicator/document-link">
       <x:context href="testfiles/75.xml"/>
       <x:expect label="It should produce error message 9.65.1."
         test="boolean(//me:feedback[@id='9.65.1'])"/>
     </x:scenario>
-    <x:scenario label="#76 Document Category Code is invalid">
+    <x:scenario
+      label="#76 Document Category Code is invalid in //iati-activity/result/indicator/document-link/category">
       <x:context href="testfiles/76.xml"/>
       <x:expect label="It should produce error message 9.66.1."
         test="boolean(//me:feedback[@id='9.66.1'])"/>
     </x:scenario>
-    <x:scenario label="#77 Language Code is invalid">
+    <x:scenario
+      label="#77 Language Code is invalid in //iati-activity/result/indicator/document-link/language">
       <x:context href="testfiles/77.xml"/>
       <x:expect label="It should produce error message 9.67.1."
         test="boolean(//me:feedback[@id='9.67.1'])"/>
     </x:scenario>
-    <x:scenario label="#78 File Format Code is invalid">
+    <x:scenario
+      label="#78 File Format Code is invalid in //iati-activity/result/indicator/period/actual/document-link">
       <x:context href="testfiles/78.xml"/>
       <x:expect label="It should produce error message 9.68.1."
         test="boolean(//me:feedback[@id='9.68.1'])"/>
     </x:scenario>
-    <x:scenario label="#79 Document Category Code is invalid">
+    <x:scenario
+      label="#79 Document Category Code is invalid in //iati-activity/result/indicator/period/actual/document-link/category">
       <x:context href="testfiles/79.xml"/>
       <x:expect label="It should produce error message 9.69.1."
         test="boolean(//me:feedback[@id='9.69.1'])"/>
     </x:scenario>
-    <x:scenario label="#80 Budget Status Code is invalid">
+    <x:scenario label="#80 Budget Status Code is invalid in //iati-activity/budget">
       <x:context href="testfiles/80.xml"/>
       <x:expect label="It should produce error message 9.7.1."
         test="boolean(//me:feedback[@id='9.7.1'])"/>
     </x:scenario>
-    <x:scenario label="#81 Language Code is invalid">
+    <x:scenario
+      label="#81 Language Code is invalid in //iati-activity/result/indicator/period/actual/document-link/language">
       <x:context href="testfiles/81.xml"/>
       <x:expect label="It should produce error message 9.70.1."
         test="boolean(//me:feedback[@id='9.70.1'])"/>
     </x:scenario>
-    <x:scenario label="#82 File Format Code is invalid">
+    <x:scenario
+      label="#82 File Format Code is invalid in //iati-activity/result/indicator/period/target/document-link">
       <x:context href="testfiles/82.xml"/>
       <x:expect label="It should produce error message 9.71.1."
         test="boolean(//me:feedback[@id='9.71.1'])"/>
     </x:scenario>
-    <x:scenario label="#83 Document Category Code is invalid">
+    <x:scenario
+      label="#83 Document Category Code is invalid in //iati-activity/result/indicator/period/target/document-link/category">
       <x:context href="testfiles/83.xml"/>
       <x:expect label="It should produce error message 9.72.1."
         test="boolean(//me:feedback[@id='9.72.1'])"/>
     </x:scenario>
-    <x:scenario label="#84 Language Code is invalid">
+    <x:scenario
+      label="#84 Language Code is invalid in //iati-activity/result/indicator/period/target/document-link/language">
       <x:context href="testfiles/84.xml"/>
       <x:expect label="It should produce error message 9.73.1."
         test="boolean(//me:feedback[@id='9.73.1'])"/>
     </x:scenario>
-    <x:scenario label="#85 Indicator Vocabulary Code is invalid">
+    <x:scenario
+      label="#85 Indicator Vocabulary Code is invalid in //iati-activity/result/indicator/reference">
       <x:context href="testfiles/85.xml"/>
       <x:expect label="It should produce error message 9.74.1."
         test="boolean(//me:feedback[@id='9.74.1'])"/>
     </x:scenario>
-    <x:scenario label="#86 Result Vocabulary Code is invalid">
+    <x:scenario label="#86 Result Vocabulary Code is invalid in //iati-activity/result/reference">
       <x:context href="testfiles/86.xml"/>
       <x:expect label="It should produce error message 9.75.1."
         test="boolean(//me:feedback[@id='9.75.1'])"/>
     </x:scenario>
-    <x:scenario label="#87 Sector Code is invalid">
+    <x:scenario
+      label="#87 Sector Code is invalid in //iati-activity/sector[@vocabulary = '1' or not(@vocabulary)]">
       <x:context href="testfiles/87.xml"/>
       <x:expect label="It should produce error message 9.76.1."
         test="boolean(//me:feedback[@id='9.76.1'])"/>
     </x:scenario>
-    <x:scenario label="#88 Sector Code is invalid">
+    <x:scenario label="#88 Sector Code is invalid in //iati-activity/sector[@vocabulary = '2']">
       <x:context href="testfiles/88.xml"/>
       <x:expect label="It should produce error message 9.77.1."
         test="boolean(//me:feedback[@id='9.77.1'])"/>
     </x:scenario>
-    <x:scenario label="#89 Sector Vocabulary Code is invalid">
+    <x:scenario label="#89 Sector Vocabulary Code is invalid in //iati-activity/sector">
       <x:context href="testfiles/89.xml"/>
       <x:expect label="It should produce error message 9.78.1."
         test="boolean(//me:feedback[@id='9.78.1'])"/>
     </x:scenario>
-    <x:scenario label="#90 Tag Vocabulary Code is invalid">
+    <x:scenario label="#90 Tag Vocabulary Code is invalid in //iati-activity/tag">
       <x:context href="testfiles/90.xml"/>
       <x:expect label="It should produce error message 9.79.1."
         test="boolean(//me:feedback[@id='9.79.1'])"/>
     </x:scenario>
-    <x:scenario label="#91 Budget Type Code is invalid">
+    <x:scenario label="#91 Budget Type Code is invalid in //iati-activity/budget">
       <x:context href="testfiles/91.xml"/>
       <x:expect label="It should produce error message 9.8.1."
         test="boolean(//me:feedback[@id='9.8.1'])"/>
     </x:scenario>
-    <x:scenario label="#92 Aid Type Code is invalid">
+    <x:scenario label="#92 Aid Type Code is invalid in //iati-activity/transaction/aid-type">
       <x:context href="testfiles/92.xml"/>
       <x:expect label="It should produce error message 9.80.1."
         test="boolean(//me:feedback[@id='9.80.1'])"/>
     </x:scenario>
-    <x:scenario label="#93 Aid Type Vocabulary Code is invalid">
+    <x:scenario
+      label="#93 Aid Type Vocabulary Code is invalid in //iati-activity/transaction/aid-type">
       <x:context href="testfiles/93.xml"/>
       <x:expect label="It should produce error message 9.81.1."
         test="boolean(//me:feedback[@id='9.81.1'])"/>
     </x:scenario>
-    <x:scenario label="#94 Disbursement Channel Code is invalid">
+    <x:scenario
+      label="#94 Disbursement Channel Code is invalid in //iati-activity/transaction/disbursement-channel">
       <x:context href="testfiles/94.xml"/>
       <x:expect label="It should produce error message 9.82.1."
         test="boolean(//me:feedback[@id='9.82.1'])"/>
     </x:scenario>
-    <x:scenario label="#95 Finance Type Code is invalid">
+    <x:scenario label="#95 Finance Type Code is invalid in //iati-activity/transaction/finance-type">
       <x:context href="testfiles/95.xml"/>
       <x:expect label="It should produce error message 9.83.1."
         test="boolean(//me:feedback[@id='9.83.1'])"/>
     </x:scenario>
-    <x:scenario label="#96 Flow Type Code is invalid">
+    <x:scenario label="#96 Flow Type Code is invalid in //iati-activity/transaction/flow-type">
       <x:context href="testfiles/96.xml"/>
       <x:expect label="It should produce error message 9.84.1."
         test="boolean(//me:feedback[@id='9.84.1'])"/>
     </x:scenario>
-    <x:scenario label="#97 Country Code is invalid">
+    <x:scenario label="#97 Country Code is invalid in //iati-activity/transaction/recipient-country">
       <x:context href="testfiles/97.xml"/>
       <x:expect label="It should produce error message 9.85.1."
         test="boolean(//me:feedback[@id='9.85.1'])"/>
     </x:scenario>
-    <x:scenario label="#98 Region Code is invalid">
+    <x:scenario
+      label="#98 Region Code is invalid in //iati-activity/transaction/recipient-region[@vocabulary = '1' or not(@vocabulary)]">
       <x:context href="testfiles/98.xml"/>
       <x:expect label="It should produce error message 9.86.1."
         test="boolean(//me:feedback[@id='9.86.1'])"/>
     </x:scenario>
-    <x:scenario label="#99 Region Vocabulary Code is invalid">
+    <x:scenario
+      label="#99 Region Vocabulary Code is invalid in //iati-activity/transaction/recipient-region">
       <x:context href="testfiles/99.xml"/>
       <x:expect label="It should produce error message 9.87.1."
         test="boolean(//me:feedback[@id='9.87.1'])"/>
     </x:scenario>
-    <x:scenario label="#100 Organisation Type Code is invalid">
+    <x:scenario
+      label="#100 Organisation Type Code is invalid in //iati-activity/transaction/provider-org">
       <x:context href="testfiles/100.xml"/>
       <x:expect label="It should produce error message 9.88.1."
         test="boolean(//me:feedback[@id='9.88.1'])"/>
     </x:scenario>
-    <x:scenario label="#101 Organisation Type Code is invalid">
+    <x:scenario
+      label="#101 Organisation Type Code is invalid in //iati-activity/transaction/receiver-org">
       <x:context href="testfiles/101.xml"/>
       <x:expect label="It should produce error message 9.89.1."
         test="boolean(//me:feedback[@id='9.89.1'])"/>
     </x:scenario>
-    <x:scenario label="#102 Currency Code is invalid">
+    <x:scenario label="#102 Currency Code is invalid in //iati-activity/budget/value">
       <x:context href="testfiles/102.xml"/>
       <x:expect label="It should produce error message 9.9.1."
         test="boolean(//me:feedback[@id='9.9.1'])"/>
     </x:scenario>
-    <x:scenario label="#103 Sector Code is invalid">
+    <x:scenario
+      label="#103 Sector Code is invalid in //iati-activity/transaction/sector[@vocabulary = '1' or not(@vocabulary)]">
       <x:context href="testfiles/103.xml"/>
       <x:expect label="It should produce error message 9.90.1."
         test="boolean(//me:feedback[@id='9.90.1'])"/>
     </x:scenario>
-    <x:scenario label="#104 Sector Vocabulary Code is invalid">
+    <x:scenario label="#104 Sector Vocabulary Code is invalid in //iati-activity/transaction/sector">
       <x:context href="testfiles/104.xml"/>
       <x:expect label="It should produce error message 9.91.1."
         test="boolean(//me:feedback[@id='9.91.1'])"/>
     </x:scenario>
-    <x:scenario label="#105 Tied Status Code is invalid">
+    <x:scenario label="#105 Tied Status Code is invalid in //iati-activity/transaction/tied-status">
       <x:context href="testfiles/105.xml"/>
       <x:expect label="It should produce error message 9.92.1."
         test="boolean(//me:feedback[@id='9.92.1'])"/>
     </x:scenario>
-    <x:scenario label="#106 Transaction Type Code is invalid">
+    <x:scenario
+      label="#106 Transaction Type Code is invalid in //iati-activity/transaction/transaction-type">
       <x:context href="testfiles/106.xml"/>
       <x:expect label="It should produce error message 9.93.1."
         test="boolean(//me:feedback[@id='9.93.1'])"/>
     </x:scenario>
-    <x:scenario label="#107 Currency Code is invalid">
+    <x:scenario label="#107 Currency Code is invalid in //iati-activity/transaction/value">
       <x:context href="testfiles/107.xml"/>
       <x:expect label="It should produce error message 9.94.1."
         test="boolean(//me:feedback[@id='9.94.1'])"/>
     </x:scenario>
-    <x:scenario label="#160 Language Code is invalid">
+    <x:scenario label="#160 Language Code is invalid in //*">
       <x:context href="testfiles/160.xml"/>
       <x:expect label="It should produce error message 9.95.1."
         test="boolean(//me:feedback[@id='9.95.1'])"/>
     </x:scenario>
-    <x:scenario label="#140 Currenct Code is invalid">
+    <x:scenario label="#140 Currenct Code is invalid in //iati-organisation">
       <x:context href="testfiles/140.xml"/>
       <x:expect label="It should produce error message 9.96.1."
         test="boolean(//me:feedback[@id='9.96.1'])"/>
     </x:scenario>
-    <x:scenario label="#108 Version number is invalid">
+    <x:scenario label="#108 Version number is invalid in //iati-organisations">
       <x:context href="testfiles/108.xml"/>
       <x:expect label="It should produce error message 9.97.1."
         test="boolean(//me:feedback[@id='9.97.1'])"/>
     </x:scenario>
-    <x:scenario label="#109 File Format Code is invalid">
+    <x:scenario label="#109 File Format Code is invalid in //iati-organisation/document-link">
       <x:context href="testfiles/109.xml"/>
       <x:expect label="It should produce error message 9.98.1."
         test="boolean(//me:feedback[@id='9.98.1'])"/>
     </x:scenario>
-    <x:scenario label="#110 Document Category Code is invalid">
+    <x:scenario
+      label="#110 Document Category Code is invalid in //iati-organisation/document-link/category">
       <x:context href="testfiles/110.xml"/>
       <x:expect label="It should produce error message 9.99.1."
         test="boolean(//me:feedback[@id='9.99.1'])"/>
     </x:scenario>
-    <x:scenario label="#110 Prefix of Org ID is in lower case">
+    <x:scenario label="#110 Prefix of Org ID is in lower case in ">
       <x:context href="testfiles/110.xml"/>
       <x:expect label="It should produce error message {$idclass}.5."
         test="boolean(//me:feedback[@id='{$idclass}.5'])"/>
     </x:scenario>
-    <x:scenario label="#111 Activity appears twice in the dataset">
+    <x:scenario label="#111 Activity appears twice in the dataset in iati-identifier">
       <x:context href="testfiles/111.xml"/>
       <x:expect label="It should produce error message 1.1.2."
         test="boolean(//me:feedback[@id='1.1.2'])"/>
     </x:scenario>
-    <x:scenario label="#112 Activity Identifier = Reporting Org Ref">
+    <x:scenario label="#112 Activity Identifier = Reporting Org Ref in iati-identifier">
       <x:context href="testfiles/112.xml"/>
       <x:expect label="It should produce error message 1.1.3."
         test="boolean(//me:feedback[@id='1.1.3'])"/>
     </x:scenario>
-    <x:scenario label="#113 Point position does not contain two valid numbers">
+    <x:scenario label="#113 Point position does not contain two valid numbers in point[pos]">
       <x:context href="testfiles/113.xml"/>
       <x:expect label="It should produce error message 3.3.1."
         test="boolean(//me:feedback[@id='3.3.1'])"/>
     </x:scenario>
-    <x:scenario label="#114 Latitude value is >90">
+    <x:scenario label="#114 Latitude value is >90 in point[pos]">
       <x:context href="testfiles/114.xml"/>
       <x:expect label="It should produce error message 3.3.2."
         test="boolean(//me:feedback[@id='3.3.2'])"/>
     </x:scenario>
-    <x:scenario label="#115 Longitude value is >180">
+    <x:scenario label="#115 Longitude value is >180 in point[pos]">
       <x:context href="testfiles/115.xml"/>
       <x:expect label="It should produce error message 3.3.3."
         test="boolean(//me:feedback[@id='3.3.3'])"/>
     </x:scenario>
-    <x:scenario label="#116 Activity Status is not present">
+    <x:scenario label="#116 Activity Status is not present in iati-activity">
       <x:context href="testfiles/116.xml"/>
       <x:expect label="It should produce error message 6.2.1."
         test="boolean(//me:feedback[@id='6.2.1'])"/>
     </x:scenario>
-    <x:scenario label="#117 Budget value has no value date">
+    <x:scenario label="#117 Budget value has no value date in budget">
       <x:context href="testfiles/117.xml"/>
       <x:expect label="It should produce error message 7.5.2."
         test="boolean(//me:feedback[@id='7.5.2'])"/>
     </x:scenario>
-    <x:scenario label="#118 Organisation Identifier is not present">
+    <x:scenario label="#118 Organisation Identifier is not present in reporting-org">
       <x:context href="testfiles/118.xml"/>
       <x:expect label="It should produce error message 1.2.2."
         test="boolean(//me:feedback[@id='1.2.2'])"/>
     </x:scenario>
-    <x:scenario label="#119 Sector Vocabulary != 1 (and is present)">
+
+
+
+    <x:scenario label="#119 Sector Vocabulary != 1 (and is present) in iati-activity">
       <x:context href="testfiles/119.xml"/>
       <x:expect label="It should produce error message 102.1.1."
         test="boolean(//me:feedback[@id='102.1.1'])"/>
     </x:scenario>
-    <x:scenario label="#120 Region Vocabulary Code is present and != 1">
+    <x:scenario label="#120 Region Vocabulary Code is present and != 1 in iati-activity">
       <x:context href="testfiles/120.xml"/>
       <x:expect label="It should produce error message 103.1.1."
         test="boolean(//me:feedback[@id='103.1.1'])"/>
     </x:scenario>
-    <x:scenario label="#121 Policy Marker Vocabulary Code is present and != 1">
+    <x:scenario label="#121 Policy Marker Vocabulary Code is present and != 1 in iati-activity">
       <x:context href="testfiles/121.xml"/>
       <x:expect label="It should produce error message 106.1.1."
         test="boolean(//me:feedback[@id='106.1.1'])"/>
     </x:scenario>
-    <x:scenario label="#122 Provider Org = Receiver Org">
+    <x:scenario
+      label="#122 Provider Org = Receiver Org in transaction[provider-org and receiver-org]">
       <x:context href="testfiles/122.xml"/>
       <x:expect label="It should produce error message 7.1.1."
         test="boolean(//me:feedback[@id='7.1.1'])"/>
     </x:scenario>
+
+
     <x:scenario
-      label="#123 Currency Code not present at in Forecast element and there is no Defaultt Currency at activity level">
+      label="#123 Currency Code not present at in Forecast element and there is no Defaultt Currency at activity level in value|forecast">
       <x:context href="testfiles/123.xml"/>
       <x:expect label="It should produce error message 7.8.1."
         test="boolean(//me:feedback[@id='7.8.1'])"/>
     </x:scenario>
-    <x:scenario label="#124 Baseline Year value > 2050">
+    <x:scenario label="#124 Baseline Year value > 2050 in baseline">
       <x:context href="testfiles/124.xml"/>
       <x:expect label="It should produce error message 8.4.1."
         test="boolean(//me:feedback[@id='8.4.1'])"/>
     </x:scenario>
-    <x:scenario label="#125 Baseline Year is not a number">
+    <x:scenario label="#125 Baseline Year is not a number in baseline">
       <x:context href="testfiles/125.xml"/>
       <x:expect label="It should produce error message 8.4.4."
         test="boolean(//me:feedback[@id='8.4.4'])"/>
     </x:scenario>
-    <x:scenario label="#126 Period Start > Period End">
+    <x:scenario label="#126 Period Start > Period End in period">
       <x:context href="testfiles/126.xml"/>
       <x:expect label="It should produce error message 8.6.1."
         test="boolean(//me:feedback[@id='8.6.1'])"/>
     </x:scenario>
-    <x:scenario label="#127 Participating Org ref is not present">
+    <x:scenario
+      label="#127 Participating Org ref is not present in participating-org|provider-org|receiver-org">
       <x:context href="testfiles/127.xml"/>
       <x:expect label="It should produce error message 1.7.2."
         test="boolean(//me:feedback[@id='1.7.2'])"/>
     </x:scenario>
-    <x:scenario label="#141 Activity ID is present but Organisation ID is not">
+    <x:scenario
+      label="#141 Activity ID is present but Organisation ID is not in participating-org|provider-org|receiver-org">
       <x:context href="testfiles/141.xml"/>
       <x:expect label="It should produce error message 1.2.3."
         test="boolean(//me:feedback[@id='1.2.3'])"/>
     </x:scenario>
 
-    <x:scenario label="#128 Results section is not present">
+    <x:scenario label="#128 Results section is not present in iati-activity">
       <x:context href="testfiles/128.xml"/>
       <x:expect label="It should produce error message 108.1.1."
         test="boolean(//me:feedback[@id='108.1.1'])"/>
     </x:scenario>
-    <x:scenario label="#129 Name attribute is not present">
+    <x:scenario label="#129 Name attribute is not present in location">
       <x:context href="testfiles/129.xml"/>
       <x:expect label="It should produce error message 3.2.1."
         test="boolean(//me:feedback[@id='3.2.1'])"/>
     </x:scenario>
-    <x:scenario label="#130 Title appears more than once">
+    <x:scenario label="#130 Title appears more than once in title">
       <x:context href="testfiles/130.xml"/>
       <x:expect label="It should produce error message 4.2.1."
         test="boolean(//me:feedback[@id='4.2.1'])"/>
     </x:scenario>
 
-    <x:scenario label="#131 Language Code is not present">
+    <x:scenario label="#131 Language Code is not present in document-link">
       <x:context href="testfiles/131.xml"/>
       <x:expect label="It should produce error message 6.1.4."
         test="boolean(//me:feedback[@id='6.1.4'])"/>
     </x:scenario>
-    <x:scenario label="#132 Default Finance Type is not present">
+    <x:scenario label="#132 Default Finance Type is not present in iati-activity">
       <x:context href="testfiles/132.xml"/>
       <x:expect label="It should produce error message 6.2.5."
         test="boolean(//me:feedback[@id='6.2.5'])"/>
     </x:scenario>
-    <x:scenario label="#142 Activity Identifier is not present for an outgoing transaction">
+    <x:scenario
+      label="#142 Activity Identifier is not present for an outgoing transaction in transaction[upper-case(transaction-type/@code)=('2','3','D','C')]">
       <x:context href="testfiles/142.xml"/>
       <x:expect label="It should produce error message 7.4.4."
         test="boolean(//me:feedback[@id='7.4.4'])"/>
     </x:scenario>
-    <x:scenario label="#133 Budget period > 1 year">
+
+
+
+
+
+
+    <x:scenario label="#133 Budget period > 1 year in budget">
       <x:context href="testfiles/133.xml"/>
       <x:expect label="It should produce error message 7.5.3."
         test="boolean(//me:feedback[@id='7.5.3'])"/>
     </x:scenario>
-    <x:scenario label="#134 Activity Identifier is not prefixed with the Organisation Identifier">
+
+
+    <x:scenario
+      label="#134 Activity Identifier is not prefixed with the Organisation Identifier in iati-identifier">
       <x:context href="testfiles/134.xml"/>
       <x:expect label="It should produce error message 1.1.1."
         test="boolean(//me:feedback[@id='1.1.1'])"/>
     </x:scenario>
-    <x:scenario label="#148 Policy Markers are not present">
+
+
+
+
+
+
+    <x:scenario label="#148 Policy Markers are not present in iati-activity">
       <x:context href="testfiles/148.xml"/>
       <x:expect label="It should produce error message 6.2.3."
         test="boolean(//me:feedback[@id='6.2.3'])"/>
     </x:scenario>
-    <x:scenario label="#149 Default Flow Type is not present">
+    <x:scenario label="#149 Default Flow Type is not present in iati-activity">
       <x:context href="testfiles/149.xml"/>
       <x:expect label="It should produce error message 6.2.4."
         test="boolean(//me:feedback[@id='6.2.4'])"/>
     </x:scenario>
-    <x:scenario label="#150 Default Aid Type is not present">
+    <x:scenario label="#150 Default Aid Type is not present in iati-activity">
       <x:context href="testfiles/150.xml"/>
       <x:expect label="It should produce error message 6.2.6."
         test="boolean(//me:feedback[@id='6.2.6'])"/>
     </x:scenario>
-    <x:scenario label="#151 Default Tied Status is not present">
+    <x:scenario label="#151 Default Tied Status is not present in iati-activity">
       <x:context href="testfiles/151.xml"/>
       <x:expect label="It should produce error message 6.2.7."
         test="boolean(//me:feedback[@id='6.2.7'])"/>
     </x:scenario>
-    <x:scenario label="#152 Organisation Type is not present">
+    <x:scenario label="#152 Organisation Type is not present in reporting-org">
       <x:context href="testfiles/152.xml"/>
       <x:expect label="It should produce error message 6.3.1."
         test="boolean(//me:feedback[@id='6.3.1'])"/>
     </x:scenario>
-    <x:scenario label="#153 Organisation Type is not present">
+    <x:scenario label="#153 Organisation Type is not present in participating-org">
       <x:context href="testfiles/153.xml"/>
       <x:expect label="It should produce error message 6.4.1."
         test="boolean(//me:feedback[@id='6.4.1'])"/>
     </x:scenario>
-    <x:scenario label="#154 Organisation Type is not present">
+    <x:scenario label="#154 Organisation Type is not present in provider-org|receiver-org">
       <x:context href="testfiles/154.xml"/>
       <x:expect label="It should produce error message 6.5.1."
         test="boolean(//me:feedback[@id='6.5.1'])"/>
     </x:scenario>
-    <x:scenario label="#155 Budget Value = 0">
+
+
+
+
+
+
+
+
+    <x:scenario label="#155 Budget Value = 0 in budget">
       <x:context href="testfiles/155.xml"/>
       <x:expect label="It should produce error message 7.5.1."
         test="boolean(//me:feedback[@id='7.5.1'])"/>
     </x:scenario>
-    <x:scenario label="#156 Transaction date > Last updated date of activity">
+    <x:scenario label="#156 Transaction date > Last updated date of activity in transaction-date">
       <x:context href="testfiles/156.xml"/>
       <x:expect label="It should produce error message 7.6.1."
         test="boolean(//me:feedback[@id='7.6.1'])"/>
     </x:scenario>
-    <x:scenario label="#157 Transaction date > Later than date of generation of file">
+    <x:scenario
+      label="#157 Transaction date > Later than date of generation of file in transaction-date">
       <x:context href="testfiles/157.xml"/>
       <x:expect label="It should produce error message 7.6.2."
         test="boolean(//me:feedback[@id='7.6.2'])"/>
     </x:scenario>
-    <x:scenario label="#158 Budget is not present">
+    <x:scenario label="#158 Budget is not present in iati-activity">
       <x:context href="testfiles/158.xml"/>
       <x:expect label="It should produce error message 7.7.2."
         test="boolean(//me:feedback[@id='7.7.2'])"/>
     </x:scenario>
-    <x:scenario label="#159 Period is not present">
+    <x:scenario label="#159 Period is not present in indicator">
       <x:context href="testfiles/159.xml"/>
       <x:expect label="It should produce error message 8.1.2."
         test="boolean(//me:feedback[@id='8.1.2'])"/>
     </x:scenario>
-    <x:scenario label="#143 Result element has no aggregation status">
+
+
+    <x:scenario label="#143 Result element has no aggregation status in result">
       <x:context href="testfiles/143.xml"/>
       <x:expect label="It should produce error message 8.2.1."
         test="boolean(//me:feedback[@id='8.2.1'])"/>
     </x:scenario>
     <x:scenario
-      label="#144 The year for the baseline is more than 5 years before the start date of the activity.">
+      label="#144 The year for the baseline is more than 5 years before the start date of the activity. in baseline">
       <x:context href="testfiles/144.xml"/>
       <x:expect label="It should produce error message 8.4.2."
         test="boolean(//me:feedback[@id='8.4.2'])"/>
     </x:scenario>
-    <x:scenario label="#145 The year for the baseline is after the end date of the activity.">
+    <x:scenario
+      label="#145 The year for the baseline is after the end date of the activity. in baseline">
       <x:context href="testfiles/145.xml"/>
       <x:expect label="It should produce error message 8.4.3."
         test="boolean(//me:feedback[@id='8.4.3'])"/>
     </x:scenario>
-    <x:scenario label="#146 Target is missing for the period element">
+    <x:scenario label="#146 Target is missing for the period element in period">
       <x:context href="testfiles/146.xml"/>
       <x:expect label="It should produce error message 8.6.2."
         test="boolean(//me:feedback[@id='8.6.2'])"/>
     </x:scenario>
-    <x:scenario label="#147 Actual is missing for the period element">
+    <x:scenario label="#147 Actual is missing for the period element in period">
       <x:context href="testfiles/147.xml"/>
       <x:expect label="It should produce error message 8.6.2."
         test="boolean(//me:feedback[@id='8.6.2'])"/>
