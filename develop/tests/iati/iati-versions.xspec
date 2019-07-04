@@ -3,7 +3,76 @@
   xmlns:me="http://iati.me"
   xslt-version="3.0">
 
-  <x:scenario label="IATI version number">
+  <x:scenario label="IATI version number used for validation">
+    <x:scenario label="If activities file version is 2.03">
+      <x:context>
+        <iati-activities version="2.03"/>
+      </x:context>
+      <x:expect label="It should select version 2.03" test="/iati-activities/@me:iatiVersion='2.03'"/>
+    </x:scenario>
+
+    <x:scenario label="If activities file version is 2.02">
+      <x:context>
+        <iati-activities version="2.02"/>
+      </x:context>
+      <x:expect label="It should select version 2.02" test="/iati-activities/@me:iatiVersion='2.02'"/>
+    </x:scenario>
+    
+    <x:scenario label="If activities file version is 2.01">
+      <x:context>
+        <iati-activities version="2.01"/>
+      </x:context>
+      <x:expect label="It should select version 2.01" test="/iati-activities/@me:iatiVersion='2.01'"/>
+    </x:scenario>
+
+    <x:scenario label="If activities file version is 1.05">
+      <x:context>
+        <iati-activities version="1.05"/>
+      </x:context>
+      <x:expect label="It should select version 1.05" test="/iati-activities/@me:iatiVersion='1.05'"/>
+    </x:scenario>
+
+    <x:scenario label="If activities file version is 1.03">
+      <x:context>
+        <iati-activities version="1.03"/>
+      </x:context>
+      <x:expect label="It should select version 1.03" test="/iati-activities/@me:iatiVersion='1.03'"/>
+    </x:scenario>
+
+    <x:scenario label="If activities file version is 1.6">
+      <x:context>
+        <iati-activities version="1.6"/>
+      </x:context>
+      <x:expect label="It should select version 1.05" test="/iati-activities/@me:iatiVersion='1.05'"/>
+    </x:scenario>
+    
+    <x:scenario label="If activities file version is 2.2">
+      <x:context>
+        <iati-activities version="2.2"/>
+      </x:context>
+      <x:expect label="It should select version 2.03" test="/iati-activities/@me:iatiVersion='2.03'"/>
+    </x:scenario>
+
+    <x:scenario label="If organisations file version is 2.03">
+      <x:context>
+        <iati-organisations version="2.03"/>
+      </x:context>
+      <x:expect label="It should select version 2.03" test="/iati-organisations/@me:iatiVersion='2.03'"/>
+    </x:scenario>
+    
+    <x:scenario label="If organisations file version is 2.01">
+      <x:context>
+        <iati-organisations version="2.01"/>
+      </x:context>
+      <x:expect label="It should select version 2.01" test="/iati-organisations/@me:iatiVersion='2.01'"/>
+    </x:scenario>
+    
+    <x:scenario label="If organisations file version is 2.2">
+      <x:context>
+        <iati-organisations version="2.2"/>
+      </x:context>
+      <x:expect label="It should select version 2.03" test="/iati-organisations/@me:iatiVersion='2.03'"/>
+    </x:scenario>
   </x:scenario>
 
 </x:description>

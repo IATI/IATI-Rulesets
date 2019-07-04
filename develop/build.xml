@@ -6,21 +6,15 @@
 
   <import file="xspec/build.xml" optional="yes"/>
 
-  <target name="iati-1.0x-tests">
-    <antcall target="xspec.xspec" inheritall="false">
-      <param name="xspec.xml" location="develop/tests/iati-activities-1.0x.xspec"/>
-    </antcall>
+  <target name="update-codelist-rules" description="Update the codelist check rules based on the adapted IATI codelist mapping.">
+    <echo level="info">Update the codelist check rules based on the adapted IATI codelist mapping.</echo>
+    <xslt in="lib/schemata/mapping-rules.xml" out="data-quality/rules/iati/codelists.xslt" style="data-updater/generate-codelist-checks.xslt"/>
   </target>
   
-  <target name="iati-2.0x-tests">
+  <target name="test" description="Run the tests">
     <antcall target="xspec.xspec" inheritall="false">
-      <param name="xspec.xml" location="develop/tests/iati-activities-2.0x.xspec"/>
+      <param name="xspec.xml" location="develop/tests/iati.xspec"/>
     </antcall>
-  </target>
-  
-  <target name="test" description="Run the tests" 
-    depends="iati-1.0x-tests, iati-2.0x-tests">
-    <!-- TODO: as we use a global variable to pass around the IATI version to use in checks, we can't test 1.05 and 2.03 in the same run -->
   </target>
 
   <target name="tests" description="Run all the tests (don't stop at first failure)">

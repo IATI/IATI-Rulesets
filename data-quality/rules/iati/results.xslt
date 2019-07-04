@@ -19,7 +19,7 @@
     <xsl:next-match/>
   </xsl:template>
 
-  <xsl:template match="budget|total-budget|total-expenditure|recipient-org-budget|recipient-country-budget|recipient-region-budget|planned-disbursement" mode="rules" priority="8.6">
+  <xsl:template match="budget|total-budget|total-expenditure|recipient-org-budget|recipient-country-budget|recipient-region-budget|planned-disbursement" mode="rules" priority="8.7">
     
     <xsl:if test="period-start/@iso-date gt period-end/@iso-date">
       <me:feedback type="danger" class="financial" id="8.6.3">
@@ -30,4 +30,53 @@
     
     <xsl:next-match/>
   </xsl:template>
+  
+  <xsl:template match="baseline[../@measure=('1', '2', '3', '4')]" mode="rules" priority="8.8">
+    
+    <xsl:if test="not(@value)">
+      <me:feedback type="danger" class="performance" id="8.8.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The baseline must have a value when indicator measure is 1, 2, 3 or 4.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
+  <xsl:template match="target[../../@measure=('1', '2', '3', '4')]" mode="rules" priority="8.9">
+    
+    <xsl:if test="not(@value)">
+      <me:feedback type="danger" class="performance" id="8.9.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The target must have a value when indicator measure is 1, 2, 3 or 4.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+
+  <xsl:template match="actual[../../@measure=('1', '2', '3', '4')]" mode="rules" priority="8.10">
+    
+    <xsl:if test="not(@value)">
+      <me:feedback type="danger" class="performance" id="8.10.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The actual must have a value when indicator measure is 1, 2, 3 or 4.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+
+  <xsl:template match="indicator[reference]" mode="rules" priority="8.11">
+    
+    <xsl:if test="../reference">
+      <me:feedback type="danger" class="performance" id="8.11.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>If a result has a reference code, the indicator must not have a reference code.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
 </xsl:stylesheet>

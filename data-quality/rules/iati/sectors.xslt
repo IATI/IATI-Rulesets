@@ -36,4 +36,14 @@
 
     <xsl:next-match/>
   </xsl:template>
+  
+  <xsl:template match="sector[@vocabulary=('98', '99')]" mode="rules" priority="2.2">
+    <xsl:if test="not(narrative)">
+      <me:feedback type="danger" class="classifications" id="2.2.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>When using a reporting organisation sector code, it must include a narrative name.</me:message>
+      </me:feedback>
+    </xsl:if>
+    <xsl:next-match/>
+  </xsl:template>
 </xsl:stylesheet>  

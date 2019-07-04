@@ -1,8 +1,1 @@
-*.swp
-*.pyc
-*.egg-info
-dist
-pyenv*
-doc/_build
-build
 \.~*#
