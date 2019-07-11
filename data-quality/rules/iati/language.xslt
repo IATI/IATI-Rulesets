@@ -11,7 +11,7 @@
     <xsl:if test="not(./@xml:lang) and descendant::narrative[not(@xml:lang)]">
       <me:feedback type="danger" class="information" id="4.1.1">
         <me:src ref="iati" href="http://iatistandard.org/202/activity-standard/iati-activities/iati-activity/#iati-activities-iati-activity-xml-lang"/>
-        <me:message>The activity should specify a default language, or the language should be specified for each narrative element.</me:message>
+        <me:message>The activity must specify a default language, or the language should be specified for each narrative element.</me:message>
       </me:feedback>
     </xsl:if>
   

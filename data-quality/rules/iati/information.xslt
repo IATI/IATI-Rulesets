@@ -7,11 +7,33 @@
   exclude-result-prefixes="xs functx"
   expand-text="yes">
 
+  <xsl:template match="document-link[not(ancestor::iati-activity/@xml:lang)]" mode="rules" priority="6.1"> 
+    <xsl:if test="not(language) or not(language/@code) or language/@code=''">
+      <me:feedback type="danger" class="documents" id="6.1.4">
+        <me:src ref="iati" versions="any"/>
+        <me:message>Document Link must have a specified language, or the Activity must have a default language.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
+  <xsl:template match="iati-activity" mode="rules" priority="6.2">
+    <xsl:if test="not(activity-status)">
+      <me:feedback type="danger" class="information" id="6.2.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>Activity Status must be present.</me:message>
+      </me:feedback>
+    </xsl:if>
+        
+    <xsl:next-match/>
+  </xsl:template>
+  
   <xsl:template match="iati-activity[sector]" mode="rules" priority="6.6">
     <xsl:if test="transaction/sector">
       <me:feedback type="danger" class="classifications" id="6.6.2">
         <me:src ref="iati" versions="any"/>
-        <me:message>If the activity has a sector classification, none of the transactions should have a sector classification.</me:message>
+        <me:message>Sectors are present at both the activity AND transaction level. Sectors should only be present at activity OR transaction level.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -23,7 +45,7 @@
       <xsl:when test="not(transaction[sector])">
         <me:feedback type="danger" class="classifications" id="6.2.2">
           <me:src ref="iati" versions="any"/>
-          <me:message>The activity should have a sector classification for either the activity or for all transactions.</me:message>
+          <me:message>Each activity must have a specified Sector Classification, at either activity level, or for ALL transactions.</me:message>
         </me:feedback>
       </xsl:when>
       <xsl:when test="transaction[not(sector)]">
@@ -37,6 +59,17 @@
     <xsl:next-match/>
   </xsl:template>
 
+  <xsl:template match="reporting-org" mode="rules" priority="6.3">
+    <xsl:if test="not(@type) or @type=''">
+      <me:feedback type="warning" class="identification" id="6.3.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>Organisation Type must be present.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
   <xsl:template match="owner-org" mode="rules" priority="6.8">
     <xsl:if test="not(@ref) and not(narrative)">
       <me:feedback type="danger" class="information" id="6.8.1">

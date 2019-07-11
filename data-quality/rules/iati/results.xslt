@@ -7,12 +7,23 @@
   exclude-result-prefixes="xs functx"
   expand-text="yes">
 
+  <xsl:template match="baseline/@value|target/@value|actual/@value" mode="rules" priority="8.5">
+    <xsl:if test="ancestor::result/@aggregation-status castable as xs:boolean and xs:boolean(ancestor::result/@aggregation-status) and not(. castable as xs:decimal)">
+      <me:feedback type="danger" class="performance" id="8.5.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The {name(..)} value is not a number but the indicator is part of a result that can be aggregated.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>    
+    
   <xsl:template match="period" mode="rules" priority="8.6">
     
     <xsl:if test="period-start/@iso-date gt period-end/@iso-date">
       <me:feedback type="danger" class="performance" id="8.6.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>The start of the period is after the end of the period.</me:message>
+        <me:message>The start of the period must be before the end of the period.</me:message>
       </me:feedback>
     </xsl:if>
     

@@ -6,6 +6,17 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
+  <xsl:template match="iati-activity[not(recipient-country) and not(recipient-region)]" mode="rules" priority="3.1">
+    <xsl:if test="count(recipient-country) = 0">
+      <me:feedback type="danger" class="geo" id="3.1.3">
+        <me:src ref="iati" versions="any"/>
+        <me:message>No recipient countries or regions specified.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
   <xsl:template match="iati-activity[(recipient-country or recipient-region)]" mode="rules" priority="3.2">
     <xsl:param name="iati-version" tunnel="yes"/>
     <xsl:if test="starts-with($iati-version, '1.')">
@@ -13,21 +24,21 @@
       <!--* When declaring multiple ``recipient-country`` or ``recipient-region`` then a ``@percentage`` must be declared.  These must sum to 100%.-->
       <xsl:call-template name="percentage-checks">
         <xsl:with-param name="group" select="recipient-country"/>
-        <xsl:with-param name="class" select="'geo'"/>
-        <xsl:with-param name="idclass" select="'3.1'"/>
-        <xsl:with-param name="item" select="'recipient country'"/>
-        <xsl:with-param name="items" select="'recipient countries'"/>
+        <xsl:with-param name="class">geo</xsl:with-param>
+        <xsl:with-param name="idclass">3.1</xsl:with-param>
+        <xsl:with-param name="item">recipient country</xsl:with-param>
+        <xsl:with-param name="items">recipient countries</xsl:with-param>
       </xsl:call-template>
       
       <!-- Check for percentages for multiple recipient regions for the default vocabulary. -->    
       <xsl:call-template name="percentage-checks">
         <xsl:with-param name="group" select="recipient-region"/>
-        <xsl:with-param name="class" select="'geo'"/>
-        <xsl:with-param name="idclass" select="'3.2'"/>
-        <xsl:with-param name="item" select="'recipient region'"/>
-        <xsl:with-param name="items" select="'recipient regions'"/>
+        <xsl:with-param name="class">geo</xsl:with-param>
+        <xsl:with-param name="idclass">3.2</xsl:with-param>
+        <xsl:with-param name="item">recipient country</xsl:with-param>
+        <xsl:with-param name="items">recipient countries</xsl:with-param>
         <xsl:with-param name="vocabulary" select="'1'"/>
-        <xsl:with-param name="iativersion" select="'1.x'"/>
+        <xsl:with-param name="iativersion">1.x</xsl:with-param>
       </xsl:call-template>
     </xsl:if>
 
@@ -51,11 +62,11 @@
     <xsl:if test="starts-with($iati-version, '2.')">
       <xsl:call-template name="percentage-checks">
         <xsl:with-param name="group" select="recipient-country"/>
-        <xsl:with-param name="class" select="'geo'"/>
-        <xsl:with-param name="idclass" select="'3.1'"/>
-        <xsl:with-param name="item" select="'recipient country'"/>
-        <xsl:with-param name="items" select="'recipient countries'"/>
-        <xsl:with-param name="iativersion" select="'2.x'"/>
+        <xsl:with-param name="class">geo</xsl:with-param>
+        <xsl:with-param name="idclass">3.1</xsl:with-param>
+        <xsl:with-param name="item">recipient country</xsl:with-param>
+        <xsl:with-param name="items">recipient countries</xsl:with-param>
+        <xsl:with-param name="iativersion">2.x</xsl:with-param>
       </xsl:call-template>
     </xsl:if>    
     <xsl:next-match/>    
@@ -66,12 +77,12 @@
     <xsl:param name="vocabulary" select="'1'"/>
     <xsl:call-template name="percentage-checks">
       <xsl:with-param name="group" select="$group"/>
-      <xsl:with-param name="class" select="'geo'"/>
-      <xsl:with-param name="idclass" select="'3.4'"/>
-      <xsl:with-param name="item" select="'recipient country or region'"/>
-      <xsl:with-param name="items" select="'recipient countries and regions'"/>
-      <xsl:with-param name="iativersion" select="'2.x'"/>
-      <xsl:with-param name="href" select="'activity-standard/overview/geography/'"/>
+      <xsl:with-param name="class">geo</xsl:with-param>
+      <xsl:with-param name="idclass">3.4</xsl:with-param>
+      <xsl:with-param name="item">recipient country or region</xsl:with-param>
+      <xsl:with-param name="items">recipient countries or regions</xsl:with-param>
+      <xsl:with-param name="iativersion">2.x</xsl:with-param>
+      <xsl:with-param name="href">activity-standard/overview/geography/</xsl:with-param>
     </xsl:call-template>    
   </xsl:template>
   

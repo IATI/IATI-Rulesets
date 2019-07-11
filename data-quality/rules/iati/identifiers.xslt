@@ -8,6 +8,19 @@
 
   <!-- Checks on the identifiers of organisations or activities -->
 
+  <xsl:template match="reporting-org" mode="rules" priority="1.7">
+    <xsl:choose>
+      <xsl:when test="not(@ref)">
+        <me:feedback type="danger" class="identifiers" id="1.7.2">
+          <me:src ref="iati" versions="any"/>
+          <me:message>The organisation identifier is missing.</me:message>
+        </me:feedback>      
+      </xsl:when>
+    </xsl:choose>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
   <xsl:template match="iati-organisation/iati-identifier" mode="rules" priority="1.13">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
