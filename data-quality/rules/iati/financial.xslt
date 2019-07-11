@@ -7,7 +7,7 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
-  <xsl:template match="budget" mode="rules" priority="7.5">
+  <xsl:template match="budget" mode="rules" priority="7.15">
     <xsl:if test="not(value/@value-date)">
       <me:feedback type="danger" class="financial" id="7.5.2">
         <me:src ref="iati" versions="any"/>
