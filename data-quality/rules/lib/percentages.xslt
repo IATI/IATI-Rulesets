@@ -25,7 +25,7 @@
         <xsl:if test="$group/@percentage and $group/@percentage castable as xs:decimal and xs:decimal($group/@percentage) !=100">
           <me:feedback type="danger" class="{$class}" id="{$idclass}.4">
             <me:src ref="iati" versions="{$iativersion}" href="{me:iati-url($href)}"/>
-            <me:message>For a single {$item}, the percentage can be omitted or should be 100.</me:message>
+            <me:message>For a single {$item}, the percentage must either be omitted, or set to 100.</me:message>
           </me:feedback>
         </xsl:if>
       </xsl:when>

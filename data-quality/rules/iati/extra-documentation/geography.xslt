@@ -6,6 +6,17 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
+  <xsl:template match="iati-activity[not(recipient-country) and not(recipient-region)]" mode="rules" priority="3.1">
+    <xsl:if test="count(recipient-country) = 0">
+      <me:feedback type="danger" class="geo" id="3.1.3">
+        <me:src ref="iati" versions="any"/>
+        <me:message>No recipient countries or regions specified.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
   <xsl:template match="iati-activity[(recipient-country or recipient-region)]" mode="rules" priority="3.2">
     <xsl:param name="iati-version" tunnel="yes"/>
     <xsl:if test="starts-with($iati-version, '1.')">
