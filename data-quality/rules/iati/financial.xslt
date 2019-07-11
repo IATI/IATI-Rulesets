@@ -32,14 +32,14 @@
   <xsl:template match="transaction-date" mode="rules" priority="7.6">
     <xsl:choose>
       <xsl:when test="@iso-date gt ancestor::iati-activity/@last-updated-datetime">
-        <me:feedback type="warning" class="financial" id="7.6.1">
+        <me:feedback type="danger" class="financial" id="7.6.1">
           <me:src ref="iati" versions="any"/>
           <me:message>The transaction date is later than the date of the last update of the activity.</me:message>
         </me:feedback>
       </xsl:when>
       
       <xsl:when test="@iso-date gt ancestor::iati-activities/@generated-datetime">
-        <me:feedback type="warning" class="financial" id="7.6.2">
+        <me:feedback type="danger" class="financial" id="7.6.2">
           <me:src ref="iati" versions="any"/>
           <me:message>The transaction date is later than the date of generation of the activities file.</me:message>
         </me:feedback>
