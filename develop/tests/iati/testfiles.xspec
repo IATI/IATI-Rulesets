@@ -111,8 +111,8 @@
     </x:scenario>
     <x:scenario label="#118 Organisation Identifier is not present in reporting-org">
       <x:context href="testfiles/118.xml"/>
-      <x:expect label="It should produce error message 1.2.2."
-        test="boolean(//me:feedback[@id='1.2.2'])"/>
+      <x:expect label="It should produce error message 1.7.2."
+        test="boolean(//me:feedback[@id='1.7.2'])"/>
     </x:scenario>
     <x:scenario label="#12 Condition Type Code is invalid in //iati-activity/conditions/condition">
       <x:context href="testfiles/12.xml"/>
@@ -210,7 +210,8 @@
       <x:expect label="It should produce error message 9.95.1."
         test="boolean(//me:feedback[@id='9.95.1'])"/>
     </x:scenario>
-<!--    <x:scenario label="#165 in iati-activity[sector]">
+    <!--
+    <x:scenario label="#165 in iati-activity[sector]">
       <x:context href="testfiles/165.xml"/>
       <x:expect label="It should produce error message 2.1.3."
         test="boolean(//me:feedback[@id='2.1.3'])"/>
@@ -234,13 +235,15 @@
       <x:context href="testfiles/169.xml"/>
       <x:expect label="It should produce error message 6.2.2."
         test="boolean(//me:feedback[@id='6.2.2'])"/>
-    </x:scenario>-->
+    </x:scenario>
+    -->
     <x:scenario label="#17 Currency Code is invalid in //iati-organisation/total-budget/value">
       <x:context href="testfiles/17.xml"/>
       <x:expect label="It should produce error message 9.114.1."
         test="boolean(//me:feedback[@id='9.114.1'])"/>
     </x:scenario>
-<!--    <x:scenario label="#170 in iati-activity[sector]">
+    <!--
+    <x:scenario label="#170 in iati-activity[sector]">
       <x:context href="testfiles/170.xml"/>
       <x:expect label="It should produce error message 6.6.2."
         test="boolean(//me:feedback[@id='6.6.2'])"/>
@@ -255,7 +258,8 @@
       <x:expect label="It should produce error message 900.1.1."
         test="boolean(//me:feedback[@id='900.1.1'])"/>
     </x:scenario>
--->    <x:scenario label="#18 Contact Type Code is invalid in //iati-activity/contact-info">
+    -->
+    <x:scenario label="#18 Contact Type Code is invalid in //iati-activity/contact-info">
       <x:context href="testfiles/18.xml"/>
       <x:expect label="It should produce error message 9.12.1."
         test="boolean(//me:feedback[@id='9.12.1'])"/>
