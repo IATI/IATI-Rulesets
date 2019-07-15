@@ -81,7 +81,7 @@
     <mapping>
         <path>//iati-activity/country-budget-items/budget-item/@code</path>
         <codelist ref="BudgetIdentifier" />
-        <condition>@vocabulary = '1'</condition>
+        <condition>../@vocabulary = '1'</condition>
         <class ref="classifications"/>
         <message>The country budget identifier does not exist.</message>
     </mapping>
@@ -725,5 +725,19 @@
         <codelist ref="LocationType" />
         <class ref="geo"/>
         <message>The location type code is invalid.</message>
+    </mapping>
+    
+    <!-- additional mapping (appended to prevent renumbering earlier message ids -->
+    <mapping>
+        <path>//iati-organisation/recipient-country-budget/budget-line/value/@currency</path>
+        <codelist ref="Currency" />
+        <class ref="financial"/>
+        <message>The currency code is invalid.</message>
+    </mapping>
+    <mapping>
+        <path>//iati-organisation/recipient-org-budget/budget-line/value/@currency</path>
+        <codelist ref="Currency" />
+        <class ref="financial"/>
+        <message>The currency code is invalid.</message>
     </mapping>
 </mappings>
