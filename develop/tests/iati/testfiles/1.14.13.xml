@@ -12,7 +12,7 @@
   <!--iati-identifier ends-->
 
   <!--reporting-org starts-->
-  <reporting-org ref="AA-AAA-12?3456/78&9" type="40" secondary-reporter="0">
+  <reporting-org ref="AA-AAA-12?3456/78&amp;9" type="40" secondary-reporter="0">
    <narrative>Organisation name</narrative>
    <narrative xml:lang="fr">Nom de l'organisme</narrative>
   </reporting-org>

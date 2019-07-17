@@ -17,6 +17,38 @@
         test="not(//me:feedback[@type=('danger', 'critical')])"/>
     </x:scenario>
 
+    <x:scenario label="#1.10.13 in ">
+      <x:context href="testfiles/1.10.13.xml"/>
+      <x:expect label="It should produce error message 1.10.13."
+        test="boolean(//me:feedback[@id='1.10.13'])"/>
+    </x:scenario>
+    <x:scenario label="#1.11.13 in ">
+      <x:context href="testfiles/1.11.13.xml"/>
+      <x:expect label="It should produce error message 1.11.13."
+        test="boolean(//me:feedback[@id='1.11.13'])"/>
+    </x:scenario>
+    <x:scenario label="#1.12.13 in ">
+      <x:context href="testfiles/1.12.13.xml"/>
+      <x:expect label="It should produce error message 1.12.13."
+        test="boolean(//me:feedback[@id='1.12.13'])"/>
+    </x:scenario>
+    <x:scenario label="#1.14.13 in ">
+      <x:context href="testfiles/1.14.13.xml"/>
+      <x:expect label="It should produce error message 1.14.13."
+        test="boolean(//me:feedback[@id='1.14.13'])"/>
+    </x:scenario>
+    <!--
+    <x:scenario label="#1.15.13 in ">
+      <x:context href="testfiles/1.15.13.xml"/>
+      <x:expect label="It should produce error message 1.15.13."
+        test="boolean(//me:feedback[@id='1.15.13'])"/>
+    </x:scenario>
+    -->
+    <x:scenario label="#1.8.13 in ">
+      <x:context href="testfiles/1.8.13.xml"/>
+      <x:expect label="It should produce error message 1.8.13."
+        test="boolean(//me:feedback[@id='1.8.13'])"/>
+    </x:scenario>
     <x:scenario
       label="#10 Currency Code is invalid in //iati-organisation/recipient-org-budget/value">
       <x:context href="testfiles/10.xml"/>
@@ -191,19 +223,6 @@
       <x:expect label="It should produce error message 6.3.1."
         test="boolean(//me:feedback[@id='6.3.1'])"/>
     </x:scenario>
-    <!--
-      <x:scenario label="#156 Transaction date > Last updated date of activity in transaction-date">
-      <x:context href="testfiles/156.xml"/>
-      <x:expect label="It should produce error message 7.6.1."
-        test="boolean(//me:feedback[@id='7.6.1'])"/>
-    </x:scenario>
-    <x:scenario
-      label="#157 Transaction date > Later than date of generation of file in transaction-date">
-      <x:context href="testfiles/157.xml"/>
-      <x:expect label="It should produce error message 7.6.2."
-        test="boolean(//me:feedback[@id='7.6.2'])"/>
-    </x:scenario>
-    -->
     <x:scenario label="#16 Budget Status Code is invalid in //iati-organisation/total-budget">
       <x:context href="testfiles/16.xml"/>
       <x:expect label="It should produce error message 9.113.1."
@@ -215,25 +234,15 @@
         test="boolean(//me:feedback[@id='9.95.1'])"/>
     </x:scenario>
     <!--
-    <x:scenario label="#165 in iati-activity[sector]">
-      <x:context href="testfiles/165.xml"/>
-      <x:expect label="It should produce error message 2.1.3."
-        test="boolean(//me:feedback[@id='2.1.3'])"/>
-    </x:scenario>
     <x:scenario label="#166 in iati-activity">
       <x:context href="testfiles/166.xml"/>
       <x:expect label="It should produce error message 4.1.1."
         test="boolean(//me:feedback[@id='4.1.1'])"/>
     </x:scenario>
-    <x:scenario label="#167 in document-link">
-      <x:context href="testfiles/167.xml"/>
-      <x:expect label="It should produce error message 6.1.1."
-        test="boolean(//me:feedback[@id='6.1.1'])"/>
-    </x:scenario>
     <x:scenario label="#168 in document-link">
       <x:context href="testfiles/168.xml"/>
-      <x:expect label="It should produce error message 6.1.2."
-        test="boolean(//me:feedback[@id='6.1.2'])"/>
+      <x:expect label="It should produce error message 6.1.5."
+        test="boolean(//me:feedback[@id='6.1.5'])"/>
     </x:scenario>
     <x:scenario label="#169 in iati-activity[not(sector)]">
       <x:context href="testfiles/169.xml"/>

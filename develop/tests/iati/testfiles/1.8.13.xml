@@ -42,7 +42,7 @@
   <!--description ends-->
 
   <!--participating-org starts-->
-  <participating-org ref="BB-BBB-123456??7&89?" role="1" type="40" activity-id="BB-BBB-123456789-1234">
+  <participating-org ref="BB-BBB-123456??7&amp;89?" role="1" type="40" activity-id="BB-BBB-123456789-1234">
    <narrative>Name of Agency B</narrative>
   </participating-org>
   <participating-org ref="CC-CCC-123456789" role="2" type="10" activity-id="CC-CCC-123456789-1234">
