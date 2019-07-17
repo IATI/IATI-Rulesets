@@ -77,6 +77,9 @@
       <xsl:apply-templates select="." mode="rules">
         <xsl:with-param name="iati-version" select="$use-iati-version" tunnel="yes"/>
       </xsl:apply-templates>
+      <xsl:apply-templates select="text()" mode="rules">
+        <xsl:with-param name="iati-version" select="$use-iati-version" tunnel="yes"/>
+      </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
 
