@@ -141,7 +141,7 @@
       </xsl:if>
       <xsl:next-match/>
    </xsl:template>
-    <xsl:template match="//iati-activity/country-budget-items/budget-item[@vocabulary = '1']"
+    <xsl:template match="//iati-activity/country-budget-items/budget-item[../@vocabulary = '1']"
                  mode="rules"
                  priority="9.14">
       <xsl:param name="iati-version" tunnel="yes"/>
@@ -490,7 +490,7 @@
       <xsl:if test="me:codeListFail(@type, 'BudgetType', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.43.1">
             <me:src ref="iati" versions="any"/>
-            <me:message>The humanitarian scope type is invalid.</me:message>
+            <me:message>The planned disbursement type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -502,7 +502,7 @@
       <xsl:if test="me:codeListFail(@type, 'OrganisationType', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.44.1">
             <me:src ref="iati" versions="any"/>
-            <me:message>The humanitarian scope type is invalid.</me:message>
+            <me:message>The organisation type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1399,6 +1399,18 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(@currency, 'Currency', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.122.1">
+            <me:src ref="iati" versions="any"/>
+            <me:message>The currency code is invalid.</me:message>
+         </me:feedback>
+      </xsl:if>
+      <xsl:next-match/>
+   </xsl:template>
+    <xsl:template match="//iati-organisation/recipient-org-budget/budget-line/value"
+                 mode="rules"
+                 priority="9.123">
+      <xsl:param name="iati-version" tunnel="yes"/>
+      <xsl:if test="me:codeListFail(@currency, 'Currency', $iati-version)">
+         <me:feedback type="danger" class="financial" id="9.123.1">
             <me:src ref="iati" versions="any"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>

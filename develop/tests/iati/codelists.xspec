@@ -52,6 +52,37 @@
       <x:expect label="It should provide codelist feedback on an invalid currency code." test="boolean(//recipient-country-budget/value//me:feedback[starts-with(@id, '9.')])"/>
       <x:expect label="It should provide codelist feedback on an invalid currency code." test="boolean(//recipient-country-budget/budget-line/value//me:feedback[starts-with(@id, '9.')])"/>
     </x:scenario>
+    
+    <x:scenario label="If there are country budget items with vocabulary 1 in version 2.03">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <country-budget-items vocabulary="1">
+              <budget-item code="1.1.1"/>
+              <budget-item code="0"/>
+            </country-budget-items>          
+          </iati-activity>        
+        </iati-activities>  
+      </x:context>
+      <x:expect label="It should not provide codelist feedback." test="not(//me:feedback[starts-with(@id, '9.14.')])"/>
+      <!-- it should warn about the withdrawn vocabulary or codelist? -->
+    </x:scenario>
+
+    <x:scenario label="If there are country budget items with vocabulary 1 in version 2.02">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <country-budget-items vocabulary="1">
+              <budget-item code="1.1.1"/>
+              <budget-item code="0"/>
+            </country-budget-items>          
+          </iati-activity>        
+        </iati-activities>  
+      </x:context>
+      <x:expect label="It should not provide codelist feedback on a valid code." test="not(//budget-item[1]//me:feedback[starts-with(@id, '9.14.')])"/>
+      <x:expect label="It should provide codelist feedback on an invalid code." test="boolean(//budget-item[2]//me:feedback[starts-with(@id, '9.14.')])"/>
+      <!-- it should warn about the withdrawn vocabulary or codelist? -->
+    </x:scenario>
   </x:scenario>  
   
 </x:description>
