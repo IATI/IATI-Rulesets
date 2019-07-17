@@ -50,9 +50,20 @@
 
     <!--* It is possible to have both a ``recipient-country`` and ``recipient-region`` in the same ``iati-activity``.  In such cases, the ``@percentage`` must be declared, and sum to 100 across both elements.-->
     <xsl:if test="starts-with($iati-version, '2.')">
+      <!-- Check for percentages for multiple recipient regions for the default vocabulary. -->    
       <xsl:call-template name="geography-percentage-checks">
-        <xsl:with-param name="group" select="recipient-country|recipient-region"/>
-      </xsl:call-template>      
+        <xsl:with-param name="group" select="recipient-country|recipient-region[not(@vocabulary) or @vocabulary=('', '1')]"/>
+      </xsl:call-template>
+      
+      <!-- Check for multiple sector codes per vocabulary. -->
+      <xsl:for-each-group select="recipient-country|recipient-region" group-by="@vocabulary">
+        <xsl:if test="not(current-grouping-key()=('', '1'))">
+          <xsl:call-template name="geography-percentage-checks">
+            <xsl:with-param name="group" select="current-group()"/>
+            <xsl:with-param name="vocabulary" select="current-grouping-key()"/>
+          </xsl:call-template>
+        </xsl:if>
+      </xsl:for-each-group>
     </xsl:if>    
     <xsl:next-match/>    
   </xsl:template>
