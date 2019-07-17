@@ -11,6 +11,13 @@
   <iati-identifier>AA-AAA-123456789-ABC123</iati-identifier>
   <!--iati-identifier ends-->
 
+  <!--reporting-org starts-->
+  <reporting-org type="40" secondary-reporter="0">
+   <narrative>Organisation name</narrative>
+   <narrative xml:lang="fr">Nom de l'organisme</narrative>
+  </reporting-org>
+  <!--reporting-org ends-->
+  
   <!--title starts-->
   <title>
    <narrative>Activity title</narrative>

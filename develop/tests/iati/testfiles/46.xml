@@ -114,7 +114,7 @@
 
   <!--location-single starts-->
   <location ref="AF-KAN">
-   <location-reach code="1" />
+   <location-reach code="X1" />
    <location-id vocabulary="G1" code="1453782" />
    <name>
   <narrative>Location name</narrative>

@@ -83,12 +83,14 @@
       <x:expect label="It should produce error message 9.107.1."
         test="boolean(//me:feedback[@id='9.107.1'])"/>
     </x:scenario>
+    <!-- testfile #110 is activities file
     <x:scenario
       label="#110 Document Category Code is invalid in //iati-organisation/document-link/category">
       <x:context href="testfiles/110.xml"/>
       <x:expect label="It should produce error message 9.99.1."
         test="boolean(//me:feedback[@id='9.99.1'])"/>
     </x:scenario>
+    -->
     <x:scenario label="#111 Activity appears twice in the dataset in iati-identifier">
       <x:context href="testfiles/111.xml"/>
       <x:expect label="It should produce error message 1.1.2."
@@ -189,7 +191,8 @@
       <x:expect label="It should produce error message 6.3.1."
         test="boolean(//me:feedback[@id='6.3.1'])"/>
     </x:scenario>
-    <x:scenario label="#156 Transaction date > Last updated date of activity in transaction-date">
+    <!--
+      <x:scenario label="#156 Transaction date > Last updated date of activity in transaction-date">
       <x:context href="testfiles/156.xml"/>
       <x:expect label="It should produce error message 7.6.1."
         test="boolean(//me:feedback[@id='7.6.1'])"/>
@@ -200,6 +203,7 @@
       <x:expect label="It should produce error message 7.6.2."
         test="boolean(//me:feedback[@id='7.6.2'])"/>
     </x:scenario>
+    -->
     <x:scenario label="#16 Budget Status Code is invalid in //iati-organisation/total-budget">
       <x:context href="testfiles/16.xml"/>
       <x:expect label="It should produce error message 9.113.1."

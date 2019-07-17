@@ -335,7 +335,7 @@
     <description>
       <narrative>Report of results</narrative>
     </description>
-    <category code="AAA" />
+    <category code="A01" />
     <language code="en" />
     <document-date iso-date="2014-02-05" />
    </document-link>
@@ -358,7 +358,7 @@
       <description>
         <narrative>Report of results indicator</narrative>
       </description>
-      <category code="A01" />
+      <category code="AAA" />
       <language code="en" />
       <document-date iso-date="2014-02-05" />
      </document-link>
