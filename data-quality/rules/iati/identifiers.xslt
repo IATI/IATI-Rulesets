@@ -6,6 +6,25 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
+  <xsl:template match="iati-identifier" mode="rules" priority="1.1">
+    
+    <xsl:if test="//iati-activity[iati-identifier=current()][2]">
+      <me:feedback type="danger" class="identifiers" id="1.1.2">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The activity identifier should not occur multiple times in the dataset.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:if test=". = ../reporting-org/@ref">
+      <me:feedback type="danger" class="identifiers" id="1.1.3">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The activity identifier cannot be the same as the organisation identifier of the reporting organisation.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+    
   <!-- Checks on the identifiers of organisations or activities -->
 
   <xsl:template match="reporting-org" mode="rules" priority="1.7">
