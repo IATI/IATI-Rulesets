@@ -652,7 +652,7 @@
         <message>The budget status is invalid.</message>
     </mapping>
     <mapping>
-        <path>//iati-organisation/recipient-region-budget/@code</path>
+        <path>//iati-organisation/recipient-region-budget/recipient-region/@code</path>
         <codelist ref="Region" />
         <condition>@vocabulary = '1' or not(@vocabulary)</condition>
         <class ref="financial"/>

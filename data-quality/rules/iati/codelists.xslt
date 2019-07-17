@@ -1245,7 +1245,7 @@
       </xsl:if>
       <xsl:next-match/>
    </xsl:template>
-    <xsl:template match="//iati-organisation/recipient-region-budget[@vocabulary = '1' or not(@vocabulary)]"
+    <xsl:template match="//iati-organisation/recipient-region-budget/recipient-region[@vocabulary = '1' or not(@vocabulary)]"
                  mode="rules"
                  priority="9.108">
       <xsl:param name="iati-version" tunnel="yes"/>
