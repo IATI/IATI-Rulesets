@@ -56,10 +56,10 @@
       </xsl:call-template>
       
       <!-- Check for multiple sector codes per vocabulary. -->
-      <xsl:for-each-group select="recipient-country|recipient-region" group-by="@vocabulary">
+      <xsl:for-each-group select="recipient-region" group-by="@vocabulary">
         <xsl:if test="not(current-grouping-key()=('', '1'))">
           <xsl:call-template name="geography-percentage-checks">
-            <xsl:with-param name="group" select="current-group()"/>
+            <xsl:with-param name="group" select="(../recipient-country, current-group())"/>
             <xsl:with-param name="vocabulary" select="current-grouping-key()"/>
           </xsl:call-template>
         </xsl:if>
