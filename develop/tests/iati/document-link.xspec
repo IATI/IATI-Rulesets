@@ -47,6 +47,15 @@
       <x:expect label="It should produce message 6.1.4 if there is a language element without a code" test="boolean(//iati-activity[2]//me:feedback[@id='6.1.4'])"/>
       <x:expect label="It should produce message 6.1.4 if there is a language element with an empty code" test="boolean(//iati-activity[3]//me:feedback[@id='6.1.4'])"/>
     </x:scenario>
+
+    <x:scenario label="If a document link has no format attribute">
+      <x:context>
+        <iati-activity>
+          <document-link/>            
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 6.1.5 if there is no language element" test="boolean(//iati-activity[1]//me:feedback[@id='6.1.5'])"/>
+    </x:scenario>
     
   </x:scenario>  
   

@@ -18,6 +18,17 @@
     <xsl:next-match/>
   </xsl:template>
   
+  <xsl:template match="document-link" mode="rules" priority="6.15"> 
+    <xsl:if test="not(@format) or @format=''">
+      <me:feedback type="danger" class="documents" id="6.1.5">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The document format must be present.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>  
+  
   <xsl:template match="iati-activity" mode="rules" priority="6.2">
     <xsl:if test="not(activity-status)">
       <me:feedback type="danger" class="information" id="6.2.1">

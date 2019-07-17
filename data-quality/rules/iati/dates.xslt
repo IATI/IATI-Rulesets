@@ -75,7 +75,7 @@
     <xsl:if test="value/@value-date and
       value/@value-date castable as xs:date and
       xs:date(value/@value-date) gt xs:date($now)">
-      <me:feedback type="danger" class="financial" id="11.2.1">
+      <me:feedback type="danger" class="financial" id="11.2.2">
         <me:src ref="iati"/>
         <me:message>The transaction value date must not be in the future.</me:message>
       </me:feedback>
