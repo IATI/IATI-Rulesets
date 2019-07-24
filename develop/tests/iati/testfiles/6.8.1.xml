@@ -1,3 +1,5 @@
+<iati-activities generated-datetime="2014-09-10T07:15:37Z" version="2.03" linked-data-default="http://data.example.org/">
+ <iati-activity>
   <reporting-org ref="AA-AAA-123456789" type="40" secondary-reporter="0">
    <narrative>Organisation name</narrative>
    <narrative xml:lang="fr">Nom de l'organisme</narrative>
@@ -42,7 +44,7 @@
 
   <!--other-identifier starts-->
   <other-identifier ref="ABC123-XYZ" type="A1">
-   <owner-org ref=>
+   <owner-org>
    </owner-org>
   </other-identifier>
   <!--other-identifier ends-->

@@ -5,7 +5,7 @@
 <iati-organisations generated-datetime="2014-09-10T07:15:37Z" version="2.03">
 
  <!--iati-organisation starts-->
- <iati-organisation default-currency="EUR" last-updated-datetime="2014-09-10T07:15:37Z" xml:lang=>
+ <iati-organisation default-currency="EUR" last-updated-datetime="2014-09-10T07:15:37Z">
 
   <!--organisation-identifier starts-->
   <organisation-identifier>AA-AAA-123456789</organisation-identifier>
@@ -21,7 +21,7 @@
   <!--reporting-org starts-->
   <reporting-org ref="AA-AAA-123456789" type="40" secondary-reporter="0">
    <narrative>Organisation name</narrative>
-   <narrative xml:lang=>Nom de l'organisme</narrative>
+   <narrative xml:lang="">Nom de l'organisme</narrative>
   </reporting-org>
   <!--reporting-org ends-->
 
@@ -60,7 +60,7 @@
    <value currency="USD" value-date="2014-01-01">25000000</value>
    <budget-line ref="1234">
     <value currency="USD" value-date="2014-01-01">2000000</value>
-    <narrative xml:lang=>Budget Line</narrative>
+    <narrative xml:lang="">Budget Line</narrative>
    </budget-line>
   </recipient-region-budget>
   <!--recipient-region-budget ends-->

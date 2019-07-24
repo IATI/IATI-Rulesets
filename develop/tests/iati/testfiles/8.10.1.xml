@@ -412,7 +412,7 @@
         <document-date iso-date="2014-02-05" />
        </document-link>
       </target>
-      <actual value=>
+      <actual>
        <location ref="AF-KAN" />
        <location ref="KH-PNH" />
        <dimension name="sex" value="female" />
