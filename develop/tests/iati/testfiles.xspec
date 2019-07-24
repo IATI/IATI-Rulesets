@@ -828,8 +828,8 @@
       <x:expect label="It should produce error message 8.11.1."
         test="boolean(//me:feedback[@id='8.11.1'])"/>
     </x:scenario>
-    <x:scenario label="#8.6.3. Period Start > Period End organisation file in ">
-      <x:context href="testfiles/8.6.3..xml"/>
+    <x:scenario label="#8.6.3 Period Start > Period End organisation file in ">
+      <x:context href="testfiles/8.6.3.xml"/>
       <x:expect label="It should produce error message 8.6.3."
         test="boolean(//me:feedback[@id='8.6.3'])"/>
     </x:scenario>
