@@ -392,7 +392,7 @@
      <period>
       <period-start iso-date="2013-01-01" />
       <period-end iso-date="2013-03-31" />
-      <target value=>
+      <target>
        <location ref="AF-KAN" />
        <location ref="KH-PNH" />
        <dimension name="sex" value="female" />

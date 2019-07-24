@@ -291,7 +291,7 @@
   <document-link format="application/vnd.oasis.opendocument.text" url="http:www.example.org/docs/report_en.odt">
    <title>
     <narrative>Project Report 2013</narrative>
-    <narrative xml:lang=>Rapport de projet 2013</narrative>
+    <narrative xml:lang="">Rapport de projet 2013</narrative>
    </title>
    <description>
      <narrative> Description of the content of the project report or guidance on where to access the relevant information in this report </narrative>

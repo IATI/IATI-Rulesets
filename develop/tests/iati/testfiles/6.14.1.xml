@@ -202,7 +202,7 @@
 
   <!--policy-marker starts-->
   <policy-marker vocabulary="1" code="2"/>
-  <policy-marker vocabulary="1" code="9" significance=/>
+  <policy-marker vocabulary="1" code="9"/>
   <policy-marker vocabulary="99" vocabulary-uri="http://example.com/vocab.html" code="A1" significance="3">
    <narrative>Code A1</narrative>
   </policy-marker>

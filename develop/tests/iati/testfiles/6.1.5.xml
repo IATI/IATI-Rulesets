@@ -288,7 +288,7 @@
   <!--transaction ends-->
 
   <!--document-link starts-->
-  <document-link format= url="http:www.example.org/docs/report_en.odt">
+  <document-link url="http:www.example.org/docs/report_en.odt">
    <title>
     <narrative>Project Report 2013</narrative>
     <narrative xml:lang="fr">Rapport de projet 2013</narrative>
@@ -329,7 +329,7 @@
     <narrative>Result description text</narrative>
    </description>
    <!--result-document-link example starts-->
-   <document-link format= url="http:www.example.org/docs/result_en.odt">
+   <document-link url="http:www.example.org/docs/result_en.odt">
     <title>
      <narrative>Results Report 2013</narrative>
     </title>
