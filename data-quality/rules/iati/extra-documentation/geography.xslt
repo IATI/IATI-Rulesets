@@ -92,6 +92,7 @@
       <xsl:with-param name="idclass">3.4</xsl:with-param>
       <xsl:with-param name="item">recipient country or region</xsl:with-param>
       <xsl:with-param name="items">recipient countries or regions</xsl:with-param>
+      <xsl:with-param name="vocabulary">{$vocabulary}</xsl:with-param>
       <xsl:with-param name="iativersion">2.x</xsl:with-param>
       <xsl:with-param name="href">activity-standard/overview/geography/</xsl:with-param>
     </xsl:call-template>    

@@ -211,6 +211,16 @@
         </x:context>
         <x:expect label="It should not produce 'geo' message 3.4.1." test="not(//me:feedback[@id='3.4.1'])"/>
       </x:scenario>
+
+      <x:scenario label="If a percentage is other than 100">
+        <x:context>
+          <iati-activity>
+            <recipient-region code="89"/>
+            <recipient-region code="X1" vocabulary="99" percentage="33"/>
+          </iati-activity>
+        </x:context>
+        <x:expect label="It should produce 'geo' message 3.4.4." test="boolean(//me:feedback[@id='3.4.4'])"/>
+      </x:scenario>
     </x:scenario>
 
     <x:scenario label="There are multiple recipient-region elements:">
