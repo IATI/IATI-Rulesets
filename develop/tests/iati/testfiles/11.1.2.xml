@@ -67,7 +67,7 @@
   <!--activity-status ends-->
 
   <!--activity-date starts-->
-  <activity-date iso-date="2012-05-15" type="1">
+  <activity-date iso-date="2018-05-15" type="1">
    <narrative>Planned start date of the activity</narrative>
    <narrative xml:lang="fr">Date prévue de début de l'activité</narrative>
   </activity-date>

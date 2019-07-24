@@ -9,6 +9,7 @@
   <x:import href="iati/xml-errors.xspec"/>
   <x:import href="iati/iati-versions.xspec"/>
   <x:import href="iati/codelists.xspec"/>
+  <x:import href="iati/dates.xspec"/>
   <x:import href="iati/organisation-identifiers.xspec"/>
   <x:import href="iati/activity-identifiers.xspec"/>
   <x:import href="iati/sectors.xspec"/>
