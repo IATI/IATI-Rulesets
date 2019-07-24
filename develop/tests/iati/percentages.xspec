@@ -4,7 +4,17 @@
   xslt-version="3.0">
 
   <x:scenario label="Percentages">
-      
+    <x:scenario label="If a percentage is not a number">
+      <x:context>
+        <iati-activity>
+          <sector percentage="100%"/>
+          <recipient-country percentage="&amp;1"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 12.4.1 for sector" test="boolean(//sector/me:feedback[@id='12.4.1'])"/>
+      <x:expect label="It should produce message 12.4.1 for recipient-country" test="boolean(//recipient-country/me:feedback[@id='12.4.1'])"/>
+    </x:scenario>
+        
     <x:scenario label="2.03: If recipient-country or recipient-region has a negative percentage">
       <x:context>
         <iati-activities version="2.03">

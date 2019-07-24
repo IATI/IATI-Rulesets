@@ -38,11 +38,11 @@
         </me:feedback>
       </xsl:when>
       
-      <xsl:when test="abs(sum($group/@percentage)-100) > 0.0101">
+      <xsl:when test="abs(sum($group/@percentage[. castable as xs:decimal])-100) > 0.0101">
         <me:feedback type="danger" class="{$class}" id="{$idclass}.2">
           <me:src ref="iati" versions="{$iativersion}" href="{me:iati-url($href)}"/>
           <me:message>Percentages for {$items} must add up to 100%.</me:message>
-          <me:diagnostic>The sum is {sum($group/@percentage)}<xsl:if test="$vocabulary!='n/a'"> for vocabulary {$vocabulary}</xsl:if>.</me:diagnostic>
+          <me:diagnostic>The sum is {sum($group/@percentage[. castable as xs:decimal])}<xsl:if test="$vocabulary!='n/a'"> for vocabulary {$vocabulary}</xsl:if>.</me:diagnostic>
         </me:feedback>
       </xsl:when>
     </xsl:choose>

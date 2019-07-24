@@ -6,6 +6,18 @@
   exclude-result-prefixes="xs functx"
   version="3.0"
   expand-text="yes">
+
+  <xsl:template match="@percentage" mode="rules" priority="12.4">
+    <xsl:param name="iati-version" tunnel="yes"/>
+    
+    <xsl:if test="not(. castable as xs:decimal)">
+      <me:feedback type="danger" class="geo" id="12.4.1">
+        <me:src ref="iati"/>
+        <me:message>The percentage must be a numerical value.</me:message>
+      </me:feedback>
+    </xsl:if>
+    <xsl:next-match/>
+  </xsl:template>
   
   <xsl:template match="(recipient-country|recipient-region)[@percentage]" mode="rules" priority="12.1">
     <xsl:param name="iati-version" tunnel="yes"/>
