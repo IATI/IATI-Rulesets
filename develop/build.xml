@@ -18,6 +18,9 @@
   </target>
 
   <target name="tests" description="Run all the tests (don't stop at first failure)">
+    <xmlvalidate lenient="true">
+      <fileset dir="develop/tests/iati/testfiles" includes="*.xml"/>
+    </xmlvalidate>
     <antcall target="test">
       <param name="xspec.fail" value="false"/>
     </antcall>
