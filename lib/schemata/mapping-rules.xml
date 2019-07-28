@@ -703,8 +703,9 @@
         <message>The AidType flag is invalid.</message>
     </mapping>
     <mapping>
-        <path>//iati-activity/location/administrative/@country</path>
+        <path>//iati-activity/location/administrative/@code</path>
         <codelist ref="Country" />
+        <condition>@vocabulary = 'A4'</condition>
         <class ref="geo"/>
         <message>The country code is invalid.</message>
     </mapping>
@@ -721,7 +722,7 @@
         <message>The gazeteer agency code is invalid.</message>
     </mapping>
     <mapping>
-        <path>//iati-activity/location/location-type/@code</path>
+        <path>//iati-activity/location/feature-designation/@code</path>
         <codelist ref="LocationType" />
         <class ref="geo"/>
         <message>The location type code is invalid.</message>
@@ -747,5 +748,4 @@
         <class ref="financial"/>
         <message>The DAC3 sector code is invalid.</message>
     </mapping>    
-    
 </mappings>

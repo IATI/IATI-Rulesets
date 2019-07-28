@@ -1375,7 +1375,7 @@
       </xsl:if>
       <xsl:next-match/>
    </xsl:template>
-    <xsl:template match="//iati-activity/location/administrative/@country"
+    <xsl:template match="//iati-activity/location/administrative[@vocabulary = 'A4']/@code"
                  mode="rules"
                  priority="9.117">
       <xsl:param name="iati-version" tunnel="yes"/>
@@ -1411,7 +1411,7 @@
       </xsl:if>
       <xsl:next-match/>
    </xsl:template>
-    <xsl:template match="//iati-activity/location/location-type/@code"
+    <xsl:template match="//iati-activity/location/feature-designation/@code"
                  mode="rules"
                  priority="9.120">
       <xsl:param name="iati-version" tunnel="yes"/>
@@ -1461,5 +1461,4 @@
       </xsl:if>
       <xsl:next-match/>
    </xsl:template>    
-    
 </xsl:stylesheet>
