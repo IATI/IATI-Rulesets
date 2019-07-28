@@ -25,7 +25,7 @@
       <xsl:call-template name="percentage-checks">
         <xsl:with-param name="group" select="recipient-country"/>
         <xsl:with-param name="class">geo</xsl:with-param>
-        <xsl:with-param name="idclass">3.1</xsl:with-param>
+        <xsl:with-param name="idclass">3.21</xsl:with-param>
         <xsl:with-param name="item">recipient country</xsl:with-param>
         <xsl:with-param name="items">recipient countries</xsl:with-param>
       </xsl:call-template>
@@ -34,7 +34,7 @@
       <xsl:call-template name="percentage-checks">
         <xsl:with-param name="group" select="recipient-region"/>
         <xsl:with-param name="class">geo</xsl:with-param>
-        <xsl:with-param name="idclass">3.2</xsl:with-param>
+        <xsl:with-param name="idclass">3.22</xsl:with-param>
         <xsl:with-param name="item">recipient country</xsl:with-param>
         <xsl:with-param name="items">recipient countries</xsl:with-param>
         <xsl:with-param name="vocabulary" select="'1'"/>
