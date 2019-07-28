@@ -242,7 +242,7 @@
    <period-start iso-date="2014-01-01" />
    <period-end iso-date="2014-12-31" />
    <value currency="EUR" value-date="2014-01-01">3000</value>
-   <provider-org provider-activity-id="BB-BBB-123456789-1234AA" type="10" ref="">
+   <provider-org provider-activity-id="BB-BBB-123456789-1234AA" type="10">
    </provider-org>
    <receiver-org receiver-activity-id="AA-AAA-123456789-1234" type="23">
    </receiver-org>

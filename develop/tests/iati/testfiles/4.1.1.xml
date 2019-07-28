@@ -14,7 +14,7 @@
   <!--reporting-org starts-->
   <reporting-org ref="AA-AAA-123456789" type="40" secondary-reporter="0">
    <narrative>Organisation name</narrative>
-   <narrative xml:lang="">Nom de l'organisme</narrative>
+   <narrative>Nom de l'organisme</narrative>
   </reporting-org>
   <!--reporting-org ends-->
 
