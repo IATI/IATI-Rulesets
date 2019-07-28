@@ -2,7 +2,7 @@
 <!--This is example XML for the IATI activity standard.  No reference to actual data, real organisations or development cooperation models is intended.-->
 
 <!--iati-activities starts-->
-<iati-activities generated-datetime="2014-09-10T07:15:37Z" version="2.03" linked-data-default="http://data.example.org/">
+<iati-activities generated-datetime="2014-09-10T07:15:37Z" version="2.02" linked-data-default="http://data.example.org/">
 
  <!--iati-activity starts-->
  <iati-activity xml:lang="en" default-currency="USD" last-updated-datetime="2014-09-10T07:15:37Z" humanitarian="1" linked-data-uri="http://data.example.org/123456789" hierarchy="1" budget-not-provided="1">
