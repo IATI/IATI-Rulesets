@@ -93,7 +93,7 @@
       xs:date(@value-date) lt xs:date(../../period-start/@iso-date) or xs:date(@value-date) gt xs:date(../../period-end/@iso-date)">
       <me:feedback type="danger" class="financial" id="11.3.1">
         <me:src ref="iati"/>
-        <me:message>The budget line value date is not in the budget period.</me:message>
+        <me:message>The budget line value date must be in the budget period.</me:message>
       </me:feedback>
     </xsl:if>
     

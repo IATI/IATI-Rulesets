@@ -22,7 +22,7 @@
     <xsl:if test="xs:date(period-start/@iso-date) + xs:yearMonthDuration('P1Y') lt xs:date(period-end/@iso-date)">
       <me:feedback type="danger" class="financial" id="7.5.3">
         <me:src ref="iati" versions="any"/>
-        <me:message>The budget period must not be longer than a year.</me:message>
+        <me:message>Budget Period must not be longer than one year.</me:message>
       </me:feedback>
     </xsl:if>
     

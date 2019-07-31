@@ -130,14 +130,14 @@
     <xsl:if test="boolean(activity-date[@type='2'])">
       <me:feedback type="danger" class="information" id="6.12.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>A activity in status pipeline/identification must not have an actual start date.</me:message>
+        <me:message>An activity in status pipeline/identification must not have an actual start date.</me:message>
       </me:feedback>      
     </xsl:if>
 
     <xsl:if test="boolean(activity-date[@type='4'])">
       <me:feedback type="danger" class="information" id="6.12.2">
         <me:src ref="iati" versions="any"/>
-        <me:message>A activity in status pipeline/identification must not have an actual end date.</me:message>
+        <me:message>An activity in status pipeline/identification must not have an actual end date.</me:message>
       </me:feedback>      
     </xsl:if>
     

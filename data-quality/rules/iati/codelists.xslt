@@ -510,7 +510,7 @@
       <xsl:if test="me:codeListFail(., 'BudgetType', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.43.1">
             <me:src ref="iati" versions="any"/>
-            <me:message>The humanitarian scope type is invalid.</me:message>
+            <me:message>The planned disbursement budget type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -522,7 +522,7 @@
       <xsl:if test="me:codeListFail(., 'OrganisationType', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.44.1">
             <me:src ref="iati" versions="any"/>
-            <me:message>The humanitarian scope type is invalid.</me:message>
+            <me:message>The organisation type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
