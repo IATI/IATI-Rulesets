@@ -1362,14 +1362,14 @@
       <xsl:next-match/>
    </xsl:template>
     
-
+   <!-- renamed to other-flag in IATI 2.01 -->
     <xsl:template match="//iati-activity/crs-add/aidtype-flag/@code"
                  mode="rules"
                  priority="9.116">
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'AidTypeFlag', $iati-version)">
          <me:feedback type="danger" class="iati" id="9.116.1">
-            <me:src ref="iati" versions="any"/>
+            <me:src ref="iati" versions="1.0x"/>
             <me:message>The AidType flag is invalid.</me:message>
          </me:feedback>
       </xsl:if>
