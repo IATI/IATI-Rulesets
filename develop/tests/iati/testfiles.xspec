@@ -420,10 +420,10 @@
       <x:expect label="It should produce error message 3.1.4."
         test="boolean(//me:feedback[@id='3.1.4'])"/>
     </x:scenario>
-    <x:scenario label="#3.1.4 Single country element with percentage added in ">
-      <x:context href="testfiles/3.1.4.xml"/>
-      <x:expect label="It should produce error message 3.1.4."
-        test="boolean(//me:feedback[@id='3.1.4'])"/>
+    <x:scenario label="#3.4.4 Single country element with percentage added in ">
+      <x:context href="testfiles/3.4.4.xml"/>
+      <x:expect label="It should produce error message 3.4.4."
+        test="boolean(//me:feedback[@id='3.4.4'])"/>
     </x:scenario>
     <x:scenario
       label="#3.6.2 Recipient-country or recipient-region used at both activity and transaction level. in ">
