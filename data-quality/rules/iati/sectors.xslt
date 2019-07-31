@@ -8,30 +8,17 @@
   
   <xsl:template match="iati-activity[sector]" mode="rules" priority="2.1">
     
-    <!-- Check for percentages for multiple sector codes for the default vocabulary. -->    
-    <xsl:call-template name="percentage-checks">
-      <xsl:with-param name="group" select="sector[not(@vocabulary) or @vocabulary=('', '1')]"/>
-      <xsl:with-param name="class">classifications</xsl:with-param>
-      <xsl:with-param name="idclass">2.1</xsl:with-param>
-      <xsl:with-param name="item">sector</xsl:with-param>
-      <xsl:with-param name="items">sectors</xsl:with-param>
-      <xsl:with-param name="vocabulary" select="'1'"/>
-      <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/sector/</xsl:with-param>
-    </xsl:call-template>
-    
     <!-- Check for multiple sector codes per vocabulary. -->
-    <xsl:for-each-group select="sector" group-by="@vocabulary">
-      <xsl:if test="not(current-grouping-key()=('', '1'))">
-        <xsl:call-template name="percentage-checks">
-          <xsl:with-param name="group" select="current-group()"/>
-          <xsl:with-param name="class">classifications</xsl:with-param>
-          <xsl:with-param name="idclass">2.1</xsl:with-param>
-          <xsl:with-param name="item">sector</xsl:with-param>
-          <xsl:with-param name="items">sectors</xsl:with-param>
-          <xsl:with-param name="vocabulary" select="current-grouping-key()"/>
-          <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/sector/</xsl:with-param>
-        </xsl:call-template>
-      </xsl:if>
+    <xsl:for-each-group select="sector" group-by="(@vocabulary, '1')[1]">
+      <xsl:call-template name="percentage-checks">
+        <xsl:with-param name="group" select="current-group()"/>
+        <xsl:with-param name="class">classifications</xsl:with-param>
+        <xsl:with-param name="idclass">2.1</xsl:with-param>
+        <xsl:with-param name="item">sector</xsl:with-param>
+        <xsl:with-param name="items">sectors</xsl:with-param>
+        <xsl:with-param name="vocabulary" select="current-grouping-key()"/>
+        <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/sector/</xsl:with-param>
+      </xsl:call-template>
     </xsl:for-each-group>
 
     <xsl:next-match/>
