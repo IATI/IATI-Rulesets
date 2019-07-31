@@ -23,19 +23,42 @@
       <x:expect label="It should not produce message '8.10.1'." test="not(//me:feedback[@id='8.10.1'])"/>
     </x:scenario>
 
-    <x:scenario label="If result indicator measure is 1 and baseline, target and actual miss a value">
+    <x:scenario label="2.02: If result indicator measure is 1 and baseline, target and actual miss a value">
       <x:context>
-        <iati-activity>
-          <result>
-            <indicator measure='1'>
-              <baseline/>
-              <period>
-                <target/>
-                <actual/>
-              </period>
-            </indicator>
-          </result>
-        </iati-activity>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <result>
+              <indicator measure='1'>
+                <baseline/>
+                <period>
+                  <target/>
+                  <actual/>
+                </period>
+              </indicator>
+            </result>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message '8.8.1'." test="not(//me:feedback[@id='8.8.1'])"/>
+      <x:expect label="It should not produce message '8.9.1'." test="not(//me:feedback[@id='8.9.1'])"/>
+      <x:expect label="It should not produce message '8.10.1'." test="not(//me:feedback[@id='8.10.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.03: If result indicator measure is 1 and baseline, target and actual miss a value">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <result>
+              <indicator measure='1'>
+                <baseline/>
+                <period>
+                  <target/>
+                  <actual/>
+                </period>
+              </indicator>
+            </result>
+          </iati-activity>
+        </iati-activities>
       </x:context>
       <x:expect label="It should produce message '8.8.1' for baseline." test="boolean(//baseline/me:feedback[@id='8.8.1'])"/>
       <x:expect label="It should produce message '8.9.1' for target." test="boolean(//target/me:feedback[@id='8.9.1'])"/>
@@ -44,17 +67,19 @@
 
     <x:scenario label="If result indicator measure is 2 and baseline, target and actual miss a value">
       <x:context>
-        <iati-activity>
-          <result>
-            <indicator measure='2'>
-              <baseline/>
-              <period>
-                <target/>
-                <actual/>
-              </period>
-            </indicator>
-          </result>
-        </iati-activity>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <result>
+              <indicator measure='2'>
+                <baseline/>
+                <period>
+                  <target/>
+                  <actual/>
+                </period>
+              </indicator>
+            </result>
+          </iati-activity>
+        </iati-activities>
       </x:context>
       <x:expect label="It should produce message '8.8.1' for baseline." test="boolean(//baseline/me:feedback[@id='8.8.1'])"/>
       <x:expect label="It should produce message '8.9.1' for target." test="boolean(//target/me:feedback[@id='8.9.1'])"/>
@@ -63,17 +88,19 @@
 
     <x:scenario label="If result indicator measure is 3 and baseline, target and actual miss a value">
       <x:context>
-        <iati-activity>
-          <result>
-            <indicator measure='3'>
-              <baseline/>
-              <period>
-                <target/>
-                <actual/>
-              </period>
-            </indicator>
-          </result>
-        </iati-activity>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <result>
+              <indicator measure='3'>
+                <baseline/>
+                <period>
+                  <target/>
+                  <actual/>
+                </period>
+              </indicator>
+            </result>
+          </iati-activity>
+        </iati-activities>
       </x:context>
       <x:expect label="It should produce message '8.8.1' for baseline." test="boolean(//baseline/me:feedback[@id='8.8.1'])"/>
       <x:expect label="It should produce message '8.9.1' for target." test="boolean(//target/me:feedback[@id='8.9.1'])"/>
@@ -82,17 +109,19 @@
     
     <x:scenario label="If result indicator measure is 4 and baseline, target and actual miss a value">
       <x:context>
-        <iati-activity>
-          <result>
-            <indicator measure='4'>
-              <baseline/>
-              <period>
-                <target/>
-                <actual/>
-              </period>
-            </indicator>
-          </result>
-        </iati-activity>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <result>
+              <indicator measure='4'>
+                <baseline/>
+                <period>
+                  <target/>
+                  <actual/>
+                </period>
+              </indicator>
+            </result>
+          </iati-activity>
+        </iati-activities>
       </x:context>
       <x:expect label="It should produce message '8.8.1' for baseline." test="boolean(//baseline/me:feedback[@id='8.8.1'])"/>
       <x:expect label="It should produce message '8.9.1' for target." test="boolean(//target/me:feedback[@id='8.9.1'])"/>
