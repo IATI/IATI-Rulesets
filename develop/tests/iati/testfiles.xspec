@@ -316,14 +316,12 @@
       <x:expect label="It should produce error message 9.13.1."
         test="boolean(//me:feedback[@id='9.13.1'])"/>
     </x:scenario>
-<!-- testfile has a narrative element but with empty content    
     <x:scenario
       label="#2.2.1 When using a reporting organisation sector code, narrative name is not included. in ">
       <x:context href="testfiles/2.2.1.xml"/>
       <x:expect label="It should produce error message 2.2.1."
         test="boolean(//me:feedback[@id='2.2.1'])"/>
     </x:scenario>    
--->    
     <x:scenario label="#20 CRS Channel Code is invalid in //iati-activity/crs-add/channel-code">
       <x:context href="testfiles/20.xml"/>
       <x:expect label="It should produce error message 9.16.1."

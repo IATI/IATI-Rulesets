@@ -342,7 +342,7 @@
    </document-link>
 <!--result-document-link example ends-->
 <!--result-reference starts-->
-<!--   <reference vocabulary="99" code="B1" vocabulary-uri="http://example.com/indicators.html" />-->
+   <reference vocabulary="99" code="B1" vocabulary-uri="http://example.com/indicators.html" />
 <!--result-reference ends-->
 <!--result-indicator starts-->
    <indicator measure="1" ascending="1" aggregation-status="1">
