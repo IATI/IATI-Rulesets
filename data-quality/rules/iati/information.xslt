@@ -126,6 +126,7 @@
     <xsl:next-match/>
   </xsl:template>
 
+<!-- not a ruleset error, to be added later as additional?
   <xsl:template match="iati-activity[activity-status/@code='1']" mode="rules" priority="6.12">
     <xsl:if test="boolean(activity-date[@type='2'])">
       <me:feedback type="danger" class="information" id="6.12.1">
@@ -143,7 +144,8 @@
     
     <xsl:next-match/>
   </xsl:template>
-  
+-->
+ 
   <xsl:template match="policy-marker[@vocabulary='99']" mode="rules" priority="6.13">
     <xsl:if test="not(narrative)">
       <me:feedback type="danger" class="classifications" id="6.13.1">

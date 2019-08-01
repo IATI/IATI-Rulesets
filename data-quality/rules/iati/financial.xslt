@@ -29,6 +29,7 @@
     <xsl:next-match/>
   </xsl:template>
   
+  <!-- not a ruleset error, to be added later as additional?
   <xsl:template match="transaction-date" mode="rules" priority="7.6">
     <xsl:choose>
       <xsl:when test="@iso-date gt ancestor::iati-activity/@last-updated-datetime">
@@ -46,6 +47,7 @@
       </xsl:when>
     </xsl:choose>
   </xsl:template>
+  -->
 
   <xsl:template match="value|loan-status|forecast" mode="rules" priority="7.8">
     <xsl:if test="(not(@currency) or currency='')

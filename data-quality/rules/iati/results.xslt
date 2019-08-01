@@ -7,6 +7,7 @@
   exclude-result-prefixes="xs functx"
   expand-text="yes">
 
+  <!-- not a ruleset error, to be added later as additional?
   <xsl:template match="baseline/@value|target/@value|actual/@value" mode="rules" priority="8.5">
     <xsl:if test="ancestor::result/@aggregation-status castable as xs:boolean and xs:boolean(ancestor::result/@aggregation-status) and not(. castable as xs:decimal)">
       <me:feedback type="danger" class="performance" id="8.5.1">
@@ -17,7 +18,8 @@
     
     <xsl:next-match/>
   </xsl:template>    
-    
+  -->
+  
   <xsl:template match="period" mode="rules" priority="8.6">
     
     <xsl:if test="period-start/@iso-date gt period-end/@iso-date">
