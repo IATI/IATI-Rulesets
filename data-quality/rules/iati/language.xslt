@@ -30,4 +30,48 @@
     <xsl:next-match/>
   </xsl:template>
   
+  <xsl:template match="title" mode="rules" priority="4.3">
+    <xsl:call-template name="narrative_content_check">
+      <xsl:with-param name="class">information</xsl:with-param>
+      <xsl:with-param name="itemnode" select="."/>
+      <xsl:with-param name="item">title</xsl:with-param>
+      <xsl:with-param name="idclass">4.3</xsl:with-param>
+    </xsl:call-template>    
+  </xsl:template>
+
+  <xsl:template match="description" mode="rules" priority="4.4">
+    <xsl:call-template name="narrative_content_check">
+      <xsl:with-param name="class">information</xsl:with-param>
+      <xsl:with-param name="itemnode" select="."/>
+      <xsl:with-param name="item">description</xsl:with-param>
+      <xsl:with-param name="idclass">4.4</xsl:with-param>
+    </xsl:call-template>    
+  </xsl:template>
+  
+  <xsl:template name="narrative_content_check">
+    <xsl:param name="class"/>
+    <xsl:param name="itemnode"/>
+    <xsl:param name="item"/>
+    <xsl:param name="idclass"/>
+    <xsl:param name="iati-version" tunnel="yes"/>
+    
+    <xsl:if test="starts-with($iati-version, '2.')
+      and (not($itemnode/narrative) or not($itemnode/narrative[functx:trim(.)!='']))">
+      <me:feedback type="danger" class="{$class}" id="{$idclass}.1">
+        <me:src ref="iati" versions="2.x"/>
+        <me:message>The {$item} has no narrative content.</me:message>
+      </me:feedback>
+    </xsl:if>
+
+    <xsl:if test="starts-with($iati-version, '1.')
+      and (functx:trim(string($itemnode))='')">
+      <me:feedback type="danger" class="{$class}" id="{$idclass}.2">
+        <me:src ref="iati" versions="1.x"/>
+        <me:message>The {$item} has no narrative content.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
 </xsl:stylesheet>
