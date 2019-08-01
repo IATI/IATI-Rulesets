@@ -108,8 +108,6 @@
   <!--recipient-country ends-->
 
   <!--recipient-region starts-->
-  <recipient-region code="489" vocabulary="1" percentage="60" />
-  <recipient-region code="A1" vocabulary="99" vocabulary-uri="http://example.com/vocab.html" percentage="60" />
   <!--recipient-region ends-->
 
   <!--location-single starts-->

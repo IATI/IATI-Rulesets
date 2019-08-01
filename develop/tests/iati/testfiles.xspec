@@ -389,7 +389,6 @@
       <x:expect label="It should produce error message 9.10.1."
         test="boolean(//me:feedback[@id='9.10.1'])"/>
     </x:scenario>
-<!-- checks still needed for logic here: 
     <x:scenario label="#3.1.1 Percentage missing for both country and region. in ">
       <x:context href="testfiles/3.1.1.xml"/>
       <x:expect label="It should produce error message 3.1.1."
@@ -401,7 +400,6 @@
       <x:expect label="It should produce error message 3.1.2."
         test="boolean(//me:feedback[@id='3.1.2'])"/>
     </x:scenario>
--->  
     <x:scenario label="#3.1.4 Single country element with percentage added in ">
       <x:context href="testfiles/3.1.4.xml"/>
       <x:expect label="It should produce error message 3.1.4."
