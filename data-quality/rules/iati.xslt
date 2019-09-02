@@ -99,12 +99,15 @@
   <xsl:variable name="iati-codelists">
     <codes version="2.03">
       <xsl:apply-templates select="collection('../../lib/schemata/2.03/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../../lib/schemata/non-embedded-codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
     <codes version="2.02">
       <xsl:apply-templates select="collection('../../lib/schemata/2.02/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../../lib/schemata/non-embedded-codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
     <codes version="2.01">
       <xsl:apply-templates select="collection('../../lib/schemata/2.01/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../../lib/schemata/non-embedded-codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
     <codes version="1.05">
       <xsl:apply-templates select="collection('../../lib/schemata/1.05/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
