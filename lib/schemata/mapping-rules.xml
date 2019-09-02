@@ -258,13 +258,13 @@
         <path>//iati-activity/planned-disbursement/@type</path>
         <codelist ref="BudgetType" />
         <class ref="financial"/>
-        <message>The humanitarian scope type is invalid.</message>
+        <message>The planned disbursement budget type is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/planned-disbursement/provider-org/@type</path>
         <codelist ref="OrganisationType" />
         <class ref="financial"/>
-        <message>The humanitarian scope type is invalid.</message>
+        <message>The organisation type is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/planned-disbursement/receiver-org/@type</path>
