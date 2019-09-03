@@ -748,4 +748,24 @@
         <class ref="financial"/>
         <message>The DAC3 sector code is invalid.</message>
     </mapping>    
+    <mapping>
+        <path>//iati-activity/tag/@code</path>
+        <codelist ref="UNSDG-Goals" />
+        <condition>@vocabulary = '2'</condition>
+    </mapping>
+    <mapping>
+        <path>//iati-activity/tag/@code</path>
+        <codelist ref="UNSDG-Targets" />
+        <condition>@vocabulary = '3'</condition>
+    </mapping>
+    <mapping>
+        <path>//iati-activity/default-aid-type/@code</path>
+        <codelist ref="EarmarkingCategory" />
+        <condition>@vocabulary = '2'</condition>
+    </mapping>
+    <mapping>
+        <path>//iati-activity/default-aid-type/@code</path>
+        <codelist ref="CashandVoucherModalities" />
+        <condition>@vocabulary = '4'</condition>
+    </mapping>
 </mappings>
