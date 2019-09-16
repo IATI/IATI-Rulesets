@@ -19,13 +19,11 @@
   <xsl:include href="lib/percentages.xslt"/>
   
   <!-- IATI rules -->
-  <xsl:include href="iati/technical.xslt"/>
   <xsl:include href="iati/codelists.xslt"/>
   <xsl:include href="iati/sectors.xslt"/>
   <xsl:include href="iati/identifiers.xslt"/>
-  <xsl:include href="iati/extra-documentation/geography.xslt"/>
+  <xsl:include href="iati/geography.xslt"/>
   <xsl:include href="iati/language.xslt"/>
-  <xsl:include href="iati/traceability.xslt"/>
   <xsl:include href="iati/information.xslt"/>
   <xsl:include href="iati/financial.xslt"/>
   <xsl:include href="iati/results.xslt"/>
