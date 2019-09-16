@@ -5,7 +5,7 @@
   
   <target name="update-codelist-rules" description="Update the codelist check rules based on the adapted IATI codelist mapping.">
     <echo level="info">Update the codelist check rules based on the adapted IATI codelist mapping.</echo>
-    <xslt in="lib/schemata/mapping-rules.xml" out="data-quality/rules/iati/codelists.xslt" style="data-updater/generate-codelist-checks.xslt"/>
+    <xslt in="lib/schemata/mapping-rules.xml" out="rules/iati/codelists.xslt" style="data-updater/generate-codelist-checks.xslt"/>
   </target>
   
   <target name="test" description="Run the tests">

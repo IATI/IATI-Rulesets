@@ -14,7 +14,7 @@
   <xsl:variable name="schemaVersion">0.12.7</xsl:variable>
   
   <!-- support functions and templates -->
-  <xsl:include href="../../lib/functx.xslt"/>
+  <xsl:include href="../lib/functx.xslt"/>
   <xsl:include href="lib/identifiers.xslt"/>
   <xsl:include href="lib/percentages.xslt"/>
   
@@ -98,25 +98,25 @@
 
   <xsl:variable name="iati-codelists">
     <codes version="2.03">
-      <xsl:apply-templates select="collection('../../lib/schemata/2.03/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
-      <xsl:apply-templates select="collection('../../lib/schemata/non-embedded-codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../lib/schemata/2.03/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../lib/schemata/non-embedded-codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
     <codes version="2.02">
-      <xsl:apply-templates select="collection('../../lib/schemata/2.02/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
-      <xsl:apply-templates select="collection('../../lib/schemata/non-embedded-codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../lib/schemata/2.02/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../lib/schemata/non-embedded-codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
     <codes version="2.01">
-      <xsl:apply-templates select="collection('../../lib/schemata/2.01/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
-      <xsl:apply-templates select="collection('../../lib/schemata/non-embedded-codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../lib/schemata/2.01/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../lib/schemata/non-embedded-codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
     <codes version="1.05">
-      <xsl:apply-templates select="collection('../../lib/schemata/1.05/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../lib/schemata/1.05/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
     <codes version="1.04">
-      <xsl:apply-templates select="collection('../../lib/schemata/1.04/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../lib/schemata/1.04/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
     <codes version="1.03">
-      <xsl:apply-templates select="collection('../../lib/schemata/1.03/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
+      <xsl:apply-templates select="collection('../lib/schemata/1.03/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
   </xsl:variable>
 
