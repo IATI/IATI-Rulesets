@@ -19,7 +19,7 @@
           <me:message>The identifier should not start or end with spaces or newlines.</me:message>
         </me:feedback>
       </xsl:when>
-	</xsl:choose>
+    </xsl:choose>
    
     <xsl:choose>
       <xsl:when test="matches($item, '[/&amp;|?]')">
@@ -28,10 +28,7 @@
           <me:message>The identifier must not contain any of the symbols /, &amp;, | or ?.</me:message>
         </me:feedback>
       </xsl:when>
-
     </xsl:choose>
-
-    <xsl:next-match/>
   </xsl:template>
 
 </xsl:stylesheet>
