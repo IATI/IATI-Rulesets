@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
   xmlns:me="http://iati.me"
-  stylesheet="../../data-quality/rules/iati.xslt"
+  stylesheet="../data-quality/rules/iati.xslt"
   xslt-version="3.0">
 
   <x:param name="iati-version">2.03</x:param>
