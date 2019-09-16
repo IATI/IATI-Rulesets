@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="IATI-Rules">
   
-  <import file="develop/build.xml" optional="true"/>
+  <import file="lib/xspec/build.xml"/>
+  
+  <target name="update-codelist-rules" description="Update the codelist check rules based on the adapted IATI codelist mapping.">
+    <echo level="info">Update the codelist check rules based on the adapted IATI codelist mapping.</echo>
+    <xslt in="lib/schemata/mapping-rules.xml" out="data-quality/rules/iati/codelists.xslt" style="data-updater/generate-codelist-checks.xslt"/>
+  </target>
+  
+  <target name="test" description="Run the tests">
+    <antcall target="xspec.xspec" inheritall="false">
+      <param name="xspec.xml" location="develop/tests/iati.xspec"/>
+    </antcall>
+  </target>
+  
+  <target name="tests" description="Run all the tests (don't stop at first failure)">
+    <xmlvalidate lenient="true">
+      <fileset dir="develop/tests/iati/testfiles" includes="*.xml"/>
+    </xmlvalidate>
+    <antcall target="test">
+      <param name="xspec.fail" value="false"/>
+    </antcall>
+  </target>
 </project>
