@@ -3,10 +3,7 @@
         "atleast_one": {
             "cases": [
                 { "paths": [ "activity-date[@type='1' or @type='2']" ] },
-                { "paths": [ "sector", "transaction/sector" ] },
-                { "paths": [ "other-identifier/owner-org/@ref", "other-identifier/owner-org/narrative" ] },
-                { "paths": [ "transaction/provider-org/@ref", "transaction/provider-org/narrative" ] },
-                { "paths": [ "transaction/receiver-org/@ref", "transaction/receiver-org/narrative" ] }
+                { "paths": [ "sector", "transaction/sector" ] }
             ]
         },
         "one_or_all": {
