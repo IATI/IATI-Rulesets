@@ -50,6 +50,29 @@
                         }
                     }
                 },
+                "none_of": {
+                    "description": "There must be none of the elements described by the given paths.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "cases": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "paths": {
+                                        "type": "array",
+                                        "items":{"type":"string"}
+                                    },
+                                    "condition": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "one_or_all": {
                     "description": "One must be present or all of the others must be.",
                     "type": "object",
