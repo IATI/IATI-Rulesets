@@ -49,7 +49,7 @@ def rules_text(rules, reduced_path, show_all=False):
                             cond = '.' if not cond else ' if ``{0}``'.format(cond)
                             out.append('``{0}`` must not be present{1}'.format(case_path, cond))
                         elif rule == 'only_one_of':
-                            out.append('``{0}`` must not be present alongisde ``{1}``.'.format(case_path, human_list(case['excluded'], 'and')))
+                            out.append('``{0}`` must not be present alongside ``{1}``.'.format(case_path, human_list(case['excluded'], 'and')))
                         elif rule == 'startswith':
                             out.append('``{0}`` should start with the value in ``{1}``'.format(case_path, case['start']))
                         elif rule == 'regex_matches':
