@@ -1,0 +1,12 @@
+{
+    "//iati-activity": {
+        "none_of": {
+            "cases": [
+                {
+                    "condition": "activity-status/@code='1'",
+                    "paths": ["activity-date[@type='2']"]
+                }
+            ]
+        }
+    }
+}

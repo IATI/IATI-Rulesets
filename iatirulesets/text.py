@@ -44,7 +44,10 @@ def rules_text(rules, reduced_path, show_all=False):
                                 break
                             else:
                                 out.append('``{0}`` must be present{1}'.format(case_path, cond))
-
+                        elif rule == 'none_of':
+                            cond = case.get('condition', None)
+                            cond = '.' if not cond else ' if ``{0}``'.format(cond)
+                            out.append('``{0}`` must not be present{1}'.format(case_path, cond))
                         elif rule == 'only_one_of':
                             out.append('``{0}`` must not be present alongisde ``{1}``.'.format(case_path, human_list(case['excluded'], 'and')))
                         elif rule == 'startswith':

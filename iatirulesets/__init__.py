@@ -33,6 +33,9 @@ class Rules(object):
     def atleast_one(self, case):
         return len(self.path_matches) >= 1
 
+    def none_of(self, case):
+        return len(self.path_matches) == 0
+
     def only_one_of(self, case):
         for excluded in case['excluded']:
             if self.element.xpath(excluded):
