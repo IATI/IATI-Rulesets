@@ -37,7 +37,7 @@ def rules_text(rules, reduced_path, show_all=False):
                                 break
                         elif rule == 'atleast_one':
                             cond = case.get('condition', None)
-                            cond = '.' if not cond else ' if {}'.format(cond)
+                            cond = '.' if not cond else ' if ``{0}``'.format(cond)
 
                             if other_paths:
                                 out.append('Either ``{0}`` or ``{1}`` must be present{2}'.format(case_path, human_list(other_paths), cond))
