@@ -38,6 +38,24 @@
       </x:context>
       <x:expect label="It should produce message 8.6.1 for indicator period dates" test="boolean(//iati-activity[1]//me:feedback[@id='8.6.1'])"/>
     </x:scenario>
+
+    <x:scenario label="If transaction dates are after the last updated datetime" 
+      pending="Test moved to 'additional', not included now.">
+      <x:context>
+        <iati-activity last-updated-datetime="2018-10-03T00:00:00-04:00">
+          <transaction>
+            <transaction-date iso-date="2018-10-01"/>
+            <value value-date="2018-10-01" currency="USD">238.00</value>
+          </transaction>
+          <transaction>
+            <transaction-date iso-date="2019-01-01"/>
+            <value value-date="2019-01-01" currency="USD">-436.66</value>
+          </transaction>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 7.6.1 for transaction dates" test="boolean(//me:feedback[@id='7.6.1'])"/>
+    </x:scenario>
+
   </x:scenario>  
   
 </x:description>
