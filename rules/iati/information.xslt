@@ -7,11 +7,22 @@
   exclude-result-prefixes="xs functx"
   expand-text="yes">
 
-  <xsl:template match="document-link[not(ancestor::iati-activity/@xml:lang)]" mode="rules" priority="6.1"> 
+  <xsl:template match="document-link[ancestor::iati-activity[not(@xml:lang)]]" mode="rules" priority="6.1"> 
     <xsl:if test="not(language) or not(language/@code) or language/@code=''">
       <me:feedback type="danger" class="documents" id="6.1.4">
         <me:src ref="iati" versions="any"/>
         <me:message>Document Link must have a specified language, or the Activity must have a default language.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
+  <xsl:template match="document-link[ancestor::iati-organisation[not(@xml:lang)]]" mode="rules" priority="6.16"> 
+    <xsl:if test="not(language) or not(language/@code) or language/@code=''">
+      <me:feedback type="danger" class="documents" id="6.16.4">
+        <me:src ref="iati" versions="any"/>
+        <me:message>Document Link must have a specified language, or the Organisation must have a default language.</me:message>
       </me:feedback>
     </xsl:if>
     
