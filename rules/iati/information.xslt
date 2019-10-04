@@ -96,7 +96,7 @@
     <xsl:if test="not(@ref) and not(narrative)">
       <me:feedback type="danger" class="information" id="6.8.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>The owner organisation must have an identifier or a narrative name.</me:message>
+        <me:message>The owner organisation must have an identifier or a narrative.</me:message>
       </me:feedback>      
     </xsl:if>
     
@@ -107,7 +107,7 @@
     <xsl:if test="not(@ref) and not(narrative)">
       <me:feedback type="danger" class="financial" id="6.9.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>The organisation must have an identifier or a narrative name.</me:message>
+        <me:message>The organisation must have an identifier or a narrative.</me:message>
       </me:feedback>      
     </xsl:if>
     
@@ -118,7 +118,7 @@
     <xsl:if test="not(@ref) and not(narrative)">
       <me:feedback type="danger" class="participating" id="6.10.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>The participating organisation must have an identifier or a narrative name.</me:message>
+        <me:message>The participating organisation must have an identifier or a narrative.</me:message>
       </me:feedback>      
     </xsl:if>
     
@@ -161,7 +161,7 @@
     <xsl:if test="not(narrative)">
       <me:feedback type="danger" class="classifications" id="6.13.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>When using a reporting organisation policy marker, it must include a narrative name.</me:message>
+        <me:message>When using a reporting organisation policy marker, it must include a narrative.</me:message>
       </me:feedback>
     </xsl:if>
     <xsl:next-match/>

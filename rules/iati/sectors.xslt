@@ -15,7 +15,7 @@
         <xsl:with-param name="class">classifications</xsl:with-param>
         <xsl:with-param name="idclass">2.1</xsl:with-param>
         <xsl:with-param name="item">sector</xsl:with-param>
-        <xsl:with-param name="items">sectors</xsl:with-param>
+        <xsl:with-param name="items">sectors, within a vocabulary,</xsl:with-param>
         <xsl:with-param name="vocabulary" select="current-grouping-key()"/>
         <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/sector/</xsl:with-param>
       </xsl:call-template>
@@ -28,7 +28,7 @@
     <xsl:if test="not(narrative)">
       <me:feedback type="danger" class="classifications" id="2.2.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>When using a reporting organisation sector code, it must include a narrative name.</me:message>
+        <me:message>When using a reporting organisation sector code, it must include a narrative.</me:message>
       </me:feedback>
     </xsl:if>
     <xsl:next-match/>

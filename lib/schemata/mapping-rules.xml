@@ -459,7 +459,7 @@
         <codelist ref="Sector" />
         <condition>@vocabulary = ('1', 'DAC') or not(@vocabulary)</condition>
         <class ref="classifications"/>
-        <message>The OECD DAC sector is invalid.</message>
+        <message>The OECD DAC sector code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/sector/@code</path>
