@@ -9,7 +9,9 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Version', $iati-version)">
          <me:feedback type="danger" class="iati" id="9.1.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Version/'}"/>
+            <me:src ref="iati"
+                    versions="any"
+                    href="{me:iati-url('codelists/Version/')}"/>
             <me:message>The IATI version of the dataset is not a valid version number.</me:message>
          </me:feedback>
       </xsl:if>
@@ -23,7 +25,7 @@
          <me:feedback type="danger" class="financial" id="9.2.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetNotProvided/'}"/>
+                    href="{me:iati-url('codelists/BudgetNotProvided/')}"/>
             <me:message>The code to indicate why no budget is provided is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -37,7 +39,7 @@
          <me:feedback type="danger" class="financial" id="9.3.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The default currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -51,7 +53,7 @@
          <me:feedback type="danger" class="information" id="9.4.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/ActivityDateType/'}"/>
+                    href="{me:iati-url('codelists/ActivityDateType/')}"/>
             <me:message>The activity date type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -65,7 +67,7 @@
          <me:feedback type="danger" class="information" id="9.5.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/ActivityStatus/'}"/>
+                    href="{me:iati-url('codelists/ActivityStatus/')}"/>
             <me:message>The activity status code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -79,7 +81,7 @@
          <me:feedback type="danger" class="information" id="9.6.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/ActivityScope/'}"/>
+                    href="{me:iati-url('codelists/ActivityScope/')}"/>
             <me:message>The activity scope code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -91,7 +93,7 @@
          <me:feedback type="danger" class="financial" id="9.7.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetStatus/'}"/>
+                    href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -103,7 +105,7 @@
          <me:feedback type="danger" class="financial" id="9.8.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetType/'}"/>
+                    href="{me:iati-url('codelists/BudgetType/')}"/>
             <me:message>The budget type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -117,7 +119,7 @@
          <me:feedback type="danger" class="financial" id="9.9.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -131,7 +133,7 @@
          <me:feedback type="danger" class="classifications" id="9.10.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/CollaborationType/'}"/>
+                    href="{me:iati-url('codelists/CollaborationType/')}"/>
             <me:message>The collaboration type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -145,7 +147,7 @@
          <me:feedback type="danger" class="performance" id="9.11.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/ConditionType/'}"/>
+                    href="{me:iati-url('codelists/ConditionType/')}"/>
             <me:message>The condition type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -159,7 +161,7 @@
          <me:feedback type="danger" class="information" id="9.12.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/ContactType/'}"/>
+                    href="{me:iati-url('codelists/ContactType/')}"/>
             <me:message>The contact information type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -173,7 +175,7 @@
          <me:feedback type="danger" class="classifications" id="9.13.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetIdentifierVocabulary/'}"/>
+                    href="{me:iati-url('codelists/BudgetIdentifierVocabulary/')}"/>
             <me:message>The country budget identifier vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -187,7 +189,7 @@
          <me:feedback type="danger" class="classifications" id="9.14.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetIdentifier/'}"/>
+                    href="{me:iati-url('codelists/BudgetIdentifier/')}"/>
             <me:message>The country budget identifier does not exist.</me:message>
          </me:feedback>
       </xsl:if>
@@ -201,7 +203,7 @@
          <me:feedback type="danger" class="classifications" id="9.15.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DescriptionType/'}"/>
+                    href="{me:iati-url('codelists/DescriptionType/')}"/>
             <me:message>The country budget item description type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -215,7 +217,7 @@
          <me:feedback type="danger" class="classifications" id="9.16.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/CRSChannelCode/'}"/>
+                    href="{me:iati-url('codelists/CRSChannelCode/')}"/>
             <me:message>The CRS channel code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -229,7 +231,7 @@
          <me:feedback type="danger" class="classifications" id="9.17.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/CRSAddOtherFlags/'}"/>
+                    href="{me:iati-url('codelists/CRSAddOtherFlags/')}"/>
             <me:message>The CRS other flag code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -243,7 +245,7 @@
          <me:feedback type="danger" class="classifications" id="9.18.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -257,7 +259,7 @@
          <me:feedback type="danger" class="classifications" id="9.19.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/LoanRepaymentPeriod/'}"/>
+                    href="{me:iati-url('codelists/LoanRepaymentPeriod/')}"/>
             <me:message>The repayment plan code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -271,7 +273,7 @@
          <me:feedback type="danger" class="classifications" id="9.20.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/LoanRepaymentType/'}"/>
+                    href="{me:iati-url('codelists/LoanRepaymentType/')}"/>
             <me:message>The repayment type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -283,7 +285,9 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'AidType', $iati-version)">
          <me:feedback type="danger" class="classifications" id="9.21.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/AidType/'}"/>
+            <me:src ref="iati"
+                    versions="any"
+                    href="{me:iati-url('codelists/AidType/')}"/>
             <me:message>The default aid type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -297,7 +301,7 @@
          <me:feedback type="danger" class="classifications" id="9.22.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/AidTypeVocabulary/'}"/>
+                    href="{me:iati-url('codelists/AidTypeVocabulary/')}"/>
             <me:message>The default aid type vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -311,7 +315,7 @@
          <me:feedback type="danger" class="classifications" id="9.23.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FinanceType/'}"/>
+                    href="{me:iati-url('codelists/FinanceType/')}"/>
             <me:message>The default finance type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -325,7 +329,7 @@
          <me:feedback type="danger" class="classifications" id="9.24.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FlowType/'}"/>
+                    href="{me:iati-url('codelists/FlowType/')}"/>
             <me:message>The default flow type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -339,7 +343,7 @@
          <me:feedback type="danger" class="classifications" id="9.25.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/TiedStatus/'}"/>
+                    href="{me:iati-url('codelists/TiedStatus/')}"/>
             <me:message>The default tied aid status code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -353,7 +357,7 @@
          <me:feedback type="danger" class="information" id="9.26.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DescriptionType/'}"/>
+                    href="{me:iati-url('codelists/DescriptionType/')}"/>
             <me:message>The description type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -367,7 +371,7 @@
          <me:feedback type="danger" class="documents" id="9.27.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FileFormat/'}"/>
+                    href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -381,7 +385,7 @@
          <me:feedback type="danger" class="documents" id="9.28.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DocumentCategory/'}"/>
+                    href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -395,7 +399,7 @@
          <me:feedback type="danger" class="documents" id="9.29.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Language/'}"/>
+                    href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The document language code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -409,7 +413,7 @@
          <me:feedback type="danger" class="financial" id="9.30.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -423,7 +427,7 @@
          <me:feedback type="danger" class="classifications" id="9.31.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/HumanitarianScopeType/'}"/>
+                    href="{me:iati-url('codelists/HumanitarianScopeType/')}"/>
             <me:message>The humanitarian scope type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -437,7 +441,7 @@
          <me:feedback type="danger" class="classifications" id="9.32.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/HumanitarianScopeVocabulary/'}"/>
+                    href="{me:iati-url('codelists/HumanitarianScopeVocabulary/')}"/>
             <me:message>The humanitarian scope vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -451,7 +455,7 @@
          <me:feedback type="danger" class="geo" id="9.33.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/GeographicVocabulary/'}"/>
+                    href="{me:iati-url('codelists/GeographicVocabulary/')}"/>
             <me:message>The location's administrative vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -465,7 +469,7 @@
          <me:feedback type="danger" class="geo" id="9.34.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/LocationType/'}"/>
+                    href="{me:iati-url('codelists/LocationType/')}"/>
             <me:message>The location's feature designation code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -479,7 +483,7 @@
          <me:feedback type="danger" class="geo" id="9.35.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/GeographicLocationClass/'}"/>
+                    href="{me:iati-url('codelists/GeographicLocationClass/')}"/>
             <me:message>The location class code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -493,7 +497,7 @@
          <me:feedback type="danger" class="geo" id="9.36.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/GeographicVocabulary/'}"/>
+                    href="{me:iati-url('codelists/GeographicVocabulary/')}"/>
             <me:message>The location identifier vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -507,7 +511,7 @@
          <me:feedback type="danger" class="geo" id="9.37.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/GeographicLocationReach/'}"/>
+                    href="{me:iati-url('codelists/GeographicLocationReach/')}"/>
             <me:message>The location reach code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -521,7 +525,7 @@
          <me:feedback type="danger" class="geo" id="9.38.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/GeographicExactness/'}"/>
+                    href="{me:iati-url('codelists/GeographicExactness/')}"/>
             <me:message>The location exactness code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -535,7 +539,7 @@
          <me:feedback type="danger" class="identifiers" id="9.39.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/OtherIdentifierType/'}"/>
+                    href="{me:iati-url('codelists/OtherIdentifierType/')}"/>
             <me:message>The "other identifier" type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -549,7 +553,7 @@
          <me:feedback type="danger" class="participating" id="9.40.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/CRSChannelCode/'}"/>
+                    href="{me:iati-url('codelists/CRSChannelCode/')}"/>
             <me:message>The CRS channel code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -563,7 +567,7 @@
          <me:feedback type="danger" class="participating" id="9.41.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/OrganisationRole/'}"/>
+                    href="{me:iati-url('codelists/OrganisationRole/')}"/>
             <me:message>The organisation role is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -577,7 +581,7 @@
          <me:feedback type="danger" class="participating" id="9.42.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/OrganisationType/'}"/>
+                    href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -591,7 +595,7 @@
          <me:feedback type="danger" class="financial" id="9.43.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetType/'}"/>
+                    href="{me:iati-url('codelists/BudgetType/')}"/>
             <me:message>The planned disbursement budget type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -605,7 +609,7 @@
          <me:feedback type="danger" class="financial" id="9.44.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/OrganisationType/'}"/>
+                    href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -619,7 +623,7 @@
          <me:feedback type="danger" class="financial" id="9.45.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/OrganisationType/'}"/>
+                    href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -633,7 +637,7 @@
          <me:feedback type="danger" class="financial" id="9.46.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -647,7 +651,7 @@
          <me:feedback type="danger" class="classifications" id="9.47.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/PolicyMarker/'}"/>
+                    href="{me:iati-url('codelists/PolicyMarker/')}"/>
             <me:message>The policy marker code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -661,7 +665,7 @@
          <me:feedback type="danger" class="classifications" id="9.48.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/PolicySignificance/'}"/>
+                    href="{me:iati-url('codelists/PolicySignificance/')}"/>
             <me:message>The policy marker significance is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -675,7 +679,7 @@
          <me:feedback type="danger" class="classifications" id="9.49.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/PolicyMarkerVocabulary/'}"/>
+                    href="{me:iati-url('codelists/PolicyMarkerVocabulary/')}"/>
             <me:message>The policy marker vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -687,7 +691,9 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Country', $iati-version)">
          <me:feedback type="danger" class="geo" id="9.50.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Country/'}"/>
+            <me:src ref="iati"
+                    versions="any"
+                    href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The recipient country code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -699,7 +705,7 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Region', $iati-version)">
          <me:feedback type="danger" class="geo" id="9.51.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Region/'}"/>
+            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Region/')}"/>
             <me:message>The recipient region code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -713,7 +719,7 @@
          <me:feedback type="danger" class="geo" id="9.52.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/RegionVocabulary/'}"/>
+                    href="{me:iati-url('codelists/RegionVocabulary/')}"/>
             <me:message>The recipient region vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -727,7 +733,7 @@
          <me:feedback type="danger" class="relations" id="9.53.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/RelatedActivityType/'}"/>
+                    href="{me:iati-url('codelists/RelatedActivityType/')}"/>
             <me:message>The related activity type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -741,7 +747,7 @@
          <me:feedback type="danger" class="identifiers" id="9.54.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/OrganisationType/'}"/>
+                    href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -753,7 +759,7 @@
          <me:feedback type="danger" class="performance" id="9.55.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/ResultType/'}"/>
+                    href="{me:iati-url('codelists/ResultType/')}"/>
             <me:message>The result type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -767,7 +773,7 @@
          <me:feedback type="danger" class="performance" id="9.56.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DescriptionType/'}"/>
+                    href="{me:iati-url('codelists/DescriptionType/')}"/>
             <me:message>The result description type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -781,7 +787,7 @@
          <me:feedback type="danger" class="performance" id="9.57.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FileFormat/'}"/>
+                    href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -795,7 +801,7 @@
          <me:feedback type="danger" class="performance" id="9.58.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DocumentCategory/'}"/>
+                    href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -809,7 +815,7 @@
          <me:feedback type="danger" class="performance" id="9.59.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Language/'}"/>
+                    href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -823,7 +829,7 @@
          <me:feedback type="danger" class="performance" id="9.60.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/IndicatorMeasure/'}"/>
+                    href="{me:iati-url('codelists/IndicatorMeasure/')}"/>
             <me:message>The indicator measure is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -837,7 +843,7 @@
          <me:feedback type="danger" class="performance" id="9.61.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FileFormat/'}"/>
+                    href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -851,7 +857,7 @@
          <me:feedback type="danger" class="performance" id="9.62.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DocumentCategory/'}"/>
+                    href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -865,7 +871,7 @@
          <me:feedback type="danger" class="performance" id="9.63.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Language/'}"/>
+                    href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -879,7 +885,7 @@
          <me:feedback type="danger" class="performance" id="9.64.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DescriptionType/'}"/>
+                    href="{me:iati-url('codelists/DescriptionType/')}"/>
             <me:message>The indicator description type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -893,7 +899,7 @@
          <me:feedback type="danger" class="performance" id="9.65.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FileFormat/'}"/>
+                    href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -907,7 +913,7 @@
          <me:feedback type="danger" class="performance" id="9.66.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DocumentCategory/'}"/>
+                    href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -921,7 +927,7 @@
          <me:feedback type="danger" class="performance" id="9.67.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Language/'}"/>
+                    href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -935,7 +941,7 @@
          <me:feedback type="danger" class="performance" id="9.68.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FileFormat/'}"/>
+                    href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -949,7 +955,7 @@
          <me:feedback type="danger" class="performance" id="9.69.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DocumentCategory/'}"/>
+                    href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -963,7 +969,7 @@
          <me:feedback type="danger" class="performance" id="9.70.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Language/'}"/>
+                    href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -977,7 +983,7 @@
          <me:feedback type="danger" class="performance" id="9.71.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FileFormat/'}"/>
+                    href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -991,7 +997,7 @@
          <me:feedback type="danger" class="performance" id="9.72.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DocumentCategory/'}"/>
+                    href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1005,7 +1011,7 @@
          <me:feedback type="danger" class="performance" id="9.73.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Language/'}"/>
+                    href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1019,7 +1025,7 @@
          <me:feedback type="danger" class="performance" id="9.74.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/IndicatorVocabulary/'}"/>
+                    href="{me:iati-url('codelists/IndicatorVocabulary/')}"/>
             <me:message>The indicator reference code vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1033,7 +1039,7 @@
          <me:feedback type="danger" class="performance" id="9.75.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/ResultVocabulary/'}"/>
+                    href="{me:iati-url('codelists/ResultVocabulary/')}"/>
             <me:message>The result reference code vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1045,7 +1051,7 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Sector', $iati-version)">
          <me:feedback type="danger" class="classifications" id="9.76.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Sector/'}"/>
+            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Sector/')}"/>
             <me:message>The OECD DAC sector code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1059,7 +1065,7 @@
          <me:feedback type="danger" class="classifications" id="9.77.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/SectorCategory/'}"/>
+                    href="{me:iati-url('codelists/SectorCategory/')}"/>
             <me:message>The OECD DAC category is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1073,7 +1079,7 @@
          <me:feedback type="danger" class="classifications" id="9.78.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/SectorVocabulary/'}"/>
+                    href="{me:iati-url('codelists/SectorVocabulary/')}"/>
             <me:message>The sector vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1087,7 +1093,7 @@
          <me:feedback type="danger" class="classifications" id="9.79.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/TagVocabulary/'}"/>
+                    href="{me:iati-url('codelists/TagVocabulary/')}"/>
             <me:message>The tag vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1099,7 +1105,9 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'AidType', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.80.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/AidType/'}"/>
+            <me:src ref="iati"
+                    versions="any"
+                    href="{me:iati-url('codelists/AidType/')}"/>
             <me:message>The aid type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1113,7 +1121,7 @@
          <me:feedback type="danger" class="financial" id="9.81.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/AidTypeVocabulary/'}"/>
+                    href="{me:iati-url('codelists/AidTypeVocabulary/')}"/>
             <me:message>The aid type vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1127,7 +1135,7 @@
          <me:feedback type="danger" class="financial" id="9.82.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DisbursementChannel/'}"/>
+                    href="{me:iati-url('codelists/DisbursementChannel/')}"/>
             <me:message>The disbursement channel code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1141,7 +1149,7 @@
          <me:feedback type="danger" class="financial" id="9.83.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FinanceType/'}"/>
+                    href="{me:iati-url('codelists/FinanceType/')}"/>
             <me:message>The finance type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1155,7 +1163,7 @@
          <me:feedback type="danger" class="financial" id="9.84.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FlowType/'}"/>
+                    href="{me:iati-url('codelists/FlowType/')}"/>
             <me:message>The flow type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1167,7 +1175,9 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Country', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.85.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Country/'}"/>
+            <me:src ref="iati"
+                    versions="any"
+                    href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The recipient country code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1179,7 +1189,7 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Region', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.86.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Region/'}"/>
+            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Region/')}"/>
             <me:message>The recipient region code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1193,7 +1203,7 @@
          <me:feedback type="danger" class="financial" id="9.87.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/RegionVocabulary/'}"/>
+                    href="{me:iati-url('codelists/RegionVocabulary/')}"/>
             <me:message>The recipient region vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1207,7 +1217,7 @@
          <me:feedback type="danger" class="financial" id="9.88.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/OrganisationType/'}"/>
+                    href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1221,7 +1231,7 @@
          <me:feedback type="danger" class="financial" id="9.89.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/OrganisationType/'}"/>
+                    href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1233,7 +1243,7 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Sector', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.90.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Sector/'}"/>
+            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Sector/')}"/>
             <me:message>The DAC sector code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1247,7 +1257,7 @@
          <me:feedback type="danger" class="financial" id="9.91.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/SectorVocabulary/'}"/>
+                    href="{me:iati-url('codelists/SectorVocabulary/')}"/>
             <me:message>The sector vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1261,7 +1271,7 @@
          <me:feedback type="danger" class="financial" id="9.92.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/TiedStatus/'}"/>
+                    href="{me:iati-url('codelists/TiedStatus/')}"/>
             <me:message>The tied status code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1275,7 +1285,7 @@
          <me:feedback type="danger" class="financial" id="9.93.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/TransactionType/'}"/>
+                    href="{me:iati-url('codelists/TransactionType/')}"/>
             <me:message>The transaction type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1289,7 +1299,7 @@
          <me:feedback type="danger" class="financial" id="9.94.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1301,7 +1311,7 @@
          <me:feedback type="danger" class="iati" id="9.95.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Language/'}"/>
+                    href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1315,7 +1325,7 @@
          <me:feedback type="danger" class="organisation" id="9.96.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1325,7 +1335,9 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Version', $iati-version)">
          <me:feedback type="danger" class="iati" id="9.97.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Version/'}"/>
+            <me:src ref="iati"
+                    versions="any"
+                    href="{me:iati-url('codelists/Version/')}"/>
             <me:message>The IATI version of the dataset is not a valid version number.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1339,7 +1351,7 @@
          <me:feedback type="danger" class="documents" id="9.98.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/FileFormat/'}"/>
+                    href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1353,7 +1365,7 @@
          <me:feedback type="danger" class="documents" id="9.99.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/DocumentCategory/'}"/>
+                    href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1367,7 +1379,7 @@
          <me:feedback type="danger" class="documents" id="9.100.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Language/'}"/>
+                    href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1379,7 +1391,9 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Country', $iati-version)">
          <me:feedback type="danger" class="documents" id="9.101.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Country/'}"/>
+            <me:src ref="iati"
+                    versions="any"
+                    href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The recipient country code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1393,7 +1407,7 @@
          <me:feedback type="danger" class="financial" id="9.102.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetStatus/'}"/>
+                    href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1405,7 +1419,9 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Country', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.103.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Country/'}"/>
+            <me:src ref="iati"
+                    versions="any"
+                    href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The recipient country code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1419,7 +1435,7 @@
          <me:feedback type="danger" class="financial" id="9.104.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1433,7 +1449,7 @@
          <me:feedback type="danger" class="financial" id="9.105.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetStatus/'}"/>
+                    href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1447,7 +1463,7 @@
          <me:feedback type="danger" class="financial" id="9.106.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1461,7 +1477,7 @@
          <me:feedback type="danger" class="financial" id="9.107.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetStatus/'}"/>
+                    href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1473,7 +1489,7 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Region', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.108.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Region/'}"/>
+            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Region/')}"/>
             <me:message>The recipient region budget code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1487,7 +1503,7 @@
          <me:feedback type="danger" class="geo" id="9.109.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/RegionVocabulary/'}"/>
+                    href="{me:iati-url('codelists/RegionVocabulary/')}"/>
             <me:message>The recipient region vocabulary is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1501,7 +1517,7 @@
          <me:feedback type="danger" class="geo" id="9.110.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1515,7 +1531,7 @@
          <me:feedback type="danger" class="geo" id="9.111.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1529,7 +1545,7 @@
          <me:feedback type="danger" class="information" id="9.112.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/OrganisationType/'}"/>
+                    href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1543,7 +1559,7 @@
          <me:feedback type="danger" class="financial" id="9.113.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/BudgetStatus/'}"/>
+                    href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1557,7 +1573,7 @@
          <me:feedback type="danger" class="financial" id="9.114.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1573,7 +1589,7 @@
          <me:feedback type="danger" class="iati" id="9.116.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/AidTypeFlag/'}"/>
+                    href="{me:iati-url('codelists/AidTypeFlag/')}"/>
             <me:message>The AidType flag is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1585,7 +1601,9 @@
       <xsl:param name="iati-version" tunnel="yes"/>
       <xsl:if test="me:codeListFail(., 'Country', $iati-version)">
          <me:feedback type="danger" class="geo" id="9.117.1">
-            <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Country/'}"/>
+            <me:src ref="iati"
+                    versions="any"
+                    href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The country code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1599,7 +1617,7 @@
          <me:feedback type="danger" class="geo" id="9.118.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/GeographicalPrecision/'}"/>
+                    href="{me:iati-url('codelists/GeographicalPrecision/')}"/>
             <me:message>The geographical precision code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1613,7 +1631,7 @@
          <me:feedback type="danger" class="geo" id="9.119.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/GazetteerAgency/'}"/>
+                    href="{me:iati-url('codelists/GazetteerAgency/')}"/>
             <me:message>The gazeteer agency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1627,7 +1645,7 @@
          <me:feedback type="danger" class="geo" id="9.120.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/LocationType/'}"/>
+                    href="{me:iati-url('codelists/LocationType/')}"/>
             <me:message>The location type code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1643,7 +1661,7 @@
          <me:feedback type="danger" class="financial" id="9.122.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1657,7 +1675,7 @@
          <me:feedback type="danger" class="financial" id="9.123.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/Currency/'}"/>
+                    href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1671,7 +1689,7 @@
          <me:feedback type="danger" class="financial" id="9.124.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/SectorCategory/'}"/>
+                    href="{me:iati-url('codelists/SectorCategory/')}"/>
             <me:message>The DAC3 sector code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1685,7 +1703,7 @@
          <me:feedback type="danger" class="iati" id="9.125.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/UNSDG-Goals/'}"/>
+                    href="{me:iati-url('codelists/UNSDG-Goals/')}"/>
             <me:message>The code for @code is not on the UNSDG-Goals codelist.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1699,7 +1717,7 @@
          <me:feedback type="danger" class="iati" id="9.126.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/UNSDG-Targets/'}"/>
+                    href="{me:iati-url('codelists/UNSDG-Targets/')}"/>
             <me:message>The code for @code is not on the UNSDG-Targets codelist.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1713,7 +1731,7 @@
          <me:feedback type="danger" class="iati" id="9.127.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/EarmarkingCategory/'}"/>
+                    href="{me:iati-url('codelists/EarmarkingCategory/')}"/>
             <me:message>The code for @code is not on the EarmarkingCategory codelist.</me:message>
          </me:feedback>
       </xsl:if>
@@ -1727,7 +1745,7 @@
          <me:feedback type="danger" class="iati" id="9.128.1">
             <me:src ref="iati"
                     versions="any"
-                    href="{me:iati-url('codelists/CashandVoucherModalities/'}"/>
+                    href="{me:iati-url('codelists/CashandVoucherModalities/')}"/>
             <me:message>The code for @code is not on the CashandVoucherModalities codelist.</me:message>
          </me:feedback>
       </xsl:if>

@@ -47,7 +47,7 @@
                 <xsl:attribute name="href">
                   <xsl:text expand-text="no">{me:iati-url('codelists/</xsl:text>
                   <xsl:text>{$codelist}</xsl:text>
-                  <xsl:text expand-text="no">/'}</xsl:text>
+                  <xsl:text expand-text="no">/')}</xsl:text>
                 </xsl:attribute>                
               </me:src>
               <me:message>{($message, $default)[1]}</me:message>
