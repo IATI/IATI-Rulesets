@@ -11,10 +11,11 @@
   
   <xsl:param name="filename"/>
   
-  <xsl:variable name="schemaVersion">0.13.1</xsl:variable>
+  <xsl:variable name="schemaVersion">0.14</xsl:variable>
   
   <!-- support functions and templates -->
   <xsl:include href="../lib/functx.xslt"/>
+  <xsl:include href="../lib/iati-me-functions.xslt"/>
   <xsl:include href="lib/identifiers.xslt"/>
   <xsl:include href="lib/percentages.xslt"/>
   
@@ -31,23 +32,6 @@
   <xsl:include href="iati/percentages.xslt"/>
 
   <xsl:output indent="yes"/>
-  
-  <xsl:function name="me:iati-url">
-    <xsl:param name="href"/>
-    <!-- TODO: include iati-version in function call to use proper version -->
-    <xsl:variable name="iati-version">2.03</xsl:variable>
-    <xsl:if test="$href!=''">http://reference.iatistandard.org/{replace($iati-version, '\.', '')}/{$href}</xsl:if>
-  </xsl:function>
-
-  <xsl:function name="me:iati-version">
-    <xsl:param name="declared-version"/>
-
-    <xsl:choose>
-      <xsl:when test="$declared-version=('1.01','1.02','1.03','1.04','1.05','2.01','2.02','2.03')">{$declared-version}</xsl:when>
-      <xsl:when test="starts-with($declared-version, '1.')">1.05</xsl:when>
-      <xsl:otherwise>2.03</xsl:otherwise>
-    </xsl:choose>    
-  </xsl:function>
   
 <!--  <xsl:variable name="validation-errors" select="saxon:validate(/)"/>-->
   

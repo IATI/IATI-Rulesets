@@ -12,6 +12,8 @@
   <xsl:output indent="yes"/>
   <xsl:namespace-alias stylesheet-prefix="axsl" result-prefix="xsl"/>
   
+  <xsl:import href="../lib/iati-me-functions.xslt"/>
+  
   <xsl:template match="mappings">
     <axsl:stylesheet version='3.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -41,7 +43,13 @@
           <axsl:param name="iati-version" tunnel="yes"/>
           <axsl:if test="me:codeListFail(., '{$codelist}', $iati-version)">
             <me:feedback type="danger" class="{($class, 'iati')[1]}" id="{$pos || '.1'}">
-              <me:src ref="iati" versions="any"/>
+              <me:src ref="iati" versions="any">
+                <xsl:attribute name="href">
+                  <xsl:text expand-text="no">{me:iati-url('codelists/</xsl:text>
+                  <xsl:text>{$codelist}</xsl:text>
+                  <xsl:text expand-text="no">/'}</xsl:text>
+                </xsl:attribute>                
+              </me:src>
               <me:message>{($message, $default)[1]}</me:message>
             </me:feedback>
           </axsl:if>
