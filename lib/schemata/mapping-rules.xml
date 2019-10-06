@@ -719,7 +719,7 @@
         <path>//iati-activity/location/gazetteer-entry/@gazetteer-ref</path>
         <codelist ref="GazetteerAgency" />
         <class ref="geo"/>
-        <message>The gazeteer agency code is invalid.</message>
+        <message>The gazetteer agency code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/location/feature-designation/@code</path>
