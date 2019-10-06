@@ -12,7 +12,7 @@
     <xsl:variable name="iati-version">2.03</xsl:variable>
     <xsl:choose>
       <xsl:when test="starts-with($href, 'http')"></xsl:when>
-      <xsl:when test="$href!=''">http://reference.iatistandard.org/{replace($iati-version, '\.', '')}/{$href}</xsl:when>
+      <xsl:when test="$href!=''">https://reference.iatistandard.org/{replace($iati-version, '\.', '')}/{$href}</xsl:when>
     </xsl:choose>
   </xsl:function>
   

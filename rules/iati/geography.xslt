@@ -18,6 +18,7 @@
         <xsl:with-param name="item">recipient country</xsl:with-param>
         <xsl:with-param name="items">recipient countries</xsl:with-param>
         <xsl:with-param name="versions">1.0x</xsl:with-param>
+        <xsl:with-param name="href">https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view</xsl:with-param>
       </xsl:call-template>
       
       <!-- Check for percentages for multiple recipient regions for the default vocabulary. -->    
@@ -29,6 +30,7 @@
         <xsl:with-param name="items">recipient countries</xsl:with-param>
         <xsl:with-param name="vocabulary" select="'1'"/>
         <xsl:with-param name="versions">1.0x</xsl:with-param>
+        <xsl:with-param name="href">https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view</xsl:with-param>
       </xsl:call-template>
     </xsl:if>
 
@@ -50,7 +52,7 @@
           <xsl:with-param name="items">recipient countries or regions</xsl:with-param>
           <xsl:with-param name="vocabulary" select="current-grouping-key()"/>
           <xsl:with-param name="versions">2.0x</xsl:with-param>
-          <xsl:with-param name="href">activity-standard/overview/geography/</xsl:with-param>
+          <xsl:with-param name="href">https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view</xsl:with-param>
         </xsl:call-template>    
         
       </xsl:for-each-group>
@@ -68,6 +70,7 @@
         <xsl:with-param name="item">recipient country</xsl:with-param>
         <xsl:with-param name="items">recipient countries</xsl:with-param>
         <xsl:with-param name="versions">2.0x</xsl:with-param>
+        <xsl:with-param name="href">https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view</xsl:with-param>
       </xsl:call-template>
     </xsl:if>    
     <xsl:next-match/>    
@@ -76,7 +79,7 @@
   <xsl:template match="iati-activity[recipient-country or recipient-region]" mode="rules" priority="3.6">
     <xsl:if test="transaction/recipient-country or transaction/recipient-region">
       <me:feedback type="danger" class="financial" id="3.6.2">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1E3hztk6gWTW5DypLELeSwW5X-Ahg0yjm/view"/>
         <me:message>If the activity has recipient-country or recipient-region information, none of the transactions should have a recipient-country or recipient-region.</me:message>
       </me:feedback>
     </xsl:if>
@@ -88,13 +91,13 @@
     <xsl:choose>
       <xsl:when test="not(transaction[recipient-country or recipient-region])">
         <me:feedback type="danger" class="geo" id="3.7.1">
-          <me:src ref="iati" versions="any"/>
+          <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view"/>
           <me:message>The activity should have recipient-country or recipient-region information for either the activity or for all transactions.</me:message>
         </me:feedback>
       </xsl:when>
       <xsl:when test="transaction[not(recipient-country or recipient-region)]">
         <me:feedback type="danger" class="geo" id="3.7.2">
-          <me:src ref="iati" versions="any"/>
+          <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view"/>
           <me:message>If transactions have a recipient-country or recipient-region, they must be used for all transactions.</me:message>
         </me:feedback>
       </xsl:when>      

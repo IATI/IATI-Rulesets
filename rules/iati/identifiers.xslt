@@ -10,14 +10,14 @@
     
     <xsl:if test="//iati-activity[iati-identifier=current()][2]">
       <me:feedback type="danger" class="identifiers" id="1.1.2">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
         <me:message>The activity identifier must not occur multiple times in the dataset.</me:message>
       </me:feedback>
     </xsl:if>
     
     <xsl:if test=". = ../reporting-org/@ref">
       <me:feedback type="danger" class="identifiers" id="1.1.3">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
         <me:message>The activity identifier must not be the same as the organisation identifier of the reporting organisation.</me:message>
       </me:feedback>
     </xsl:if>
@@ -31,7 +31,7 @@
     <xsl:choose>
       <xsl:when test="not(@ref)">
         <me:feedback type="danger" class="identifiers" id="1.7.2">
-          <me:src ref="iati" versions="any"/>
+          <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/reporting-org/')}"/>
           <me:message>Organisation Identifier must be present.</me:message>
         </me:feedback>      
       </xsl:when>

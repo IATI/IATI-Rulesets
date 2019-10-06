@@ -17,7 +17,7 @@
         <xsl:with-param name="item">sector</xsl:with-param>
         <xsl:with-param name="items">sectors, within a vocabulary,</xsl:with-param>
         <xsl:with-param name="vocabulary" select="current-grouping-key()"/>
-        <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/sector/</xsl:with-param>
+        <xsl:with-param name="href">https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view</xsl:with-param>
       </xsl:call-template>
     </xsl:for-each-group>
 
@@ -27,7 +27,7 @@
   <xsl:template match="sector[@vocabulary=('98', '99')]" mode="rules" priority="2.2">
     <xsl:if test="not(narrative)">
       <me:feedback type="danger" class="classifications" id="2.2.1">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
         <me:message>When using a reporting organisation sector code, it must include a narrative.</me:message>
       </me:feedback>
     </xsl:if>

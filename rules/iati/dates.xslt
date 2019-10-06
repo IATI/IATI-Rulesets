@@ -14,7 +14,7 @@
       @last-updated-datetime castable as xs:dateTime 
       and xs:dateTime(@last-updated-datetime) gt $now">
       <me:feedback type="danger" class="information" id="11.1.1">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="{me:iati-url('activity-standard/iati-activities/iati-activity/')}"/>
         <me:message>The last-updated-datetime of the activity must not be in the future.</me:message>
       </me:feedback>
     </xsl:if>
@@ -25,7 +25,7 @@
       activity-date[@type='3']/@iso-date castable as xs:date and
       xs:date(activity-date[@type='1']/@iso-date) gt xs:date(activity-date[@type='3']/@iso-date)">
       <me:feedback type="danger" class="information" id="11.1.2">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view"/>
         <me:message>The planned start date must be before the planned end date.</me:message>
       </me:feedback>
     </xsl:if>
@@ -36,7 +36,7 @@
       activity-date[@type='4']/@iso-date castable as xs:date and
       xs:date(activity-date[@type='2']/@iso-date) gt xs:date(activity-date[@type='4']/@iso-date)">
       <me:feedback type="danger" class="information" id="11.1.3">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view"/>
         <me:message>The actual start date must be before the actual end date.</me:message>
       </me:feedback>
     </xsl:if>
@@ -45,7 +45,7 @@
       activity-date[@type='2']/@iso-date castable as xs:date and
       xs:date(activity-date[@type='2']/@iso-date) gt xs:date($now)">
       <me:feedback type="danger" class="information" id="11.1.4">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view"/>
         <me:message>The actual start date of the activity must not be in the future.</me:message>
       </me:feedback>
     </xsl:if>
@@ -54,7 +54,7 @@
       activity-date[@type='4']/@iso-date castable as xs:date and
       xs:date(activity-date[@type='4']/@iso-date) gt xs:date($now)">
       <me:feedback type="danger" class="information" id="11.1.5">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view"/>
         <me:message>The actual end date of the activity must not be in the future.</me:message>
       </me:feedback>
     </xsl:if>
@@ -67,7 +67,7 @@
       transaction-date/@iso-date castable as xs:date and 
       xs:date(transaction-date/@iso-date) gt xs:date($now)">
       <me:feedback type="danger" class="financial" id="11.2.1">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="https://drive.google.com/file/d/1E3hztk6gWTW5DypLELeSwW5X-Ahg0yjm/view"/>
         <me:message>The transaction date must not be in the future.</me:message>
       </me:feedback>
     </xsl:if>
@@ -105,7 +105,7 @@
       @last-updated-datetime castable as xs:dateTime and
       xs:dateTime(@last-updated-datetime) gt $now">
       <me:feedback type="danger" class="information" id="11.4.1">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view"/>
         <me:message>The last-updated-datetime of the organisation must not be in the future.</me:message>
       </me:feedback>
     </xsl:if>
