@@ -37,7 +37,7 @@
     
     <xsl:analyze-string select="path" regex="(.+)/([^/]+)">
       <xsl:matching-substring>
-        <xsl:variable name="default">The code for {regex-group(2)} is not on the {$codelist} codelist.</xsl:variable>
+        <xsl:variable name="default">The {regex-group(2)} code is invalid.</xsl:variable>
         
         <axsl:template match="{regex-group(1) || $condition || '/' || regex-group(2)}" mode="rules" priority="{$pos}">
           <axsl:param name="iati-version" tunnel="yes"/>
