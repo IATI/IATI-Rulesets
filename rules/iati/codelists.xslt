@@ -1053,7 +1053,7 @@
       <xsl:if test="me:codeListFail(., 'Sector', $iati-version)">
          <me:feedback type="danger" class="classifications" id="9.76.1">
             <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Sector/')}"/>
-            <me:message>The OECD DAC sector code is invalid.</me:message>
+            <me:message>The OECD DAC sector is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1245,7 +1245,7 @@
       <xsl:if test="me:codeListFail(., 'Sector', $iati-version)">
          <me:feedback type="danger" class="financial" id="9.90.1">
             <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Sector/')}"/>
-            <me:message>The DAC sector code is invalid.</me:message>
+            <me:message>The OECD DAC sector is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1705,7 +1705,7 @@
             <me:src ref="iati"
                     versions="any"
                     href="{me:iati-url('codelists/UNSDG-Goals/')}"/>
-            <me:message>The code for @code is not on the UNSDG-Goals codelist.</me:message>
+            <me:message>The UNSDG goal code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1719,7 +1719,7 @@
             <me:src ref="iati"
                     versions="any"
                     href="{me:iati-url('codelists/UNSDG-Targets/')}"/>
-            <me:message>The code for @code is not on the UNSDG-Targets codelist.</me:message>
+            <me:message>The UNSDG target code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1733,7 +1733,7 @@
             <me:src ref="iati"
                     versions="any"
                     href="{me:iati-url('codelists/EarmarkingCategory/')}"/>
-            <me:message>The code for @code is not on the EarmarkingCategory codelist.</me:message>
+            <me:message>The earmarking category code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1747,7 +1747,7 @@
             <me:src ref="iati"
                     versions="any"
                     href="{me:iati-url('codelists/CashandVoucherModalities/')}"/>
-            <me:message>The code for @code is not on the CashandVoucherModalities codelist.</me:message>
+            <me:message>The cash and voucher modality code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>

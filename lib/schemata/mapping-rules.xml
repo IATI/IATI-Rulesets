@@ -459,7 +459,7 @@
         <codelist ref="Sector" />
         <condition>@vocabulary = ('1', 'DAC') or not(@vocabulary)</condition>
         <class ref="classifications"/>
-        <message>The OECD DAC sector code is invalid.</message>
+        <message>The OECD DAC sector is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/sector/@code</path>
@@ -547,7 +547,7 @@
         <codelist ref="Sector" />
         <condition>@vocabulary = '1' or not(@vocabulary)</condition>
         <class ref="financial"/>
-        <message>The DAC sector code is invalid.</message>
+        <message>The OECD DAC sector is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/sector/@vocabulary</path>
@@ -752,20 +752,24 @@
         <path>//iati-activity/tag/@code</path>
         <codelist ref="UNSDG-Goals" />
         <condition>@vocabulary = '2'</condition>
+        <message>The UNSDG goal code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/tag/@code</path>
         <codelist ref="UNSDG-Targets" />
         <condition>@vocabulary = '3'</condition>
+        <message>The UNSDG target code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/default-aid-type/@code</path>
         <codelist ref="EarmarkingCategory" />
         <condition>@vocabulary = '2'</condition>
+        <message>The earmarking category code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/default-aid-type/@code</path>
         <codelist ref="CashandVoucherModalities" />
         <condition>@vocabulary = '4'</condition>
+        <message>The cash and voucher modality code is invalid.</message>
     </mapping>
 </mappings>
