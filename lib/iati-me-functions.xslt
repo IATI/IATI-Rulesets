@@ -10,7 +10,10 @@
     <xsl:param name="href"/>
     <!-- TODO: include iati-version in function call to use proper version -->
     <xsl:variable name="iati-version">2.03</xsl:variable>
-    <xsl:if test="$href!=''">http://reference.iatistandard.org/{replace($iati-version, '\.', '')}/{$href}</xsl:if>
+    <xsl:choose>
+      <xsl:when test="starts-with($href, 'http')"></xsl:when>
+      <xsl:when test="$href!=''">http://reference.iatistandard.org/{replace($iati-version, '\.', '')}/{$href}</xsl:when>
+    </xsl:choose>
   </xsl:function>
   
   <xsl:function name="me:iati-version">
