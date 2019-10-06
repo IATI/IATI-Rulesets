@@ -185,7 +185,8 @@
                  mode="rules"
                  priority="9.14">
       <xsl:param name="iati-version" tunnel="yes"/>
-      <xsl:if test="me:codeListFail(., 'BudgetIdentifier', $iati-version)">
+      <!-- Hack: added test for IATI v2.03: it should not do a codelist check, non-embedded codelist removed -->
+      <xsl:if test="($iati-version != '2.03') and me:codeListFail(., 'BudgetIdentifier', $iati-version)">
          <me:feedback type="danger" class="classifications" id="9.14.1">
             <me:src ref="iati"
                     versions="any"
