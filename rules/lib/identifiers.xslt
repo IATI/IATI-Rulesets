@@ -10,7 +10,7 @@
     <xsl:param name="item"/>
     <xsl:param name="class"/>
     <xsl:param name="idclass"/>
-    <xsl:param name="versions" select="'any'"></xsl:param>
+    <xsl:param name="versions" select="'any'"/>
    
     <xsl:choose>
       <xsl:when test="$item != functx:trim($item)">
@@ -25,7 +25,7 @@
       <xsl:when test="matches($item, '[/&amp;|?]')">
         <me:feedback type="warning" class="{$class}" id="{$idclass}.13">
           <me:src ref="iati" versions="any"/>
-          <me:message>The identifier must not contain any of the symbols /, &amp;, | or ?.</me:message>
+          <me:message>The identifier should not contain any of the symbols /, &amp;, | or ?.</me:message>
         </me:feedback>
       </xsl:when>
     </xsl:choose>

@@ -33,4 +33,33 @@
     </xsl:if>
     <xsl:next-match/>
   </xsl:template>
+  
+  <xsl:template match="iati-activity" mode="rules" priority="101.1">
+    
+    <xsl:if test="not(sector[@vocabulary=('1','') or not(@vocabulary)]
+      or transaction/sector[@vocabulary=('1','') or not(@vocabulary)])">
+      <me:feedback type="warning" class="information" id="102.1.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>It is recommended that OECD DAC 5-digit Purpose Codes are used wherever possible. It is also recommended that if a publisher has its own classification system or systems then the vocabularies 99 or 98 (Reporting Organisation’s own vocabularies) should be used in addition to DAC codes.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:if test="recipient-region and 
+      not(recipient-region/@vocabulary=('1','') or recipient-region[not(@vocabulary)])">
+      <me:feedback type="warning" class="information" id="103.1.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>It is recommended that if a region vocabulary other than OECD DAC is used, it should be used in addition to DAC recipient regions.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:if test="not(policy-marker/@vocabulary=('1','') or not(policy-marker/@vocabulary))">
+      <me:feedback type="warning" class="information" id="106.1.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>It is recommended that if a policy marker vocabulary other than OECD DAC is used, it should be used in addition to DAC policy markers.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:next-match/>
+  </xsl:template>
+  
 </xsl:stylesheet>  

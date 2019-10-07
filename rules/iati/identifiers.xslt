@@ -8,6 +8,13 @@
 
   <xsl:template match="iati-identifier" mode="rules" priority="1.1">
     
+    <xsl:if test="not(some $id in (../reporting-org/@ref, ../other-identifier[@type='B1']/@ref) satisfies starts-with(., $id))">
+      <me:feedback type="warning" class="identifiers" id="1.1.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The activity identifier should begin with the organisation identifier of the reporting organisation (or a previously used organisation identifier included as Other Identifier of type B1).</me:message>
+      </me:feedback>
+    </xsl:if>
+  
     <xsl:if test="//iati-activity[iati-identifier=current()][2]">
       <me:feedback type="danger" class="identifiers" id="1.1.2">
         <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
