@@ -12,7 +12,7 @@
     
     <xsl:if test="not(. castable as xs:decimal)">
       <me:feedback type="danger" class="geo" id="12.4.1">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view"/>
         <me:message>The percentage must be a numerical value.</me:message>
       </me:feedback>
     </xsl:if>
@@ -50,7 +50,7 @@
       @percentage castable as xs:decimal and
       (xs:decimal(@percentage) lt 0 or xs:decimal(@percentage) gt 100)">
       <me:feedback type="danger" class="financial" id="12.2.1">
-        <me:src ref="iati" versions="2.03"/>
+        <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/capital-spend/')"/>
         <me:message>The percentage must be between 0.0 and 100.0 (inclusive).</me:message>
       </me:feedback>
     </xsl:if>
@@ -59,7 +59,7 @@
       @percentage castable as xs:decimal and
       xs:decimal(@percentage) lt 0">
       <me:feedback type="danger" class="financial" id="12.2.2">
-        <me:src ref="iati" versions="&lt; 2.03"/>
+        <me:src ref="iati" versions="&lt; 2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/capital-spend/')"/>
         <me:message>The percentage must be 0.0 or positive.</me:message>
       </me:feedback>
     </xsl:if>

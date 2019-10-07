@@ -35,6 +35,7 @@
       <xsl:with-param name="class">information</xsl:with-param>
       <xsl:with-param name="itemnode" select="."/>
       <xsl:with-param name="item">title</xsl:with-param>
+      <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/title/</xsl:with-param>
       <xsl:with-param name="idclass">4.3</xsl:with-param>
     </xsl:call-template>    
   </xsl:template>
@@ -44,6 +45,7 @@
       <xsl:with-param name="class">information</xsl:with-param>
       <xsl:with-param name="itemnode" select="."/>
       <xsl:with-param name="item">description</xsl:with-param>
+      <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/title/</xsl:with-param>
       <xsl:with-param name="idclass">4.4</xsl:with-param>
     </xsl:call-template>    
   </xsl:template>
@@ -52,13 +54,14 @@
     <xsl:param name="class"/>
     <xsl:param name="itemnode"/>
     <xsl:param name="item"/>
+    <xsl:param name="href"/>
     <xsl:param name="idclass"/>
     <xsl:param name="iati-version" tunnel="yes"/>
     
     <xsl:if test="starts-with($iati-version, '2.')
       and (not($itemnode/narrative) or not($itemnode/narrative[functx:trim(.)!='']))">
       <me:feedback type="danger" class="{$class}" id="{$idclass}.1">
-        <me:src ref="iati" versions="2.x"/>
+        <me:src ref="iati" versions="2.x" href="me:iati-url('{$href}')"/>
         <me:message>The {$item} has no narrative content.</me:message>
       </me:feedback>
     </xsl:if>
@@ -66,7 +69,7 @@
     <xsl:if test="starts-with($iati-version, '1.')
       and (functx:trim(string($itemnode))='')">
       <me:feedback type="danger" class="{$class}" id="{$idclass}.2">
-        <me:src ref="iati" versions="1.x"/>
+        <me:src ref="iati" versions="1.x" href="me:iati-url('{$href}')"/>
         <me:message>The {$item} has no narrative content.</me:message>
       </me:feedback>
     </xsl:if>

@@ -76,7 +76,7 @@
       value/@value-date castable as xs:date and
       xs:date(value/@value-date) gt xs:date($now)">
       <me:feedback type="danger" class="financial" id="11.2.2">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="https://drive.google.com/file/d/1E3hztk6gWTW5DypLELeSwW5X-Ahg0yjm/view"/>
         <me:message>The transaction value date must not be in the future.</me:message>
       </me:feedback>
     </xsl:if>    
@@ -92,7 +92,7 @@
       ../../period-end/@iso-date castable as xs:date and
       xs:date(@value-date) lt xs:date(../../period-start/@iso-date) or xs:date(@value-date) gt xs:date(../../period-end/@iso-date)">
       <me:feedback type="danger" class="financial" id="11.3.1">
-        <me:src ref="iati"/>
+        <me:src ref="iati" href="https://drive.google.com/file/d/1mv2Q666tKBOAoiy5JayslmZNetxDM1uu/view"/>
         <me:message>The budget line value date must be in the budget period.</me:message>
       </me:feedback>
     </xsl:if>

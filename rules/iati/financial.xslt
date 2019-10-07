@@ -10,7 +10,7 @@
   <xsl:template match="budget" mode="rules" priority="7.15">
     <xsl:if test="not(value/@value-date)">
       <me:feedback type="danger" class="financial" id="7.5.2">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1vB3vk7gbnADwG1S8A1bRDd8mK-nOfwCh/view?usp=drive_open"/>
         <me:message>Budget Value must include a Value Date.</me:message>
       </me:feedback>
     </xsl:if>
@@ -21,7 +21,7 @@
   <xsl:template match="budget|total-budget|total-expenditure|recipient-country-budget|recipient-region-budget|recipient-org-budget" mode="rules" priority="7.5">
     <xsl:if test="xs:date(period-start/@iso-date) + xs:yearMonthDuration('P1Y') lt xs:date(period-end/@iso-date)">
       <me:feedback type="danger" class="financial" id="7.5.3">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1vB3vk7gbnADwG1S8A1bRDd8mK-nOfwCh/view?usp=drive_open"/>
         <me:message>Budget Period must not be longer than one year.</me:message>
       </me:feedback>
     </xsl:if>
@@ -53,7 +53,7 @@
     <xsl:if test="(not(@currency) or currency='')
       and (not(ancestor::iati-activity/@default-currency) or ancestor::iati-activity/@default-currency='')">
       <me:feedback type="danger" class="financial" id="7.8.1">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="me:iati-url('codelists/Currency/')"/>
         <me:message>The Value must have a specified Currency, or the Activity must have a default Currency.</me:message>
       </me:feedback>
     </xsl:if>
