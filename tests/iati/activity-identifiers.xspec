@@ -65,4 +65,21 @@
     </x:scenario>
   </x:scenario>
   
+  <x:scenario label="If an IATI activity identifier does not start with the organisation identifier, a dash and additional identification">
+    <x:context>
+      <iati-activity>
+        <iati-identifier>myOrg/123</iati-identifier>
+        <reporting-org ref="myOrg"/>
+      </iati-activity>
+      <iati-activity>
+        <iati-identifier>XX-ABC-</iati-identifier>
+        <reporting-org ref="XX-ABC"/>
+      </iati-activity>
+    </x:context>
+    
+    <x:expect label="It should produce message 1.1.21 for activity 1." test="boolean(//iati-activity[1]/iati-identifier//me:feedback[@id='1.1.21'])"/>
+    <x:expect label="It should be severity 'warning'." test="boolean(//iati-activity[1]/iati-identifier//me:feedback[@id='1.1.21']/@type='warning')"/>
+    <x:expect label="It should produce message 1.1.21 for activity 2." test="boolean(//iati-activity[2]/iati-identifier//me:feedback[@id='1.1.21'])"/>
+    <x:expect label="It should be severity 'warning'." test="boolean(//iati-activity[2]/iati-identifier//me:feedback[@id='1.1.21']/@type='warning')"/>    
+  </x:scenario>
 </x:description>
