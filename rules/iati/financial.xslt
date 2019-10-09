@@ -61,4 +61,19 @@
     <xsl:next-match/>
   </xsl:template>
 
+  <xsl:template match="iati-activity[country-budget-items]" mode="rules" priority="7.9">
+    <xsl:for-each-group select="country-budget-items" group-by="@vocabulary">
+      <xsl:call-template name="percentage-checks">
+        <xsl:with-param name="group" select="current-group()/budget-item"/>
+        <xsl:with-param name="class">financial</xsl:with-param>
+        <xsl:with-param name="idclass">7.9</xsl:with-param>
+        <xsl:with-param name="item">country budget item</xsl:with-param>
+        <xsl:with-param name="items">country budget items</xsl:with-param>
+        <xsl:with-param name="severity">warning</xsl:with-param>
+      </xsl:call-template>      
+    </xsl:for-each-group>
+   
+    <xsl:next-match/>    
+  </xsl:template>
+  
 </xsl:stylesheet>

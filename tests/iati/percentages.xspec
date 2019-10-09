@@ -186,4 +186,50 @@
     </x:scenario>
   </x:scenario>  
   
+  <x:scenario label="Country budget items">
+    <x:scenario label="If country budget items add up to 100% per vocabulary">
+      <x:context>
+        <iati-activity>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1844" percentage="40"/>            
+            <budget-item code="1900" percentage="60"/>
+          </country-budget-items>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should not produce message 7.9.*" test="not(//iati-activity//me:feedback[starts-with(@id, '7.9.')])"/>
+    </x:scenario>
+    
+    <x:scenario label="If country budget items don't up to 100% per vocabulary">
+      <x:context>
+        <iati-activity>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1844" percentage="40"/>            
+            <budget-item code="1900" percentage="40"/>
+          </country-budget-items>
+        </iati-activity>
+        <iati-activity>
+          <country-budget-items vocabulary="3">
+            <budget-item code="1900" percentage="40"/>
+          </country-budget-items>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1844" percentage="50"/>            
+            <budget-item code="1900" percentage="50"/>
+          </country-budget-items>
+        </iati-activity>
+        <iati-activity>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1900" percentage="40"/>
+          </country-budget-items>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1844" percentage="50"/>            
+            <budget-item code="1900" percentage="50"/>
+          </country-budget-items>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 7.9.2 for activity 1" test="boolean(//iati-activity[1]//me:feedback[@id='7.9.2'])"/>
+      <x:expect label="It should produce message 7.9.4 for activity 2" test="boolean(//iati-activity[2]//me:feedback[@id='7.9.4'])"/>
+      <x:expect label="It should produce message 7.9.2 for activity 3" test="boolean(//iati-activity[3]//me:feedback[@id='7.9.2'])"/>
+    </x:scenario>
+    
+  </x:scenario>
 </x:description>
