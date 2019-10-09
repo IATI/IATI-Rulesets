@@ -35,6 +35,34 @@
       <x:expect label="It should produce message 1.3.13 for activity 2." test="boolean(//iati-activity[2]//me:feedback[@id='1.3.13'])"/>
       <x:expect label="It should be severity 'error'." test="boolean(//iati-activity[2]//me:feedback[@id='1.3.13']/@type='warning')"/>
     </x:scenario>
-  </x:scenario>
 
+    <x:scenario label="If a related activity identifier contains leading or trailing spaces">
+      <x:context>
+        <iati-activity>
+          <related-activity ref=" ABC"/>
+          <related-activity ref="XYZ "/>
+        </iati-activity>
+      </x:context>
+      
+      <x:expect label="It should produce message 1.7.1 for activity 1." test="boolean(//related-activity[1]//me:feedback[@id='1.7.1'])"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//related-activity[1]//me:feedback[@id='1.7.1']/@type='danger')"/>
+      <x:expect label="It should produce message 1.7.1 for activity 2." test="boolean(//related-activity[2]//me:feedback[@id='1.7.1'])"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//related-activity[2]//me:feedback[@id='1.7.1']/@type='danger')"/>
+    </x:scenario>
+    
+    <x:scenario label="If a related activity identifier contains forbidden characters">
+      <x:context>
+        <iati-activity>
+          <related-activity ref="AB&amp;C"/>
+          <related-activity ref="X/YZ"/>
+        </iati-activity>
+      </x:context>
+      
+      <x:expect label="It should produce message 1.7.13 for activity 1." test="boolean(//related-activity[1]//me:feedback[@id='1.7.13'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//related-activity[1]//me:feedback[@id='1.7.13']/@type='warning')"/>
+      <x:expect label="It should produce message 1.7.13 for activity 2." test="boolean(//related-activity[2]//me:feedback[@id='1.7.13'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//related-activity[2]//me:feedback[@id='1.7.13']/@type='warning')"/>
+    </x:scenario>
+  </x:scenario>
+  
 </x:description>
