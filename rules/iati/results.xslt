@@ -48,25 +48,33 @@
     <xsl:param name="iati-version" tunnel="yes"/>
     
     <xsl:if test="$iati-version='2.03'">
-      <xsl:if test="not(@value)">
-        <me:feedback type="danger" class="performance" id="8.8.1">
-          <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
-          <me:message>The baseline must have a value when indicator measure is unit (1), percentage (2), nominal (3) or ordinal (4).</me:message>
-        </me:feedback>
-      </xsl:if>
+      <xsl:choose>
+        <xsl:when test="not(@value)">
+          <me:feedback type="danger" class="performance" id="8.8.1">
+            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+            <me:message>The baseline must have a value when indicator measure is unit (1), percentage (2), nominal (3) or ordinal (4).</me:message>
+          </me:feedback>
+        </xsl:when>
+        <xsl:when test="not(@value castable as xs:decimal)">
+          <me:feedback type="warning" class="performance" id="8.8.2">
+            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+            <me:message>The @value should be a valid number for all non-qualitative measures.</me:message>
+          </me:feedback>
+        </xsl:when>        
+      </xsl:choose>
     </xsl:if>
         
     <xsl:next-match/>
   </xsl:template>
   
-  <xsl:template match="target[../../@measure=('1', '2', '3', '4')]" mode="rules" priority="8.9">
+  <xsl:template match="baseline[../@measure=('5')]" mode="rules" priority="8.18">
     <xsl:param name="iati-version" tunnel="yes"/>
     
     <xsl:if test="$iati-version='2.03'">
-      <xsl:if test="not(@value)">
-        <me:feedback type="danger" class="performance" id="8.9.1">
-          <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/target/')"/>
-          <me:message>The target must have a value when indicator measure is unit (1), percentage (2), nominal (3) or ordinal (4).</me:message>
+      <xsl:if test="@value">
+        <me:feedback type="warning" class="performance" id="8.8.3">
+          <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+          <me:message>The @value should be omitted for qualitative measures.</me:message>
         </me:feedback>
       </xsl:if>
     </xsl:if>
@@ -74,18 +82,79 @@
     <xsl:next-match/>
   </xsl:template>
 
+  <xsl:template match="target[../../@measure=('1', '2', '3', '4')]" mode="rules" priority="8.9">
+    <xsl:param name="iati-version" tunnel="yes"/>
+    
+    <xsl:if test="$iati-version='2.03'">
+      <xsl:choose>
+        <xsl:when test="not(@value)">
+          <me:feedback type="danger" class="performance" id="8.9.1">
+            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/target/')"/>
+            <me:message>The target must have a value when indicator measure is unit (1), percentage (2), nominal (3) or ordinal (4).</me:message>
+          </me:feedback>
+        </xsl:when>
+        <xsl:when test="not(@value castable as xs:decimal)">
+          <me:feedback type="warning" class="performance" id="8.9.2">
+            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+            <me:message>The @value should be a valid number for all non-qualitative measures.</me:message>
+          </me:feedback>
+        </xsl:when>
+      </xsl:choose>        
+    </xsl:if>
+
+    <xsl:next-match/>
+  </xsl:template>
+
+  <xsl:template match="target[../@measure=('5')]" mode="rules" priority="8.19">
+    <xsl:param name="iati-version" tunnel="yes"/>
+    
+    <xsl:if test="$iati-version='2.03'">
+      <xsl:if test="@value">
+        <me:feedback type="warning" class="performance" id="8.9.3">
+          <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+          <me:message>The @value should be omitted for qualitative measures.</me:message>
+        </me:feedback>
+      </xsl:if>
+    </xsl:if>
+
+    <xsl:next-match/>
+  </xsl:template>
+  
   <xsl:template match="actual[../../@measure=('1', '2', '3', '4')]" mode="rules" priority="8.10">
     <xsl:param name="iati-version" tunnel="yes"/>
     
     <xsl:if test="$iati-version='2.03'">
-      <xsl:if test="not(@value)">
-        <me:feedback type="danger" class="performance" id="8.10.1">
-          <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/actual/')"/>
-          <me:message>The actual must have a value when indicator measure is unit (1), percentage (2), nominal (3) or ordinal (4).</me:message>
+      <xsl:choose>
+        <xsl:when test="not(@value)">
+          <me:feedback type="danger" class="performance" id="8.10.1">
+            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/actual/')"/>
+            <me:message>The actual must have a value when indicator measure is unit (1), percentage (2), nominal (3) or ordinal (4).</me:message>
+          </me:feedback>
+        </xsl:when>
+        <xsl:when test="not(@value castable as xs:decimal)">
+          <me:feedback type="warning" class="performance" id="8.10.2">
+            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+            <me:message>The @value should be a valid number for all non-qualitative measures.</me:message>
+          </me:feedback>
+        </xsl:when>        
+      </xsl:choose>
+    </xsl:if>
+
+    <xsl:next-match/>
+  </xsl:template>
+
+  <xsl:template match="actual[../@measure=('5')]" mode="rules" priority="8.20">
+    <xsl:param name="iati-version" tunnel="yes"/>
+    
+    <xsl:if test="$iati-version='2.03'">
+      <xsl:if test="@value">
+        <me:feedback type="warning" class="performance" id="8.10.3">
+          <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+          <me:message>The @value should be omitted for qualitative measures.</me:message>
         </me:feedback>
       </xsl:if>
     </xsl:if>
-    
+
     <xsl:next-match/>
   </xsl:template>
 
@@ -97,7 +166,7 @@
         <me:message>If a result has a reference code, the indicator must not have a reference code.</me:message>
       </me:feedback>
     </xsl:if>
-    
+
     <xsl:next-match/>
   </xsl:template>
   
