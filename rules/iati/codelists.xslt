@@ -1633,7 +1633,7 @@
             <me:src ref="iati"
                     versions="any"
                     href="{me:iati-url('codelists/GazetteerAgency/')}"/>
-            <me:message>The gazeteer agency code is invalid.</me:message>
+            <me:message>The gazetteer agency code is invalid.</me:message>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
