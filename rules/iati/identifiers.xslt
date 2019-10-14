@@ -9,6 +9,12 @@
   <xsl:template match="iati-identifier" mode="rules" priority="1.1">
     <xsl:param name="iati-version" tunnel="yes"/>
     
+    <xsl:call-template name="identifier_check">
+      <xsl:with-param name="item" select="."/>
+      <xsl:with-param name="class">identifiers</xsl:with-param>
+      <xsl:with-param name="idclass">1.3</xsl:with-param>
+    </xsl:call-template>    
+    
     <xsl:choose>
       <xsl:when test="not(some $id in (../reporting-org/@ref, ../other-identifier[@type='B1']/@ref) satisfies starts-with(., $id))">
         <me:feedback type="warning" class="identifiers" id="1.1.1">
@@ -58,15 +64,6 @@
   </xsl:template>
   
   <!-- Checks on the identifiers of organisations or activities -->
-  <xsl:template match="iati-identifier" mode="rules" priority="1.3">
-    <xsl:call-template name="identifier_check">
-      <xsl:with-param name="item" select="."/>
-      <xsl:with-param name="class">identifiers</xsl:with-param>
-      <xsl:with-param name="idclass">1.3</xsl:with-param>
-    </xsl:call-template>    
-    <xsl:next-match/>
-  </xsl:template>    
-
   <xsl:template match="iati-organisation/iati-identifier" mode="rules" priority="1.13">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
@@ -106,7 +103,7 @@
   </xsl:template>    
   
   <xsl:template match="@activity-id" mode="rules" priority="1.9">
-    <xsl:call-template name="identifier_check">
+    <xsl:call-template name="act_identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">participating</xsl:with-param>
       <xsl:with-param name="idclass">1.9</xsl:with-param>
@@ -115,7 +112,7 @@
   </xsl:template>    
   
   <xsl:template match="@provider-activity-id" mode="rules" priority="1.4">
-    <xsl:call-template name="identifier_check">
+    <xsl:call-template name="act_identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">financial</xsl:with-param>
       <xsl:with-param name="idclass">1.4</xsl:with-param>
@@ -124,7 +121,7 @@
   </xsl:template>    
   
   <xsl:template match="@receiver-activity-id" mode="rules" priority="1.5">
-    <xsl:call-template name="identifier_check">
+    <xsl:call-template name="act_identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">financial</xsl:with-param>
       <xsl:with-param name="idclass">1.5</xsl:with-param>
@@ -151,7 +148,7 @@
   </xsl:template>    
   
   <xsl:template match="other-identifier[upper-case(@type)=('A3')]/@ref" mode="rules" priority="1.6">
-    <xsl:call-template name="identifier_check">
+    <xsl:call-template name="act_identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.6</xsl:with-param>
@@ -178,7 +175,7 @@
   </xsl:template>    
     
   <xsl:template match="related-activity/@ref" mode="rules" priority="1.7">
-    <xsl:call-template name="identifier_check">
+    <xsl:call-template name="act_identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.7</xsl:with-param>
