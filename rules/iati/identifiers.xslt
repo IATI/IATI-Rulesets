@@ -19,7 +19,7 @@
       <xsl:when test="not(some $id in (../reporting-org/@ref, ../other-identifier[@type='B1']/@ref) satisfies starts-with(., $id))">
         <me:feedback type="warning" class="identifiers" id="1.1.1">
           <me:src ref="iati" versions="any"/>
-          <me:message>The activity identifier should begin with the organisation identifier of the reporting organisation (or a previously used organisation identifier included as Other Identifier of type B1).</me:message>
+          <me:message>The activity identifier should begin with the organisation identifier of the reporting organisation (or a previous version included in the other-identifier element).</me:message>
         </me:feedback>
       </xsl:when>
       <xsl:when test=". = ../reporting-org/@ref">

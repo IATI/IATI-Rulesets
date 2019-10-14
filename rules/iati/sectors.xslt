@@ -15,7 +15,7 @@
         <xsl:with-param name="class">classifications</xsl:with-param>
         <xsl:with-param name="idclass">2.1</xsl:with-param>
         <xsl:with-param name="item">sector</xsl:with-param>
-        <xsl:with-param name="items">sectors, within a vocabulary,</xsl:with-param>
+        <xsl:with-param name="items">sectors</xsl:with-param>
         <xsl:with-param name="vocabulary" select="current-grouping-key()"/>
         <xsl:with-param name="href">https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view</xsl:with-param>
       </xsl:call-template>
@@ -48,14 +48,14 @@
       not(recipient-region/@vocabulary=('1','') or recipient-region[not(@vocabulary)])">
       <me:feedback type="warning" class="information" id="103.1.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>It is recommended that if a region vocabulary other than OECD DAC is used, it should be used in addition to DAC recipient regions.</me:message>
+        <me:message>The activity should also have a region using the OECD DAC region vocabulary.</me:message>
       </me:feedback>
     </xsl:if>
     
     <xsl:if test="not(policy-marker/@vocabulary=('1','') or not(policy-marker/@vocabulary))">
       <me:feedback type="warning" class="information" id="106.1.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>It is recommended that if a policy marker vocabulary other than OECD DAC is used, it should be used in addition to DAC policy markers.</me:message>
+        <me:message>The activity should also have a policy-marker using the OECD DAC vocabulary.</me:message>
       </me:feedback>
     </xsl:if>
     
