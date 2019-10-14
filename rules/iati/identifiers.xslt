@@ -7,6 +7,7 @@
   expand-text="yes">
 
   <xsl:template match="iati-identifier" mode="rules" priority="1.1">
+    <xsl:param name="iati-version" tunnel="yes"/>
     
     <xsl:choose>
       <xsl:when test="not(some $id in (../reporting-org/@ref, ../other-identifier[@type='B1']/@ref) satisfies starts-with(., $id))">
@@ -21,10 +22,11 @@
           <me:message>The activity identifier must not be the same as the organisation identifier of the reporting organisation.</me:message>
         </me:feedback>
       </xsl:when>
-      <xsl:when test="not(some $id in (../reporting-org/@ref, ../other-identifier[@type='B1']/@ref) satisfies matches(., functx:escape-for-regex($id) || '-.+'))">
+      <xsl:when test="$iati-version = '2.03' and
+        not(some $id in (../reporting-org/@ref, ../other-identifier[@type='B1']/@ref) satisfies matches(., functx:escape-for-regex($id) || '-.+'))">
         <me:feedback type="warning" class="identifiers" id="1.1.21">
-          <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
-          <me:message>This MUST be prefixed with EITHER the current IATI organisation identifier for the reporting organisation (reporting-org/@ref) OR a previous identifier reported in other-identifier, and suffixed with the organisation’s own activity identifier. The prefix and the suffix SHOULD be separated by a hyphen "-".</me:message>
+          <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
+          <me:message>The activity identifier's prefix and suffix should be seperated by a hyphen e.g. XM-DAC-2222</me:message>
         </me:feedback>
       </xsl:when>
     </xsl:choose>
