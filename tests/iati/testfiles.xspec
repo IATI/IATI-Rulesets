@@ -158,14 +158,14 @@
       <x:expect label="It should produce error message 11.4.1."
         test="boolean(//me:feedback[@id='11.4.1'])"/>
     </x:scenario>
-<!-- testfile is an activity file, not an organisation file
+    <!-- testfile is an activity file, not an organisation file    
     <x:scenario
       label="#110 Document Category Code is invalid in //iati-organisation/document-link/category">
       <x:context href="testfiles/110.xml"/>
       <x:expect label="It should produce error message 9.99.1."
         test="boolean(//me:feedback[@id='9.99.1'])"/>
     </x:scenario>
--->
+    -->
     <x:scenario label="#111 Activity appears twice in the dataset in iati-identifier">
       <x:context href="testfiles/111.xml"/>
       <x:expect label="It should produce error message 1.1.2."
@@ -191,6 +191,11 @@
       <x:expect label="It should produce error message 1.7.2."
         test="boolean(//me:feedback[@id='1.7.2'])"/>
     </x:scenario>
+    <x:scenario label="#119 Sector Vocabulary != 1 (and is present) in iati-activity">
+      <x:context href="testfiles/119.xml"/>
+      <x:expect label="It should produce error message 102.1.1."
+        test="boolean(//me:feedback[@id='102.1.1'])"/>
+    </x:scenario>
     <x:scenario label="#12 Condition Type Code is invalid in //iati-activity/conditions/condition">
       <x:context href="testfiles/12.xml"/>
       <x:expect label="It should produce error message 9.11.1."
@@ -201,7 +206,7 @@
       <x:expect label="It should produce error message 12.1.1."
         test="boolean(//me:feedback[@id='12.1.1'])"/>
     </x:scenario>
-    <x:scenario label="#12.1.2 The percentageis not 0.0 or positive. in ">
+    <x:scenario label="#12.1.2 The percentage is not 0.0 or positive. in ">
       <x:context href="testfiles/12.1.2.xml"/>
       <x:expect label="It should produce error message 12.1.2."
         test="boolean(//me:feedback[@id='12.1.2'])"/>
@@ -211,7 +216,7 @@
       <x:expect label="It should produce error message 12.2.1."
         test="boolean(//me:feedback[@id='12.2.1'])"/>
     </x:scenario>
-    <x:scenario label="#12.2.2 The percentageis not 0.0 or positive. in ">
+    <x:scenario label="#12.2.2 The percentage is not 0.0 or positive. in ">
       <x:context href="testfiles/12.2.2.xml"/>
       <x:expect label="It should produce error message 12.2.2."
         test="boolean(//me:feedback[@id='12.2.2'])"/>
@@ -221,13 +226,23 @@
       <x:expect label="It should produce error message 12.3.1."
         test="boolean(//me:feedback[@id='12.3.1'])"/>
     </x:scenario>
-    <x:scenario label="#12.3.2 The percentageis not 0.0 or positive. in ">
+    <x:scenario label="#12.3.2 The percentage is not 0.0 or positive. in ">
       <x:context href="testfiles/12.3.2.xml"/>
       <x:expect label="It should produce error message 12.3.2."
         test="boolean(//me:feedback[@id='12.3.2'])"/>
     </x:scenario>
+    <x:scenario label="#120 Region Vocabulary Code is present and != 1 in iati-activity">
+      <x:context href="testfiles/120.xml"/>
+      <x:expect label="It should produce error message 103.1.1."
+        test="boolean(//me:feedback[@id='103.1.1'])"/>
+    </x:scenario>
+    <x:scenario label="#121 Policy Marker Vocabulary Code is present and != 1 in iati-activity">
+      <x:context href="testfiles/121.xml"/>
+      <x:expect label="It should produce error message 106.1.1."
+        test="boolean(//me:feedback[@id='106.1.1'])"/>
+    </x:scenario>
     <x:scenario
-      label="#123 Currency Code not present at in Forecast element and there is no Defaultt Currency at activity level in value|forecast">
+      label="#123 Currency Code not present at in Forecast element and there is no Default Currency at activity level in value|forecast">
       <x:context href="testfiles/123.xml"/>
       <x:expect label="It should produce error message 7.8.1."
         test="boolean(//me:feedback[@id='7.8.1'])"/>
@@ -247,6 +262,12 @@
       <x:context href="testfiles/133.xml"/>
       <x:expect label="It should produce error message 7.5.3."
         test="boolean(//me:feedback[@id='7.5.3'])"/>
+    </x:scenario>
+    <x:scenario
+      label="#134 Activity Identifier is not prefixed with the Organisation Identifier in iati-identifier">
+      <x:context href="testfiles/134.xml"/>
+      <x:expect label="It should produce error message 1.1.1."
+        test="boolean(//me:feedback[@id='1.1.1'])"/>
     </x:scenario>
     <x:scenario label="#136 Version number is invalid in //iati-activities">
       <x:context href="testfiles/136.xml"/>
@@ -275,7 +296,7 @@
       <x:expect label="It should produce error message 9.111.1."
         test="boolean(//me:feedback[@id='9.111.1'])"/>
     </x:scenario>
-    <x:scenario label="#140 Currenct Code is invalid in //iati-organisation">
+    <x:scenario label="#140 Currency Code is invalid in //iati-organisation">
       <x:context href="testfiles/140.xml"/>
       <x:expect label="It should produce error message 9.96.1."
         test="boolean(//me:feedback[@id='9.96.1'])"/>
@@ -371,12 +392,6 @@
       <x:context href="testfiles/28.xml"/>
       <x:expect label="It should produce error message 9.109.1."
         test="boolean(//me:feedback[@id='9.109.1'])"/>
-    </x:scenario>
-    <x:scenario
-      label="#29 Budget Identifier Code is invalid (add as test for v 2.03). Codelist is deprecated. If people are using it still we should send a warnign message. in //iati-activity/country-budget-items/budget-item[@vocabulary = '1']">
-      <x:context href="testfiles/29.xml"/>
-      <x:expect label="It should produce error message 9.14.1."
-        test="boolean(//me:feedback[@id='9.14.1'])"/>
     </x:scenario>
     <x:scenario
       label="#29 Budget Identifier Code is invalid in //iati-activity/country-budget-items/budget-item[@vocabulary = '1']">
@@ -666,7 +681,7 @@
       <x:expect label="It should produce error message 6.7.2."
         test="boolean(//me:feedback[@id='6.7.2'])"/>
     </x:scenario>
-    <x:scenario label="#6.8.1 The owner org does not have an identifier or a narrative name. in ">
+    <x:scenario label="#6.8.1 The owner org does not have an identifier or a narrative. in ">
       <x:context href="testfiles/6.8.1.xml"/>
       <x:expect label="It should produce error message 6.8.1."
         test="boolean(//me:feedback[@id='6.8.1'])"/>
