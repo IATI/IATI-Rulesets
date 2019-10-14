@@ -43,15 +43,15 @@
       </x:context>
 
       <x:expect label="It should produce message 1.14.1 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.1'])"/>
-      <x:expect label="It should be severity 'error'." test="boolean(//reporting-org/me:feedback[@id='1.14.1']/@type='danger')"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//reporting-org/me:feedback[@id='1.14.1']/@type='warning')"/>
       <x:expect label="It should produce message 1.8.1 for participating-org." test="boolean(//participating-org/me:feedback[@id='1.8.1'])"/>
-      <x:expect label="It should be severity 'error'." test="boolean(//participating-org/me:feedback[@id='1.8.1']/@type='danger')"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//participating-org/me:feedback[@id='1.8.1']/@type='warning')"/>
       <x:expect label="It should produce message 1.10.1 for provider-org." test="boolean(//provider-org/me:feedback[@id='1.10.1'])"/>
-      <x:expect label="It should be severity 'error'." test="boolean(//provider-org/me:feedback[@id='1.10.1']/@type='danger')"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//provider-org/me:feedback[@id='1.10.1']/@type='warning')"/>
       <x:expect label="It should produce message 1.15.1 for receiver-org." test="boolean(//receiver-org/me:feedback[@id='1.15.1'])"/>
-      <x:expect label="It should be severity 'error'." test="boolean(//receiver-org/me:feedback[@id='1.15.1']/@type='danger')"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//receiver-org/me:feedback[@id='1.15.1']/@type='warning')"/>
       <x:expect label="It should produce message 1.11.1 for owner-org." test="boolean(//owner-org/me:feedback[@id='1.11.1'])"/>
-      <x:expect label="It should be severity 'error'." test="boolean(//owner-org/me:feedback[@id='1.11.1']/@type='danger')"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//owner-org/me:feedback[@id='1.11.1']/@type='warning')"/>
     </x:scenario>
 
     <x:scenario label="If an organisation identifier in an activities file contains forbidden characters">
