@@ -6,6 +6,8 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
+  <xsl:variable name="known-publisher-ids" select="doc('../../var/known-publishers.xml')//code"/>
+  
   <xsl:template match="iati-identifier" mode="rules" priority="1.1">
     <xsl:param name="iati-version" tunnel="yes"/>
     
@@ -35,6 +37,12 @@
           <me:message>The activity identifier's prefix and suffix should be seperated by a hyphen e.g. XM-DAC-2222</me:message>
         </me:feedback>
       </xsl:when>
+      <xsl:when test="not(some $known-id in $known-publisher-ids satisfies starts-with(., $known-id || '-'))">
+        <me:feedback type="warning" class="identifiers" id="1.3.11">
+          <me:src ref="iati" versions="2.x"/>
+          <me:message>The activity identifier should begin with an organisation identifier approved by the IATI registry.</me:message>
+        </me:feedback>
+      </xsl:when>
     </xsl:choose>
 
     <!-- TODO move this to an activity file-level test -->
@@ -51,6 +59,14 @@
   <!-- Checks on the identifiers of organisations or activities -->
 
   <xsl:template match="reporting-org" mode="rules" priority="1.7">
+    
+    <xsl:call-template name="identifier_check">
+      <xsl:with-param name="item" select="@ref"/>
+      <xsl:with-param name="class">identifiers</xsl:with-param>
+      <xsl:with-param name="idclass">1.13</xsl:with-param>
+      <xsl:with-param name="versions">1.0x</xsl:with-param>
+    </xsl:call-template>
+
     <xsl:choose>
       <xsl:when test="not(@ref)">
         <me:feedback type="danger" class="identifiers" id="1.7.2">
@@ -58,6 +74,14 @@
           <me:message>Organisation Identifier must be present.</me:message>
         </me:feedback>      
       </xsl:when>
+      
+      <xsl:when test="not(@ref=$known-publisher-ids)">
+        <me:feedback type="warning" class="identifiers" id="1.14.12">
+          <me:src ref="iati" versions="2.x"/>
+          <me:message>The activity's organisation identifier should be an organisation identifier approved by the IATI registry.</me:message>
+        </me:feedback>
+      </xsl:when>
+      
     </xsl:choose>
     
     <xsl:next-match/>

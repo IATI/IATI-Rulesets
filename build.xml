@@ -7,6 +7,14 @@
     <echo level="info">Update the codelist check rules based on the adapted IATI codelist mapping.</echo>
     <xslt in="lib/schemata/mapping-rules.xml" out="rules/iati/codelists.xslt" style="helpers/generate-codelist-checks.xslt"/>
   </target>
+
+  <!-- TODO get known publishers from Datastore or Registry -->
+  <target name="update-known-publishers" description="Update the local copy of known publisher identifiers.">
+    <mkdir dir="tmp"/>
+    <touch file="helpers/dummy.xml"/>
+<!--    <get src="http://www.dataworkbench.io/api/iati-publishers" dest="tmp/iati-publishers.json"/>-->
+    <xslt in="helpers/dummy.xml" out="var/known-publishers.xml" style="helpers/known-publishers.xslt"/>
+  </target>
   
   <target name="test" description="Run the tests">
     <antcall target="xspec.xspec" inheritall="false">
