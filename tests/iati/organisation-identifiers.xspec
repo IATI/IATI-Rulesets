@@ -105,6 +105,18 @@
       <x:expect label="It should produce message 1.14.12 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.12'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.12']/@type='warning')"/>
     </x:scenario>
+
+    <x:scenario label="If the organisation identifier exists but does not start with a known prefix">
+      <x:context>
+        <iati-activity>
+          <reporting-org ref="SE-0"/>
+        </iati-activity>
+      </x:context>
+      
+      <x:expect label="It should produce message 1.14.8 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.8'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.8']/@type='warning')"/>
+    </x:scenario>
+    
   </x:scenario>
 
 </x:description>

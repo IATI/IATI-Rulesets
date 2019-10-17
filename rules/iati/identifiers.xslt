@@ -7,6 +7,7 @@
   expand-text="yes">
 
   <xsl:variable name="known-publisher-ids" select="doc('../../var/known-publishers.xml')//code"/>
+  <xsl:variable name="org-id-prefixes" select="doc('../../var/known-orgid-prefixes.xml')//code"/>
   
   <xsl:template match="iati-identifier" mode="rules" priority="1.1">
     <xsl:param name="iati-version" tunnel="yes"/>
@@ -82,6 +83,12 @@
         </me:feedback>
       </xsl:when>
       
+      <xsl:when test="not(some $prefix in $org-id-prefixes satisfies starts-with(@ref, $prefix||'-'))">
+        <me:feedback type="warning" class="identifiers" id="1.14.8">
+          <me:src ref="iati" versions="2.x" href="http://org-id.guide"/>
+          <me:message>The identifier does not start with a known prefix.</me:message>
+        </me:feedback>
+      </xsl:when>
     </xsl:choose>
     
     <xsl:next-match/>

@@ -8,12 +8,23 @@
     <xslt in="lib/schemata/mapping-rules.xml" out="rules/iati/codelists.xslt" style="helpers/generate-codelist-checks.xslt"/>
   </target>
 
+  <!-- TODO This extension point and linked targets should be moved to a separate engine and data volume -->
+  <extension-point name="update-external-data"
+    description="Update local copies of external data to use in the validator."
+    depends="update-orgid-prefixes, update-known-publishers"/>
+
   <!-- TODO get known publishers from Datastore or Registry -->
-  <target name="update-known-publishers" description="Update the local copy of known publisher identifiers.">
+  <target name="update-known-publishers">
     <mkdir dir="tmp"/>
     <touch file="helpers/dummy.xml"/>
-<!--    <get src="http://www.dataworkbench.io/api/iati-publishers" dest="tmp/iati-publishers.json"/>-->
+    <get src="http://www.dataworkbench.io/api/iati-publishers" dest="tmp/iati-publishers.json"/>
     <xslt in="helpers/dummy.xml" out="var/known-publishers.xml" style="helpers/known-publishers.xslt"/>
+  </target>
+  
+  <target name="update-orgid-prefixes" >
+    <mkdir dir="tmp"/>
+    <get src="http://org-id.guide/download.xml" dest="tmp/org-id.xml"/>
+    <xslt in="tmp/org-id.xml" out="var/known-orgid-prefixes.xml" style="helpers/known-orgid-prefixes.xslt"/>
   </target>
   
   <target name="test" description="Run the tests">
