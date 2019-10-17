@@ -8,7 +8,7 @@
   
   <xsl:function name="me:iati-url">
     <xsl:param name="href"/>
-    <!-- TODO: include iati-version in function call to use proper version -->
+    <!-- TODO include iati-version in function call to use proper version -->
     <xsl:variable name="iati-version">2.03</xsl:variable>
     <xsl:choose>
       <xsl:when test="starts-with($href, 'http')"></xsl:when>

@@ -37,7 +37,7 @@
       </xsl:when>
     </xsl:choose>
 
-    <!-- TODO: move this to an activity file-level test -->
+    <!-- TODO move this to an activity file-level test -->
     <xsl:if test="../../iati-activity[iati-identifier=current()][2]">
       <me:feedback type="danger" class="identifiers" id="1.1.2">
         <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
