@@ -8,7 +8,7 @@
  <iati-activity xml:lang="en" default-currency="USD" last-updated-datetime="2014-09-10T07:15:37Z" humanitarian="1" linked-data-uri="http://data.example.org/123456789" hierarchy="1" budget-not-provided="1">
 
   <!--iati-identifier starts-->
-  <iati-identifier>AA-AAA-123456789&ABC123/</iati-identifier>
+  <iati-identifier>AA-AAA-123456789&amp;ABC123/</iati-identifier>
   <!--iati-identifier ends-->
 
   <!--reporting-org starts-->
