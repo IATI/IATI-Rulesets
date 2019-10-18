@@ -28,15 +28,15 @@
   </target>
   
   <target name="test" description="Run the tests">
+    <xmlvalidate lenient="true">
+      <fileset dir="tests/iati/testfiles" includes="*.xml"/>
+    </xmlvalidate>
     <antcall target="xspec.xspec" inheritall="false">
       <param name="xspec.xml" location="tests/iati.xspec"/>
     </antcall>
   </target>
   
   <target name="tests" description="Run all the tests (don't stop at first failure)">
-    <xmlvalidate lenient="true">
-      <fileset dir="tests/iati/testfiles" includes="*.xml"/>
-    </xmlvalidate>
     <antcall target="test">
       <param name="xspec.fail" value="false"/>
     </antcall>
