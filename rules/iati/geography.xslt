@@ -57,6 +57,14 @@
         
       </xsl:for-each-group>
     </xsl:if>    
+    
+    <xsl:if test="not(recipient-region/@vocabulary=('1','') or recipient-region[not(@vocabulary)])">
+      <me:feedback type="warning" class="information" id="103.1.1">
+        <me:src ref="iati" versions="any"/>
+        <me:message>The activity should also have a region using the OECD DAC region vocabulary.</me:message>
+      </me:feedback>
+    </xsl:if>
+      
     <xsl:next-match/>    
   </xsl:template>
 

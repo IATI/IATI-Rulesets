@@ -44,14 +44,6 @@
       </me:feedback>
     </xsl:if>
     
-    <xsl:if test="recipient-region and 
-      not(recipient-region/@vocabulary=('1','') or recipient-region[not(@vocabulary)])">
-      <me:feedback type="warning" class="information" id="103.1.1">
-        <me:src ref="iati" versions="any"/>
-        <me:message>The activity should also have a region using the OECD DAC region vocabulary.</me:message>
-      </me:feedback>
-    </xsl:if>
-    
     <xsl:if test="not(policy-marker/@vocabulary=('1','') or not(policy-marker/@vocabulary))">
       <me:feedback type="warning" class="information" id="106.1.1">
         <me:src ref="iati" versions="any"/>
