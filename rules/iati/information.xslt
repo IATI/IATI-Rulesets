@@ -187,5 +187,23 @@
     
     <xsl:next-match/>
   </xsl:template>
-  
+
+  <xsl:template match="iati-activity[default-aid-type]" mode="rules" priority="6.15">
+    <xsl:if test="not(default-aid-type/@vocabulary=('1','') or not(default-aid-type/@vocabulary))">
+      <me:feedback type="warning" class="information" id="107.1.1">
+        <me:src ref="iati" versions="2.03"/>
+        <me:message>The activity should also contain a code from the DAC Type of Aid Vocabulary.</me:message>
+      </me:feedback>
+    </xsl:if>
+    
+    <xsl:if test="count(default-aid-type[@vocabulary=('1','') or not(@vocabulary)]) > 1
+      or (some $v in (default-aid-type/@vocabulary[. != ('1', '')]) satisfies count(default-aid-type[@vocabulary=$v]) > 1)">
+      <me:feedback type="warning" class="financial" id="107.1.2">
+        <me:src ref="iati" versions="2.03"/>
+        <me:message>Each selected default-aid-type vocabulary should only be used once for each activity.</me:message>
+      </me:feedback>
+    </xsl:if>
+
+    <xsl:next-match/>
+  </xsl:template>
 </xsl:stylesheet>
