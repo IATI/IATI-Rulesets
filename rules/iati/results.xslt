@@ -105,7 +105,7 @@
     <xsl:next-match/>
   </xsl:template>
 
-  <xsl:template match="target[../@measure=('5')]" mode="rules" priority="8.19">
+  <xsl:template match="target[../../@measure=('5')]" mode="rules" priority="8.19">
     <xsl:param name="iati-version" tunnel="yes"/>
     
     <xsl:if test="$iati-version='2.03'">
@@ -143,7 +143,7 @@
     <xsl:next-match/>
   </xsl:template>
 
-  <xsl:template match="actual[../@measure=('5')]" mode="rules" priority="8.20">
+  <xsl:template match="actual[../../@measure=('5')]" mode="rules" priority="8.20">
     <xsl:param name="iati-version" tunnel="yes"/>
     
     <xsl:if test="$iati-version='2.03'">
