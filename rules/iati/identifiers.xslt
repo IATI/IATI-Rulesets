@@ -35,7 +35,7 @@
         not(some $id in (../reporting-org/@ref, ../other-identifier[@type='B1']/@ref) satisfies matches(., functx:escape-for-regex($id) || '-.+'))">
         <me:feedback type="warning" class="identifiers" id="1.1.21">
           <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
-          <me:message>The activity identifier's prefix and suffix should be seperated by a hyphen e.g. XM-DAC-2222</me:message>
+          <me:message>The activity identifier's prefix and suffix should be separated by a hyphen e.g. XM-DAC-2222</me:message>
         </me:feedback>
       </xsl:when>
       <xsl:when test="not(some $known-id in $known-publisher-ids satisfies starts-with(., $known-id || '-'))">
