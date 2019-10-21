@@ -31,13 +31,12 @@
         <me:message>When using a reporting organisation sector code, it must include a narrative.</me:message>
       </me:feedback>
     </xsl:if>
+    
     <xsl:next-match/>
   </xsl:template>
   
-  <xsl:template match="iati-activity" mode="rules" priority="101.1">
-    
-    <xsl:if test="not(sector[@vocabulary=('1','') or not(@vocabulary)]
-      or transaction/sector[@vocabulary=('1','') or not(@vocabulary)])">
+  <xsl:template match="(iati-activity|transaction)[sector]" mode="rules" priority="101.10">
+    <xsl:if test="not(sector[@vocabulary=('1','') or not(@vocabulary)])">
       <me:feedback type="warning" class="information" id="102.1.1">
         <me:src ref="iati" versions="any"/>
         <me:message>It is recommended that OECD DAC 5-digit Purpose Codes are used wherever possible. It is also recommended that if a publisher has its own classification system or systems then the vocabularies 99 or 98 (Reporting Organisation’s own vocabularies) should be used in addition to DAC codes.</me:message>
@@ -46,5 +45,5 @@
     
     <xsl:next-match/>
   </xsl:template>
-  
+    
 </xsl:stylesheet>  
