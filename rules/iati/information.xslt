@@ -180,7 +180,7 @@
   <xsl:template match="iati-activity[policy-marker]" mode="rules" priority="106.1">
     <xsl:if test="not(policy-marker/@vocabulary=('1','') or not(policy-marker/@vocabulary))">
       <me:feedback type="warning" class="information" id="106.1.1">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
         <me:message>The activity should also have a policy-marker using the OECD DAC vocabulary.</me:message>
       </me:feedback>
     </xsl:if>

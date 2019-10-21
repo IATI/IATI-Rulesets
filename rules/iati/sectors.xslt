@@ -38,7 +38,7 @@
   <xsl:template match="(iati-activity|transaction)[sector]" mode="rules" priority="101.10">
     <xsl:if test="not(sector[@vocabulary=('1','') or not(@vocabulary)])">
       <me:feedback type="warning" class="information" id="102.1.1">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
         <me:message>It is recommended that OECD DAC 5-digit Purpose Codes are used wherever possible. It is also recommended that if a publisher has its own classification system or systems then the vocabularies 99 or 98 (Reporting Organisation’s own vocabularies) should be used in addition to DAC codes.</me:message>
       </me:feedback>
     </xsl:if>
