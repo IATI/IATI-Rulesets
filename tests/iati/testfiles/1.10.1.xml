@@ -271,7 +271,7 @@
    <description>
     <narrative>Transaction description text</narrative>
    </description>
-   <provider-org provider-activity-id=" BB-BBB-123456789-1234AA " type="10" ref="BB-BBB-123456789">
+   <provider-org provider-activity-id="BB-BBB-123456789-1234AA" type="10" ref="  BB-BBB-123456789 ">
     <narrative>Agency B</narrative>
    </provider-org>
    <receiver-org receiver-activity-id="AA-AAA-123456789-1234" type="23" ref="AA-AAA-123456789">
