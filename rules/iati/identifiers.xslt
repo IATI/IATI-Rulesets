@@ -188,7 +188,8 @@
   </xsl:template>    
 
   <xsl:template match="other-identifier[upper-case(@type)=('B1')]/@ref" mode="rules" priority="1.16">
-    <xsl:call-template name="identifier_check">
+    <!-- TODO hack for now: use activity identifier check so it only checks for leading/trailing whitespace, not for unwanted characters (as for other organisation identifiers) -->
+    <xsl:call-template name="act_identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.16</xsl:with-param>
