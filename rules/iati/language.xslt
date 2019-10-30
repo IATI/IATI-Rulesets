@@ -58,22 +58,13 @@
     <xsl:param name="idclass"/>
     <xsl:param name="iati-version" tunnel="yes"/>
     
-    <xsl:if test="starts-with($iati-version, '2.')
-      and (not($itemnode/narrative) or not($itemnode/narrative[functx:trim(.)!='']))">
+    <xsl:if test="not($itemnode/narrative) or not($itemnode/narrative[functx:trim(.)!=''])">
       <me:feedback type="danger" class="{$class}" id="{$idclass}.1">
         <me:src ref="iati" versions="2.x" href="me:iati-url('{$href}')"/>
         <me:message>The {$item} has no narrative content.</me:message>
       </me:feedback>
     </xsl:if>
 
-    <xsl:if test="starts-with($iati-version, '1.')
-      and (functx:trim(string($itemnode))='')">
-      <me:feedback type="danger" class="{$class}" id="{$idclass}.2">
-        <me:src ref="iati" versions="1.x" href="me:iati-url('{$href}')"/>
-        <me:message>The {$item} has no narrative content.</me:message>
-      </me:feedback>
-    </xsl:if>
-    
     <xsl:next-match/>
   </xsl:template>
   
