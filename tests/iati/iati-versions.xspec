@@ -29,25 +29,36 @@
       <x:context>
         <iati-activities version="1.05"/>
       </x:context>
-      <x:expect label="It should select version 1.05" test="/iati-activities/@me:iatiVersion='1.05'"/>
       <x:expect label="It should produce message 0.6.1 about deprecation" test="boolean(//iati-activities/me:feedback[@id='0.6.1'])"/>
       <x:expect label="It should start with 'Version 1.05'" test="starts-with(//iati-activities/me:feedback[@id='0.6.1'], 'Version 1.05')"/>
+      <x:expect label="There should be no other feedback" test="count(//me:feedback)=1"/>
     </x:scenario>
 
     <x:scenario label="If activities file version is 1.03">
       <x:context>
-        <iati-activities version="1.03"/>
+        <iati-activities generated-datetime="2018-03-29T12:57:18" version="1.03">
+          <iati-activity default-currency="GBP" last-updated-datetime="2018-03-29T12:57:18" xml:lang="en">
+            <reporting-org ref="NP-SWC-12345" type="22">Some organisation</reporting-org>
+            <iati-identifier>NP-SWC-12345-NP</iati-identifier>
+            <title>Nepal</title>
+            <activity-status code="2" />
+            <activity-date iso-date="2016-02-29" type="end-planned" />
+            <activity-date iso-date="2013-03-13" type="start-actual" />
+          </iati-activity>
+        </iati-activities>
       </x:context>
-      <x:expect label="It should select version 1.03" test="/iati-activities/@me:iatiVersion='1.03'"/>
       <x:expect label="It should produce message 0.6.1 about deprecation" test="boolean(//iati-activities/me:feedback[@id='0.6.1'])"/>
       <x:expect label="It should start with 'Version 1.03'" test="starts-with(//iati-activities/me:feedback[@id='0.6.1'], 'Version 1.03')"/>
+      <x:expect label="There should be no other feedback" test="count(//me:feedback)=1"/>
     </x:scenario>
 
     <x:scenario label="If activities file version is 1.6">
       <x:context>
         <iati-activities version="1.6"/>
       </x:context>
-      <x:expect label="It should select version 1.05" test="/iati-activities/@me:iatiVersion='1.05'"/>
+      <x:expect label="It should produce message 0.6.1 about deprecation" test="boolean(//iati-activities/me:feedback[@id='0.6.1'])"/>
+      <x:expect label="It should start with 'Version 1.05'" test="starts-with(//iati-activities/me:feedback[@id='0.6.1'], 'Version 1.05')"/>
+      <x:expect label="There should be no other feedback" test="count(//me:feedback)=1"/>
     </x:scenario>
     
     <x:scenario label="If activities file version is 2.2">
@@ -78,5 +89,4 @@
       <x:expect label="It should select version 2.03" test="/iati-organisations/@me:iatiVersion='2.03'"/>
     </x:scenario>
   </x:scenario>
-
 </x:description>

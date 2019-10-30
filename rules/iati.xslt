@@ -5,7 +5,6 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:me="http://iati.me"
   xmlns:functx="http://www.functx.com"
-  xmlns:saxon="http://saxon.sf.net/"
   exclude-result-prefixes="functx"
   expand-text="yes">
   
@@ -33,7 +32,15 @@
 
   <xsl:output indent="yes"/>
   
-<!--  <xsl:variable name="validation-errors" select="saxon:validate(/)"/>-->
+  <xsl:template match="/*[starts-with(@version, '1.')]">
+    <xsl:copy select=".">
+      <xsl:copy-of select="@*"/>
+      <me:feedback type="danger" class="documents" id="0.6.1">
+        <me:src ref="iati" versions="1.0x" href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"/>
+        <me:message>Version {me:iati-version(@version)} of the IATI Standard is no longer supported. Please use other versions.</me:message>
+      </me:feedback>
+    </xsl:copy>
+  </xsl:template>
   
   <xsl:template match="@*|node()">
     <xsl:param name="iati-version" tunnel="yes"/>

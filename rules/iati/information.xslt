@@ -7,14 +7,6 @@
   exclude-result-prefixes="xs functx"
   expand-text="yes">
 
-  <xsl:template match="/*[starts-with(@version, '1.')]" mode="rules" priority="999">
-    <xsl:param name="iati-version" tunnel="yes"/>
-    <me:feedback type="danger" class="documents" id="0.6.1">
-      <me:src ref="iati" versions="1.0x" href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"/>
-      <me:message>Version {$iati-version} of the IATI Standard is no longer supported. Please use other versions.</me:message>
-    </me:feedback>
-  </xsl:template>
-
   <xsl:template match="document-link[ancestor::iati-activity[not(@xml:lang)]]" mode="rules" priority="6.1"> 
     <xsl:if test="not(language) or not(language/@code) or language/@code=''">
       <me:feedback type="danger" class="documents" id="6.1.4">
