@@ -94,17 +94,6 @@
     <xsl:next-match/>
   </xsl:template>
   
-  <!-- Checks on the identifiers of organisations or activities -->
-  <xsl:template match="iati-organisation/iati-identifier" mode="rules" priority="1.13">
-    <xsl:call-template name="identifier_check">
-      <xsl:with-param name="item" select="."/>
-      <xsl:with-param name="class">identifiers</xsl:with-param>
-      <xsl:with-param name="idclass">1.13</xsl:with-param>
-      <xsl:with-param name="versions">1.0x</xsl:with-param>
-    </xsl:call-template>
-    <xsl:next-match/>
-  </xsl:template>    
-
   <xsl:template match="organisation-identifier" mode="rules" priority="1.12">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
