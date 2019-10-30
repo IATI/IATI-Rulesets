@@ -30,6 +30,8 @@
         <iati-activities version="1.05"/>
       </x:context>
       <x:expect label="It should select version 1.05" test="/iati-activities/@me:iatiVersion='1.05'"/>
+      <x:expect label="It should produce message 0.6.1 about deprecation" test="boolean(//iati-activities/me:feedback[@id='0.6.1'])"/>
+      <x:expect label="It should start with 'Version 1.05'" test="starts-with(//iati-activities/me:feedback[@id='0.6.1'], 'Version 1.05')"/>
     </x:scenario>
 
     <x:scenario label="If activities file version is 1.03">
@@ -37,6 +39,8 @@
         <iati-activities version="1.03"/>
       </x:context>
       <x:expect label="It should select version 1.03" test="/iati-activities/@me:iatiVersion='1.03'"/>
+      <x:expect label="It should produce message 0.6.1 about deprecation" test="boolean(//iati-activities/me:feedback[@id='0.6.1'])"/>
+      <x:expect label="It should start with 'Version 1.03'" test="starts-with(//iati-activities/me:feedback[@id='0.6.1'], 'Version 1.03')"/>
     </x:scenario>
 
     <x:scenario label="If activities file version is 1.6">
