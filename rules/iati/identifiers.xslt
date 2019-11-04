@@ -102,6 +102,7 @@
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.14</xsl:with-param>
+      <xsl:with-param name="href">https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/</xsl:with-param>
     </xsl:call-template>
     <xsl:next-match/>
   </xsl:template>    

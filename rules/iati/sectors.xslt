@@ -15,7 +15,7 @@
         <xsl:with-param name="class">classifications</xsl:with-param>
         <xsl:with-param name="idclass">2.1</xsl:with-param>
         <xsl:with-param name="item">sector</xsl:with-param>
-        <xsl:with-param name="items">sectors</xsl:with-param>
+        <xsl:with-param name="items">sectors, within a vocabulary (e.g. 1 - OECD DAC)</xsl:with-param>
         <xsl:with-param name="vocabulary" select="current-grouping-key()"/>
         <xsl:with-param name="href">https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view</xsl:with-param>
       </xsl:call-template>
@@ -39,7 +39,7 @@
     <xsl:if test="not(sector[@vocabulary=('1','') or not(@vocabulary)])">
       <me:feedback type="warning" class="information" id="102.1.1">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-        <me:message>It is recommended that OECD DAC 5-digit Purpose Codes are used wherever possible. It is also recommended that if a publisher has its own classification system or systems then the vocabularies 99 or 98 (Reporting Organisation’s own vocabularies) should be used in addition to DAC codes.</me:message>
+        <me:message>When reporting sectors at transaction level, it is recommended that if a publisher uses a non-DAC classification system or systems, these should be used in addition to DAC 5-digit codes.</me:message>
       </me:feedback>
     </xsl:if>
     

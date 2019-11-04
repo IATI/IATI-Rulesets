@@ -71,8 +71,9 @@
           <xsl:with-param name="class">financial</xsl:with-param>
           <xsl:with-param name="idclass">7.9</xsl:with-param>
           <xsl:with-param name="item">country budget item</xsl:with-param>
-          <xsl:with-param name="items">country budget items</xsl:with-param>
+          <xsl:with-param name="items">country budget items, within a vocabulary (e.g. 4 - Reporting Organisation)</xsl:with-param>
           <xsl:with-param name="severity">warning</xsl:with-param>
+          <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/country-budget-items/budget-item/</xsl:with-param>
         </xsl:call-template>
       </xsl:for-each-group>
     </xsl:if>

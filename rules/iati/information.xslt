@@ -21,7 +21,7 @@
   <xsl:template match="document-link[ancestor::iati-organisation[not(@xml:lang)]]" mode="rules" priority="6.16"> 
     <xsl:if test="not(language) or not(language/@code) or language/@code=''">
       <me:feedback type="danger" class="documents" id="6.16.4">
-        <me:src ref="iati" versions="any"/>
+        <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1TI9PU5dyyRE2IzervFPUZz_Xfue16xYC/view"/>
         <me:message>Document Link must have a specified language, or the Organisation must have a default language.</me:message>
       </me:feedback>
     </xsl:if>
@@ -84,7 +84,7 @@
   <xsl:template match="reporting-org" mode="rules" priority="6.3">
     <xsl:if test="not(@type) or @type=''">
       <me:feedback type="danger" class="identifiers" id="6.3.1">
-        <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/reporting-org/')}"/>
+        <me:src ref="iati" versions="any"/>
         <me:message>Organisation Type must be present.</me:message>
       </me:feedback>
     </xsl:if>
@@ -95,7 +95,7 @@
   <xsl:template match="owner-org" mode="rules" priority="6.8">
     <xsl:if test="not(@ref) and not(narrative)">
       <me:feedback type="danger" class="information" id="6.8.1">
-        <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/other-identifier/owner-org/')}"/>
+        <me:src ref="iati" versions="any"/>
         <me:message>The owner organisation must have an identifier or a narrative.</me:message>
       </me:feedback>      
     </xsl:if>
