@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Other information">
+    <x:scenario label="If a default-aid-type is specified">
+      <x:context>
+        <iati-activity>
+          <default-aid-type code="A1" vocabulary="2"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '107.1.1' for missing default-aid-type with vocabulary='1'." test="boolean(//me:feedback[@id='107.1.1'])"/>
+    </x:scenario>
+  
+    <x:scenario label="If multiple default-aid-type's are specified in the same vocabulary">
+      <x:context>
+        <iati-activity>
+          <default-aid-type code="A1" vocabulary="2"/>
+          <default-aid-type code="A2" vocabulary="2"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '107.1.2'." test="boolean(//me:feedback[@id='107.1.2'])"/>
+    </x:scenario>
+    
+    <x:scenario label="If an aid-type is specified for a transaction">
+      <x:context>
+        <iati-activity>
+          <transaction>
+            <aid-type code="A1" vocabulary="2"/>
+          </transaction>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '107.2.1' for missing default-aid-type with vocabulary='1'." test="boolean(//me:feedback[@id='107.2.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If multiple aid-type's are specified in the same vocabulary for a transaction">
+      <x:context>
+        <iati-activity>
+          <transaction>
+            <aid-type code="A1" vocabulary="2"/>
+            <aid-type code="A2" vocabulary="2"/>
+          </transaction>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '107.2.2'." test="boolean(//me:feedback[@id='107.2.2'])"/>
+    </x:scenario>
+  </x:scenario>
+</x:description>

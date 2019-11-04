@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Percentages">
+    <x:scenario label="If a percentage is not a number">
+      <x:context>
+        <iati-activity>
+          <sector percentage="100%"/>
+          <recipient-country percentage="&amp;1"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 12.4.1 for sector" test="boolean(//sector/me:feedback[@id='12.4.1'])"/>
+      <x:expect label="It should produce message 12.4.1 for recipient-country" test="boolean(//recipient-country/me:feedback[@id='12.4.1'])"/>
+    </x:scenario>
+        
+    <x:scenario label="2.03: If recipient-country or recipient-region has a negative percentage">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <recipient-country percentage="-1"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-region percentage="-122"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.1.1 for recipient-country" test="boolean(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should produce message 12.1.1 for recipient-region" test="boolean(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="2.03: If recipient-country or recipient-region has percentage above 100">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <recipient-country percentage="101"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-region percentage="122"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.1.1 for recipient-country" test="boolean(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should produce message 12.1.1 for recipient-region" test="boolean(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If recipient-country or recipient-region has a negative percentage">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <recipient-country percentage="-1"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-region percentage="-122"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.1.1 for recipient-country" test="not(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should not produce message 12.1.1 for recipient-region" test="not(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should produce message 12.1.2 for recipient-country" test="boolean(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.2'])"/>
+      <x:expect label="It should produce message 12.1.2 for recipient-region" test="boolean(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.2'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If recipient-country or recipient-region has percentage above 100">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <recipient-country percentage="101"/>
+          </iati-activity>
+          <iati-activity>
+            <recipient-region percentage="122"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.1.1 for recipient-country" test="not(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should not produce message 12.1.1 for recipient-region" test="not(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.1'])"/>
+      <x:expect label="It should not produce message 12.1.2 for recipient-country" test="not(//iati-activity[1]/recipient-country/me:feedback[@id='12.1.2'])"/>
+      <x:expect label="It should not produce message 12.1.2 for recipient-region" test="not(//iati-activity[2]/recipient-region/me:feedback[@id='12.1.2'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.03: If capital-spend or budget-item has a negative percentage">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <capital-spend percentage="-1"/>
+            <country-budget-items>
+              <budget-item percentage="-122"/>
+            </country-budget-items>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.2.1 for capital-spend" test="boolean(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.1'])"/>
+      <x:expect label="It should produce message 12.2.1 for budget-item" test="boolean(//iati-activity[1]/country-budget-items/budget-item/me:feedback[@id='12.2.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.03: If capital-spend or budget-item has percentage above 100">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <capital-spend percentage="101"/>
+            <country-budget-items>
+              <budget-item percentage="122"/>
+            </country-budget-items>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.2.1 for capital-spend" test="boolean(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.1'])"/>
+      <x:expect label="It should produce message 12.2.1 for budget-item" test="boolean(//iati-activity[1]/country-budget-items/budget-item/me:feedback[@id='12.2.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If capital-spend or budget-item has a negative percentage">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <capital-spend percentage="-1"/>
+            <country-budget-items>
+              <budget-item percentage="-122"/>
+            </country-budget-items>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.2.1 for capital-spend" test="not(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.1'])"/>
+      <x:expect label="It should produce message 12.2.2 for budget-item" test="boolean(//iati-activity[1]/country-budget-items/budget-item/me:feedback[@id='12.2.2'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If capital-spend or budget-item has percentage above 100">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <capital-spend percentage="101"/>
+            <country-budget-items>
+              <budget-item percentage="122"/>
+            </country-budget-items>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.2.1" test="not(//iati-activity[1]/capital-spend/me:feedback[@id='12.2.1'])"/>
+      <x:expect label="It should not produce message 12.2.2" test="not(//iati-activity[1]/country-budget-items/budget-item/me:feedback[@id='12.2.2'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.03: If sector has a negative percentage">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <sector percentage="-1"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.3.1" test="boolean(//iati-activity[1]/sector/me:feedback[@id='12.3.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.03: If sector has percentage above 100">
+      <x:context>
+        <iati-activities version="2.03">
+          <iati-activity>
+            <sector percentage="101"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 12.3.1" test="boolean(//iati-activity[1]/sector/me:feedback[@id='12.3.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If sector has a negative percentage">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <sector percentage="-1"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.3.1" test="not(//iati-activity[1]/sector/me:feedback[@id='12.3.1'])"/>
+      <x:expect label="It should produce message 12.3.2" test="boolean(//iati-activity[1]/sector/me:feedback[@id='12.3.2'])"/>
+    </x:scenario>
+    
+    <x:scenario label="2.02: If sector has percentage above 100">
+      <x:context>
+        <iati-activities version="2.02">
+          <iati-activity>
+            <sector percentage="101"/>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 12.3.1" test="not(//iati-activity[1]/sector/me:feedback[@id='12.3.1'])"/>
+      <x:expect label="It should not produce message 12.3.2" test="not(//iati-activity[1]/sector/me:feedback[@id='12.3.2'])"/>
+    </x:scenario>
+  </x:scenario>  
+  
+  <x:scenario label="Country budget items">
+    <x:scenario label="If country budget items add up to 100% per vocabulary">
+      <x:context>
+        <iati-activity>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1844" percentage="40"/>            
+            <budget-item code="1900" percentage="60"/>
+          </country-budget-items>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should not produce message 7.9.*" test="not(//iati-activity//me:feedback[starts-with(@id, '7.9.')])"/>
+    </x:scenario>
+    
+    <x:scenario label="If country budget items don't up to 100% per vocabulary">
+      <x:context>
+        <iati-activity>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1844" percentage="40"/>            
+            <budget-item code="1900" percentage="40"/>
+          </country-budget-items>
+        </iati-activity>
+        <iati-activity>
+          <country-budget-items vocabulary="3">
+            <budget-item code="1900" percentage="40"/>
+          </country-budget-items>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1844" percentage="50"/>            
+            <budget-item code="1900" percentage="50"/>
+          </country-budget-items>
+        </iati-activity>
+        <iati-activity>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1900" percentage="40"/>
+          </country-budget-items>
+          <country-budget-items vocabulary="4">
+            <budget-item code="1844" percentage="50"/>            
+            <budget-item code="1900" percentage="50"/>
+          </country-budget-items>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 7.9.2 for activity 1" test="boolean(//iati-activity[1]//me:feedback[@id='7.9.2'])"/>
+      <x:expect label="It should produce message 7.9.4 for activity 2" test="boolean(//iati-activity[2]//me:feedback[@id='7.9.4'])"/>
+      <x:expect label="It should produce message 7.9.2 for activity 3" test="boolean(//iati-activity[3]//me:feedback[@id='7.9.2'])"/>
+    </x:scenario>
+    
+  </x:scenario>
+</x:description>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Dates">
+    <x:scenario label="If activity start dates are after activity end dates">
+      <x:context>
+        <iati-activities>
+          <iati-activity>
+            <activity-date iso-date="2018-04-15" type="1"/>
+            <activity-date iso-date="2015-12-31" type="3" />
+          </iati-activity>
+          <iati-activity>
+            <activity-date iso-date="2018-04-15" type="2"/>
+            <activity-date iso-date="2015-12-31" type="4" />
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 11.1.2 for planned dates" test="boolean(//iati-activity[1]/me:feedback[@id='11.1.2'])"/>
+      <x:expect label="It should produce message 11.1.3 for actual dates" test="boolean(//iati-activity[2]/me:feedback[@id='11.1.3'])"/>
+    </x:scenario>
+
+    <x:scenario label="If period start dates are after period end dates">
+      <x:context>
+        <iati-activities>
+          <iati-activity>
+            <result>
+              <indicator>
+                <period>
+                  <period-start iso-date="2018-04-15"/>
+                  <period-end iso-date="2015-12-31"/>                  
+                </period>
+              </indicator>
+            </result>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 8.6.1 for indicator period dates" test="boolean(//iati-activity[1]//me:feedback[@id='8.6.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If transaction dates are after the last updated datetime" 
+      pending="Test moved to 'additional', not included now.">
+      <x:context>
+        <iati-activity last-updated-datetime="2018-10-03T00:00:00-04:00">
+          <transaction>
+            <transaction-date iso-date="2018-10-01"/>
+            <value value-date="2018-10-01" currency="USD">238.00</value>
+          </transaction>
+          <transaction>
+            <transaction-date iso-date="2019-01-01"/>
+            <value value-date="2019-01-01" currency="USD">-436.66</value>
+          </transaction>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 7.6.1 for transaction dates" test="boolean(//me:feedback[@id='7.6.1'])"/>
+    </x:scenario>
+
+  </x:scenario>  
+  
+</x:description>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Organisation identifiers">
+    <x:scenario label="If an organisation identifier in an activities file contains no forbidden characters">
+      <x:context>
+        <iati-activity>
+          <reporting-org ref="XM-IATI-123"/>
+          <participating-org ref="GB-1"/>
+          <transaction>
+            <provider-org ref="NL-KVK-123"/>
+            <receiver-org ref="US-EIN-98765"/>
+          </transaction>
+          <other-identifier>
+            <owner-org ref="XM-DAC-7"/>
+          </other-identifier>
+        </iati-activity>
+      </x:context>
+
+      <x:expect label="It should not produce message 1.14.13 for reporting-org." test="not(//reporting-org/me:feedback[@id='1.14.13'])"/>
+      <x:expect label="It should not produce message 1.8.13 for participating-org." test="not(//participating-org/me:feedback[@id='1.8.13'])"/>
+      <x:expect label="It should not produce message 1.10.13 for provider-org." test="not(//provider-org/me:feedback[@id='1.10.13'])"/>
+      <x:expect label="It should not produce message 1.15.13 for receiver-org." test="not(//receiver-org/me:feedback[@id='1.15.13'])"/>
+      <x:expect label="It should not produce message 1.11.13 for owner-org." test="not(//owner-org/me:feedback[@id='1.11.13'])"/>
+    </x:scenario>
+
+    <x:scenario label="If an organisation identifier contains leading or trailing spaces">
+      <x:context>
+        <iati-activity>
+          <reporting-org ref=" ABC"/>
+          <participating-org ref="XYZ "/>
+          <transaction>
+            <provider-org ref=" A12 "/>
+            <receiver-org ref="B23 "/>
+          </transaction>
+          <other-identifier>
+            <owner-org ref="
+              CDE "/>
+          </other-identifier>
+        </iati-activity>
+      </x:context>
+
+      <x:expect label="It should produce message 1.14.1 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.1'])"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//reporting-org/me:feedback[@id='1.14.1']/@type='warning')"/>
+      <x:expect label="It should produce message 1.8.1 for participating-org." test="boolean(//participating-org/me:feedback[@id='1.8.1'])"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//participating-org/me:feedback[@id='1.8.1']/@type='warning')"/>
+      <x:expect label="It should produce message 1.10.1 for provider-org." test="boolean(//provider-org/me:feedback[@id='1.10.1'])"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//provider-org/me:feedback[@id='1.10.1']/@type='warning')"/>
+      <x:expect label="It should produce message 1.15.1 for receiver-org." test="boolean(//receiver-org/me:feedback[@id='1.15.1'])"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//receiver-org/me:feedback[@id='1.15.1']/@type='warning')"/>
+      <x:expect label="It should produce message 1.11.1 for owner-org." test="boolean(//owner-org/me:feedback[@id='1.11.1'])"/>
+      <x:expect label="It should be severity 'error'." test="boolean(//owner-org/me:feedback[@id='1.11.1']/@type='warning')"/>
+    </x:scenario>
+
+    <x:scenario label="If an organisation identifier in an activities file contains forbidden characters">
+      <x:context>
+        <iati-activity>
+          <reporting-org ref="ABC&amp;D"/>
+          <participating-org ref="XY/Z"/>
+          <transaction>
+            <provider-org ref=" A|12"/>
+            <receiver-org ref="B?23"/>
+          </transaction>
+          <other-identifier>
+            <owner-org ref="CD/|E"/>
+          </other-identifier>
+        </iati-activity>
+      </x:context>
+
+      <x:expect label="It should produce message 1.14.13 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.13'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.13']/@type='warning')"/>
+      <x:expect label="It should produce message 1.8.13 for participating-org." test="boolean(//participating-org/me:feedback[@id='1.8.13'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//participating-org/me:feedback[@id='1.8.13']/@type='warning')"/>
+      <x:expect label="It should produce message 1.10.13 for provider-org." test="boolean(//provider-org/me:feedback[@id='1.10.13'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//provider-org/me:feedback[@id='1.10.13']/@type='warning')"/>
+      <x:expect label="It should produce message 1.15.13 for receiver-org." test="boolean(//receiver-org/me:feedback[@id='1.15.13'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//receiver-org/me:feedback[@id='1.15.13']/@type='warning')"/>
+      <x:expect label="It should produce message 1.11.13 for owner-org." test="boolean(//owner-org/me:feedback[@id='1.11.13'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//owner-org/me:feedback[@id='1.11.13']/@type='warning')"/>
+    </x:scenario>
+
+    <x:scenario label="If an organisation identifier in an organisations file contains forbidden characters">
+      <x:context>
+        <iati-organisation>
+          <organisation-identifier>B?123</organisation-identifier>
+          <reporting-org ref="A|12"/>
+        </iati-organisation>
+      </x:context>
+      
+      <x:expect label="It should produce message 1.12.13 for organisation-identifier." test="boolean(//organisation-identifier/me:feedback[@id='1.12.13'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//organisation-identifier/me:feedback[@id='1.12.13']/@type='warning')"/>
+      <x:expect label="It should produce message 1.14.13 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.13'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.13']/@type='warning')"/>
+    </x:scenario>
+
+    <x:scenario label="If the organisation identifier is not approved by the IATI Registry">
+      <x:context>
+        <iati-activity>
+          <reporting-org ref="GB-GOV-12345"/>
+        </iati-activity>
+      </x:context>
+
+      <x:expect label="It should produce message 1.14.12 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.12'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.12']/@type='warning')"/>
+    </x:scenario>
+
+    <x:scenario label="If the organisation identifier exists but does not start with a known prefix">
+      <x:context>
+        <iati-activity>
+          <reporting-org ref="SE-0"/>
+        </iati-activity>
+      </x:context>
+      
+      <x:expect label="It should produce message 1.14.8 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.8'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.8']/@type='warning')"/>
+    </x:scenario>
+    
+  </x:scenario>
+
+</x:description>
