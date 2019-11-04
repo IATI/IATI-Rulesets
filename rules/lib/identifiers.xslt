@@ -24,7 +24,7 @@
     <xsl:choose>
       <xsl:when test="matches($item, '[/&amp;|?]')">
         <me:feedback type="warning" class="{$class}" id="{$idclass}.13">
-          <me:src ref="iati" versions="any"/>
+          <me:src ref="iati" versions="{$versions}"/>
           <me:message>The identifier must not contain any of the symbols /, &amp;, | or ?.</me:message>
         </me:feedback>
       </xsl:when>

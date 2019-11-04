@@ -61,13 +61,6 @@
 
   <xsl:template match="reporting-org" mode="rules" priority="1.7">
     
-    <xsl:call-template name="identifier_check">
-      <xsl:with-param name="item" select="@ref"/>
-      <xsl:with-param name="class">identifiers</xsl:with-param>
-      <xsl:with-param name="idclass">1.13</xsl:with-param>
-      <xsl:with-param name="versions">1.0x</xsl:with-param>
-    </xsl:call-template>
-
     <xsl:choose>
       <xsl:when test="not(@ref)">
         <me:feedback type="danger" class="identifiers" id="1.7.2">
