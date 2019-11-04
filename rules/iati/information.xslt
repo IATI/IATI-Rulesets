@@ -83,7 +83,7 @@
 
   <xsl:template match="reporting-org" mode="rules" priority="6.3">
     <xsl:if test="not(@type) or @type=''">
-      <me:feedback type="danger" class="identification" id="6.3.1">
+      <me:feedback type="danger" class="identifiers" id="6.3.1">
         <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/reporting-org/')}"/>
         <me:message>Organisation Type must be present.</me:message>
       </me:feedback>
