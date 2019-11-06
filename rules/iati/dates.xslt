@@ -105,7 +105,7 @@
       @last-updated-datetime castable as xs:dateTime and
       xs:dateTime(@last-updated-datetime) gt $now">
       <me:feedback type="danger" class="information" id="11.4.1">
-        <me:src ref="iati" href="https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view"/>
+        <me:src ref="iati"/>
         <me:message>The last-updated-datetime of the organisation must not be in the future.</me:message>
       </me:feedback>
     </xsl:if>

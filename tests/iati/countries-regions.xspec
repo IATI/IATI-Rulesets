@@ -57,6 +57,7 @@
           </iati-activity>
         </x:context>
         <x:expect label="It should produce 'geo' message 3.1.1." test="boolean(//me:feedback[@id='3.1.1'])"/>
+        <x:expect label="It should be severity 'error'." test="//me:feedback[@id='3.1.1']/@type='danger'"/>
       </x:scenario>
       
       <x:scenario label="If some have no percentage">
@@ -149,6 +150,7 @@
           </iati-activity>
         </x:context>
         <x:expect label="It should produce 'geo' message 3.4.1." test="boolean(//me:feedback[@id='3.4.1'])"/>
+        <x:expect label="It should be severity 'error'." test="//me:feedback[@id='3.4.1']/@type='danger'"/>
       </x:scenario>
       
       <x:scenario label="If some have no percentage">
