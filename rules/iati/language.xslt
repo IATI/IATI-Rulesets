@@ -60,7 +60,7 @@
     
     <xsl:if test="not($itemnode/narrative) or not($itemnode/narrative[functx:trim(.)!=''])">
       <me:feedback type="danger" class="{$class}" id="{$idclass}.1">
-        <me:src ref="iati" versions="2.x" href="me:iati-url('{$href}')"/>
+        <me:src ref="iati" versions="2.x" href="{me:iati-url('{$href}')}"/>
         <me:message>The {$item} has no narrative content.</me:message>
       </me:feedback>
     </xsl:if>

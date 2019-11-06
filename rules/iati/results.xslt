@@ -24,7 +24,7 @@
     
     <xsl:if test="period-start/@iso-date gt period-end/@iso-date">
       <me:feedback type="danger" class="performance" id="8.6.1">
-        <me:src ref="iati" versions="any" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/period-start/')"/>
+        <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/period-start/')}"/>
         <me:message>The start of the period must be before the end of the period.</me:message>
       </me:feedback>
     </xsl:if>
@@ -51,13 +51,13 @@
       <xsl:choose>
         <xsl:when test="not(@value)">
           <me:feedback type="danger" class="performance" id="8.8.1">
-            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+            <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')}"/>
             <me:message>The baseline must have a value when indicator measure is unit (1), percentage (2), nominal (3) or ordinal (4).</me:message>
           </me:feedback>
         </xsl:when>
         <xsl:when test="not(@value castable as xs:decimal)">
           <me:feedback type="warning" class="performance" id="8.8.2">
-            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+            <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')}"/>
             <me:message>The @value should be a valid number for all non-qualitative measures.</me:message>
           </me:feedback>
         </xsl:when>        
@@ -73,7 +73,7 @@
     <xsl:if test="$iati-version='2.03'">
       <xsl:if test="@value">
         <me:feedback type="warning" class="performance" id="8.8.3">
-          <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')"/>
+          <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/baseline/')}"/>
           <me:message>The @value should be omitted for qualitative measures.</me:message>
         </me:feedback>
       </xsl:if>
@@ -89,13 +89,13 @@
       <xsl:choose>
         <xsl:when test="not(@value)">
           <me:feedback type="danger" class="performance" id="8.9.1">
-            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/target/')"/>
+            <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/target/')}"/>
             <me:message>The target must have a value when indicator measure is unit (1), percentage (2), nominal (3) or ordinal (4).</me:message>
           </me:feedback>
         </xsl:when>
         <xsl:when test="not(@value castable as xs:decimal)">
           <me:feedback type="warning" class="performance" id="8.9.2">
-            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/target/')"/>
+            <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/target/')}"/>
             <me:message>The @value should be a valid number for all non-qualitative measures.</me:message>
           </me:feedback>
         </xsl:when>
@@ -111,7 +111,7 @@
     <xsl:if test="$iati-version='2.03'">
       <xsl:if test="@value">
         <me:feedback type="warning" class="performance" id="8.9.3">
-          <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/target/')"/>
+          <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/target/')}"/>
           <me:message>The @value should be omitted for qualitative measures.</me:message>
         </me:feedback>
       </xsl:if>
@@ -127,13 +127,13 @@
       <xsl:choose>
         <xsl:when test="not(@value)">
           <me:feedback type="danger" class="performance" id="8.10.1">
-            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/actual/')"/>
+            <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/actual/')}"/>
             <me:message>The actual must have a value when indicator measure is unit (1), percentage (2), nominal (3) or ordinal (4).</me:message>
           </me:feedback>
         </xsl:when>
         <xsl:when test="not(@value castable as xs:decimal)">
           <me:feedback type="warning" class="performance" id="8.10.2">
-            <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/actual/')"/>
+            <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/actual/')}"/>
             <me:message>The @value should be a valid number for all non-qualitative measures.</me:message>
           </me:feedback>
         </xsl:when>        
@@ -149,7 +149,7 @@
     <xsl:if test="$iati-version='2.03'">
       <xsl:if test="@value">
         <me:feedback type="warning" class="performance" id="8.10.3">
-          <me:src ref="iati" versions="2.03" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/actual/')"/>
+          <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/actual/')}"/>
           <me:message>The @value should be omitted for qualitative measures.</me:message>
         </me:feedback>
       </xsl:if>
@@ -162,7 +162,7 @@
     
     <xsl:if test="../reference">
       <me:feedback type="danger" class="performance" id="8.11.1">
-        <me:src ref="iati" versions="any" href="me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/reference/')"/>
+        <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/reference/')}"/>
         <me:message>If a result has a reference code, the indicator must not have a reference code.</me:message>
       </me:feedback>
     </xsl:if>

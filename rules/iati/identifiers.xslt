@@ -93,6 +93,7 @@
       <xsl:with-param name="class">organisation</xsl:with-param>
       <xsl:with-param name="idclass">1.12</xsl:with-param>
       <xsl:with-param name="versions">2.0x</xsl:with-param>
+      <xsl:with-param name="href">https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/</xsl:with-param>
     </xsl:call-template>
     <xsl:next-match/>
   </xsl:template>    

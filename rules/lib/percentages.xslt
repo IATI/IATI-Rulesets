@@ -16,7 +16,7 @@
     <xsl:param name="vocabulary" select="'n/a'"/>
     <xsl:param name="versions" select="'any'"/>
     <xsl:param name="href" select="''"/>
-    <xsl:param name="severity" select="danger"/>
+    <xsl:param name="severity" select="'danger'"/>
     
     <xsl:choose>
       <xsl:when test="count($group) = 0">
