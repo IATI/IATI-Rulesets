@@ -6,7 +6,7 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
-  <xsl:variable name="known-publisher-ids" select="doc('../../var/known-publishers.xml')//code"/>
+<!--  <xsl:variable name="known-publisher-ids" select="doc('../../var/known-publishers.xml')//code"/>-->
   <xsl:variable name="org-id-prefixes" select="doc('../../var/known-orgid-prefixes.xml')//code"/>
   
   <xsl:template match="iati-identifier" mode="rules" priority="1.1">
@@ -38,12 +38,12 @@
           <me:message>The activity identifier's prefix and suffix should be separated by a hyphen e.g. XM-DAC-2222</me:message>
         </me:feedback>
       </xsl:when>
-      <xsl:when test="not(some $known-id in $known-publisher-ids satisfies starts-with(., $known-id || '-'))">
+<!--      <xsl:when test="not(some $known-id in $known-publisher-ids satisfies starts-with(., $known-id || '-'))">
         <me:feedback type="warning" class="identifiers" id="1.3.11">
           <me:src ref="iati" versions="2.x"/>
           <me:message>The activity identifier should begin with an organisation identifier approved by the IATI registry.</me:message>
         </me:feedback>
-      </xsl:when>
+      </xsl:when>-->
     </xsl:choose>
 
     <!-- TODO move this to an activity file-level test -->
@@ -69,12 +69,12 @@
         </me:feedback>      
       </xsl:when>
       
-      <xsl:when test="not(@ref=$known-publisher-ids)">
+<!--      <xsl:when test="not(@ref=$known-publisher-ids)">
         <me:feedback type="warning" class="identifiers" id="1.14.12">
           <me:src ref="iati" versions="2.x"/>
           <me:message>The activity's organisation identifier should be an organisation identifier approved by the IATI registry.</me:message>
         </me:feedback>
-      </xsl:when>
+      </xsl:when>-->
       
       <xsl:when test="not(some $prefix in $org-id-prefixes satisfies starts-with(@ref, $prefix||'-'))">
         <me:feedback type="warning" class="identifiers" id="1.14.8">
