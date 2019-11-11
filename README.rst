@@ -14,9 +14,9 @@ This is the source repository for the rulesets in the new IATI Validator.
 As part of the Validator work, the earlier JSON-based rules have been migrated to an XSLT-based system,
 and some additional checks and feedback messages have been added.
 
-* Please see the `main IATI data validator repository<https://github.com/data4development/IATI-data-validator>`_
+* Please see the `main IATI data validator repository <https://github.com/data4development/IATI-data-validator>`_
   for information about the new IATI Validator and to report bugs, issues, and other feedback.
-* Refer to the `original IATI-Rulesets repository<https://github.com/IATI/IATI-Rulesets>`_ for the original JSON-based rules.
+* Refer to the `original IATI-Rulesets repository <https://github.com/IATI/IATI-Rulesets>`_ for the original JSON-based rules.
 
 Rules
 =====
