@@ -94,8 +94,8 @@
       <x:expect label="It should produce message 1.14.13 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.13'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.13']/@type='warning')"/>
     </x:scenario>
-
-<!--    <x:scenario label="If the organisation identifier is not approved by the IATI Registry">
+<!--
+    <x:scenario label="If the organisation identifier is not approved by the IATI Registry">
       <x:context>
         <iati-activity>
           <reporting-org ref="GB-GOV-12345"/>
@@ -104,17 +104,22 @@
 
       <x:expect label="It should produce message 1.14.12 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.12'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.12']/@type='warning')"/>
-    </x:scenario>-->
-
-    <x:scenario label="If the organisation identifier exists but does not start with a known prefix">
+    </x:scenario>
+-->
+    <x:scenario label="If the organisation identifier exists in the Registry but does not start with a known prefix">
       <x:context>
         <iati-activity>
           <reporting-org ref="SE-0"/>
         </iati-activity>
+        <iati-activity>
+          <reporting-org ref="US-GOV-1"/>
+        </iati-activity>
+        <iati-activity>
+          <reporting-org ref="FR-3"/>
+        </iati-activity>
       </x:context>
       
-      <x:expect label="It should produce message 1.14.8 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.8'])"/>
-      <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.8']/@type='warning')"/>
+      <x:expect label="It should not produce message 1.14.8 for reporting-org." test="not(//reporting-org/me:feedback[@id='1.14.8'])"/>
     </x:scenario>
     
   </x:scenario>
