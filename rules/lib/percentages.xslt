@@ -17,6 +17,7 @@
     <xsl:param name="versions" select="'any'"/>
     <xsl:param name="href" select="''"/>
     <xsl:param name="severity" select="'danger'"/>
+    <xsl:param name="verb" select="'must'"/>
     
     <xsl:choose>
       <xsl:when test="count($group) = 0">
@@ -42,7 +43,7 @@
       <xsl:when test="abs(sum($group/@percentage[. castable as xs:decimal])-100) > 0.0101">
         <me:feedback type="{$severity}" class="{$class}" id="{$idclass}.2">
           <me:src ref="iati" versions="{$versions}" href="{me:iati-url($href)}"/>
-          <me:message>Percentages for {$items}, must add up to 100%.</me:message>
+          <me:message>Percentages for {$items}, {$verb} add up to 100%.</me:message>
           <me:diagnostic>The sum is {sum($group/@percentage[. castable as xs:decimal])}<xsl:if test="$vocabulary!='n/a'"> for vocabulary {$vocabulary}</xsl:if>.</me:diagnostic>
         </me:feedback>
       </xsl:when>

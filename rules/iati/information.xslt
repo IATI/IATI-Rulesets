@@ -177,6 +177,7 @@
     <xsl:next-match/>
   </xsl:template>
 
+<!--
   <xsl:template match="iati-activity[policy-marker]" mode="rules" priority="106.1">
     <xsl:if test="not(policy-marker/@vocabulary=('1','') or not(policy-marker/@vocabulary))">
       <me:feedback type="warning" class="information" id="106.1.1">
@@ -187,12 +188,13 @@
     
     <xsl:next-match/>
   </xsl:template>
+-->
 
   <xsl:template match="iati-activity[default-aid-type]" mode="rules" priority="6.15">
     <xsl:if test="not(default-aid-type/@vocabulary=('1','') or not(default-aid-type/@vocabulary))">
       <me:feedback type="warning" class="information" id="107.1.1">
         <me:src ref="iati" versions="2.03"/>
-        <me:message>The activity should also contain a code from the DAC Type of Aid Vocabulary.</me:message>
+        <me:message>The activity should also contain a code from the OECD DAC Aid Type vocabulary.</me:message>
       </me:feedback>
     </xsl:if>
     
