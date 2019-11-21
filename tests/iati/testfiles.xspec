@@ -303,6 +303,7 @@
       <x:expect label="It should produce error message 12.3.2."
         test="boolean(//me:feedback[@id='12.3.2'])"/>
     </x:scenario>
+    <!--
     <x:scenario label="#120 Region Vocabulary Code is present and != 1 in iati-activity">
       <x:context href="testfiles/120.xml"/>
       <x:expect label="It should produce error message 103.1.1."
@@ -313,6 +314,7 @@
       <x:expect label="It should produce error message 106.1.1."
         test="boolean(//me:feedback[@id='106.1.1'])"/>
     </x:scenario>
+-->
     <x:scenario
       label="#123 Currency Code not present at in Forecast element and there is no Default Currency at activity level in value|forecast">
       <x:context href="testfiles/123.xml"/>

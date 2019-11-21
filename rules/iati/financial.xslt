@@ -73,6 +73,7 @@
           <xsl:with-param name="item">country budget item</xsl:with-param>
           <xsl:with-param name="items">country budget items, within a vocabulary (e.g. 4 - Reporting Organisation)</xsl:with-param>
           <xsl:with-param name="severity">warning</xsl:with-param>
+          <xsl:with-param name="verb">should</xsl:with-param>
           <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/country-budget-items/budget-item/</xsl:with-param>
         </xsl:call-template>
       </xsl:for-each-group>
@@ -85,7 +86,7 @@
     <xsl:if test="not(aid-type/@vocabulary=('1','') or not(aid-type/@vocabulary))">
       <me:feedback type="warning" class="financial" id="107.2.1">
         <me:src ref="iati" versions="2.03"/>
-        <me:message>The transaction should also contain a code from the DAC Type of Aid Vocabulary.</me:message>
+        <me:message>The transaction should also contain a code from the DAC Type of Aid vocabulary.</me:message>
       </me:feedback>
     </xsl:if>
     
