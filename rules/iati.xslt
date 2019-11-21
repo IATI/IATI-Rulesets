@@ -10,7 +10,7 @@
   
   <xsl:param name="filename"/>
   
-  <xsl:variable name="schemaVersion">1.0-alpha-2</xsl:variable>
+  <xsl:variable name="schemaVersion">1.0-beta-4</xsl:variable>
   
   <!-- support functions and templates -->
   <xsl:include href="../lib/functx.xslt"/>

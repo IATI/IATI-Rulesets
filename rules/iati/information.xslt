@@ -7,7 +7,7 @@
   exclude-result-prefixes="xs functx"
   expand-text="yes">
 
-  <xsl:template match="document-link[ancestor::iati-activity[not(@xml:lang)]]" mode="rules" priority="6.1"> 
+<!--  <xsl:template match="document-link[ancestor::iati-activity[not(@xml:lang)]]" mode="rules" priority="6.1"> 
     <xsl:if test="not(language) or not(language/@code) or language/@code=''">
       <me:feedback type="danger" class="documents" id="6.1.4">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1TI9PU5dyyRE2IzervFPUZz_Xfue16xYC/view?usp=sharing"/>
@@ -27,7 +27,7 @@
     </xsl:if>
     
     <xsl:next-match/>
-  </xsl:template>
+  </xsl:template>-->
   
   <xsl:template match="document-link" mode="rules" priority="6.15"> 
     <xsl:if test="not(@format) or @format=''">

@@ -12,6 +12,7 @@
     <xsl:param name="idclass"/>
     <xsl:param name="versions" select="'any'"/>
     <xsl:param name="href" select="''"/>
+    <xsl:param name="identifier" select="'identifier'"/>
    
     <xsl:choose>
       <xsl:when test="$item != functx:trim($item)">
@@ -21,7 +22,7 @@
               <xsl:attribute name="href" select="$href"/>
             </xsl:if>
           </me:src>
-          <me:message>The identifier should not start or end with spaces or newlines.</me:message>
+          <me:message>The {$identifier} should not start or end with spaces or newlines.</me:message>
         </me:feedback>
       </xsl:when>
     </xsl:choose>
@@ -34,7 +35,7 @@
               <xsl:attribute name="href" select="$href"/>
             </xsl:if>
           </me:src>
-          <me:message>The identifier must not contain any of the symbols /, &amp;, | or ?.</me:message>
+          <me:message>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</me:message>
         </me:feedback>
       </xsl:when>
     </xsl:choose>
@@ -45,12 +46,13 @@
     <xsl:param name="class"/>
     <xsl:param name="idclass"/>
     <xsl:param name="versions" select="'any'"/>
+    <xsl:param name="identifier" select="'identifier'"/>
     
     <xsl:choose>
       <xsl:when test="$item != functx:trim($item)">
         <me:feedback type="warning" class="{$class}" id="{$idclass}.1">
           <me:src ref="iati" versions="{$versions}"/>
-          <me:message>The identifier should not start or end with spaces or newlines.</me:message>
+          <me:message>The {$identifier} should not start or end with spaces or newlines.</me:message>
         </me:feedback>
       </xsl:when>
     </xsl:choose>    

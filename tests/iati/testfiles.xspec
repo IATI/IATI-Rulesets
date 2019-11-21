@@ -492,6 +492,13 @@
       <x:expect label="It should produce error message 3.1.4."
         test="boolean(//me:feedback[@id='3.1.4'])"/>
     </x:scenario>
+    <!--
+    <x:scenario label="#3.4.1 in ">
+      <x:context href="testfiles/3.4.1.xml"/>
+      <x:expect label="It should produce error message 3.4.1."
+        test="boolean(//me:feedback[@id='3.4.1'])"/>
+    </x:scenario>
+    -->
     <x:scenario label="#3.4.4 in ">
       <x:context href="testfiles/3.4.4.xml"/>
       <x:expect label="It should produce error message 3.4.4."
@@ -707,11 +714,6 @@
       <x:context href="testfiles/6.xml"/>
       <x:expect label="It should produce error message 9.102.1."
         test="boolean(//me:feedback[@id='9.102.1'])"/>
-    </x:scenario>
-    <x:scenario label="#6.1.4 The document link does not specify language. in document-link">
-      <x:context href="testfiles/6.1.4.xml"/>
-      <x:expect label="It should produce error message 6.1.4."
-        test="boolean(//me:feedback[@id='6.1.4'])"/>
     </x:scenario>
     <x:scenario label="#6.1.5 The document format is missing. in document-link">
       <x:context href="testfiles/6.1.5.xml"/>
