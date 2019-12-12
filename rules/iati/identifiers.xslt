@@ -162,7 +162,7 @@
   <xsl:template match="receiver-org/@ref" mode="rules" priority="1.15">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
-      <xsl:with-param name="class">organisation</xsl:with-param>
+      <xsl:with-param name="class">financial</xsl:with-param>
       <xsl:with-param name="idclass">1.15</xsl:with-param>
     </xsl:call-template>
     <xsl:next-match/>
@@ -190,7 +190,7 @@
   <xsl:template match="owner-org/@ref" mode="rules" priority="1.11">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
-      <xsl:with-param name="class">participating</xsl:with-param>
+      <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.11</xsl:with-param>
     </xsl:call-template>
     <xsl:next-match/>
@@ -199,7 +199,7 @@
   <xsl:template match="related-activity/@ref" mode="rules" priority="1.7">
     <xsl:call-template name="act_identifier_check">
       <xsl:with-param name="item" select="."/>
-      <xsl:with-param name="class">identifiers</xsl:with-param>
+      <xsl:with-param name="class">relations</xsl:with-param>
       <xsl:with-param name="idclass">1.7</xsl:with-param>
     </xsl:call-template>
     <xsl:next-match/>

@@ -71,14 +71,19 @@
 
       <x:expect label="It should produce message 1.14.13 for reporting-org." test="boolean(//reporting-org/me:feedback[@id='1.14.13'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//reporting-org/me:feedback[@id='1.14.13']/@type='warning')"/>
+      <x:expect label="It should be class 'identifiers'." test="boolean(//reporting-org/me:feedback[@id='1.14.13']/@class='identifiers')"/>
       <x:expect label="It should produce message 1.8.13 for participating-org." test="boolean(//participating-org/me:feedback[@id='1.8.13'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//participating-org/me:feedback[@id='1.8.13']/@type='warning')"/>
+      <x:expect label="It should be class 'participating'." test="boolean(//participating-org/me:feedback[@id='1.8.13']/@class='participating')"/>
       <x:expect label="It should produce message 1.10.13 for provider-org." test="boolean(//provider-org/me:feedback[@id='1.10.13'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//provider-org/me:feedback[@id='1.10.13']/@type='warning')"/>
+      <x:expect label="It should be class 'financial'." test="boolean(//provider-org/me:feedback[@id='1.10.13']/@class='financial')"/>
       <x:expect label="It should produce message 1.15.13 for receiver-org." test="boolean(//receiver-org/me:feedback[@id='1.15.13'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//receiver-org/me:feedback[@id='1.15.13']/@type='warning')"/>
+      <x:expect label="It should be class 'financial'." test="boolean(//receiver-org/me:feedback[@id='1.15.13']/@class='financial')"/>
       <x:expect label="It should produce message 1.11.13 for owner-org." test="boolean(//owner-org/me:feedback[@id='1.11.13'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//owner-org/me:feedback[@id='1.11.13']/@type='warning')"/>
+      <x:expect label="It should be class 'identifiers'." test="boolean(//owner-org/me:feedback[@id='1.11.13']/@class='identifiers')"/>
     </x:scenario>
 
     <x:scenario label="If an organisation identifier in an organisations file contains forbidden characters">
