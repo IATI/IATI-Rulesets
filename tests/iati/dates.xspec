@@ -3,7 +3,7 @@
   xmlns:me="http://iati.me"
   xslt-version="3.0">
 
-  <x:scenario label="Dates">
+  <x:scenario label="Dates in activity files">
     <x:scenario label="If activity start dates are after activity end dates">
       <x:context>
         <iati-activities>
@@ -58,4 +58,45 @@
 
   </x:scenario>  
   
+  <x:scenario label="Dates in organisation files">
+    <x:scenario label="If budget-line value dates are outside the budget period">
+      <x:context>
+        <iati-organisation>
+          <total-budget>
+            <period-start iso-date="2014-01-01" />
+            <period-end iso-date="2014-12-31" />
+            <budget-line>
+              <value value-date="2013-12-01">2000000</value>
+            </budget-line>
+          </total-budget>
+          <recipient-org-budget>
+            <period-start iso-date="2014-01-01" />
+            <period-end iso-date="2014-12-31" />
+            <budget-line>
+              <value value-date="2013-12-01">2000000</value>
+            </budget-line>
+          </recipient-org-budget>
+          <recipient-region-budget>
+            <period-start iso-date="2014-01-01" />
+            <period-end iso-date="2014-12-31" />
+            <budget-line>
+              <value value-date="2013-12-01">2000000</value>
+            </budget-line>
+          </recipient-region-budget>
+          <recipient-country-budget>
+            <period-start iso-date="2014-01-01" />
+            <period-end iso-date="2014-12-31" />
+            <budget-line>
+              <value value-date="2013-12-01">2000000</value>
+            </budget-line>
+          </recipient-country-budget>
+        </iati-organisation>
+      </x:context>
+      <x:expect label="It should not produce message 11.3.1 for total-budget" test="not(//total-budget/budget-line//me:feedback[@id='11.3.1'])"/>
+      <x:expect label="It should not produce message 11.3.1 for recipient-org-budget" test="not(//recipient-org-budget/budget-line//me:feedback[@id='11.3.1'])"/>
+      <x:expect label="It should not produce message 11.3.1 for recipient-region-budget" test="not(//recipient-region-budget/budget-line//me:feedback[@id='11.3.1'])"/>
+      <x:expect label="It should produce message 11.3.1 for recipient-country-budget" test="boolean(//recipient-country-budget/budget-line//me:feedback[@id='11.3.1'])"/>
+    </x:scenario>
+    
+  </x:scenario>
 </x:description>

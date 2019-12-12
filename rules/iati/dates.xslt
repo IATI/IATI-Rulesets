@@ -84,7 +84,7 @@
     <xsl:next-match/>
   </xsl:template>
   
-  <xsl:template match="budget-line/value[@value-date]" mode="rules" priority="11.3">
+  <xsl:template match="recipient-country-budget/budget-line/value[@value-date]" mode="rules" priority="11.3">
     <xsl:if test="@value-date castable as xs:date and
       ../../period-start/@iso-date and
       ../../period-start/@iso-date castable as xs:date and
