@@ -205,4 +205,12 @@
     <xsl:next-match/>
   </xsl:template>
   
+  <xsl:template match="recipient-org/@ref" mode="rules" priority="1.17">
+    <xsl:call-template name="act_identifier_check">
+      <xsl:with-param name="item" select="."/>
+      <xsl:with-param name="class">organisation</xsl:with-param>
+      <xsl:with-param name="idclass">1.17</xsl:with-param>
+    </xsl:call-template>
+    <xsl:next-match/>
+  </xsl:template>
 </xsl:stylesheet>
