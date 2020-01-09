@@ -66,7 +66,7 @@
   <xsl:template match="iati-activity[not(recipient-country or recipient-region)]" mode="rules" priority="3.7">
     <xsl:choose>
       <xsl:when test="not(transaction[recipient-country or recipient-region])">
-        <me:feedback type="danger" class="geo" id="3.7.1">
+        <me:feedback type="warning" class="geo" id="3.7.1">
           <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view"/>
           <me:message>The activity should have recipient-country or recipient-region information for either the activity or for all transactions.</me:message>
         </me:feedback>
