@@ -103,7 +103,7 @@
     <xsl:next-match/>
   </xsl:template>
     
-  <xsl:template match="reporting-org/@ref" mode="rules" priority="1.14">
+  <xsl:template match="iati-activity/reporting-org/@ref" mode="rules" priority="1.14">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
@@ -114,6 +114,17 @@
     <xsl:next-match/>
   </xsl:template>
   
+  <xsl:template match="iati-organisation/reporting-org/@ref" mode="rules" priority="1.18">
+    <xsl:call-template name="identifier_check">
+      <xsl:with-param name="item" select="."/>
+      <xsl:with-param name="class">identifiers</xsl:with-param>
+      <xsl:with-param name="idclass">1.18</xsl:with-param>
+      <xsl:with-param name="href">https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/</xsl:with-param>
+      <xsl:with-param name="identifier">reporting-org identifier</xsl:with-param>
+    </xsl:call-template>
+    <xsl:next-match/>
+  </xsl:template>
+
   <xsl:template match="participating-org/@ref" mode="rules" priority="1.8">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
