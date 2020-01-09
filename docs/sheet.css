@@ -1,0 +1,141 @@
+a {
+  text-decoration: none
+}
+
+a:link {
+  color: #15c
+}
+
+a:visited {
+  color: #61c
+}
+
+a:active {
+  color: #d14836
+}
+
+a:hover {
+  text-decoration: underline
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-weight: normal;
+  font-size: 13px;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  margin: 0
+}
+
+html {
+  overflow: hidden
+}
+
+.grid-container {
+  background-color: #eee;
+  overflow: hidden;
+  position: relative;
+  z-index: 0
+}
+
+.grid-table-container {
+  overflow: hidden;
+  z-index: 3;
+  position: relative
+}
+
+.ritz.grid-container table.waffle svg {
+  display: block
+}
+
+.fixed-table-container {
+  overflow: visible;
+  z-index: 4
+}
+
+.cell-border {
+  line-height: 1px
+}
+
+.waffle td,
+.grid-fixed-table td {
+  overflow: hidden;
+  border: 1px #e5e5e5 solid;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-width: 0 1px 1px 0;
+  vertical-align: bottom;
+  line-height: inherit;
+  background-color: #fff;
+  padding: 0 3px
+}
+
+.waffle-ltr td,
+.grid-fixed-table-ltr td {
+  border-width: 0 1px 1px 0
+}
+
+.waffle-rtl td,
+.grid-fixed-table-rtl td {
+  border-width: 0 0 1px 1px
+}
+
+.waffle th,
+.grid-fixed-table th {
+  font-weight: normal;
+  background: transparent;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 8pt;
+  color: #222;
+  height: 23px;
+  border: solid 1px #ccc;
+  border-width: 0 1px 1px 0;
+  overflow: hidden;
+  padding: 0
+}
+
+.waffle-ltr th,
+.grid-fixed-table-ltr th {
+  border-width: 0 1px 1px 0
+}
+
+.no-grid td {
+  border: solid 1px rgb(255, 255, 255);
+  border: solid 1px rgba(204, 204, 204, 0);
+  border-width: 0 1px 1px 0
+}
+
+th.row-header {
+  background-color: #eee;
+  width: 45px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 8pt;
+  color: #333;
+  line-height: inherit;
+  overflow: hidden
+}
+
+tr.column-header-row {
+  height: 23px
+}
+
+.row-header,
+.row-header-shim {
+  background: #f8f9fa
+}
+
+div.column-headers-background,
+th.column-headers-background,
+div.row-headers-background,
+th.row-headers-background {
+  background: #f8f9fa;
+  color: #5f6368;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif
+}
+
+.grid-container {
+  height: 100%;
+  width: 100%;
+  overflow: auto
+}

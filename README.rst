@@ -1,10 +1,16 @@
 IATI-Rulesets
 ^^^^^^^^^^^^^
 
-.. image:: https://travis-ci.org/data4development/IATI-Rulesets.svg?branch=migrate-to-xslt-rules
-    :target: https://travis-ci.org/data4development/IATI-Rulesets
-.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+.. |license| image:: https://img.shields.io/badge/license-MIT-blue.svg
     :target: https://github.com/IATI/IATI-Rulesets/blob/version-2.01/LICENSE
+
+.. |master| image:: https://travis-ci.org/data4development/IATI-Rulesets.svg?branch=master
+    :target: https://travis-ci.org/data4development/IATI-Rulesets
+
+.. |develop| image:: https://travis-ci.org/data4development/IATI-Rulesets.svg?branch=develop
+    :target: https://travis-ci.org/data4development/IATI-Rulesets
+
+master |master| - develop |develop| - |license|
 
 Introduction
 ============

@@ -6,9 +6,6 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
-  <xsl:variable name="known-publisher-ids" select="doc('../../var/known-publishers.xml')//code"/>
-  <xsl:variable name="org-id-prefixes" select="doc('../../var/known-orgid-prefixes.xml')//code"/>
-  
   <xsl:template match="iati-identifier" mode="rules" priority="1.1">
     <xsl:param name="iati-version" tunnel="yes"/>
     
@@ -38,12 +35,6 @@
           <me:message>The activity identifier's prefix and suffix should be separated by a hyphen e.g. XM-DAC-2222</me:message>
         </me:feedback>
       </xsl:when>
-<!--      <xsl:when test="not(some $known-id in $known-publisher-ids satisfies starts-with(., $known-id || '-'))">
-        <me:feedback type="warning" class="identifiers" id="1.3.11">
-          <me:src ref="iati" versions="2.x"/>
-          <me:message>The activity identifier should begin with an organisation identifier approved by the IATI registry.</me:message>
-        </me:feedback>
-      </xsl:when>-->
     </xsl:choose>
 
     <!-- TODO move this to an activity file-level test -->
@@ -57,34 +48,13 @@
     <xsl:next-match/>
   </xsl:template>
     
-  <!-- Checks on the identifiers of organisations or activities -->
-
-  <xsl:template match="reporting-org" mode="rules" priority="1.7">
-    
+  <xsl:template match="reporting-org" mode="rules" priority="1.7">    
     <xsl:choose>
       <xsl:when test="not(@ref)">
         <me:feedback type="danger" class="identifiers" id="1.7.2">
           <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/reporting-org/')}"/>
           <me:message>Organisation Identifier must be present.</me:message>
         </me:feedback>      
-      </xsl:when>
-      
-      <!-- skip publisher ids approved by the Registry -->
-      <xsl:when test="@ref=$known-publisher-ids"/>
-      
-<!--
-      <xsl:when test="not(@ref=$known-publisher-ids)">
-        <me:feedback type="warning" class="identifiers" id="1.14.12">
-          <me:src ref="iati" versions="2.x"/>
-          <me:message>The activity's organisation identifier should be an organisation identifier approved by the IATI registry.</me:message>
-        </me:feedback>
-      </xsl:when>
--->
-      <xsl:when test="not(some $prefix in $org-id-prefixes satisfies starts-with(@ref, $prefix||'-'))">
-        <me:feedback type="warning" class="identifiers" id="1.14.8">
-          <me:src ref="iati" versions="2.x" href="http://org-id.guide"/>
-          <me:message>The identifier does not start with a known prefix.</me:message>
-        </me:feedback>
       </xsl:when>
     </xsl:choose>
     
@@ -103,7 +73,7 @@
     <xsl:next-match/>
   </xsl:template>
     
-  <xsl:template match="reporting-org/@ref" mode="rules" priority="1.14">
+  <xsl:template match="iati-activity/reporting-org/@ref" mode="rules" priority="1.14">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
@@ -114,6 +84,17 @@
     <xsl:next-match/>
   </xsl:template>
   
+  <xsl:template match="iati-organisation/reporting-org/@ref" mode="rules" priority="1.18">
+    <xsl:call-template name="identifier_check">
+      <xsl:with-param name="item" select="."/>
+      <xsl:with-param name="class">identifiers</xsl:with-param>
+      <xsl:with-param name="idclass">1.18</xsl:with-param>
+      <xsl:with-param name="href">https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/</xsl:with-param>
+      <xsl:with-param name="identifier">reporting-org identifier</xsl:with-param>
+    </xsl:call-template>
+    <xsl:next-match/>
+  </xsl:template>
+
   <xsl:template match="participating-org/@ref" mode="rules" priority="1.8">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
@@ -124,7 +105,7 @@
   </xsl:template>
   
   <xsl:template match="@activity-id" mode="rules" priority="1.9">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">participating</xsl:with-param>
       <xsl:with-param name="idclass">1.9</xsl:with-param>
@@ -133,7 +114,7 @@
   </xsl:template>
   
   <xsl:template match="@provider-activity-id" mode="rules" priority="1.4">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">financial</xsl:with-param>
       <xsl:with-param name="idclass">1.4</xsl:with-param>
@@ -142,7 +123,7 @@
   </xsl:template>
   
   <xsl:template match="@receiver-activity-id" mode="rules" priority="1.5">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">financial</xsl:with-param>
       <xsl:with-param name="idclass">1.5</xsl:with-param>
@@ -162,14 +143,14 @@
   <xsl:template match="receiver-org/@ref" mode="rules" priority="1.15">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
-      <xsl:with-param name="class">organisation</xsl:with-param>
+      <xsl:with-param name="class">financial</xsl:with-param>
       <xsl:with-param name="idclass">1.15</xsl:with-param>
     </xsl:call-template>
     <xsl:next-match/>
   </xsl:template>
   
   <xsl:template match="other-identifier[upper-case(@type)=('A3')]/@ref" mode="rules" priority="1.6">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.6</xsl:with-param>
@@ -178,8 +159,7 @@
   </xsl:template>
 
   <xsl:template match="other-identifier[upper-case(@type)=('B1')]/@ref" mode="rules" priority="1.16">
-    <!-- TODO hack for now: use activity identifier check so it only checks for leading/trailing whitespace, not for unwanted characters (as for other organisation identifiers) -->
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.16</xsl:with-param>
@@ -190,19 +170,27 @@
   <xsl:template match="owner-org/@ref" mode="rules" priority="1.11">
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
-      <xsl:with-param name="class">participating</xsl:with-param>
+      <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.11</xsl:with-param>
     </xsl:call-template>
     <xsl:next-match/>
   </xsl:template>
     
   <xsl:template match="related-activity/@ref" mode="rules" priority="1.7">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
-      <xsl:with-param name="class">identifiers</xsl:with-param>
+      <xsl:with-param name="class">relations</xsl:with-param>
       <xsl:with-param name="idclass">1.7</xsl:with-param>
     </xsl:call-template>
     <xsl:next-match/>
   </xsl:template>
   
+  <xsl:template match="recipient-org/@ref" mode="rules" priority="1.17">
+    <xsl:call-template name="identifier_check">
+      <xsl:with-param name="item" select="."/>
+      <xsl:with-param name="class">organisation</xsl:with-param>
+      <xsl:with-param name="idclass">1.17</xsl:with-param>
+    </xsl:call-template>
+    <xsl:next-match/>
+  </xsl:template>
 </xsl:stylesheet>

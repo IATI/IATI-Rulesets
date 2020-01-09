@@ -15,8 +15,6 @@
           </transaction>
           <other-identifier type="A3" ref="
               CDE "/>
-          <other-identifier type="B1" ref="
-              CDE "/>
           <related-activity ref=" 123 "/>
         </iati-activity>
         <iati-activity>
@@ -34,12 +32,24 @@
       <x:expect label="It should be severity 'warning'." test="boolean(//provider-org/me:feedback[@id='1.4.1']/@type='warning')"/>
       <x:expect label="It should produce message 1.5.1 for receiver-org." test="boolean(//receiver-org/me:feedback[@id='1.5.1'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//receiver-org/me:feedback[@id='1.5.1']/@type='warning')"/>
-      <x:expect label="It should produce message 1.6.1 for other-identifier type A3." test="boolean(//other-identifier[1]/me:feedback[@id='1.6.1'])"/>
-      <x:expect label="It should be severity 'warning'." test="boolean(//other-identifier[1]/me:feedback[@id='1.6.1']/@type='warning')"/>
-      <x:expect label="It should produce message 1.16.1 for other-identifier type B1." test="boolean(//other-identifier[2]/me:feedback[@id='1.16.1'])"/>
-      <x:expect label="It should be severity 'warning'." test="boolean(//other-identifier[2]/me:feedback[@id='1.16.1']/@type='warning')"/>
+      <x:expect label="It should produce message 1.6.1 for other-identifier type A3." test="boolean(//other-identifier/me:feedback[@id='1.6.1'])"/>
+      <x:expect label="It should be severity 'warning'." test="boolean(//other-identifier/me:feedback[@id='1.6.1']/@type='warning')"/>
       <x:expect label="It should produce message 1.7.1 for related-activity." test="boolean(//related-activity/me:feedback[@id='1.7.1'])"/>
       <x:expect label="It should be severity 'warning'." test="boolean(//related-activity/me:feedback[@id='1.7.1']/@type='warning')"/>
+    </x:scenario>
+
+    <x:scenario label="If an organisation identifier is in the Registry and contains forbidden characters">
+      <x:context>
+        <iati-activity>
+          <iati-identifier>KE-NCB-OP/218/051/924/84-AB&amp;C</iati-identifier>
+        </iati-activity>
+        <iati-activity>
+          <iati-identifier>KE-NCB-OP/218/051/924/84-X/YZ</iati-identifier>
+        </iati-activity>
+      </x:context>
+      
+      <x:expect label="It should not produce message 1.3.13 for activity 1." test="not(//iati-activity[1]//me:feedback[@id='1.3.13'])"/>
+      <x:expect label="It should not produce message 1.3.13 for activity 2." test="not(//iati-activity[2]//me:feedback[@id='1.3.13'])"/>
     </x:scenario>
     
     <x:scenario label="If an activity identifier contains forbidden characters">
@@ -57,48 +67,6 @@
       <x:expect label="It should produce message 1.3.13 for activity 2." test="boolean(//iati-activity[2]//me:feedback[@id='1.3.13'])"/>
       <x:expect label="It should be severity 'error'." test="boolean(//iati-activity[2]//me:feedback[@id='1.3.13']/@type='warning')"/>
     </x:scenario>
-
-    <x:scenario label="If a related activity identifier contains leading or trailing spaces">
-      <x:context>
-        <iati-activity>
-          <related-activity ref=" ABC"/>
-          <related-activity ref="XYZ "/>
-        </iati-activity>
-      </x:context>
-      
-      <x:expect label="It should produce message 1.7.1 for activity 1." test="boolean(//related-activity[1]//me:feedback[@id='1.7.1'])"/>
-      <x:expect label="It should be severity 'error'." test="boolean(//related-activity[1]//me:feedback[@id='1.7.1']/@type='warning')"/>
-      <x:expect label="It should produce message 1.7.1 for activity 2." test="boolean(//related-activity[2]//me:feedback[@id='1.7.1'])"/>
-      <x:expect label="It should be severity 'error'." test="boolean(//related-activity[2]//me:feedback[@id='1.7.1']/@type='warning')"/>
-    </x:scenario>
-    
-<!-- disabled: no test for special characters on activity identifiers other than <iati-identifier>
-    <x:scenario label="If a related activity identifier contains forbidden characters">
-      <x:context>
-        <iati-activity>
-          <related-activity ref="AB&amp;C"/>
-          <related-activity ref="X/YZ"/>
-        </iati-activity>
-      </x:context>
-      
-      <x:expect label="It should produce message 1.7.13 for activity 1." test="boolean(//related-activity[1]//me:feedback[@id='1.7.13'])"/>
-      <x:expect label="It should be severity 'warning'." test="boolean(//related-activity[1]//me:feedback[@id='1.7.13']/@type='warning')"/>
-      <x:expect label="It should produce message 1.7.13 for activity 2." test="boolean(//related-activity[2]//me:feedback[@id='1.7.13'])"/>
-      <x:expect label="It should be severity 'warning'." test="boolean(//related-activity[2]//me:feedback[@id='1.7.13']/@type='warning')"/>
-    </x:scenario>
-
-    <x:scenario label="If the activity identifier does not start with an organisation identifier approved by the IATI Registry">
-      <x:context>
-        <iati-activity>
-          <iati-identifier>GB-GOV-12345-ABC</iati-identifier>
-          <reporting-org ref="GB-GOV-12345"/>
-        </iati-activity>
-      </x:context>
-      
-      <x:expect label="It should produce message 1.3.11 for iati-identifier." test="boolean(//iati-identifier/me:feedback[@id='1.3.11'])"/>
-      <x:expect label="It should be severity 'warning'." test="boolean(//iati-identifier/me:feedback[@id='1.3.11']/@type='warning')"/>
-    </x:scenario>
--->  
     
     <x:scenario label="If an IATI activity identifier does not start with the organisation identifier, a dash and additional identification">
       <x:context>
