@@ -120,7 +120,7 @@
   </xsl:template>
   
   <xsl:template match="@activity-id" mode="rules" priority="1.9">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">participating</xsl:with-param>
       <xsl:with-param name="idclass">1.9</xsl:with-param>
@@ -129,7 +129,7 @@
   </xsl:template>
   
   <xsl:template match="@provider-activity-id" mode="rules" priority="1.4">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">financial</xsl:with-param>
       <xsl:with-param name="idclass">1.4</xsl:with-param>
@@ -138,7 +138,7 @@
   </xsl:template>
   
   <xsl:template match="@receiver-activity-id" mode="rules" priority="1.5">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">financial</xsl:with-param>
       <xsl:with-param name="idclass">1.5</xsl:with-param>
@@ -165,7 +165,7 @@
   </xsl:template>
   
   <xsl:template match="other-identifier[upper-case(@type)=('A3')]/@ref" mode="rules" priority="1.6">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.6</xsl:with-param>
@@ -175,7 +175,7 @@
 
   <xsl:template match="other-identifier[upper-case(@type)=('B1')]/@ref" mode="rules" priority="1.16">
     <!-- TODO hack for now: use activity identifier check so it only checks for leading/trailing whitespace, not for unwanted characters (as for other organisation identifiers) -->
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
       <xsl:with-param name="idclass">1.16</xsl:with-param>
@@ -193,7 +193,7 @@
   </xsl:template>
     
   <xsl:template match="related-activity/@ref" mode="rules" priority="1.7">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">relations</xsl:with-param>
       <xsl:with-param name="idclass">1.7</xsl:with-param>
@@ -202,7 +202,7 @@
   </xsl:template>
   
   <xsl:template match="recipient-org/@ref" mode="rules" priority="1.17">
-    <xsl:call-template name="act_identifier_check">
+    <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">organisation</xsl:with-param>
       <xsl:with-param name="idclass">1.17</xsl:with-param>

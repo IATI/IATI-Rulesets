@@ -30,8 +30,8 @@
       </xsl:when>
     </xsl:choose>
    
-    <!-- skip publisher ids approved by the Registry -->
-    <xsl:if test="not($item=$known-publisher-ids)">
+    <!-- skip publisher ids approved by the Registry and do only for particular identifier classes -->
+    <xsl:if test="not($item=$known-publisher-ids) and $idclass=('1.3', '1.8', '1.10', '1.11', '1.12', '1.14', '1.15', '1.18')">
       <xsl:choose>
         <xsl:when test="matches($item, '[/&amp;|?]')">
           <me:feedback type="warning" class="{$class}" id="{$idclass}.13">
@@ -62,22 +62,4 @@
       </xsl:if>
     </xsl:if>
   </xsl:template>
-
-  <xsl:template name="act_identifier_check">
-    <xsl:param name="item"/>
-    <xsl:param name="class"/>
-    <xsl:param name="idclass"/>
-    <xsl:param name="versions" select="'any'"/>
-    <xsl:param name="identifier" select="'identifier'"/>
-    
-    <xsl:choose>
-      <xsl:when test="$item != functx:trim($item)">
-        <me:feedback type="warning" class="{$class}" id="{$idclass}.1">
-          <me:src ref="iati" versions="{$versions}"/>
-          <me:message>The {$identifier} should not start or end with spaces or newlines.</me:message>
-        </me:feedback>
-      </xsl:when>
-    </xsl:choose>    
-  </xsl:template>
-  
 </xsl:stylesheet>
