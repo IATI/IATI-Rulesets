@@ -29,9 +29,13 @@
         </me:feedback>
       </xsl:when>
     </xsl:choose>
+    
+    <xsl:variable name="known" select="$item=$known-publisher-ids or
+      ($idclass=('1.3', '1.4', '1.5', '1.6', '1.7', '1.9') and 
+      (some $known-id in $known-publisher-ids satisfies starts-with($item, $known-id || '-')))"/>
    
     <!-- skip publisher ids approved by the Registry and do only for particular identifier classes -->
-    <xsl:if test="not($item=$known-publisher-ids) and $idclass=('1.3', '1.8', '1.10', '1.11', '1.12', '1.14', '1.15', '1.18')">
+    <xsl:if test="not($known) and $idclass=('1.3', '1.8', '1.10', '1.11', '1.12', '1.14', '1.15', '1.18')">
       <xsl:choose>
         <xsl:when test="matches($item, '[/&amp;|?]')">
           <me:feedback type="warning" class="{$class}" id="{$idclass}.13">

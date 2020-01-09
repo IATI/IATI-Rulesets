@@ -35,12 +35,6 @@
           <me:message>The activity identifier's prefix and suffix should be separated by a hyphen e.g. XM-DAC-2222</me:message>
         </me:feedback>
       </xsl:when>
-<!--      <xsl:when test="not(some $known-id in $known-publisher-ids satisfies starts-with(., $known-id || '-'))">
-        <me:feedback type="warning" class="identifiers" id="1.3.11">
-          <me:src ref="iati" versions="2.x"/>
-          <me:message>The activity identifier should begin with an organisation identifier approved by the IATI registry.</me:message>
-        </me:feedback>
-      </xsl:when>-->
     </xsl:choose>
 
     <!-- TODO move this to an activity file-level test -->
@@ -62,15 +56,6 @@
           <me:message>Organisation Identifier must be present.</me:message>
         </me:feedback>      
       </xsl:when>
-      
-<!--
-      <xsl:when test="not(@ref=$known-publisher-ids)">
-        <me:feedback type="warning" class="identifiers" id="1.14.12">
-          <me:src ref="iati" versions="2.x"/>
-          <me:message>The activity's organisation identifier should be an organisation identifier approved by the IATI registry.</me:message>
-        </me:feedback>
-      </xsl:when>
--->
     </xsl:choose>
     
     <xsl:next-match/>
@@ -174,7 +159,6 @@
   </xsl:template>
 
   <xsl:template match="other-identifier[upper-case(@type)=('B1')]/@ref" mode="rules" priority="1.16">
-    <!-- TODO hack for now: use activity identifier check so it only checks for leading/trailing whitespace, not for unwanted characters (as for other organisation identifiers) -->
     <xsl:call-template name="identifier_check">
       <xsl:with-param name="item" select="."/>
       <xsl:with-param name="class">identifiers</xsl:with-param>
