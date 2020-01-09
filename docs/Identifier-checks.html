@@ -1,0 +1,359 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link type="text/css" rel="stylesheet" href="sheet.css">
+<style type="text/css">
+  .ritz .waffle a {
+    color: inherit;
+  }
+
+  .ritz .waffle .s1 {
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: 'docs-Calibri', Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+
+  .ritz .waffle .s0 {
+    background-color: #ffffff;
+    text-align: left;
+    color: #000000;
+    font-family: 'docs-Calibri', Arial;
+    font-size: 10pt;
+    vertical-align: top;
+    white-space: normal;
+    overflow: hidden;
+    word-wrap: break-word;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+
+  .ritz .waffle .s5 {
+    background-color: #ffffff;
+    text-align: center;
+    color: #000000;
+    font-family: 'docs-Calibri', Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+
+  .ritz .waffle .s3 {
+    background-color: #9bbb59;
+    text-align: left;
+    color: #000000;
+    font-family: 'docs-Calibri', Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+
+  .ritz .waffle .s4 {
+    background-color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    color: #000000;
+    font-family: 'docs-Calibri', Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+
+  .ritz .waffle .s2 {
+    background-color: #ff9900;
+    text-align: center;
+    color: #000000;
+    font-family: 'docs-Calibri', Arial;
+    font-size: 10pt;
+    vertical-align: bottom;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 0px 3px 0px 3px;
+  }
+</style>
+<div class="ritz grid-container" dir="ltr">
+  <h1>IATI identifier checks</h1>
+  <p>There are checks for <em>activity identifiers</em> and for <em>organisation identifiers</em>.</p>
+  <p>The organisation identifiers can occur both in <em>activity files</em> and <em>organisation files</em>.</p>
+  <p>For each element or attribute, the tests are performed going left to right.</p>
+  <p>So an occurrence of an identifier may lead to multiple feedback messages. 
+    For example: a reporting organisation that does not yet occur in the list downloaded from the registry may have three messages:</p>
+    <ul>
+      <li>A warning about leading or trailing whitespace.</li>
+      <li>A warning about forbidden symbols or characters in the identifier.</li>
+      <li>A warning there is no known identifier prefix that matches the identifier.</li>
+    </ul>
+  <table class="waffle" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th class="row-header freezebar-origin-ltr"></th>
+        <th id="166223112C0" style="width:100px" class="column-headers-background">A</th>
+        <th id="166223112C1" style="width:115px" class="column-headers-background">B</th>
+        <th id="166223112C2" style="width:293px" class="column-headers-background">C</th>
+        <th id="166223112C3" style="width:120px" class="column-headers-background">D</th>
+        <th id="166223112C4" style="width:120px" class="column-headers-background">E</th>
+        <th id="166223112C5" style="width:120px" class="column-headers-background">F</th>
+        <th id="166223112C6" style="width:120px" class="column-headers-background">G</th>
+        <th id="166223112C7" style="width:120px" class="column-headers-background">H</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style='height:19px;'>
+        <th id="166223112R1" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">2</div>
+        </th>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0"></td>
+        <td class="s0" dir="ltr">IF leading or trailing whitespace:</td>
+        <td class="s0"></td>
+        <td class="s0" dir="ltr">IF activity id starts with an organisation id in the Registry</td>
+        <td class="s0" dir="ltr">IF it contains forbidden characters</td>
+        <td class="s0" dir="ltr">IF it does not start with a known prefix</td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R2" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">3</div>
+        </th>
+        <td class="s1" dir="ltr">activity id</td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s1" dir="ltr">@activity-id</td>
+        <td class="s2" dir="ltr">1.9.1</td>
+        <td class="s3" dir="ltr">no further tests</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R3" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">4</div>
+        </th>
+        <td></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s1" dir="ltr">@provider-activity-id</td>
+        <td class="s2" dir="ltr">1.4.1</td>
+        <td class="s3" dir="ltr">no further tests</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R4" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">5</div>
+        </th>
+        <td class="s1" dir="ltr"></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s1" dir="ltr">@receiver-activity-id</td>
+        <td class="s2" dir="ltr">1.5.1</td>
+        <td class="s3" dir="ltr">no further tests</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R5" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">6</div>
+        </th>
+        <td class="s1" dir="ltr"></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s4" dir="ltr">iati-identifier</td>
+        <td class="s2" dir="ltr">1.3.1</td>
+        <td class="s1" dir="ltr"></td>
+        <td class="s3" dir="ltr">accept, no further tests</td>
+        <td class="s2" dir="ltr">1.3.13</td>
+        <td class="s5" dir="ltr"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R6" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">7</div>
+        </th>
+        <td class="s1" dir="ltr"></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s4" dir="ltr">other-identifier[upper-case(@type)=(&#39;A3&#39;)]/@ref</td>
+        <td class="s2" dir="ltr">1.6.1</td>
+        <td class="s3" dir="ltr">no further tests</td>
+        <td></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R7" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">8</div>
+        </th>
+        <td class="s1" dir="ltr"></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s1" dir="ltr">related-activity/@ref</td>
+        <td class="s2" dir="ltr">1.7.1</td>
+        <td class="s3" dir="ltr">no further tests</td>
+        <td></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R8" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">9</div>
+        </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s5"></td>
+        <td></td>
+        <td></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R9" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">10</div>
+        </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s5"></td>
+        <td></td>
+        <td class="s0" dir="ltr">IF organisation id is in the Registry</td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R10" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">11</div>
+        </th>
+        <td class="s1" dir="ltr">organisation id</td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s4" dir="ltr">other-identifier[upper-case(@type)=(&#39;B1&#39;)]/@ref</td>
+        <td class="s2" dir="ltr">1.16.1</td>
+        <td class="s3" dir="ltr">no further tests</td>
+        <td></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R11" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">12</div>
+        </th>
+        <td></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s1" dir="ltr">owner-org/@ref</td>
+        <td class="s2" dir="ltr">1.11.1</td>
+        <td class="s1" dir="ltr"></td>
+        <td class="s3" dir="ltr">accept, no further tests</td>
+        <td class="s2" dir="ltr">1.11.13</td>
+        <td class="s5" dir="ltr"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R12" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">13</div>
+        </th>
+        <td class="s1" dir="ltr"></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s1" dir="ltr">participating-org/@ref</td>
+        <td class="s2" dir="ltr">1.8.1</td>
+        <td class="s1" dir="ltr"></td>
+        <td class="s3" dir="ltr">accept, no further tests</td>
+        <td class="s2" dir="ltr">1.8.13</td>
+        <td class="s5" dir="ltr"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R13" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">14</div>
+        </th>
+        <td></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s1" dir="ltr">provider-org/@ref</td>
+        <td class="s2" dir="ltr">1.10.1</td>
+        <td class="s1" dir="ltr"></td>
+        <td class="s3" dir="ltr">accept, no further tests</td>
+        <td class="s2" dir="ltr">1.10.13</td>
+        <td class="s5" dir="ltr"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R14" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">15</div>
+        </th>
+        <td></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s1" dir="ltr">receiver-org/@ref</td>
+        <td class="s2" dir="ltr">1.15.1</td>
+        <td class="s1" dir="ltr"></td>
+        <td class="s3" dir="ltr">accept, no further tests</td>
+        <td class="s2" dir="ltr">1.15.13</td>
+        <td class="s5" dir="ltr"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R15" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">16</div>
+        </th>
+        <td></td>
+        <td class="s1" dir="ltr">activity file</td>
+        <td class="s4" dir="ltr">reporting-org/@ref</td>
+        <td class="s2" dir="ltr">1.14.1</td>
+        <td class="s1" dir="ltr"></td>
+        <td class="s3" dir="ltr">accept, no further tests</td>
+        <td class="s2" dir="ltr">1.14.13</td>
+        <td class="s2" dir="ltr">1.14.8</td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R16" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">17</div>
+        </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="s5"></td>
+        <td></td>
+        <td></td>
+        <td class="s5"></td>
+        <td class="s5"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R17" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">18</div>
+        </th>
+        <td></td>
+        <td class="s1" dir="ltr">organisation file</td>
+        <td class="s4" dir="ltr">organisation-identifier</td>
+        <td class="s2" dir="ltr">1.12.1</td>
+        <td class="s1" dir="ltr"></td>
+        <td class="s3" dir="ltr">accept, no further tests</td>
+        <td class="s2" dir="ltr">1.12.13</td>
+        <td class="s5" dir="ltr"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R18" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">19</div>
+        </th>
+        <td></td>
+        <td class="s1" dir="ltr">organisation file</td>
+        <td class="s1" dir="ltr">recipient-org/@ref</td>
+        <td class="s2" dir="ltr">1.17.1</td>
+        <td class="s3" dir="ltr">no further tests</td>
+        <td></td>
+        <td class="s5" dir="ltr"></td>
+        <td class="s5" dir="ltr"></td>
+      </tr>
+      <tr style='height:19px;'>
+        <th id="166223112R19" style="height: 19px;" class="row-headers-background">
+          <div class="row-header-wrapper" style="line-height: 19px;">20</div>
+        </th>
+        <td class="s1" dir="ltr"></td>
+        <td class="s1" dir="ltr">organisation file</td>
+        <td class="s4" dir="ltr">reporting-org/@ref</td>
+        <td class="s2" dir="ltr">1.18.1</td>
+        <td class="s1" dir="ltr"></td>
+        <td class="s3" dir="ltr">accept, no further tests</td>
+        <td class="s2" dir="ltr">1.18.13</td>
+        <td class="s2" dir="ltr">1.18.8</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
