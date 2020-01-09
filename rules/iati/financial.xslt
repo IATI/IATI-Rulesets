@@ -51,7 +51,8 @@
 
   <xsl:template match="value|loan-status|forecast" mode="rules" priority="7.8">
     <xsl:if test="(not(@currency) or currency='')
-      and (not(ancestor::iati-activity/@default-currency) or ancestor::iati-activity/@default-currency='')">
+      and (not(ancestor::iati-activity/@default-currency) or ancestor::iati-activity/@default-currency='')
+      and (not(ancestor::iati-organisation/@default-currency) or ancestor::iati-organisation/@default-currency='')">
       <me:feedback type="danger" class="financial" id="7.8.1">
         <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Currency/')}"/>
         <me:message>The Value must have a specified Currency, or the Activity must have a default Currency.</me:message>
