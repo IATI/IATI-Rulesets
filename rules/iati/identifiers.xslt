@@ -6,9 +6,6 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
-  <xsl:variable name="known-publisher-ids" select="doc('../../var/known-publishers.xml')//code"/>
-  <xsl:variable name="org-id-prefixes" select="doc('../../var/known-orgid-prefixes.xml')//code"/>
-  
   <xsl:template match="iati-identifier" mode="rules" priority="1.1">
     <xsl:param name="iati-version" tunnel="yes"/>
     
@@ -57,10 +54,7 @@
     <xsl:next-match/>
   </xsl:template>
     
-  <!-- Checks on the identifiers of organisations or activities -->
-
-  <xsl:template match="reporting-org" mode="rules" priority="1.7">
-    
+  <xsl:template match="reporting-org" mode="rules" priority="1.7">    
     <xsl:choose>
       <xsl:when test="not(@ref)">
         <me:feedback type="danger" class="identifiers" id="1.7.2">
@@ -68,9 +62,6 @@
           <me:message>Organisation Identifier must be present.</me:message>
         </me:feedback>      
       </xsl:when>
-      
-      <!-- skip publisher ids approved by the Registry -->
-      <xsl:when test="@ref=$known-publisher-ids"/>
       
 <!--
       <xsl:when test="not(@ref=$known-publisher-ids)">
@@ -80,12 +71,6 @@
         </me:feedback>
       </xsl:when>
 -->
-      <xsl:when test="not(some $prefix in $org-id-prefixes satisfies starts-with(@ref, $prefix||'-'))">
-        <me:feedback type="warning" class="identifiers" id="1.14.8">
-          <me:src ref="iati" versions="2.x" href="http://org-id.guide"/>
-          <me:message>The identifier does not start with a known prefix.</me:message>
-        </me:feedback>
-      </xsl:when>
     </xsl:choose>
     
     <xsl:next-match/>
