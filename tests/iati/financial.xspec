@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Financial">
+    <x:scenario label="If a financial value in an activity has no currency and there is a default currency">
+      <x:context>
+        <iati-activity default-currency="EUR">
+          <budget>
+            <value>123</value>
+          </budget>
+          <planned-disbursement>
+            <value>123</value>
+          </planned-disbursement>
+          <transaction>
+            <value>123</value>
+          </transaction>
+          <crs-add>
+            <loan-status/>
+          </crs-add>
+          <fss>
+            <forecast>123</forecast>
+          </fss>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should not produce message 7.8.1 for any financial value" test="not(//me:feedback[@id='7.8.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If a financial value in an activity has no currency and there is no default currency">
+      <x:context>
+        <iati-activity>
+          <budget>
+            <value>123</value>
+          </budget>
+          <planned-disbursement>
+            <value>123</value>
+          </planned-disbursement>
+          <transaction>
+            <value>123</value>
+          </transaction>
+          <crs-add>
+            <loan-status/>
+          </crs-add>
+          <fss>
+            <forecast>123</forecast>
+          </fss>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 7.8.1 for budget/value" test="boolean(//budget/value/me:feedback[@id='7.8.1'])"/>
+      <x:expect label="It should produce message 7.8.1 for planned-disbursement/value" test="boolean(//planned-disbursement/value/me:feedback[@id='7.8.1'])"/>
+      <x:expect label="It should produce message 7.8.1 for transaction/value" test="boolean(//transaction/value/me:feedback[@id='7.8.1'])"/>
+      <x:expect label="It should produce message 7.8.1 for crs-add/loan-status" test="boolean(//crs-add/loan-status/me:feedback[@id='7.8.1'])"/>
+      <x:expect label="It should produce message 7.8.1 for fss/forecast" test="boolean(//fss/forecast/me:feedback[@id='7.8.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If a financial value in an organisation has no currency and there is a default currency">
+      <x:context>
+        <iati-organisation default-currency="EUR">
+          <total-budget>
+            <value>123</value>
+            <budget-line>
+              <value>123</value>
+            </budget-line>
+          </total-budget>
+          <recipient-org-budget>
+            <value>123</value>
+            <budget-line>
+              <value>123</value>
+            </budget-line>
+          </recipient-org-budget>
+          <recipient-region-budget>
+            <value>123</value>
+            <budget-line>
+              <value>123</value>
+            </budget-line>
+          </recipient-region-budget>
+          <recipient-country-budget>
+            <value>123</value>
+            <budget-line>
+              <value>123</value>
+            </budget-line>
+          </recipient-country-budget>
+          <total-expenditure>
+            <value>123</value>
+            <expense-line>
+              <value>123</value>
+            </expense-line>
+          </total-expenditure>          
+        </iati-organisation>
+      </x:context>
+      <x:expect label="It should not produce message 7.8.1 for any financial value" test="not(//me:feedback[@id='7.8.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="If a financial value in an organisation has no currency and there is no default currency">
+      <x:context>
+        <iati-organisation>
+          <total-budget>
+            <value>123</value>
+            <budget-line>
+              <value>123</value>
+            </budget-line>
+          </total-budget>
+          <recipient-org-budget>
+            <value>123</value>
+            <budget-line>
+              <value>123</value>
+            </budget-line>
+          </recipient-org-budget>
+          <recipient-region-budget>
+            <value>123</value>
+            <budget-line>
+              <value>123</value>
+            </budget-line>
+          </recipient-region-budget>
+          <recipient-country-budget>
+            <value>123</value>
+            <budget-line>
+              <value>123</value>
+            </budget-line>
+          </recipient-country-budget>
+          <total-expenditure>
+            <value>123</value>
+            <expense-line>
+              <value>123</value>
+            </expense-line>
+          </total-expenditure>          
+        </iati-organisation>
+      </x:context>
+      <x:expect label="It should produce message 7.8.1 for total-budget/value" test="boolean(//total-budget/value/me:feedback[@id='7.8.1'])"/>
+      <x:expect label="It should produce message 7.8.1 for total-budget/budget-line/value" test="boolean(//total-budget/budget-line/value/me:feedback[@id='7.8.1'])"/>
+
+      <x:expect label="It should produce message 7.8.1 for recipient-org-budget/value" test="boolean(//recipient-org-budget/value/me:feedback[@id='7.8.1'])"/>
+      <x:expect label="It should produce message 7.8.1 for recipient-org-budget/budget-line/value" test="boolean(//recipient-org-budget/budget-line/value/me:feedback[@id='7.8.1'])"/>
+
+      <x:expect label="It should produce message 7.8.1 for recipient-region-budget/value" test="boolean(//recipient-region-budget/value/me:feedback[@id='7.8.1'])"/>
+      <x:expect label="It should produce message 7.8.1 for recipient-region-budget/budget-line/value" test="boolean(//recipient-region-budget/budget-line/value/me:feedback[@id='7.8.1'])"/>
+
+      <x:expect label="It should produce message 7.8.1 for recipient-country-budget/value" test="boolean(//recipient-country-budget/value/me:feedback[@id='7.8.1'])"/>
+      <x:expect label="It should produce message 7.8.1 for recipient-country-budget/budget-line/value" test="boolean(//recipient-country-budget/budget-line/value/me:feedback[@id='7.8.1'])"/>
+
+      <x:expect label="It should produce message 7.8.1 for total-expenditure/value" test="boolean(//total-expenditure/value/me:feedback[@id='7.8.1'])"/>
+      <x:expect label="It should produce message 7.8.1 for total-expenditure/expense-line/value" test="boolean(//total-expenditure/expense-line/value/me:feedback[@id='7.8.1'])"/>
+    </x:scenario>
+  </x:scenario>  
+  
+</x:description>
