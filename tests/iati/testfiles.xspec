@@ -494,13 +494,11 @@
       <x:expect label="It should produce error message 3.1.4."
         test="boolean(//me:feedback[@id='3.1.4'])"/>
     </x:scenario>
-    <!--
     <x:scenario label="#3.4.1 in ">
       <x:context href="testfiles/3.4.1.xml"/>
       <x:expect label="It should produce error message 3.4.1."
         test="boolean(//me:feedback[@id='3.4.1'])"/>
     </x:scenario>
-    -->
     <x:scenario label="#3.4.4 in ">
       <x:context href="testfiles/3.4.4.xml"/>
       <x:expect label="It should produce error message 3.4.4."
