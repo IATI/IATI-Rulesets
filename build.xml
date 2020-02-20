@@ -16,9 +16,10 @@
   <!-- TODO get known publishers from Datastore or Registry -->
   <target name="update-known-publishers">
     <mkdir dir="tmp"/>
-    <touch file="helpers/dummy.xml"/>
     <get src="http://www.dataworkbench.io/api/iati-publishers" dest="tmp/iati-publishers.json"/>
-    <xslt in="helpers/dummy.xml" out="var/known-publishers.xml" style="helpers/known-publishers.xslt"/>
+    <xslt out="var/known-publishers.xml"
+      in="helpers/known-publishers.xslt"
+      style="helpers/known-publishers.xslt"/>   
   </target>
   
   <target name="update-orgid-prefixes" >
