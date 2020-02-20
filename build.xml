@@ -42,4 +42,13 @@
       <param name="xspec.fail" value="false"/>
     </antcall>
   </target>
+
+  <target name="data-quality-rules-csv" description="Generate overview of the data quality rules as a CSV file.">
+    <echo level="info">Generate overview of the data quality rules as a CSV file.</echo>
+    <xslt in="rules/meta.xml" out="docs/data-quality-rules.csv" style="helpers/data-quality-rules-csv.xslt">
+      <factory name="net.sf.saxon.TransformerFactoryImpl">
+        <attribute name="http://saxon.sf.net/feature/suppressXsltNamespaceCheck" value="true"/>
+      </factory>
+    </xslt>
+  </target>
 </project>
