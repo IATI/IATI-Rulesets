@@ -20,6 +20,7 @@
    <code status="active">AF-MOE</code>
    <code status="active">AF-TIN</code>
    <code status="active">AL-QKB</code>
+   <code status="active">AM-SRALE</code>
    <code status="active">AR-CENOC</code>
    <code status="active">AR-CUIT</code>
    <code status="active">AT-FB</code>
@@ -82,6 +83,7 @@
    <code status="active">GB-GOR</code>
    <code status="active">GB-GOV</code>
    <code status="withdrawn">GB-GOVUK</code>
+   <code status="active">GB-HESA</code>
    <code status="active">GB-IRN</code>
    <code status="active">GB-LAE</code>
    <code status="active">GB-LANI</code>
@@ -92,9 +94,11 @@
    <code status="active">GB-PLA</code>
    <code status="active">GB-REV</code>
    <code status="active">GB-SC</code>
+   <code status="active">GB-SCOTEDU</code>
    <code status="active">GB-SHPE</code>
    <code status="active">GB-SRS</code>
    <code status="active">GB-UKPRN</code>
+   <code status="active">GB-WALEDU</code>
    <code status="active">GE-NAPR</code>
    <code status="active">GE-RS</code>
    <code status="active">GG-RCE</code>
@@ -102,6 +106,7 @@
    <code status="active">GH-RGD</code>
    <code status="active">GT-CISP</code>
    <code status="active">HK-CR</code>
+   <code status="active">HN-RTN</code>
    <code status="active">HR-MBS</code>
    <code status="active">HR-OIB</code>
    <code status="active">HU-AFA</code>
