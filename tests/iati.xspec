@@ -7,6 +7,7 @@
   <x:param name="iati-version">2.03</x:param>
 
   <x:import href="iati/xml-errors.xspec"/>
+  <x:import href="iati/iati-schema-errors.xspec"/>
   <x:import href="iati/iati-versions.xspec"/>
   <x:import href="iati/codelists.xspec"/>
   <x:import href="iati/dates.xspec"/>

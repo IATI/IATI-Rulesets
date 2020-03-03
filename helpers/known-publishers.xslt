@@ -9,7 +9,7 @@
 
   <xsl:include href="../lib/functx.xslt"/>
   
-  <xsl:template match="/">
+  <xsl:template match="xsl:stylesheet">
     <codelist>
       <xsl:apply-templates select="json-to-xml(unparsed-text('../tmp/iati-publishers.json'))//json:string[@key=('iati_id') and functx:trim(.)!='']">
         <xsl:sort select="functx:trim(.)"/>    

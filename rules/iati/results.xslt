@@ -22,7 +22,11 @@
   
   <xsl:template match="period" mode="rules" priority="8.6">
     
-    <xsl:if test="period-start/@iso-date gt period-end/@iso-date">
+    <xsl:if test="count(period-start/@iso-date)=1 and
+      period-start/@iso-date castable as xs:date and
+      count(period-end/@iso-date)=1 and
+      period-end/@iso-date castable as xs:date and
+      (period-start/@iso-date gt period-end/@iso-date)">
       <me:feedback type="danger" class="performance" id="8.6.1">
         <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/result/indicator/period/period-start/')}"/>
         <me:message>The start of the period must be before the end of the period.</me:message>
@@ -34,7 +38,11 @@
 
   <xsl:template match="budget|total-budget|total-expenditure|recipient-org-budget|recipient-country-budget|recipient-region-budget|planned-disbursement" mode="rules" priority="8.7">
     
-    <xsl:if test="period-start/@iso-date gt period-end/@iso-date">
+    <xsl:if test="count(period-start/@iso-date)=1 and
+      period-start/@iso-date castable as xs:date and
+      count(period-end/@iso-date)=1 and
+      period-end/@iso-date castable as xs:date and
+      (period-start/@iso-date gt period-end/@iso-date)">
       <me:feedback type="danger" class="financial" id="8.6.3">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1mv2Q666tKBOAoiy5JayslmZNetxDM1uu/view"/>
         <me:message>The start of the period must be before the end of the period.</me:message>
