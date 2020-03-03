@@ -19,7 +19,11 @@
   </xsl:template>
     
   <xsl:template match="budget|total-budget|total-expenditure|recipient-country-budget|recipient-region-budget|recipient-org-budget" mode="rules" priority="7.5">
-    <xsl:if test="xs:date(period-start/@iso-date) + xs:yearMonthDuration('P1Y') lt xs:date(period-end/@iso-date)">
+    <xsl:if test="count(period-start/@iso-date)=1 and
+      period-start/@iso-date castable as xs:date and
+      count(period-end/@iso-date)=1 and
+      period-end/@iso-date castable as xs:date and
+      (xs:date(period-start/@iso-date) + xs:yearMonthDuration('P1Y') lt xs:date(period-end/@iso-date))">
       <me:feedback type="danger" class="financial" id="7.5.3">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1JhMfO-f3Mldrs15OMlHTAUF9KixTUq5G/view"/>
         <me:message>Budget Period must not be longer than one year.</me:message>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+  
+  <x:scenario label="IATI data with schema errors">
+    <x:scenario label="If budget dates are empty">
+      <x:context>
+        <budget type="1" status="1">
+          <period-start iso-date=""/>
+          <period-end iso-date=""/>
+          <value currency="USD" value-date="">0.00</value>
+        </budget>
+      </x:context>
+      <x:expect label="It should not result in a budget period error" test="not(//me:feedback[@id='7.5.3'])"></x:expect>
+    </x:scenario>
+        
+    <x:scenario label="If there are multiple start/end dates for a budget">
+      <x:context>
+        <budget type="1" status="1">
+          <period-start iso-date=""/>
+          <period-end iso-date=""/>
+          <period-start iso-date=""/>
+          <period-end iso-date=""/>
+          <value value-date="">0.00</value>
+        </budget>
+      </x:context>
+      <x:expect label="It should not produce a period date error" test="not(//me:feedback[@id='7.5.3'])"></x:expect>
+    </x:scenario>
+
+    <x:scenario label="If there are multiple start/end dates for a result period">
+      <x:context>
+        <period>
+          <period-start iso-date="2020-07-01"/>
+          <period-end iso-date="2020-09-30"/>
+          <period-start iso-date="2020-04-01"/>
+          <period-end iso-date="2020-06-30"/>
+          <period-start iso-date="2020-01-01"/>
+          <period-end iso-date="2020-03-31"/>
+        </period>
+      </x:context>
+      <x:expect label="It should not produce a period date error" test="not(//me:feedback[@id='8.6.1'])"></x:expect>
+    </x:scenario>
+    
+    <x:scenario label="If the last-updated-datetime and/or the transaction date is empty">
+      <x:context>
+        <iati-activity last-updated-datetime="">          
+          <transaction>
+            <transaction-date iso-date=""/>
+            <value value-date="">0.00</value>
+          </transaction>
+        </iati-activity>
+      </x:context>
+    </x:scenario>
+  </x:scenario>
+    
+</x:description>
