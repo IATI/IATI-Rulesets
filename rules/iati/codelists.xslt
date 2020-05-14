@@ -13,6 +13,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Version/')}"/>
             <me:message>The IATI version of the dataset is not a valid version number.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -27,6 +28,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetNotProvided/')}"/>
             <me:message>The code to indicate why no budget is provided is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -41,6 +43,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The default currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -55,6 +58,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/ActivityDateType/')}"/>
             <me:message>The activity date type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -69,6 +73,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/ActivityStatus/')}"/>
             <me:message>The activity status code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -83,6 +88,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/ActivityScope/')}"/>
             <me:message>The activity scope code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -95,6 +101,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -107,6 +114,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetType/')}"/>
             <me:message>The budget type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -121,6 +129,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -135,6 +144,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/CollaborationType/')}"/>
             <me:message>The collaboration type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -149,6 +159,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/ConditionType/')}"/>
             <me:message>The condition type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -163,6 +174,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/ContactType/')}"/>
             <me:message>The contact information type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -177,6 +189,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetIdentifierVocabulary/')}"/>
             <me:message>The country budget identifier vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -192,6 +205,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetIdentifier/')}"/>
             <me:message>The country budget identifier does not exist.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -206,6 +220,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DescriptionType/')}"/>
             <me:message>The country budget item description type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -220,6 +235,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/CRSChannelCode/')}"/>
             <me:message>The CRS channel code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -234,6 +250,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/CRSAddOtherFlags/')}"/>
             <me:message>The CRS other flag code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -248,6 +265,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -262,6 +280,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/LoanRepaymentPeriod/')}"/>
             <me:message>The repayment plan code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -276,6 +295,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/LoanRepaymentType/')}"/>
             <me:message>The repayment type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -290,6 +310,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/AidType/')}"/>
             <me:message>The default aid type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -304,6 +325,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/AidTypeVocabulary/')}"/>
             <me:message>The default aid type vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -318,6 +340,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FinanceType/')}"/>
             <me:message>The default finance type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -332,6 +355,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FlowType/')}"/>
             <me:message>The default flow type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -346,6 +370,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/TiedStatus/')}"/>
             <me:message>The default tied aid status code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -360,6 +385,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DescriptionType/')}"/>
             <me:message>The description type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -374,6 +400,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -388,6 +415,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -402,6 +430,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The document language code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -416,6 +445,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -430,6 +460,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/HumanitarianScopeType/')}"/>
             <me:message>The humanitarian scope type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -444,6 +475,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/HumanitarianScopeVocabulary/')}"/>
             <me:message>The humanitarian scope vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -458,6 +490,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/GeographicVocabulary/')}"/>
             <me:message>The location's administrative vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -472,6 +505,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/LocationType/')}"/>
             <me:message>The location's feature designation code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -486,6 +520,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/GeographicLocationClass/')}"/>
             <me:message>The location class code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -500,6 +535,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/GeographicVocabulary/')}"/>
             <me:message>The location identifier vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -514,6 +550,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/GeographicLocationReach/')}"/>
             <me:message>The location reach code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -528,6 +565,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/GeographicExactness/')}"/>
             <me:message>The location exactness code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -542,6 +580,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/OtherIdentifierType/')}"/>
             <me:message>The "other identifier" type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -556,6 +595,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/CRSChannelCode/')}"/>
             <me:message>The CRS channel code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -570,6 +610,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/OrganisationRole/')}"/>
             <me:message>The organisation role is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -584,6 +625,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -598,6 +640,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetType/')}"/>
             <me:message>The planned disbursement budget type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -612,6 +655,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -626,6 +670,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -640,6 +685,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -654,6 +700,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/PolicyMarker/')}"/>
             <me:message>The policy marker code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -668,6 +715,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/PolicySignificance/')}"/>
             <me:message>The policy marker significance is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -682,6 +730,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/PolicyMarkerVocabulary/')}"/>
             <me:message>The policy marker vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -696,6 +745,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The recipient country code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -708,6 +758,7 @@
          <me:feedback type="danger" class="geo" id="9.51.1">
             <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Region/')}"/>
             <me:message>The recipient region code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -722,6 +773,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/RegionVocabulary/')}"/>
             <me:message>The recipient region vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -736,6 +788,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/RelatedActivityType/')}"/>
             <me:message>The related activity type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -750,6 +803,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -762,6 +816,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/ResultType/')}"/>
             <me:message>The result type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -776,6 +831,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DescriptionType/')}"/>
             <me:message>The result description type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -790,6 +846,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -804,6 +861,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -818,6 +876,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -832,6 +891,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/IndicatorMeasure/')}"/>
             <me:message>The indicator measure is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -846,6 +906,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -860,6 +921,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -874,6 +936,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -888,6 +951,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DescriptionType/')}"/>
             <me:message>The indicator description type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -902,6 +966,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -916,6 +981,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -930,6 +996,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -944,6 +1011,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -958,6 +1026,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -972,6 +1041,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -986,6 +1056,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1000,6 +1071,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1014,6 +1086,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1028,6 +1101,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/IndicatorVocabulary/')}"/>
             <me:message>The indicator reference code vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1042,6 +1116,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/ResultVocabulary/')}"/>
             <me:message>The result reference code vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1054,6 +1129,7 @@
          <me:feedback type="danger" class="classifications" id="9.76.1">
             <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Sector/')}"/>
             <me:message>The OECD DAC sector is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1068,6 +1144,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/SectorCategory/')}"/>
             <me:message>The OECD DAC category is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1082,6 +1159,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/SectorVocabulary/')}"/>
             <me:message>The sector vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1096,6 +1174,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/TagVocabulary/')}"/>
             <me:message>The tag vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1110,6 +1189,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/AidType/')}"/>
             <me:message>The aid type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1124,6 +1204,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/AidTypeVocabulary/')}"/>
             <me:message>The aid type vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1138,6 +1219,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DisbursementChannel/')}"/>
             <me:message>The disbursement channel code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1152,6 +1234,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FinanceType/')}"/>
             <me:message>The finance type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1166,6 +1249,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FlowType/')}"/>
             <me:message>The flow type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1180,6 +1264,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The recipient country code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1192,6 +1277,7 @@
          <me:feedback type="danger" class="financial" id="9.86.1">
             <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Region/')}"/>
             <me:message>The recipient region code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1206,6 +1292,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/RegionVocabulary/')}"/>
             <me:message>The recipient region vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1220,6 +1307,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1234,6 +1322,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1246,6 +1335,7 @@
          <me:feedback type="danger" class="financial" id="9.90.1">
             <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Sector/')}"/>
             <me:message>The OECD DAC sector is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1260,6 +1350,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/SectorVocabulary/')}"/>
             <me:message>The sector vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1274,6 +1365,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/TiedStatus/')}"/>
             <me:message>The tied status code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1288,6 +1380,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/TransactionType/')}"/>
             <me:message>The transaction type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1302,6 +1395,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1314,6 +1408,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1328,6 +1423,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1340,6 +1436,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Version/')}"/>
             <me:message>The IATI version of the dataset is not a valid version number.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1354,6 +1451,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/FileFormat/')}"/>
             <me:message>The document format is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1368,6 +1466,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/DocumentCategory/')}"/>
             <me:message>The document category code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1382,6 +1481,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Language/')}"/>
             <me:message>The language code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1396,6 +1496,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The recipient country code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1410,6 +1511,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1424,6 +1526,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The recipient country code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1438,6 +1541,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1452,6 +1556,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1466,6 +1571,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1480,6 +1586,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1492,6 +1599,7 @@
          <me:feedback type="danger" class="financial" id="9.108.1">
             <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Region/')}"/>
             <me:message>The recipient region budget code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1506,6 +1614,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/RegionVocabulary/')}"/>
             <me:message>The recipient region vocabulary is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1520,6 +1629,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1534,6 +1644,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1548,6 +1659,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/OrganisationType/')}"/>
             <me:message>The organisation type is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1562,6 +1674,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/BudgetStatus/')}"/>
             <me:message>The budget status is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1576,6 +1689,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1592,6 +1706,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/AidTypeFlag/')}"/>
             <me:message>The AidType flag is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1606,6 +1721,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Country/')}"/>
             <me:message>The country code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1620,6 +1736,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/GeographicalPrecision/')}"/>
             <me:message>The geographical precision code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1634,6 +1751,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/GazetteerAgency/')}"/>
             <me:message>The gazetteer agency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1648,6 +1766,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/LocationType/')}"/>
             <me:message>The location type code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1664,6 +1783,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1678,6 +1798,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/Currency/')}"/>
             <me:message>The currency code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1692,6 +1813,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/SectorCategory/')}"/>
             <me:message>The DAC3 sector code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1706,6 +1828,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/UNSDG-Goals/')}"/>
             <me:message>The UNSDG goal code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1720,6 +1843,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/UNSDG-Targets/')}"/>
             <me:message>The UNSDG target code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1734,6 +1858,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/EarmarkingCategory/')}"/>
             <me:message>The earmarking category code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>
@@ -1748,6 +1873,7 @@
                     versions="any"
                     href="{me:iati-url('codelists/CashandVoucherModalities/')}"/>
             <me:message>The cash and voucher modality code is invalid.</me:message>
+            <me:diagnostic>For value {.}</me:diagnostic>
          </me:feedback>
       </xsl:if>
       <xsl:next-match/>

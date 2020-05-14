@@ -51,6 +51,7 @@
                 </xsl:attribute>                
               </me:src>
               <me:message>{($message, $default)[1]}</me:message>
+              <me:diagnostic xsl:expand-text="false">For value {.}</me:diagnostic>
             </me:feedback>
           </axsl:if>
           
