@@ -90,7 +90,7 @@
       ../../period-start/@iso-date castable as xs:date and
       ../../period-end/@iso-date and
       ../../period-end/@iso-date castable as xs:date and
-      xs:date(@value-date) lt xs:date(../../period-start/@iso-date) or xs:date(@value-date) gt xs:date(../../period-end/@iso-date)">
+      (xs:date(@value-date) lt xs:date(../../period-start/@iso-date) or xs:date(@value-date) gt xs:date(../../period-end/@iso-date))">
       <me:feedback type="danger" class="financial" id="11.3.1">
         <me:src ref="iati" href="https://drive.google.com/file/d/1mv2Q666tKBOAoiy5JayslmZNetxDM1uu/view"/>
         <me:message>The budget line value date must be in the budget period.</me:message>

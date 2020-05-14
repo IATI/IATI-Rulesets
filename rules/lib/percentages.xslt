@@ -28,6 +28,7 @@
           <me:feedback type="{$severity}" class="{$class}" id="{$idclass}.4">
             <me:src ref="iati" versions="{$versions}" href="{me:iati-url($href)}"/>
             <me:message>For a single {$item}, the percentage must either be omitted, or set to 100.</me:message>
+            <me:diagnostic>For {$item} {$group/@code} in vocabulary {$vocabulary}</me:diagnostic>
           </me:feedback>
         </xsl:if>
       </xsl:when>
@@ -36,7 +37,7 @@
         <me:feedback type="{$severity}" class="{$class}" id="{$idclass}.1">
           <me:src ref="iati" versions="{$versions}" href="{me:iati-url($href)}"/>
           <me:message>Percentages are missing for one or more {$items}.</me:message>
-          <me:diagnostic>For <xsl:if test="$vocabulary!='n/a'">vocabulary {$vocabulary} and </xsl:if>{$items} <xsl:value-of select="$group/@code" separator=", "/>.</me:diagnostic>
+          <me:diagnostic>For <xsl:if test="$vocabulary!='n/a'">vocabulary {$vocabulary} and </xsl:if>{$items} <xsl:value-of select="$group[not(@percentage)]/@code" separator=", "/>.</me:diagnostic>
         </me:feedback>
       </xsl:when>
       
@@ -44,7 +45,7 @@
         <me:feedback type="{$severity}" class="{$class}" id="{$idclass}.2">
           <me:src ref="iati" versions="{$versions}" href="{me:iati-url($href)}"/>
           <me:message>Percentages for {$items}, {$verb} add up to 100%.</me:message>
-          <me:diagnostic>The sum is {sum($group/@percentage[. castable as xs:decimal])}<xsl:if test="$vocabulary!='n/a'"> for vocabulary {$vocabulary}</xsl:if>.</me:diagnostic>
+          <me:diagnostic>The sum is {sum($group/@percentage[. castable as xs:decimal])}<xsl:if test="$vocabulary!='n/a'"> for {$items} in vocabulary {$vocabulary}</xsl:if>.</me:diagnostic>
         </me:feedback>
       </xsl:when>
     </xsl:choose>
