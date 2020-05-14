@@ -98,5 +98,60 @@
       <x:expect label="It should produce message 11.3.1 for recipient-country-budget" test="boolean(//recipient-country-budget/budget-line//me:feedback[@id='11.3.1'])"/>
     </x:scenario>
     
+    <x:scenario label="If last-updated-datetime is the current time">
+      <x:variable name="now" select="current-dateTime()"/>
+      <x:variable name="tz" select="timezone-from-dateTime($now)"/>
+      <x:variable name="notz" select="adjust-dateTime-to-timezone($now, ())"/>
+      <x:variable name="utc" select="adjust-dateTime-to-timezone($now, xs:dayTimeDuration('PT0H'))"/>
+      <x:variable name="tz1" select="adjust-dateTime-to-timezone($now, $tz + xs:dayTimeDuration('PT1H'))"/>
+      <x:variable name="notz1" select="adjust-dateTime-to-timezone($tz1, ())"/>
+      <x:context>
+        <iati-organisations 
+          tz="{$tz}" 
+          notz="{$notz}" 
+          utc="{$utc}"
+          tz1="{$tz1}"
+          notz1="{$notz1}">
+          <iati-organisation last-updated-datetime="{$now}"/>
+          <iati-organisation last-updated-datetime="{$notz}"/>
+          <iati-organisation last-updated-datetime="{$utc}"/>
+          <iati-organisation last-updated-datetime="{$tz1}"/>
+          <iati-organisation last-updated-datetime="{$notz1}"/>
+        </iati-organisations>
+      </x:context>
+      <x:expect label="It should not produce message 11.4.1 in default timezone" test="not(//iati-organisation[1]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should not produce message 11.4.1 without a timezone" test="not(//iati-organisation[2]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should not produce message 11.4.1 for timezone UTC" test="not(//iati-organisation[3]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should not produce message 11.4.1 for timezone 1 hour ahead" test="not(//iati-organisation[4]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 for timezone 1 hour ahead but published without timezone" test="boolean(//iati-organisation[5]/me:feedback[@id='11.4.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If last-updated-datetime is one hour ahead of the current time">
+      <x:variable name="now" select="current-dateTime() + xs:dayTimeDuration('PT1H')"/>
+      <x:variable name="tz" select="timezone-from-dateTime($now)"/>
+      <x:variable name="notz" select="adjust-dateTime-to-timezone($now, ())"/>
+      <x:variable name="utc" select="adjust-dateTime-to-timezone($now, xs:dayTimeDuration('PT0H'))"/>
+      <x:variable name="tz1" select="adjust-dateTime-to-timezone($now, $tz + xs:dayTimeDuration('PT1H'))"/>
+      <x:variable name="notz1" select="adjust-dateTime-to-timezone($tz1, ())"/>
+      <x:context>
+        <iati-organisations 
+          tz="{$tz}" 
+          notz="{$notz}" 
+          utc="{$utc}"
+          tz1="{$tz1}"
+          notz1="{$notz1}">
+          <iati-organisation last-updated-datetime="{$now}"/>
+          <iati-organisation last-updated-datetime="{$notz}"/>
+          <iati-organisation last-updated-datetime="{$utc}"/>
+          <iati-organisation last-updated-datetime="{$tz1}"/>
+          <iati-organisation last-updated-datetime="{$notz1}"/>
+        </iati-organisations>
+      </x:context>
+      <x:expect label="It should produce message 11.4.1 in default timezone" test="boolean(//iati-organisation[1]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 without a timezone" test="boolean(//iati-organisation[2]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 for timezone UTC" test="boolean(//iati-organisation[3]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 for timezone 1 hour ahead" test="boolean(//iati-organisation[4]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 for timezone 1 hour ahead but published without timezone" test="boolean(//iati-organisation[5]/me:feedback[@id='11.4.1'])"/>
+    </x:scenario>
   </x:scenario>
 </x:description>
