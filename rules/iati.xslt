@@ -10,7 +10,7 @@
   
   <xsl:param name="filename"/>
   
-  <xsl:variable name="schemaVersion">1.0.0</xsl:variable>
+  <xsl:variable name="schemaVersion">1.0.1</xsl:variable>
   
   <!-- support functions and templates -->
   <xsl:include href="../lib/functx.xslt"/>
@@ -37,7 +37,7 @@
       <xsl:copy-of select="@*"/>
       <me:feedback type="danger" class="documents" id="0.6.1">
         <me:src ref="iati" versions="1.0x" href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"/>
-        <me:message>Version {me:iati-version(@version)} of the IATI Standard is no longer supported. Please use other versions.</me:message>
+        <me:message>Version {me:iati-version(@version)} of the IATI Standard is no longer supported. Please use version 2.</me:message>
       </me:feedback>
     </xsl:copy>
   </xsl:template>

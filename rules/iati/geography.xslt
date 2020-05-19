@@ -29,7 +29,7 @@
     <xsl:if test="not(recipient-region/@vocabulary=('1','') or recipient-region[not(@vocabulary)])">
       <me:feedback type="warning" class="information" id="103.1.1">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-        <me:message>The activity should also have a region using the OECD DAC region vocabulary.</me:message>
+        <me:message>The activity should also declare a region code from region vocabulary 1 - OECD DAC.</me:message>
       </me:feedback>
     </xsl:if>
 -->
@@ -56,7 +56,7 @@
     <xsl:if test="transaction/recipient-country or transaction/recipient-region">
       <me:feedback type="danger" class="financial" id="3.6.2">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1E3hztk6gWTW5DypLELeSwW5X-Ahg0yjm/view"/>
-        <me:message>If the activity has recipient-country or recipient-region information, none of the transactions should have a recipient-country or recipient-region.</me:message>
+        <me:message>Recipient countries or regions must only be declared at activity level OR for all transactions.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -68,13 +68,13 @@
       <xsl:when test="not(transaction[recipient-country or recipient-region])">
         <me:feedback type="warning" class="geo" id="3.7.1">
           <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view"/>
-          <me:message>The activity should have recipient-country or recipient-region information for either the activity or for all transactions.</me:message>
+          <me:message>Recipient country or recipient region should be declared for either the activity or for all transactions.</me:message>
         </me:feedback>
       </xsl:when>
       <xsl:when test="transaction[not(recipient-country or recipient-region)]">
         <me:feedback type="danger" class="geo" id="3.7.2">
           <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view"/>
-          <me:message>If transactions have a recipient-country or recipient-region, they must be used for all transactions.</me:message>
+          <me:message>If a recipient country OR recipient region is declared for a transaction, they must be used for ALL transactions.</me:message>
         </me:feedback>
       </xsl:when>      
     </xsl:choose>

@@ -25,14 +25,14 @@
       <xsl:when test=". = ../reporting-org/@ref">
         <me:feedback type="danger" class="identifiers" id="1.1.3">
           <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
-          <me:message>The activity identifier must not be the same as the organisation identifier of the reporting organisation.</me:message>
+          <me:message>The activity identifier must be different to the organisation identifier of the reporting organisation.</me:message>
         </me:feedback>
       </xsl:when>
       <xsl:when test="$iati-version = '2.03' and
         not(some $id in (../reporting-org/@ref, ../other-identifier[@type='B1']/@ref) satisfies matches(., functx:escape-for-regex($id) || '-.+'))">
         <me:feedback type="warning" class="identifiers" id="1.1.21">
           <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
-          <me:message>The activity identifier's prefix and suffix should be separated by a hyphen e.g. XM-DAC-2222</me:message>
+          <me:message>The activity identifier should be your IATI Organisation Identifier followed by a unique string for the activity separated by a hyphen e.g. COH-1234-activity1</me:message>
         </me:feedback>
       </xsl:when>
     </xsl:choose>
@@ -41,7 +41,7 @@
     <xsl:if test="../../iati-activity[iati-identifier=current()][2]">
       <me:feedback type="danger" class="identifiers" id="1.1.2">
         <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
-        <me:message>The activity identifier must not occur multiple times in the dataset.</me:message>
+        <me:message>The activity identifier must be unique for each activity.</me:message>
       </me:feedback>
     </xsl:if>
     

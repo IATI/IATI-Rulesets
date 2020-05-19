@@ -13,7 +13,7 @@
     <xsl:if test="not(. castable as xs:decimal)">
       <me:feedback type="danger" class="geo" id="12.4.1">
         <me:src ref="iati" href="https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view"/>
-        <me:message>The percentage must be a numerical value.</me:message>
+        <me:message>The percentage value must be a numerical value.</me:message>
       </me:feedback>
     </xsl:if>
     <xsl:next-match/>
@@ -27,7 +27,7 @@
       (xs:decimal(@percentage) lt 0 or xs:decimal(@percentage) gt 100)">
       <me:feedback type="danger" class="geo" id="12.1.1">
         <me:src ref="iati" versions="2.03" href="https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view"/>
-        <me:message>The percentage must be between 0.0 and 100.0 (inclusive).</me:message>
+        <me:message>The country/region percentage value must be between 0.0 and 100.0 (inclusive).</me:message>
       </me:feedback>
     </xsl:if>
 
@@ -36,7 +36,7 @@
       xs:decimal(@percentage) lt 0">
       <me:feedback type="danger" class="geo" id="12.1.2">
         <me:src ref="iati" versions="&lt; 2.03" href="https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view"/>
-        <me:message>The percentage must be 0.0 or positive.</me:message>
+        <me:message>The country/region percentage value must be 0.0 or positive.</me:message>
       </me:feedback>
     </xsl:if>
 
@@ -51,7 +51,7 @@
       (xs:decimal(@percentage) lt 0 or xs:decimal(@percentage) gt 100)">
       <me:feedback type="danger" class="financial" id="12.2.1">
         <me:src ref="iati" versions="2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/capital-spend/')}"/>
-        <me:message>The percentage must be between 0.0 and 100.0 (inclusive).</me:message>
+        <me:message>The percentage value must be between 0.0 and 100.0 (inclusive).</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -60,7 +60,7 @@
       xs:decimal(@percentage) lt 0">
       <me:feedback type="danger" class="financial" id="12.2.2">
         <me:src ref="iati" versions="&lt; 2.03" href="{me:iati-url('activity-standard/iati-activities/iati-activity/capital-spend/')}"/>
-        <me:message>The percentage must be 0.0 or positive.</me:message>
+        <me:message>The percentage value must be 0.0 or positive.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -75,7 +75,7 @@
       (xs:decimal(@percentage) lt 0 or xs:decimal(@percentage) gt 100)">
       <me:feedback type="danger" class="classifications" id="12.3.1">
         <me:src ref="iati" versions="2.03" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-        <me:message>The percentage must be between 0.0 and 100.0 (inclusive).</me:message>
+        <me:message>The sector percentage value must be between 0.0 and 100.0 (inclusive).</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -84,7 +84,7 @@
       xs:decimal(@percentage) lt 0">
       <me:feedback type="danger" class="classifications" id="12.3.2">
         <me:src ref="iati" versions="&lt; 2.03" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-        <me:message>The percentage must be 0.0 or positive.</me:message>
+        <me:message>The sector percentage value must be 0.0 or positive.</me:message>
       </me:feedback>
     </xsl:if>
     

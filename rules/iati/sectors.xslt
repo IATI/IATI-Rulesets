@@ -28,7 +28,7 @@
     <xsl:if test="not(narrative)">
       <me:feedback type="danger" class="classifications" id="2.2.1">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-        <me:message>When using a reporting organisation sector code, it must include a narrative.</me:message>
+        <me:message>When using a reporting organisation sector code (vocabulary 98 or 99), it must include a narrative.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -39,7 +39,7 @@
     <xsl:if test="not(sector[@vocabulary=('1','') or not(@vocabulary)])">
       <me:feedback type="warning" class="information" id="102.1.1">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-        <me:message>When reporting sectors, it is recommended that if a publisher uses a non-DAC classification system or systems, these should be used in addition to DAC 5-digit codes.</me:message>
+        <me:message>When a non OECD DAC sector vocabulary is used, sector vocabulary 1 - OECD DAC should also be used.</me:message>
       </me:feedback>
     </xsl:if>
     

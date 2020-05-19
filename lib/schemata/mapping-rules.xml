@@ -4,13 +4,13 @@
         <path>//iati-activities/@version</path>
         <codelist ref="Version" />
         <class ref="iati"/>
-        <message>The IATI version of the dataset is not a valid version number.</message>
+        <message>The IATI version of the dataset must be a valid version number.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/@budget-not-provided</path>
         <codelist ref="BudgetNotProvided" />
         <class ref="financial"/>
-        <message>The code to indicate why no budget is provided is invalid.</message>
+        <message>The budget not provided code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/@default-currency</path>
@@ -22,7 +22,7 @@
         <path>//iati-activity/activity-date/@type</path>
         <codelist ref="ActivityDateType" />
         <class ref="information"/>
-        <message>The activity date type is invalid.</message>
+        <message>The activity date type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/activity-status/@code</path>
@@ -40,13 +40,13 @@
         <path>//iati-activity/budget/@status</path>
         <codelist ref="BudgetStatus" />
         <class ref="financial"/>
-        <message>The budget status is invalid.</message>
+        <message>The budget status code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/budget/@type</path>
         <codelist ref="BudgetType" />
         <class ref="financial"/>
-        <message>The budget type is invalid.</message>
+        <message>The budget type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/budget/value/@currency</path>
@@ -58,38 +58,38 @@
         <path>//iati-activity/collaboration-type/@code</path>
         <codelist ref="CollaborationType" />
         <class ref="classifications"/>
-        <message>The collaboration type is invalid.</message>
+        <message>The collaboration type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/conditions/condition/@type</path>
         <codelist ref="ConditionType" />
         <class ref="performance"/>
-        <message>The condition type is invalid.</message>
+        <message>The condition type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/contact-info/@type</path>
         <codelist ref="ContactType" />
         <class ref="information"/>
-        <message>The contact information type is invalid.</message>
+        <message>The contact information type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/country-budget-items/@vocabulary</path>
         <codelist ref="BudgetIdentifierVocabulary" />
         <class ref="classifications"/>
-        <message>The country budget identifier vocabulary is invalid.</message>
+        <message>The country budget identifier vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/country-budget-items/budget-item/@code</path>
         <codelist ref="BudgetIdentifier" />
         <condition>../@vocabulary = '1'</condition>
         <class ref="classifications"/>
-        <message>The country budget identifier does not exist.</message>
+        <message>The country budget identifier code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/country-budget-items/budget-item/description/@type</path>
         <codelist ref="DescriptionType" />
         <class ref="classifications"/>
-        <message>The country budget item description type is invalid.</message>
+        <message>The country budget item description type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/crs-add/channel-code/text()</path>
@@ -119,32 +119,32 @@
         <path>//iati-activity/crs-add/loan-terms/repayment-type/@code</path>
         <codelist ref="LoanRepaymentType" />
         <class ref="classifications"/>
-        <message>The repayment type is invalid.</message>
+        <message>The repayment type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/default-aid-type/@code</path>
         <codelist ref="AidType" />
         <condition>@vocabulary = '1' or not(@vocabulary)</condition>
         <class ref="classifications"/>
-        <message>The default aid type is invalid.</message>
+        <message>The default aid type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/default-aid-type/@vocabulary</path>
         <codelist ref="AidTypeVocabulary" />
         <class ref="classifications"/>
-        <message>The default aid type vocabulary is invalid.</message>
+        <message>The default aid type vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/default-finance-type/@code</path>
         <codelist ref="FinanceType" />
         <class ref="classifications"/>
-        <message>The default finance type is invalid.</message>
+        <message>The default finance type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/default-flow-type/@code</path>
         <codelist ref="FlowType" />
         <class ref="classifications"/>
-        <message>The default flow type is invalid.</message>
+        <message>The default flow type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/default-tied-status/@code</path>
@@ -156,19 +156,19 @@
         <path>//iati-activity/description/@type</path>
         <codelist ref="DescriptionType" />
         <class ref="information"/>
-        <message>The description type is invalid.</message>
+        <message>The description type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/document-link/@format</path>
         <codelist ref="FileFormat" />
         <class ref="documents"/>
-        <message>The document format is invalid.</message>
+        <message>The document format code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/document-link/category/@code</path>
         <codelist ref="DocumentCategory" />
         <class ref="documents"/>
-        <message>The document category code is invalid.</message>
+        <message>The document category code code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/document-link/language/@code</path>
@@ -186,19 +186,19 @@
         <path>//iati-activity/humanitarian-scope/@type</path>
         <codelist ref="HumanitarianScopeType" />
         <class ref="classifications"/>
-        <message>The humanitarian scope type is invalid.</message>
+        <message>The humanitarian scope type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/humanitarian-scope/@vocabulary</path>
         <codelist ref="HumanitarianScopeVocabulary" />
         <class ref="classifications"/>
-        <message>The humanitarian scope vocabulary is invalid.</message>
+        <message>The humanitarian scope vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/location/administrative/@vocabulary</path>
         <codelist ref="GeographicVocabulary" />
         <class ref="geo"/>
-        <message>The location's administrative vocabulary is invalid.</message>
+        <message>The location's administrative vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/location/feature-designation/@code</path>
@@ -216,7 +216,7 @@
         <path>//iati-activity/location/location-id/@vocabulary</path>
         <codelist ref="GeographicVocabulary" />
         <class ref="geo"/>
-        <message>The location identifier vocabulary is invalid.</message>
+        <message>The location identifier vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/location/location-reach/@code</path>
@@ -246,31 +246,31 @@
         <path>//iati-activity/participating-org/@role</path>
         <codelist ref="OrganisationRole" />
         <class ref="participating"/>
-        <message>The organisation role is invalid.</message>
+        <message>The organisation role code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/participating-org/@type</path>
         <codelist ref="OrganisationType" />
         <class ref="participating"/>
-        <message>The organisation type is invalid.</message>
+        <message>The organisation type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/planned-disbursement/@type</path>
         <codelist ref="BudgetType" />
         <class ref="financial"/>
-        <message>The planned disbursement budget type is invalid.</message>
+        <message>The planned disbursement budget type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/planned-disbursement/provider-org/@type</path>
         <codelist ref="OrganisationType" />
         <class ref="financial"/>
-        <message>The organisation type is invalid.</message>
+        <message>The organisation type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/planned-disbursement/receiver-org/@type</path>
         <codelist ref="OrganisationType" />
         <class ref="financial"/>
-        <message>The organisation type is invalid.</message>
+        <message>The organisation type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/planned-disbursement/value/@currency</path>
@@ -289,13 +289,13 @@
         <path>//iati-activity/policy-marker/@significance</path>
         <codelist ref="PolicySignificance" />
         <class ref="classifications"/>
-        <message>The policy marker significance is invalid.</message>
+        <message>The policy marker significance code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/policy-marker/@vocabulary</path>
         <codelist ref="PolicyMarkerVocabulary" />
         <class ref="classifications"/>
-        <message>The policy marker vocabulary is invalid.</message>
+        <message>The policy marker vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/recipient-country/@code</path>
@@ -314,37 +314,37 @@
         <path>//iati-activity/recipient-region/@vocabulary</path>
         <codelist ref="RegionVocabulary" />
         <class ref="geo"/>
-        <message>The recipient region vocabulary is invalid.</message>
+        <message>The recipient region vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/related-activity/@type</path>
         <codelist ref="RelatedActivityType" />
         <class ref="relations"/>
-        <message>The related activity type is invalid.</message>
+        <message>The related activity type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/reporting-org/@type</path>
         <codelist ref="OrganisationType" />
         <class ref="identifiers"/>
-        <message>The organisation type is invalid.</message>
+        <message>The organisation type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/@type</path>
         <codelist ref="ResultType" />
         <class ref="performance"/>
-        <message>The result type is invalid.</message>
+        <message>The result type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/description/@type</path>
         <codelist ref="DescriptionType" />
         <class ref="performance"/>
-        <message>The result description type is invalid.</message>
+        <message>The result description type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/document-link/@format</path>
         <codelist ref="FileFormat" />
         <class ref="performance"/>
-        <message>The document format is invalid.</message>
+        <message>The document format code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/document-link/category/@code</path>
@@ -362,13 +362,13 @@
         <path>//iati-activity/result/indicator/@measure</path>
         <codelist ref="IndicatorMeasure" />
         <class ref="performance"/>
-        <message>The indicator measure is invalid.</message>
+        <message>The indicator measure code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/indicator/baseline/document-link/@format</path>
         <codelist ref="FileFormat" />
         <class ref="performance"/>
-        <message>The document format is invalid.</message>
+        <message>The document format code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/indicator/baseline/document-link/category/@code</path>
@@ -386,13 +386,13 @@
         <path>//iati-activity/result/indicator/description/@type</path>
         <codelist ref="DescriptionType" />
         <class ref="performance"/>
-        <message>The indicator description type is invalid.</message>
+        <message>The indicator description type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/indicator/document-link/@format</path>
         <codelist ref="FileFormat" />
         <class ref="performance"/>
-        <message>The document format is invalid.</message>
+        <message>The document format code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/indicator/document-link/category/@code</path>
@@ -410,7 +410,7 @@
         <path>//iati-activity/result/indicator/period/actual/document-link/@format</path>
         <codelist ref="FileFormat" />
         <class ref="performance"/>
-        <message>The document format is invalid.</message>
+        <message>The document format code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/indicator/period/actual/document-link/category/@code</path>
@@ -428,7 +428,7 @@
         <path>//iati-activity/result/indicator/period/target/document-link/@format</path>
         <codelist ref="FileFormat" />
         <class ref="performance"/>
-        <message>The document format is invalid.</message>
+        <message>The document format code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/indicator/period/target/document-link/category/@code</path>
@@ -446,52 +446,52 @@
         <path>//iati-activity/result/indicator/reference/@vocabulary</path>
         <codelist ref="IndicatorVocabulary" />
         <class ref="performance"/>
-        <message>The indicator reference code vocabulary is invalid.</message>
+        <message>The indicator reference vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/result/reference/@vocabulary</path>
         <codelist ref="ResultVocabulary" />
         <class ref="performance"/>
-        <message>The result reference code vocabulary is invalid.</message>
+        <message>The result reference vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/sector/@code</path>
         <codelist ref="Sector" />
         <condition>@vocabulary = ('1', 'DAC') or not(@vocabulary)</condition>
         <class ref="classifications"/>
-        <message>The OECD DAC sector is invalid.</message>
+        <message>The OECD DAC sector code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/sector/@code</path>
         <codelist ref="SectorCategory" />
         <condition>@vocabulary = '2'</condition>
         <class ref="classifications"/>
-        <message>The OECD DAC category is invalid.</message>
+        <message>The OECD DAC category code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/sector/@vocabulary</path>
         <codelist ref="SectorVocabulary" />
         <class ref="classifications"/>
-        <message>The sector vocabulary is invalid.</message>
+        <message>The sector vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/tag/@vocabulary</path>
         <codelist ref="TagVocabulary" />
         <class ref="classifications"/>
-        <message>The tag vocabulary is invalid.</message>
+        <message>The tag vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/aid-type/@code</path>
         <codelist ref="AidType" />
         <condition>@vocabulary = '1' or not(@vocabulary)</condition>
         <class ref="financial"/>
-        <message>The aid type is invalid.</message>
+        <message>The aid type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/aid-type/@vocabulary</path>
         <codelist ref="AidTypeVocabulary" />
         <class ref="financial"/>
-        <message>The aid type vocabulary is invalid.</message>
+        <message>The aid type vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/disbursement-channel/@code</path>
@@ -503,13 +503,13 @@
         <path>//iati-activity/transaction/finance-type/@code</path>
         <codelist ref="FinanceType" />
         <class ref="financial"/>
-        <message>The finance type is invalid.</message>
+        <message>The finance type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/flow-type/@code</path>
         <codelist ref="FlowType" />
         <class ref="financial"/>
-        <message>The flow type is invalid.</message>
+        <message>The flow type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/recipient-country/@code</path>
@@ -528,32 +528,32 @@
         <path>//iati-activity/transaction/recipient-region/@vocabulary</path>
         <codelist ref="RegionVocabulary" />
         <class ref="financial"/>
-        <message>The recipient region vocabulary is invalid.</message>
+        <message>The recipient region vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/provider-org/@type</path>
         <codelist ref="OrganisationType" />
         <class ref="financial"/>
-        <message>The organisation type is invalid.</message>
+        <message>The organisation type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/receiver-org/@type</path>
         <codelist ref="OrganisationType" />
         <class ref="financial"/>
-        <message>The organisation type is invalid.</message>
+        <message>The organisation type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/sector/@code</path>
         <codelist ref="Sector" />
         <condition>@vocabulary = '1' or not(@vocabulary)</condition>
         <class ref="financial"/>
-        <message>The OECD DAC sector is invalid.</message>
+        <message>The OECD DAC sector code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/sector/@vocabulary</path>
         <codelist ref="SectorVocabulary" />
         <class ref="financial"/>
-        <message>The sector vocabulary is invalid.</message>
+        <message>The sector vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/tied-status/@code</path>
@@ -565,7 +565,7 @@
         <path>//iati-activity/transaction/transaction-type/@code</path>
         <codelist ref="TransactionType" />
         <class ref="financial"/>
-        <message>The transaction type is invalid.</message>
+        <message>The transaction type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/transaction/value/@currency</path>
@@ -589,13 +589,13 @@
         <path>//iati-organisations/@version</path>
         <codelist ref="Version" />
         <class ref="iati"/>
-        <message>The IATI version of the dataset is not a valid version number.</message>
+        <message>The IATI version of the dataset must be a valid version number.</message>
     </mapping>
     <mapping>
         <path>//iati-organisation/document-link/@format</path>
         <codelist ref="FileFormat" />
         <class ref="documents"/>
-        <message>The document format is invalid.</message>
+        <message>The document format code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-organisation/document-link/category/@code</path>
@@ -619,7 +619,7 @@
         <path>//iati-organisation/recipient-country-budget/@status</path>
         <codelist ref="BudgetStatus" />
         <class ref="financial"/>
-        <message>The budget status is invalid.</message>
+        <message>The budget status code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-organisation/recipient-country-budget/recipient-country/@code</path>
@@ -637,7 +637,7 @@
         <path>//iati-organisation/recipient-org-budget/@status</path>
         <codelist ref="BudgetStatus" />
         <class ref="financial"/>
-        <message>The budget status is invalid.</message>
+        <message>The budget status code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-organisation/recipient-org-budget/value/@currency</path>
@@ -649,7 +649,7 @@
         <path>//iati-organisation/recipient-region-budget/@status</path>
         <codelist ref="BudgetStatus" />
         <class ref="financial"/>
-        <message>The budget status is invalid.</message>
+        <message>The budget status code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-organisation/recipient-region-budget/recipient-region/@code</path>
@@ -662,7 +662,7 @@
         <path>//iati-organisation/recipient-region-budget/recipient-region/@vocabulary</path>
         <codelist ref="RegionVocabulary" />
         <class ref="geo"/>
-        <message>The recipient region vocabulary is invalid.</message>
+        <message>The recipient region vocabulary code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-organisation/recipient-region-budget/budget-line/value/@currency</path>
@@ -680,13 +680,13 @@
         <path>//iati-organisation/reporting-org/@type</path>
         <codelist ref="OrganisationType" />
         <class ref="information"/>
-        <message>The organisation type is invalid.</message>
+        <message>The organisation type code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-organisation/total-budget/@status</path>
         <codelist ref="BudgetStatus" />
         <class ref="financial"/>
-        <message>The budget status is invalid.</message>
+        <message>The budget status code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-organisation/total-budget/value/@currency</path>
@@ -700,7 +700,7 @@
         <path>//iati-activity/crs-add/aidtype-flag/@code</path>
         <codelist ref="AidTypeFlag" />
         <class ref="iati"/>
-        <message>The AidType flag is invalid.</message>
+        <message>The AidType flag code is invalid.</message>
     </mapping>
     <mapping>
         <path>//iati-activity/location/administrative/@code</path>

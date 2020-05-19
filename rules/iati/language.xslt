@@ -11,7 +11,7 @@
     <xsl:if test="not(./@xml:lang) and descendant::narrative[not(@xml:lang)]">
       <me:feedback type="danger" class="information" id="4.1.1">
         <me:src ref="iati" href="{me:iati-url('codelists/Language/')}"/>
-        <me:message>The activity should specify a default language, or the language must be specified for each narrative element.</me:message>
+        <me:message>The activity should specify a default language OR the language must be specified for each narrative element.</me:message>
       </me:feedback>
     </xsl:if>
   
@@ -61,7 +61,7 @@
     <xsl:if test="not($itemnode/narrative) or not($itemnode/narrative[functx:trim(.)!=''])">
       <me:feedback type="danger" class="{$class}" id="{$idclass}.1">
         <me:src ref="iati" versions="2.x" href="{me:iati-url('{$href}')}"/>
-        <me:message>The {$item} has no narrative content.</me:message>
+        <me:message>The {$item} must contain narrative content.</me:message>
       </me:feedback>
     </xsl:if>
 

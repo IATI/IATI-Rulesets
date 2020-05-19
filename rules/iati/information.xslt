@@ -33,7 +33,7 @@
     <xsl:if test="not(@format) or @format=''">
       <me:feedback type="danger" class="documents" id="6.1.5">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1TI9PU5dyyRE2IzervFPUZz_Xfue16xYC/view?usp=sharing"/>
-        <me:message>The document format must be present.</me:message>
+        <me:message>The document format must be declared.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -44,7 +44,7 @@
     <xsl:if test="not(activity-status)">
       <me:feedback type="danger" class="information" id="6.2.1">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view"/>
-        <me:message>Activity Status must be present.</me:message>
+        <me:message>The activity status code must be present.</me:message>
       </me:feedback>
     </xsl:if>
         
@@ -55,7 +55,7 @@
     <xsl:if test="transaction/sector">
       <me:feedback type="danger" class="classifications" id="6.6.2">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-        <me:message>Sectors are present at both the activity AND transaction level. Sectors should only be present at activity OR transaction level.</me:message>
+        <me:message>Sectors must only be declared at activity level OR for all transactions.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -67,13 +67,13 @@
       <xsl:when test="not(transaction[sector])">
         <me:feedback type="danger" class="classifications" id="6.2.2">
           <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-          <me:message>Each activity must have a specified Sector Classification, at either activity level, or for ALL transactions.</me:message>
+          <me:message>Each activity must have a specified sector, either at activity level OR for all transactions.</me:message>
         </me:feedback>
       </xsl:when>
       <xsl:when test="transaction[not(sector)]">
         <me:feedback type="danger" class="classifications" id="6.7.2">
           <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-          <me:message>If transactions have a sector classification, they must be used for all transactions.</me:message>
+          <me:message>If sector is declared at transaction level, a sector must be declared for all transactions.</me:message>
         </me:feedback>
       </xsl:when>      
     </xsl:choose>
@@ -85,7 +85,7 @@
     <xsl:if test="not(@type) or @type=''">
       <me:feedback type="danger" class="identifiers" id="6.3.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>Organisation Type must be present.</me:message>
+        <me:message>The organisation type must be present.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -107,7 +107,7 @@
     <xsl:if test="not(@ref) and not(narrative)">
       <me:feedback type="danger" class="financial" id="6.9.1">
         <me:src ref="iati" versions="any"/>
-        <me:message>The organisation must have an identifier or a narrative.</me:message>
+        <me:message>The provider and receiver organisation must have an organisation identifier or a narrative.</me:message>
       </me:feedback>      
     </xsl:if>
     
@@ -130,7 +130,7 @@
     <xsl:if test="not(activity-date[@type=('1', '2')])">
       <me:feedback type="danger" class="information" id="6.11.1">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view"/>
-        <me:message>The activity must have a planned or actual start date.</me:message>
+        <me:message>The activity must have a planned start date or an actual start date.</me:message>
       </me:feedback>      
     </xsl:if>
         
@@ -161,7 +161,7 @@
     <xsl:if test="not(narrative)">
       <me:feedback type="danger" class="classifications" id="6.13.1">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/15JQzYc4rUNqwtP-nmtY7h9tHB2i_Isw7/view"/>
-        <me:message>When using a reporting organisation policy marker, it must include a narrative.</me:message>
+        <me:message>When using a reporting organisation policy marker code (vocabulary 99), it must include a narrative.</me:message>
       </me:feedback>
     </xsl:if>
     <xsl:next-match/>
@@ -171,7 +171,7 @@
     <xsl:if test="not(@significance)">
       <me:feedback type="danger" class="classifications" id="6.14.1">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/15JQzYc4rUNqwtP-nmtY7h9tHB2i_Isw7/view"/>
-        <me:message>When using a policy marker for vocabulary 1, it must include a significance.</me:message>
+        <me:message>When using a policy marker code for vocabulary 1, it must include a significance.</me:message>
       </me:feedback>
     </xsl:if>
     <xsl:next-match/>
@@ -182,7 +182,7 @@
     <xsl:if test="not(policy-marker/@vocabulary=('1','') or not(policy-marker/@vocabulary))">
       <me:feedback type="warning" class="information" id="106.1.1">
         <me:src ref="iati" versions="any" href="https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view"/>
-        <me:message>The activity should also have a policy-marker using the OECD DAC vocabulary.</me:message>
+        <me:message>The activity should also declare a policy marker code from policy marker vocabulary 1 - OECD DAC.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -194,7 +194,8 @@
     <xsl:if test="not(default-aid-type/@vocabulary=('1','') or not(default-aid-type/@vocabulary))">
       <me:feedback type="warning" class="information" id="107.1.1">
         <me:src ref="iati" versions="2.03"/>
-        <me:message>The activity should also contain a code from the OECD DAC Aid Type vocabulary.</me:message>
+        <me:message>The activity should also declare an aid type code from aid type vocabulary 1 - OECD DAC.</me:message>
+        
       </me:feedback>
     </xsl:if>
     
@@ -202,7 +203,8 @@
       or (some $v in (default-aid-type/@vocabulary[. != ('1', '')]) satisfies count(default-aid-type[@vocabulary=$v]) > 1)">
       <me:feedback type="warning" class="financial" id="107.1.2">
         <me:src ref="iati" versions="2.03"/>
-        <me:message>Each selected default-aid-type vocabulary should only be used once for each activity.</me:message>
+        <me:message>Each activity should only contain one default aid type code per aid type vocabulary (e.g. 1 - OECD DAC)
+        </me:message>
       </me:feedback>
     </xsl:if>
 

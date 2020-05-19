@@ -70,7 +70,7 @@
       and (not(ancestor::iati-organisation/@default-currency) or ancestor::iati-organisation/@default-currency='')">
       <me:feedback type="danger" class="financial" id="7.8.1">
         <me:src ref="iati" versions="any" href="{me:iati-url('codelists/Currency/')}"/>
-        <me:message>The Value must have a specified Currency, or the Organisation must have a default Currency.</me:message>
+        <me:message>The financial value must have a specified currency, or the activity must declare a default currency.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -86,8 +86,8 @@
           <xsl:with-param name="group" select="current-group()/budget-item"/>
           <xsl:with-param name="class">financial</xsl:with-param>
           <xsl:with-param name="idclass">7.9</xsl:with-param>
-          <xsl:with-param name="item">country budget item</xsl:with-param>
-          <xsl:with-param name="items">country budget items, within a vocabulary (e.g. 4 - Reporting Organisation)</xsl:with-param>
+          <xsl:with-param name="item">budget item</xsl:with-param>
+          <xsl:with-param name="items">budget items</xsl:with-param>
           <xsl:with-param name="severity">warning</xsl:with-param>
           <xsl:with-param name="verb">should</xsl:with-param>
           <xsl:with-param name="href">activity-standard/iati-activities/iati-activity/country-budget-items/budget-item/</xsl:with-param>
@@ -102,7 +102,7 @@
     <xsl:if test="not(aid-type/@vocabulary=('1','') or not(aid-type/@vocabulary))">
       <me:feedback type="warning" class="financial" id="107.2.1">
         <me:src ref="iati" versions="2.03"/>
-        <me:message>The transaction should also contain a code from the DAC Type of Aid vocabulary.</me:message>
+        <me:message>The transaction should also contain a code from the OECD DAC aid type vocabulary.</me:message>
       </me:feedback>
     </xsl:if>
     
@@ -110,7 +110,7 @@
       or (some $v in (aid-type/@vocabulary[. != ('1', '')]) satisfies count(aid-type[@vocabulary=$v]) > 1)">
       <me:feedback type="warning" class="financial" id="107.2.2">
         <me:src ref="iati" versions="2.03"/>
-        <me:message>Each selected aid-type vocabulary should only be used once for each transaction.</me:message>
+        <me:message>Each transaction should only contain one aid type code per aid type vocabulary (e.g. 1 - OECD DAC)</me:message>
       </me:feedback>
     </xsl:if>
 

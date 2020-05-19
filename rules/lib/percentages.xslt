@@ -27,7 +27,7 @@
         <xsl:if test="$group/@percentage and $group/@percentage castable as xs:decimal and xs:decimal($group/@percentage) !=100">
           <me:feedback type="{$severity}" class="{$class}" id="{$idclass}.4">
             <me:src ref="iati" versions="{$versions}" href="{me:iati-url($href)}"/>
-            <me:message>For a single {$item}, the percentage must either be omitted, or set to 100.</me:message>
+            <me:message>When a single {$item} is declared, the percentage must either be omitted, or set to 100.</me:message>
             <me:diagnostic>For {$item} {$group/@code} in vocabulary {$vocabulary}</me:diagnostic>
           </me:feedback>
         </xsl:if>
@@ -36,7 +36,7 @@
       <xsl:when test="count($group[not(@percentage)]) > 0">
         <me:feedback type="{$severity}" class="{$class}" id="{$idclass}.1">
           <me:src ref="iati" versions="{$versions}" href="{me:iati-url($href)}"/>
-          <me:message>Percentages are missing for one or more {$items}.</me:message>
+          <me:message>When multiple {$items} are declared, each must have a percentage.</me:message>
           <me:diagnostic>For <xsl:if test="$vocabulary!='n/a'">vocabulary {$vocabulary} and </xsl:if>{$items} <xsl:value-of select="$group[not(@percentage)]/@code" separator=", "/>.</me:diagnostic>
         </me:feedback>
       </xsl:when>
@@ -44,7 +44,7 @@
       <xsl:when test="abs(sum($group/@percentage[. castable as xs:decimal])-100) > 0.0101">
         <me:feedback type="{$severity}" class="{$class}" id="{$idclass}.2">
           <me:src ref="iati" versions="{$versions}" href="{me:iati-url($href)}"/>
-          <me:message>Percentages for {$items}, {$verb} add up to 100%.</me:message>
+          <me:message>Percentage values for {$items}, {$verb} add up to 100%.</me:message>
           <me:diagnostic>The sum is {sum($group/@percentage[. castable as xs:decimal])}<xsl:if test="$vocabulary!='n/a'"> for {$items} in vocabulary {$vocabulary}</xsl:if>.</me:diagnostic>
         </me:feedback>
       </xsl:when>

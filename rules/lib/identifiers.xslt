@@ -59,7 +59,7 @@
                   <xsl:attribute name="href" select="$href"/>
                 </xsl:if>              
               </me:src>
-              <me:message>The {$identifier} does not start with a known prefix.</me:message>
+              <me:message>The {$identifier} must start with an approved agency code.</me:message>
             </me:feedback>
           </xsl:when>        
         </xsl:choose>        
