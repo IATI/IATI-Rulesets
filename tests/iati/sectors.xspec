@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Sectors">
+      
+    <x:scenario label="If there is one sector and no percentage or percentage 100">
+      <x:context>
+          <iati-activity>
+            <sector code="99810"/>
+          </iati-activity>
+          <iati-activity>
+            <sector code="99810" percentage="100"/>
+          </iati-activity>
+      </x:context>
+      <x:expect label="It should not produce any '2.1.x' feedback." test="not(//me:feedback[starts-with(@id, '2.1.')])"/>
+    </x:scenario>
+
+    <x:scenario label="If there is one sector and percentage is not 100">
+      <x:context>
+        <iati-activity>
+          <sector code="99810" percentage="99"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce 'classifications' message 2.1.4." test="boolean(//me:feedback[@id='2.1.4'])"/>
+    </x:scenario>
+
+    <x:scenario label="There are multiple sectors:">
+      <x:scenario label="If none have a percentage">
+        <x:context>
+          <iati-activity>
+            <sector code="99810"/>
+            <sector code="99820"/>
+          </iati-activity>
+        </x:context>
+        <x:expect label="It should produce 'classifications' message 2.1.1." test="boolean(//me:feedback[@id='2.1.1'])"/>
+      </x:scenario>      
+      
+      <x:scenario label="If some have no percentage">
+        <x:context>
+          <iati-activity>
+            <sector code="99810" percentage="33"/>
+            <sector code="99820"/>
+          </iati-activity>
+        </x:context>
+        <x:expect label="It should produce 'classifications' message 2.1.1." test="boolean(//me:feedback[@id='2.1.1'])"/>
+      </x:scenario>      
+      
+      <x:scenario label="If percentages do not add up to 100">
+        <x:context>
+          <iati-activity>
+            <sector code="99810" percentage="33"/>
+            <sector code="99820" percentage="33"/>
+          </iati-activity>
+        </x:context>
+        <x:expect label="It should produce 'classifications' message 2.1.2." test="boolean(//me:feedback[@id='2.1.2'])"/>
+      </x:scenario>      
+      
+      <x:scenario label="If percentages do not add up to 100 ± 0.01">
+        <x:context>
+          <iati-activity>
+            <sector code="99810" percentage="33.3"/>
+            <sector code="99820" percentage="66.6"/>
+          </iati-activity>classifications
+        </x:context>
+        <x:expect label="It should produce 'classifications' message 2.1.2." test="boolean(//me:feedback[@id='2.1.2'])"/>
+      </x:scenario>      
+      
+      <x:scenario label="If percentages add up to 100 ± 0.01">
+        <x:context>
+          <iati-activity>
+            <sector code="99810" percentage="33.33"/>
+            <sector code="99820" percentage="66.66"/>
+          </iati-activity>
+        </x:context>
+        <x:expect label="It should not produce any '2.1.x' feedback." test="not(//me:feedback[starts-with(@id, '2.1.')])"/>
+      </x:scenario>
+    </x:scenario>
+    
+    <x:scenario label="If there are sectors at the activity level">
+      <x:context>
+        <iati-activity>
+          <sector code="12345"/>
+          <transaction>
+            <sector code="98765"/>
+          </transaction>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '6.6.2' if a transaction has a sector classification too." test="boolean(//me:feedback[@id='6.6.2'])"/>
+    </x:scenario>
+
+    <x:scenario label="If there are no sectors at the activity level">
+      <x:context>
+        <iati-activity>
+        </iati-activity>
+        <iati-activity>
+          <transaction>
+          </transaction>
+        </iati-activity>
+        <iati-activity>
+          <transaction>
+          </transaction>
+          <transaction>
+            <sector code="12345"/>
+          </transaction>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '6.2.2' if there are no transactions." test="boolean(/iati-activity[1]/me:feedback[@id='6.2.2'])"/>
+      <x:expect label="It should produce message '6.2.2' if there is a single transaction without a sector classification." test="boolean(/iati-activity[2]/me:feedback[@id='6.2.2'])"/>
+      <x:expect label="It should produce message '6.7.2' if some transactions have no sector classification." test="boolean(/iati-activity[3]/me:feedback[@id='6.7.2'])"/>
+    </x:scenario>
+
+    <x:scenario label="If there is a reporting organisation sector code">
+      <x:context>
+        <iati-activity>
+          <sector code="A1" vocabulary="98"/>
+          <sector code="A2" vocabulary="99"/>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message '2.2.1' for vocabulary 98." test="boolean(/iati-activity/sector[1]/me:feedback[@id='2.2.1'])"/>
+      <x:expect label="It should produce message '2.2.1' for vocabulary 99." test="boolean(/iati-activity/sector[2]/me:feedback[@id='2.2.1'])"/>
+    </x:scenario>
+    
+  </x:scenario>  
+
+  <x:scenario label="CRS channel code fun, the only codelist for a text() element">
+    <x:scenario label="If it's a simple string">
+      <x:context>
+        <iati-activity>
+          <crs-add>
+            <channel-code>90000</channel-code>
+          </crs-add>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should not produce message 9.16.1." test="not(//me:feedback[@id='9.16.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If it's a string with whitespace">
+      <x:context>
+        <iati-activity>
+          <crs-add>
+            <channel-code>  90000
+            </channel-code>
+          </crs-add>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 9.16.1." test="boolean(//me:feedback[@id='9.16.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If it's a text node">
+      <x:context>
+        <iati-activity>
+          <crs-add>
+            <channel-code>
+              <xsl:text>90000</xsl:text>
+            </channel-code>
+          </crs-add>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should not produce message 9.16.1." test="not(//me:feedback[@id='9.16.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If it's a collection of two text nodes, each with a valid code">
+      <x:context>
+        <iati-activity>
+          <crs-add>
+            <channel-code>
+              <xsl:text>10000</xsl:text>
+              <xsl:text>90000</xsl:text>
+            </channel-code>
+          </crs-add>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It will not produce message 9.16.1." test="not(//me:feedback[@id='9.16.1'])"/>
+      <x:expect label="But most users will process it as one string 1000090000, which is an invalid code..." test="(//channel-code='1000090000')"/>
+    </x:scenario>
+  </x:scenario>
+</x:description>

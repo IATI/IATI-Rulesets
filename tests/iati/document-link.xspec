@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Document links">
+<!--    <x:scenario label="If a document link has no language indication and the activity has a default language">
+      <x:context>
+        <iati-activities>
+          <iati-activity xml:lang="en">
+            <document-link/>            
+          </iati-activity>
+          <iati-activity xml:lang="en">
+            <document-link>
+              <language/>
+            </document-link>            
+          </iati-activity>
+          <iati-activity xml:lang="en">
+            <document-link>
+              <language code=""/>
+            </document-link>            
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should not produce message 6.1.4" test="not(//me:feedback[@id='6.1.4'])"/>
+    </x:scenario>
+
+    <x:scenario label="If a document link has no language indication and the activity has no default language">
+      <x:context>
+        <iati-activities>
+          <iati-activity>
+            <document-link/>            
+          </iati-activity>
+          <iati-activity>
+            <document-link>
+              <language/>
+            </document-link>            
+          </iati-activity>
+          <iati-activity>
+            <document-link>
+              <language code=""/>
+            </document-link>            
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 6.1.4 if there is no language element" test="boolean(//iati-activity[1]//me:feedback[@id='6.1.4'])"/>
+      <x:expect label="It should produce message 6.1.4 if there is a language element without a code" test="boolean(//iati-activity[2]//me:feedback[@id='6.1.4'])"/>
+      <x:expect label="It should produce message 6.1.4 if there is a language element with an empty code" test="boolean(//iati-activity[3]//me:feedback[@id='6.1.4'])"/>
+    </x:scenario>-->
+
+    <x:scenario label="If a document link has no format attribute">
+      <x:context>
+        <iati-activity>
+          <document-link/>            
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 6.1.5 if there is no language element" test="boolean(//iati-activity[1]//me:feedback[@id='6.1.5'])"/>
+    </x:scenario>
+    
+  </x:scenario>  
+  
+</x:description>

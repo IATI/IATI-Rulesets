@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<style type="text/css">
+.highlighter .add { 
+  background-color: #7fff7f;
+}
+
+.highlighter .remove { 
+  background-color: #ff7f7f;
+}
+
+.highlighter td.modify { 
+  background-color: #7f7fff;
+}
+
+.highlighter td.conflict { 
+  background-color: #f00;
+}
+
+.highlighter .spec { 
+  background-color: #aaa;
+}
+
+.highlighter .move { 
+  background-color: #ffa;
+}
+
+.highlighter .null { 
+  color: #888;
+}
+
+.highlighter table { 
+  border-collapse:collapse;
+}
+
+.highlighter td, .highlighter th {
+  border: 1px solid #2D4068;
+  padding: 3px 7px 2px;
+}
+
+.highlighter th, .highlighter .header, .highlighter .meta {
+  background-color: #aaf;
+  font-weight: bold;
+  padding-bottom: 4px;
+  padding-top: 5px;
+  text-align:left;
+}
+
+.highlighter tr.header th {
+  border-bottom: 2px solid black;
+}
+
+.highlighter tr.index td, .highlighter .index, .highlighter tr.header th.index {
+  background-color: white;
+  border: none;
+}
+
+.highlighter .gap {
+  color: #888;
+}
+
+.highlighter td {
+  empty-cells: show;
+}
+</style>
+</head>
+<body>
+<div class="highlighter">
+<table>
+<thead>
+<tr class="spec"><td>!</td><td></td><td>:</td><td></td><td></td><td></td><td class="remove">---</td><td></td><td></td><td></td></tr>
+<tr class="header"><th>@@</th><th>ID</th><th>Class</th><th>Severity</th><th>Ruleset(s)</th><th>Message</th><th class="remove">Description</th><th>Guidance</th><th>Context (Xpath)</th><th>Test (Xpath)</th></tr>
+</thead>
+<tbody>
+<tr class="remove"><td>---</td><td>0.0.1</td><td>iati</td><td>Information</td><td>iati</td><td>Congratulations! This IATI file has successfully passed validation with no errors!</td><td class="remove"></td><td></td><td>/*</td><td>not(//me:feedback[@type=('danger', 'critical')])</td></tr>
+<tr class="remove"><td>---</td><td>0.1.1</td><td>iati</td><td>Critical</td><td>iati</td><td>The
+ file is not a proper XML file. The raw feedback from xmllint: 
+{unparsed-text("/workspace/tmp/xmltestlog/" || $filename)} (not possible
+ to present, maybe a binary file)</td><td class="remove"></td><td></td><td>/not-an-xml-file</td><td></td></tr>
+<tr class="remove"><td>---</td><td>0.2.1</td><td>iati</td><td>Critical</td><td>iati</td><td>The file is not an IATI file.</td><td class="remove"></td><td></td><td>/not-an-iati-file</td><td></td></tr>
+<tr class="remove"><td>---</td><td>0.3.1</td><td>iati</td><td>Critical</td><td>iati</td><td>This
+ file fails schema validation. Please see below for technical details. 
+If you are the owner of this files, please show this output to your 
+publishing tool provider or technical team. 
+{unparsed-text("/workspace/tmp/xmlschemalog/" || $filename)} (not 
+possible to present, maybe a binary file)</td><td class="remove"></td><td></td><td>iati-file-with-schema-errors</td><td></td></tr>
+<tr class="remove"><td>---</td><td>0.4.1</td><td>iati</td><td>Critical</td><td>iati</td><td>This
+ file is not valid XML and fails schema validation. Please see below for
+ technical details. If you are the owner of this files, please show this
+ output to your publishing tool provider or technical team. The raw 
+feedback from XML validation: 
+{unparsed-text("/workspace/tmp/xmltestlog/" || $filename)} (not possible
+ to present, maybe a binary file) The raw feedback from schema 
+validation of a recovered version of the file: 
+{unparsed-text("/workspace/tmp/xmlschemalog/" || $filename)} (not 
+possible to present, maybe a binary file)</td><td class="remove"></td><td></td><td>recovered-iati-file-with-schema-errors</td><td></td></tr>
+<tr class="remove"><td>---</td><td>0.5.1</td><td>iati</td><td>Critical</td><td>iati</td><td>The
+ file is not valid XML. Please see below for technical details. If you 
+are the owner of this files, please show this output to your publishing 
+tool provider or technical team. 
+{unparsed-text("/workspace/tmp/xmltestlog/" || $filename)} (not possible
+ to present, maybe a binary file) A recovered version does pass schema 
+validation as valid IATI, but may not contain all information.</td><td class="remove"></td><td></td><td>recovered-iati-file</td><td></td></tr>
+<tr><td></td><td>0.6.1</td><td>documents</td><td>Error</td><td>iati:1.0x</td><td>Version {me:iati-version(@version)} of the IATI Standard is no longer supported. Please use other versions.</td><td class="remove"></td><td>https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/</td><td>/*[starts-with(@version, '1.')]</td><td></td></tr>
+<tr class="gap"><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td class="remove">...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td></td><td>1.10.13</td><td>financial</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>provider-org/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.10.8</td><td>financial</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>provider-org/@ref</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr class="modify"><td class="modify">→</td><td>1.11.1</td><td class="modify">participating→identifiers</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>owner-org/@ref</td><td>$item != functx:trim($item)</td></tr>
+<tr class="modify"><td class="modify">→</td><td>1.11.13</td><td class="modify">participating→identifiers</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>owner-org/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.11.8</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>owner-org/@ref</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr><td></td><td>1.12.1</td><td>organisation</td><td>Warning</td><td>2.0x</td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>organisation-identifier</td><td>$item != functx:trim($item)</td></tr>
+<tr><td></td><td>1.12.13</td><td>organisation</td><td>Warning</td><td>2.0x</td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>organisation-identifier</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.12.8</td><td>organisation</td><td>Warning</td><td>2.0x</td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>organisation-identifier</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr class="modify"><td class="modify">→</td><td>1.14.1</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td class="modify">reporting-org/@ref→iati-activity/reporting-org/@ref</td><td>$item != functx:trim($item)</td></tr>
+<tr class="modify"><td class="modify">→</td><td>1.14.13</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td class="modify">reporting-org/@ref→iati-activity/reporting-org/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="modify"><td class="modify">→</td><td>1.14.8</td><td>identifiers</td><td>Warning</td><td class="modify">iati:2.x→</td><td class="modify">The identifier does not start with a known prefix.→The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td class="modify">http://org-id.guide→</td><td class="modify">reporting-org→iati-activity/reporting-org/@ref</td><td class="modify">not(some
+ $prefix in $org-id-prefixes satisfies starts-with(@ref, 
+$prefix||'-'))→not(some $prefix in $org-id-prefixes satisfies 
+starts-with($item, $prefix||'-'))</td></tr>
+<tr class="modify"><td class="modify">→</td><td>1.15.1</td><td class="modify">organisation→financial</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>receiver-org/@ref</td><td>$item != functx:trim($item)</td></tr>
+<tr class="modify"><td class="modify">→</td><td>1.15.13</td><td class="modify">organisation→financial</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>receiver-org/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.15.8</td><td>financial</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>receiver-org/@ref</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr><td></td><td>1.16.1</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>other-identifier[upper-case(@type)=('B1')]/@ref</td><td>$item != functx:trim($item)</td></tr>
+<tr class="add"><td>+++</td><td>1.16.13</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>other-identifier[upper-case(@type)=('B1')]/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.16.8</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>other-identifier[upper-case(@type)=('B1')]/@ref</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr class="add"><td>+++</td><td>1.17.1</td><td>organisation</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>recipient-org/@ref</td><td>$item != functx:trim($item)</td></tr>
+<tr class="add"><td>+++</td><td>1.17.13</td><td>organisation</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>recipient-org/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.17.8</td><td>organisation</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>recipient-org/@ref</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr class="add"><td>+++</td><td>1.18.1</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>iati-organisation/reporting-org/@ref</td><td>$item != functx:trim($item)</td></tr>
+<tr class="add"><td>+++</td><td>1.18.13</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>iati-organisation/reporting-org/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.18.8</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>iati-organisation/reporting-org/@ref</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr><td></td><td>1.3.1</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>iati-identifier</td><td>$item != functx:trim($item)</td></tr>
+<tr><td></td><td>1.3.13</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>iati-identifier</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.3.8</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>iati-identifier</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr><td></td><td>1.4.1</td><td>financial</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>@provider-activity-id</td><td>$item != functx:trim($item)</td></tr>
+<tr class="add"><td>+++</td><td>1.4.13</td><td>financial</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>@provider-activity-id</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.4.8</td><td>financial</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>@provider-activity-id</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr><td></td><td>1.5.1</td><td>financial</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>@receiver-activity-id</td><td>$item != functx:trim($item)</td></tr>
+<tr class="add"><td>+++</td><td>1.5.13</td><td>financial</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>@receiver-activity-id</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.5.8</td><td>financial</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>@receiver-activity-id</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr><td></td><td>1.6.1</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>other-identifier[upper-case(@type)=('A3')]/@ref</td><td>$item != functx:trim($item)</td></tr>
+<tr class="add"><td>+++</td><td>1.6.13</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>other-identifier[upper-case(@type)=('A3')]/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.6.8</td><td>identifiers</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>other-identifier[upper-case(@type)=('A3')]/@ref</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr class="modify"><td class="modify">→</td><td>1.7.1</td><td class="modify">identifiers→relations</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>related-activity/@ref</td><td>$item != functx:trim($item)</td></tr>
+<tr class="add"><td>+++</td><td>1.7.13</td><td>relations</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>related-activity/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr><td></td><td>1.7.2</td><td>identifiers</td><td>Error</td><td>iati</td><td>Organisation Identifier must be present.</td><td class="remove"></td><td>{me:iati-url('activity-standard/iati-activities/iati-activity/reporting-org/')}</td><td>reporting-org</td><td>not(@ref)</td></tr>
+<tr class="add"><td>+++</td><td>1.7.8</td><td>relations</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>related-activity/@ref</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr><td></td><td>1.8.1</td><td>participating</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>participating-org/@ref</td><td>$item != functx:trim($item)</td></tr>
+<tr><td></td><td>1.8.13</td><td>participating</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>participating-org/@ref</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.8.8</td><td>participating</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>participating-org/@ref</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr><td></td><td>1.9.1</td><td>participating</td><td>Warning</td><td></td><td>The {$identifier} should not start or end with spaces or newlines.</td><td class="remove"></td><td></td><td>@activity-id</td><td>$item != functx:trim($item)</td></tr>
+<tr class="add"><td>+++</td><td>1.9.13</td><td>participating</td><td>Warning</td><td></td><td>The {$identifier} must not contain any of the symbols /, &amp;, | or ?.</td><td class="remove"></td><td></td><td>@activity-id</td><td>matches($item, '[/&amp;|?]')</td></tr>
+<tr class="add"><td>+++</td><td>1.9.8</td><td>participating</td><td>Warning</td><td></td><td>The {$identifier} does not start with a known prefix.</td><td class="remove"></td><td></td><td>@activity-id</td><td>not(some $prefix in $org-id-prefixes satisfies starts-with($item, $prefix||'-'))</td></tr>
+<tr><td></td><td>102.1.1</td><td>information</td><td>Warning</td><td>iati</td><td>When
+ reporting sectors, it is recommended that if a publisher uses a non-DAC
+ classification system or systems, these should be used in addition to 
+DAC 5-digit codes.</td><td class="remove"></td><td>https://drive.google.com/file/d/1GNnjeqDIyWwuuIkJ8pMjLhE99R_olSJP/view</td><td>(iati-activity|transaction)[sector]</td><td>not(sector[@vocabulary=('1','') or not(@vocabulary)])</td></tr>
+<tr class="gap"><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td class="remove">...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td></td><td>11.2.2</td><td>financial</td><td>Error</td><td>iati</td><td>The transaction value date must not be in the future.</td><td class="remove"></td><td>https://drive.google.com/file/d/1E3hztk6gWTW5DypLELeSwW5X-Ahg0yjm/view</td><td>transaction</td><td>value/@value-date and value/@value-date castable as xs:date and xs:date(value/@value-date) gt xs:date($now)</td></tr>
+<tr class="modify"><td class="modify">→</td><td>11.3.1</td><td>financial</td><td>Error</td><td>iati</td><td>The budget line value date must be in the budget period.</td><td class="remove"></td><td>https://drive.google.com/file/d/1mv2Q666tKBOAoiy5JayslmZNetxDM1uu/view</td><td class="modify">budget-line/value[@value-date]→recipient-country-budget/budget-line/value[@value-date]</td><td>@value-date
+ castable as xs:date and ../../period-start/@iso-date and 
+../../period-start/@iso-date castable as xs:date and 
+../../period-end/@iso-date and ../../period-end/@iso-date castable as 
+xs:date and xs:date(@value-date) lt 
+xs:date(../../period-start/@iso-date) or xs:date(@value-date) gt 
+xs:date(../../period-end/@iso-date)</td></tr>
+<tr><td></td><td>11.4.1</td><td>information</td><td>Error</td><td>iati</td><td>The last-updated-datetime of the organisation must not be in the future.</td><td class="remove"></td><td></td><td>iati-organisation</td><td>@last-updated-datetime and @last-updated-datetime castable as xs:dateTime and xs:dateTime(@last-updated-datetime) gt $now</td></tr>
+<tr class="gap"><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td class="remove">...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td></td><td>3.6.2</td><td>financial</td><td>Error</td><td>iati</td><td>If
+ the activity has recipient-country or recipient-region information, 
+none of the transactions should have a recipient-country or 
+recipient-region.</td><td class="remove"></td><td>https://drive.google.com/file/d/1E3hztk6gWTW5DypLELeSwW5X-Ahg0yjm/view</td><td>iati-activity[recipient-country or recipient-region]</td><td>transaction/recipient-country or transaction/recipient-region</td></tr>
+<tr class="modify"><td class="modify">→</td><td>3.7.1</td><td>geo</td><td class="modify">Error→Warning</td><td>iati</td><td>The activity should have recipient-country or recipient-region information for either the activity or for all transactions.</td><td class="remove"></td><td>https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view</td><td>iati-activity[not(recipient-country or recipient-region)]</td><td>not(transaction[recipient-country or recipient-region])</td></tr>
+<tr><td></td><td>3.7.2</td><td>geo</td><td>Error</td><td>iati</td><td>If transactions have a recipient-country or recipient-region, they must be used for all transactions.</td><td class="remove"></td><td>https://drive.google.com/file/d/18P3vSUKK2iWCnXCrORDVAHR8K_EIg8Pp/view</td><td>iati-activity[not(recipient-country or recipient-region)]</td><td>transaction[not(recipient-country or recipient-region)]</td></tr>
+<tr class="gap"><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td class="remove">...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td></td><td>7.5.3</td><td>financial</td><td>Error</td><td>iati</td><td>Budget Period must not be longer than one year.</td><td class="remove"></td><td>https://drive.google.com/file/d/1JhMfO-f3Mldrs15OMlHTAUF9KixTUq5G/view</td><td>budget|total-budget|total-expenditure|recipient-country-budget|recipient-region-budget|recipient-org-budget</td><td>xs:date(period-start/@iso-date) + xs:yearMonthDuration('P1Y') lt xs:date(period-end/@iso-date)</td></tr>
+<tr class="modify"><td class="modify">→</td><td>7.8.1</td><td>financial</td><td>Error</td><td>iati</td><td>The Value must have a specified Currency, or the Activity must have a default Currency.</td><td class="remove"></td><td>{me:iati-url('codelists/Currency/')}</td><td class="modify">value|loan-status|forecast→iati-activity//value|loan-status|forecast</td><td>(not(@currency)
+ or currency='') and (not(ancestor::iati-activity/@default-currency) or 
+ancestor::iati-activity/@default-currency='')</td></tr>
+<tr class="add"><td>+++</td><td>7.8.1</td><td>financial</td><td>Error</td><td>iati</td><td>The Value must have a specified Currency, or the Organisation must have a default Currency.</td><td class="remove"></td><td>{me:iati-url('codelists/Currency/')}</td><td>iati-organisation//value</td><td>(not(@currency)
+ or currency='') and (not(ancestor::iati-organisation/@default-currency)
+ or ancestor::iati-organisation/@default-currency='')</td></tr>
+<tr><td></td><td>7.9.1</td><td>financial</td><td></td><td></td><td>Percentages are missing for one or more country budget items, within a vocabulary (e.g. 4 - Reporting Organisation).</td><td class="remove"></td><td>{me:iati-url(activity-standard/iati-activities/iati-activity/country-budget-items/budget-item/)}</td><td>iati-activity[country-budget-items]</td><td>count($group[not(@percentage)]) &gt; 0</td></tr>
+<tr class="gap"><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td class="remove">...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td></td><td>9.99.1</td><td>documents</td><td>Error</td><td>iati</td><td>The document category code is invalid.</td><td class="remove"></td><td>{me:iati-url('codelists/DocumentCategory/')}</td><td>//iati-organisation/document-link/category/@code</td><td>me:codeListFail(., 'DocumentCategory', $iati-version)</td></tr>
+<tr class="add"><td>+++</td><td>{$pos || '.1'}</td><td>{($class, 'iati')[1]}</td><td>Error</td><td>iati</td><td>{($message, $default)[1]}</td><td class="remove"></td><td></td><td>mapping</td><td>me:codeListFail(., '{$codelist}', $iati-version)</td></tr>
+</tbody>
+</table>
+</div>
+
+
+<span id="buffer-extension-hover-button" style="display: none; position: absolute; z-index: 8675309; width: 100px; height: 25px; background-image: url(&quot;moz-extension://46025037-a174-4139-9efc-a3cf3bbd9301/data/shared/img/buffer-hover-icon@1x.png&quot;); background-size: 100px 25px; opacity: 0.9; cursor: pointer;"></span></body></html>

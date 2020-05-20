@@ -1,9 +1,0 @@
-{
-    "//iati-activity": {
-        "no_percent": {
-            "cases": [ {
-                "paths": [ "test" ]
-             } ]
-        }
-    }
-}

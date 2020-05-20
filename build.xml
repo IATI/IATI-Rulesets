@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="IATI-Rules">
+  
+  <include file="lib/xspec/build.xml"/>
+  
+  <target name="update-codelist-rules" description="Update the codelist check rules based on the adapted IATI codelist mapping.">
+    <echo level="info">Update the codelist check rules based on the adapted IATI codelist mapping.</echo>
+    <xslt in="lib/schemata/mapping-rules.xml" out="rules/iati/codelists.xslt" style="helpers/generate-codelist-checks.xslt"/>
+  </target>
+
+  <!-- TODO This extension point and linked targets should be moved to a separate engine and data volume -->
+  <extension-point name="update-external-data"
+    description="Update local copies of external data to use in the validator."
+    depends="update-orgid-prefixes, update-known-publishers"/>
+
+  <!-- TODO get known publishers from Datastore or Registry -->
+  <target name="update-known-publishers">
+    <mkdir dir="tmp"/>
+    <get src="http://www.dataworkbench.io/api/iati-publishers" dest="tmp/iati-publishers.json"/>
+    <xslt out="var/known-publishers.xml"
+      in="helpers/known-publishers.xslt"
+      style="helpers/known-publishers.xslt"/>   
+  </target>
+  
+  <target name="update-orgid-prefixes" >
+    <mkdir dir="tmp"/>
+    <get src="http://org-id.guide/download.xml" dest="tmp/org-id.xml"/>
+    <xslt in="tmp/org-id.xml" out="var/known-orgid-prefixes.xml" style="helpers/known-orgid-prefixes.xslt"/>
+  </target>
+  
+  <target name="test" description="Run the tests">
+    <xmlvalidate lenient="true">
+      <fileset dir="tests/iati/testfiles" includes="*.xml"/>
+    </xmlvalidate>
+    <antcall target="xspec.xspec" inheritall="false">
+      <param name="xspec.xml" location="tests/iati.xspec"/>
+    </antcall>
+  </target>
+  
+  <target name="tests" description="Run all the tests (don't stop at first failure)">
+    <antcall target="test">
+      <param name="xspec.fail" value="false"/>
+    </antcall>
+  </target>
+
+  <target name="data-quality-rules-csv" description="Generate overview of the data quality rules as a CSV file.">
+    <echo level="info">Generate overview of the data quality rules as a CSV file.</echo>
+    <xslt in="rules/meta.xml" out="docs/data-quality-rules.csv" style="helpers/data-quality-rules-csv.xslt">
+      <factory name="net.sf.saxon.TransformerFactoryImpl">
+        <attribute name="http://saxon.sf.net/feature/suppressXsltNamespaceCheck" value="true"/>
+      </factory>
+    </xslt>
+  </target>
+</project>

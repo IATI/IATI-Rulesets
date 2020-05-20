@@ -1,8 +1,0 @@
-<iati-activities><iati-activity>
-    <transaction>
-    	<recipient-country></recipient-country>
-    </transaction>
-    <transaction>
-    	<recipient-region></recipient-region>
-    </transaction>
-</iati-activity></iati-activities>

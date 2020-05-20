@@ -1,9 +1,0 @@
-{
-    "//iati-activity": {
-        "date_now": {
-            "cases": [
-                { "date":"@last-updated-datetime" }
-            ]
-        }
-    }
-}

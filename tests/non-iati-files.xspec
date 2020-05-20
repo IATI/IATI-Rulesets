@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  stylesheet="/develop/lib/identity.xslt"
+  xslt-version="3.0">
+
+  <x:scenario label="Non-IATI files">
+  </x:scenario>
+
+</x:description>

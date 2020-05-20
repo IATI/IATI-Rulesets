@@ -1,9 +1,0 @@
-{
-    "//recipient-country-budget": {
-        "between_dates": {
-            "cases": [
-                { "date": "budget-line/value/@value-date", "start": "period-start/@iso-date", "end": "period-end/@iso-date"}
-            ]
-        }
-    }
-}

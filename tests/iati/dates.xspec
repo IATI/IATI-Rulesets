@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+  xmlns:me="http://iati.me"
+  xslt-version="3.0">
+
+  <x:scenario label="Dates in activity files">
+    <x:scenario label="If activity start dates are after activity end dates">
+      <x:context>
+        <iati-activities>
+          <iati-activity>
+            <activity-date iso-date="2018-04-15" type="1"/>
+            <activity-date iso-date="2015-12-31" type="3" />
+          </iati-activity>
+          <iati-activity>
+            <activity-date iso-date="2018-04-15" type="2"/>
+            <activity-date iso-date="2015-12-31" type="4" />
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 11.1.2 for planned dates" test="boolean(//iati-activity[1]/me:feedback[@id='11.1.2'])"/>
+      <x:expect label="It should produce message 11.1.3 for actual dates" test="boolean(//iati-activity[2]/me:feedback[@id='11.1.3'])"/>
+    </x:scenario>
+
+    <x:scenario label="If period start dates are after period end dates">
+      <x:context>
+        <iati-activities>
+          <iati-activity>
+            <result>
+              <indicator>
+                <period>
+                  <period-start iso-date="2018-04-15"/>
+                  <period-end iso-date="2015-12-31"/>                  
+                </period>
+              </indicator>
+            </result>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="It should produce message 8.6.1 for indicator period dates" test="boolean(//iati-activity[1]//me:feedback[@id='8.6.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If transaction dates are after the last updated datetime" 
+      pending="Test moved to 'additional', not included now.">
+      <x:context>
+        <iati-activity last-updated-datetime="2018-10-03T00:00:00-04:00">
+          <transaction>
+            <transaction-date iso-date="2018-10-01"/>
+            <value value-date="2018-10-01" currency="USD">238.00</value>
+          </transaction>
+          <transaction>
+            <transaction-date iso-date="2019-01-01"/>
+            <value value-date="2019-01-01" currency="USD">-436.66</value>
+          </transaction>
+        </iati-activity>
+      </x:context>
+      <x:expect label="It should produce message 7.6.1 for transaction dates" test="boolean(//me:feedback[@id='7.6.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="If dates are not valid XML dates">
+      <x:context>
+        <iati-activities generated-datetime="">
+          <iati-activity last-updated-datetime="">
+            <activity-date iso-date=""/>
+
+            <budget>
+              <period-start iso-date=""/>
+              <period-end iso-date=""/>              
+              <value value-date=""/>
+            </budget>
+            <planned-disbursement>
+              <period-start iso-date=""/>
+              <period-end iso-date=""/>              
+              <value value-date=""/>
+            </planned-disbursement>
+            <transaction>
+              <transaction-date iso-date=""/>
+              <value value-date=""/>
+            </transaction>
+            
+            <result>
+              <indicator>
+                <baseline iso-date=""/>
+                <period>
+                  <period-start iso-date=""/>
+                  <period-end iso-date=""/>
+                </period>
+              </indicator>
+            </result>
+
+            <crs-add>
+              <loan-terms>
+                <commitment-date iso-date=""/>
+                <repayment-first-date iso-date=""/>
+                <repayment-final-date iso-date=""/>                
+              </loan-terms>
+              <loan-status value-date=""/>
+            </crs-add>
+            
+            <fss extraction-date="">
+              <forecast value-date=""/>              
+            </fss>
+            
+            <document-link>
+              <document-date iso-date=""/>
+            </document-link>
+          </iati-activity>
+        </iati-activities>
+      </x:context>
+      <x:expect label="No checks, tests should not exit with error" test="true()"/>
+    </x:scenario>
+
+  </x:scenario>  
+  
+  <x:scenario label="Dates in organisation files">
+    <x:scenario label="If budget-line value dates are outside the budget period">
+      <x:context>
+        <iati-organisation>
+          <total-budget>
+            <period-start iso-date="2014-01-01" />
+            <period-end iso-date="2014-12-31" />
+            <budget-line>
+              <value value-date="2013-12-01">2000000</value>
+            </budget-line>
+          </total-budget>
+          <recipient-org-budget>
+            <period-start iso-date="2014-01-01" />
+            <period-end iso-date="2014-12-31" />
+            <budget-line>
+              <value value-date="2013-12-01">2000000</value>
+            </budget-line>
+          </recipient-org-budget>
+          <recipient-region-budget>
+            <period-start iso-date="2014-01-01" />
+            <period-end iso-date="2014-12-31" />
+            <budget-line>
+              <value value-date="2013-12-01">2000000</value>
+            </budget-line>
+          </recipient-region-budget>
+          <recipient-country-budget>
+            <period-start iso-date="2014-01-01" />
+            <period-end iso-date="2014-12-31" />
+            <budget-line>
+              <value value-date="2013-12-01">2000000</value>
+            </budget-line>
+          </recipient-country-budget>
+        </iati-organisation>
+      </x:context>
+      <x:expect label="It should not produce message 11.3.1 for total-budget" test="not(//total-budget/budget-line//me:feedback[@id='11.3.1'])"/>
+      <x:expect label="It should not produce message 11.3.1 for recipient-org-budget" test="not(//recipient-org-budget/budget-line//me:feedback[@id='11.3.1'])"/>
+      <x:expect label="It should not produce message 11.3.1 for recipient-region-budget" test="not(//recipient-region-budget/budget-line//me:feedback[@id='11.3.1'])"/>
+      <x:expect label="It should produce message 11.3.1 for recipient-country-budget" test="boolean(//recipient-country-budget/budget-line//me:feedback[@id='11.3.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="If last-updated-datetime is the current time">
+      <x:variable name="now" select="current-dateTime()"/>
+      <x:variable name="tz" select="timezone-from-dateTime($now)"/>
+      <x:variable name="notz" select="adjust-dateTime-to-timezone($now, ())"/>
+      <x:variable name="utc" select="adjust-dateTime-to-timezone($now, xs:dayTimeDuration('PT0H'))"/>
+      <x:variable name="tz1" select="adjust-dateTime-to-timezone($now, $tz + xs:dayTimeDuration('PT1H'))"/>
+      <x:variable name="notz1" select="adjust-dateTime-to-timezone($tz1, ())"/>
+      <x:context>
+        <iati-organisations 
+          tz="{$tz}" 
+          notz="{$notz}" 
+          utc="{$utc}"
+          tz1="{$tz1}"
+          notz1="{$notz1}">
+          <iati-organisation last-updated-datetime="{$now}"/>
+          <iati-organisation last-updated-datetime="{$notz}"/>
+          <iati-organisation last-updated-datetime="{$utc}"/>
+          <iati-organisation last-updated-datetime="{$tz1}"/>
+          <iati-organisation last-updated-datetime="{$notz1}"/>
+        </iati-organisations>
+      </x:context>
+      <x:expect label="It should not produce message 11.4.1 in default timezone" test="not(//iati-organisation[1]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should not produce message 11.4.1 without a timezone" test="not(//iati-organisation[2]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should not produce message 11.4.1 for timezone UTC" test="not(//iati-organisation[3]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should not produce message 11.4.1 for timezone 1 hour ahead" test="not(//iati-organisation[4]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 for timezone 1 hour ahead but published without timezone" test="boolean(//iati-organisation[5]/me:feedback[@id='11.4.1'])"/>
+    </x:scenario>
+
+    <x:scenario label="If last-updated-datetime is one hour ahead of the current time">
+      <x:variable name="now" select="current-dateTime() + xs:dayTimeDuration('PT1H')"/>
+      <x:variable name="tz" select="timezone-from-dateTime($now)"/>
+      <x:variable name="notz" select="adjust-dateTime-to-timezone($now, ())"/>
+      <x:variable name="utc" select="adjust-dateTime-to-timezone($now, xs:dayTimeDuration('PT0H'))"/>
+      <x:variable name="tz1" select="adjust-dateTime-to-timezone($now, $tz + xs:dayTimeDuration('PT1H'))"/>
+      <x:variable name="notz1" select="adjust-dateTime-to-timezone($tz1, ())"/>
+      <x:context>
+        <iati-organisations 
+          tz="{$tz}" 
+          notz="{$notz}" 
+          utc="{$utc}"
+          tz1="{$tz1}"
+          notz1="{$notz1}">
+          <iati-organisation last-updated-datetime="{$now}"/>
+          <iati-organisation last-updated-datetime="{$notz}"/>
+          <iati-organisation last-updated-datetime="{$utc}"/>
+          <iati-organisation last-updated-datetime="{$tz1}"/>
+          <iati-organisation last-updated-datetime="{$notz1}"/>
+        </iati-organisations>
+      </x:context>
+      <x:expect label="It should produce message 11.4.1 in default timezone" test="boolean(//iati-organisation[1]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 without a timezone" test="boolean(//iati-organisation[2]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 for timezone UTC" test="boolean(//iati-organisation[3]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 for timezone 1 hour ahead" test="boolean(//iati-organisation[4]/me:feedback[@id='11.4.1'])"/>
+      <x:expect label="It should produce message 11.4.1 for timezone 1 hour ahead but published without timezone" test="boolean(//iati-organisation[5]/me:feedback[@id='11.4.1'])"/>
+    </x:scenario>
+    
+    <x:scenario label="If dates are not valid XML dates">
+      <x:context>       
+        <iati-organisations generated-datetime="">
+          <iati-organisation last-updated-datetime="">
+            <total-budget>
+              <period-start iso-date=""/>
+              <period-end iso-date=""/>              
+              <value value-date=""/>
+              <budget-line>
+                <value value-date=""/>
+              </budget-line>
+            </total-budget>
+            
+            <recipient-org-budget>
+              <period-start iso-date=""/>
+              <period-end iso-date=""/>              
+              <value value-date=""/>
+              <budget-line>
+                <value value-date=""/>
+              </budget-line>
+            </recipient-org-budget>
+            
+            <recipient-region-budget>
+              <period-start iso-date=""/>
+              <period-end iso-date=""/>              
+              <value value-date=""/>
+              <budget-line>
+                <value value-date=""/>
+              </budget-line>
+            </recipient-region-budget>
+            
+            <recipient-country-budget>
+              <period-start iso-date=""/>
+              <period-end iso-date=""/>              
+              <value value-date=""/>
+              <budget-line>
+                <value value-date=""/>
+              </budget-line>
+            </recipient-country-budget>
+            
+            <total-expenditure>
+              <period-start iso-date=""/>
+              <period-end iso-date=""/>              
+              <value value-date=""/>
+              <expense-line>
+                <value value-date=""/>
+              </expense-line>
+            </total-expenditure>
+            
+            <document-link>
+              <document-date iso-date=""/>
+            </document-link>
+          </iati-organisation>
+        </iati-organisations>
+      </x:context>
+      <x:expect label="No checks, tests should not exit with error" test="true()"/>
+    </x:scenario>
+    
+  </x:scenario>
+</x:description>
