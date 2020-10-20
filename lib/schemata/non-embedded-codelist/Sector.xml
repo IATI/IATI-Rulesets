@@ -249,6 +249,18 @@
             </description>
             <category>121</category>
         </codelist-item>
+        <codelist-item status="active" activation-date="2019-01-01">
+            <code>12196</code>
+            <name>
+                <narrative>Health statistics and data</narrative>
+                <narrative xml:lang="fr">Statistiques et données sur la santé</narrative>
+            </name>
+            <description>
+                <narrative>Collection, production, management and dissemination of statistics and data related to health. Includes health surveys, establishment of health databases, data collection on epidemics, etc.</narrative>
+                <narrative xml:lang="fr">Collecte, production, gestion et diffusion de statistiques et de données relatives à la santé. Comprend les enquêtes sur la santé, la création de bases de données sur la santé, la collecte de données sur les épidémies, etc.</narrative>
+            </description>
+            <category>121</category>
+        </codelist-item>
         <codelist-item status="active">
             <code>12220</code>
             <name>
