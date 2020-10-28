@@ -16,6 +16,13 @@ This is the source repository for the rulesets, more general information can be 
 
 These rulesets are part of IATI Standard Single Source of Truth (SSOT). For more detailed information about the SSOT, please see http://iatistandard.org/developer/ssot/
 
+
+As part of the **new Validator work**, the JSON-based rules have been migrated to an XSLT-based system, and some additional checks and feedback messages have been added in line with the IATI Standard.
+Please see D4D's `IATI data validator <https://github.com/data4development/IATI-data-validator>`_  repository for information about the new tool and to report bugs, issues, and other feedback.
+IATI's Reference Site will be updated as the testing period progresses. Please refer to the new Validator's `XSLT-based Ruleset <https://github.com/data4development/IATI-Rulesets>`_ repository for an up-to-date version of each rule's narrative.
+Email us on support@iatistandard.org for further clarification.
+
+
 Information for developers
 ==========================
 
