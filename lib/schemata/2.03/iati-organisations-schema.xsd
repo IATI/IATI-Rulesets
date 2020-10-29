@@ -23,7 +23,7 @@
   <xsd:include schemaLocation="iati-common.xsd"/>
 
   <xsd:import namespace="http://www.w3.org/XML/1998/namespace"
-              schemaLocation="../xml.xsd"/>
+              schemaLocation="xml.xsd"/>
 
   <xsd:element name="iati-organisations">
     <xsd:annotation>
@@ -96,7 +96,7 @@
       <xsd:attribute ref="xml:lang">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            A code specifying the default language of text in this organisation. It is recommended that wherever possible only codes from ISO 639-1 are used.
+            A code specifying the default language of text in this organisation. It is recommended that wherever possible only codes from ISO 639-1 are used. If this is not declared then the xml:lang attribute MUST be specified for each narrative element.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:attribute>
@@ -740,36 +740,15 @@
     </xsd:complexType>
   </xsd:element>
 
-  <xsd:complexType name="currencyType">
-    <xsd:annotation>
-      <xsd:documentation xml:lang="en">
-        Data type for an element containing a currency value.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:simpleContent>
-      <xsd:extension base="xsd:decimal">
-        <xsd:attribute ref="currency" use="optional"/>
-        <xsd:attribute ref="value-date" use="required"/>
-        <xsd:anyAttribute processContents="lax" namespace="##other"/>
-      </xsd:extension>
-    </xsd:simpleContent>
-  </xsd:complexType>
-
-  <xsd:attribute name="currency" type="xsd:string">
-    <xsd:annotation>
-      <xsd:documentation xml:lang="en">
-        A three letter ISO 4217 code for the original currency of the
-        amount. This is required for all currency amounts unless
-        the iati-organisation/\@default-currency attribute is
-        specified.
-      </xsd:documentation>
-    </xsd:annotation>
-  </xsd:attribute>
-
   <!-- documentLinkWithReceipientCountry extends documentLinkBase to include the receipient-country sub-element, which is used within the iati-organisations schema -->
   <xsd:complexType name="documentLinkWithReceipientCountry">
     <xsd:complexContent>
       <xsd:extension base="documentLinkBase">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A link to an online, publicly accessible web page or document.
+          </xsd:documentation>
+        </xsd:annotation>
         <xsd:sequence>
           <xsd:element name="recipient-country" minOccurs="0" maxOccurs="unbounded">
             <xsd:annotation>
@@ -793,7 +772,6 @@
               <xsd:anyAttribute processContents="lax" namespace="##other"/>
             </xsd:complexType>
           </xsd:element>
-          <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
