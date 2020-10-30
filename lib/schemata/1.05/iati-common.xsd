@@ -18,7 +18,7 @@
 
   <!-- for xml:lang -->
   <xsd:import namespace="http://www.w3.org/XML/1998/namespace"
-              schemaLocation="../xml.xsd"/>
+              schemaLocation="xml.xsd"/>
 
   <!--
       Common elements.
