@@ -5,5 +5,3 @@ dist
 pyenv*
 doc/_build
 build
-
-tests/
