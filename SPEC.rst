@@ -137,11 +137,6 @@ Rule Names
 
     The text of each of the elements described by ``paths`` must be unique
 
-**evaluates_to_true**
-    Keys: ``cases``, ``eval``
-
-    Each expression defined in ``eval`` must resolve to true
-
 **if_then**
     Keys: ``condition``, ``cases``, ``if``, ``then``
 

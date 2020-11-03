@@ -72,22 +72,6 @@
                 }
             ]
         },
-        "evaluates_to_true": {
-            "cases": [
-                {
-                    "condition": "activity-status/@code='1'",
-                    "eval": "not(activity-date[@type='2'])"
-                },
-                {
-                    "condition": "activity-status/@code='1'",
-                    "eval": "not(activity-date[@type='4'])"
-                },
-                {
-                    "condition": "activity-status/@code='2'",
-                    "eval": "not(activity-date[@type='4'])"
-                }
-            ]
-        },
         "range": {
             "cases": [
                 {

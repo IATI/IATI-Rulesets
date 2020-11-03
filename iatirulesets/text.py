@@ -106,11 +106,6 @@ def rules_text(rules, reduced_path, show_all=False):
                     if show_all or reduced_path == case['one']:
                         out.append('``{0}`` must exist, otherwise all ``{1}`` must exist.'.format(case['one'], case['all']))
 
-                elif rule == 'evaluates_to_true':
-                    eval_case = extract_from_expr(case['eval'])
-                    if show_all or (eval_case.startswith(reduced_path) or eval_case.endswith(reduced_path)):
-                        out.append('``{0}`` must resolve to true.'.format(case['eval']))
-
                 elif rule == 'between_dates':
                     if show_all or reduced_path == case['date']:
                         out.append('The ``{0}`` must be between the ``{1}`` and ``{2}`` dates.'.format(case['date'], case['start'], case['end']))
