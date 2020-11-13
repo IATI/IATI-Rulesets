@@ -396,27 +396,6 @@
                         }
                     }
                 },
-                "evaluates_to_true": {
-                    "description": "The condition in ``eval`` must evaluate to true.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "eval": {
-                                        "type": "string"
-                                    },
-                                    "condition": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "unique": {
                     "description": "The text of each of the elements described by ``paths`` must be unique",
                     "type": "object",

@@ -56,9 +56,6 @@ test unique unique_bad False
 #test unique_title_description title_description False # FIXME
 test unique_title_description title_description_content True
 
-test evaluates_to_true evaluates_to_true_good True
-test evaluates_to_true evaluates_to_true_bad False
-
 test if_then if_then_good True
 test if_then if_then_bad False
 
@@ -121,9 +118,6 @@ test recipient_region_budget recipient_region_budget_bad False
 
 test total_expenditure total_expenditure_good True
 test total_expenditure total_expenditure_bad False
-
-test status_date status_date_good True
-test status_date status_date_bad False
 
 test range range_good True
 test range range_bad False
