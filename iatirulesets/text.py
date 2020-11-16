@@ -81,7 +81,7 @@ def rules_text(rules, reduced_path, show_all=False):
                 # rather than checking line-by-line wether reduced_path is in either one of the specific cases
                 # we do a generic check to assess we're rendering the right rule for the right element
                 if rule == 'date_order':
-                    if show_all or reduced_path == case['less'] or reduced_path == case['more']:
+                    if show_all or reduced_path == simplify_xpath(case['less']) or reduced_path == simplify_xpath(case['more']):
                         if case['less'] == 'NOW':
                             out.append('``{0}`` must not be in the past.'.format(case['more']))
                         elif case['more'] == 'NOW':
@@ -90,11 +90,11 @@ def rules_text(rules, reduced_path, show_all=False):
                             out.append('``{0}`` must be before or the same as ``{1}``'.format(case['less'], case['more']))
 
                 elif rule == 'time_limit':
-                    if show_all or reduced_path == case['start'] or reduced_path == case['end']:
+                    if show_all or reduced_path == simplify_xpath(case['start']) or reduced_path == simplify_xpath(case['end']):
                         out.append('The time between ``{0}`` and ``{1}`` must not be over a year'.format(case['start'], case['end']))
 
                 elif rule == 'date_now':
-                    if show_all or reduced_path == case['date']:
+                    if show_all or reduced_path == simplify_xpath(case['date']):
                         out.append('``{0}`` must not be more recent than the current date'.format(case['date']))
 
                 elif rule == 'if_then':
@@ -103,7 +103,7 @@ def rules_text(rules, reduced_path, show_all=False):
                         out.append('If ``{0}`` evaluates to true, then ``{1}`` must evaluate to true.'.format(case['if'], case['then']))
 
                 elif rule == 'one_or_all':
-                    if show_all or reduced_path == case['one']:
+                    if show_all or reduced_path == simplify_xpath(case['one']):
                         out.append('``{0}`` must exist, otherwise all ``{1}`` must exist.'.format(case['one'], case['all']))
 
                 elif rule == 'evaluates_to_true':
@@ -112,7 +112,7 @@ def rules_text(rules, reduced_path, show_all=False):
                         out.append('``{0}`` must resolve to true.'.format(case['eval']))
 
                 elif rule == 'between_dates':
-                    if show_all or reduced_path == case['date']:
+                    if show_all or reduced_path == simplify_xpath(case['date']):
                         out.append('The ``{0}`` must be between the ``{1}`` and ``{2}`` dates.'.format(case['date'], case['start'], case['end']))
 
                 elif rule == 'loop':
