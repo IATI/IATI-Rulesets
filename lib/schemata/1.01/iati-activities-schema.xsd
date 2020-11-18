@@ -23,7 +23,7 @@
   <xsd:include schemaLocation="iati-common.xsd"/>
 
   <xsd:import namespace="http://www.w3.org/XML/1998/namespace"
-              schemaLocation="../xml.xsd"/>
+              schemaLocation="xml.xsd"/>
 
   <xsd:element name="iati-activities">
     <xsd:annotation>
@@ -410,7 +410,7 @@
       </xsd:simpleContent>
     </xsd:complexType>
   </xsd:element>
-
+  
   <xsd:element name="activity-status" type="codeType">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
@@ -661,7 +661,7 @@
               <xsd:documentation xml:lang="en">
                 Optional element to override the top-level
                 default-flow-type element.
-
+                
                 For the value of the @code attribute, see
                 http://iatistandard.org/codelists/flow_type
               </xsd:documentation>
