@@ -266,8 +266,8 @@
   <!--transaction starts-->
   <transaction ref="1234" humanitarian="1">
    <transaction-type code="1" />
-   <transaction-date iso-date="2012-01-01" />
-   <value currency="EUR" value-date="2020-06-01">1000</value>
+   <transaction-date iso-date="2030-01-01" />
+   <value currency="EUR" value-date="2030-06-01">1000</value>
    <description>
     <narrative>Transaction description text</narrative>
    </description>
