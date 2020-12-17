@@ -25,6 +25,7 @@ jobs:
 
       - name: Install Saxon-HE, Build/Test with Ant
         run: |
-          ls -lh lib/xspec/
-          mvn install -DgroupId=net.sf.saxon -DartifactId=Saxon-HE -Dversion=9.9.0-2 -f lib/xspec/pom.xml -X
+          ant -diagnostics
+          mvn dependency:get -DgroupId=net.sf.saxon -DartifactId=Saxon-HE -Dversion=9.9.0-2 -Dpackaging=jar -Ddest=/home/runner/work/.ant/lib/saxon9he.jar
+          ls -lh
           ant test
