@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Install dependencies
-        run: sudo apt-get python-lxml python3-lxml
+        run: sudo apt-get install python-lxml python3-lxml
 
       - uses: actions/checkout@v2
 
