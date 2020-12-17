@@ -25,10 +25,13 @@ jobs:
 
       - name: Install Saxon-HE, Build/Test with Ant
         run: |
-          ls -lh
+          ls -la
           curl -fsSL --create-dirs --retry 5 -o $SAXON_JAR https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/$SAXON_VERSION/Saxon-HE-$SAXON_VERSION.jar
-          ls -lh
+          ls -la
+          which ant
+          echo $ANT_HOME
           ant test
+          ls -la
         env:
-          SAXON_JAR: ./.ant/lib/saxon9he.jar
+          SAXON_JAR: /.ant/lib/saxon9he.jar
           SAXON_VERSION: 9.9.0-2
