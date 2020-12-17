@@ -1,10 +1,8 @@
 IATI-Rulesets
 ^^^^^^^^^^^^^
-.. image:: https://github.com/IATI/IATI-Standard-SSOT/workflows/CI_version-2.0X/badge.svg
-    :target: https://github.com/IATI/IATI-Standard-SSOT/actions
-    
-.. image:: https://travis-ci.org/IATI/IATI-Rulesets.svg?branch=version-2.01
-    :target: https://travis-ci.org/IATI/IATI-Rulesets
+.. image:: https://github.com/IATI/IATI-Rulesets/workflows/CI_version-2.03/badge.svg
+    :target: https://github.com/IATI/IATI-Rulesets/actions
+
 .. image:: https://requires.io/github/IATI/IATI-Rulesets/requirements.svg?branch=version-2.01
     :target: https://requires.io/github/IATI/IATI-Rulesets/requirements/?branch=version-2.01
     :alt: Requirements Status
