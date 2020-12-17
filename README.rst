@@ -2,9 +2,6 @@ IATI-Rulesets
 ^^^^^^^^^^^^^
 .. image:: https://github.com/IATI/IATI-Rulesets/workflows/CI/badge.svg
     :target: https://github.com/IATI/IATI-Rulesets/actions
-
-.. image:: https://travis-ci.org/data4development/IATI-Rulesets.svg?branch=master
-    :target: https://travis-ci.org/data4development/IATI-Rulesets
 .. image:: https://img.shields.io/github/v/tag/data4development/IATI-Rulesets
     :target: https://github.com/data4development/IATI-Rulesets/tags
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
