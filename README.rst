@@ -1,7 +1,7 @@
 IATI-Rulesets
 ^^^^^^^^^^^^^
 
-.. image:: https://github.com/IATI/IATI-Rulesets/workflows/CI_version-2.03/badge.svg
+.. image:: https://github.com/IATI/IATI-Rulesets/workflows/CI_version-2.02/badge.svg
     :target: https://github.com/IATI/IATI-Rulesets/actions
 
 .. image:: https://travis-ci.org/IATI/IATI-Rulesets.svg?branch=version-2.01
