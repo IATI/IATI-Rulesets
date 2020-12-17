@@ -25,6 +25,6 @@ jobs:
 
       - name: Install Saxon-HE, Build/Test with Ant
         run: |
-          mvn dependency:get -DgroupId=net.sf.saxon -DartifactId=Saxon-HE -Dversion=9.9.0-2 -Dpackaging=jar
+          mvn dependency:get -q -DgroupId=net.sf.saxon -DartifactId=Saxon-HE -Dversion=9.9.0-2 -Dpackaging=jar
           cp /home/runner/.m2/repository/net/sf/saxon/Saxon-HE/9.9.0-2/Saxon-HE-9.9.0-2.jar /usr/share/ant/lib/saxon9he.jar
-          ant test
+          ant test -q
