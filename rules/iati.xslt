@@ -74,17 +74,6 @@
 
   <xsl:template match="@*|node()" mode="rules"/>
 
-  <xsl:template match="codelist" mode="get-codelists">
-    <xsl:copy>
-      <xsl:copy select="@name"/>
-      <xsl:apply-templates select="//code" mode="get-codelists"/>
-    </xsl:copy>
-  </xsl:template>
-  
-  <xsl:template match="code" mode="get-codelists">
-    <xsl:copy>{.}</xsl:copy>
-  </xsl:template>  
-
   <xsl:variable name="iati-codelists">
     <codes version="2.03">
       <xsl:apply-templates select="collection('../lib/schemata/2.03/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
@@ -108,6 +97,17 @@
       <xsl:apply-templates select="collection('../lib/schemata/1.03/codelist/?select=*.xml;recurse=yes')" mode="get-codelists"/>
     </codes>
   </xsl:variable>
+
+  <xsl:template match="codelist" mode="get-codelists">
+    <xsl:copy>
+      <xsl:copy select="@name"/>
+      <xsl:apply-templates select="//code" mode="get-codelists"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template match="code" mode="get-codelists">
+    <xsl:copy>{.}</xsl:copy>
+  </xsl:template>  
 
   <xsl:function name="me:codeListFail" as="xs:boolean">
     <xsl:param name="code"/>
