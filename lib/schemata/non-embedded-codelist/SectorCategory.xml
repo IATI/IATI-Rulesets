@@ -17,7 +17,7 @@
             </name>
             <description>
                 <narrative>The codes in this category are to be used only when level of education is unspecified or unknown (e.g. training of primary school teachers should be coded under 11220).</narrative>
-                <narrative xml:lang="fr">Les codes de cette catégorie doivent être utilisés seulement si le niveau d’éducation n’est pas spécifié ou connu (par exemple la formation d’enseignants d’écoles primaires devrait être codée sous 11220).</narrative>
+                <narrative xml:lang="fr">Les codes de cette catégorie doivent être utilisés seulement si le niveau d'éducation n'est pas spécifié ou connu (par exemple la formation d'enseignants d'écoles primaires devrait être codée sous 11220).</narrative>
             </description>
         </codelist-item>
         <codelist-item>
@@ -127,7 +127,7 @@
             </name>
             <description>
                 <narrative>N.B. Further notes on ODA eligibility (and exclusions) of conflict, peace and security related activities are given in paragraphs 76-81 of the Directives.</narrative>
-                <narrative xml:lang="fr">N.B.  Des notes supplémentaires sur l’éligibilité au titre de l’APD (et les exclusions) des activités liées aux conflits, la paix et la sécurité sont données dans les paragraphes 76-81 des Directives.</narrative>
+                <narrative xml:lang="fr">N.B.  Des notes supplémentaires sur l'éligibilité au titre de l'APD (et les exclusions) des activités liées aux conflits, la paix et la sécurité sont données dans les paragraphes 76-81 des Directives.</narrative>
             </description>
         </codelist-item>
         <codelist-item>
@@ -163,7 +163,7 @@
                 <narrative xml:lang="fr"/>
             </description>
         </codelist-item>
-        <codelist-item status="withdrawn" withdrawal-date="2014-12-31">
+        <codelist-item status="withdrawn" withdrawal-date="2020-02-28">
             <code>230</code>
             <name>
                 <narrative>ENERGY GENERATION AND SUPPLY</narrative>
@@ -378,7 +378,7 @@
             </name>
             <description>
                 <narrative>Budget support in the form of sector-wide approaches (SWAps) should be included in the respective sectors.</narrative>
-                <narrative xml:lang="fr">Les soutiens budgétaires sous la forme d’approches sectorielles devraient être inclus dans les secteurs respectifs.</narrative>
+                <narrative xml:lang="fr">Les soutiens budgétaires sous la forme d'approches sectorielles devraient être inclus dans les secteurs respectifs.</narrative>
             </description>
         </codelist-item>
         <codelist-item>
@@ -422,7 +422,7 @@
             </name>
             <description>
                 <narrative>An emergency is a situation which results from man made crises and/or natural disasters.</narrative>
-                <narrative xml:lang="fr">Une situation d’urgence a pour origine une crise provoquée par des actions humaines ou par une catastrophe naturelle.</narrative>
+                <narrative xml:lang="fr">Une situation d'urgence a pour origine une crise provoquée par des actions humaines ou par une catastrophe naturelle.</narrative>
             </description>
         </codelist-item>
         <codelist-item>
@@ -433,7 +433,7 @@
             </name>
             <description>
                 <narrative>This relates to activities during and in the aftermath of an emergency situation.  Longer-term activities to improve the level of infrastructure or social services should be reported under the relevant economic and social sector codes. See also guideline on distinguishing humanitarian from sector-allocable aid.</narrative>
-                <narrative xml:lang="fr">Activités menées pendant et après une situation d’urgence. Les activités à plus long terme destinées à améliorer le niveau d’infrastructure ou de services sociaux doivent être rapportées sous les codes correspondants des secteurs économiques et sociaux pertinents. Voir également les orientations sur la distinction entre l’aide humanitaire et l’aide ventilable par secteur.</narrative>
+                <narrative xml:lang="fr">Activités menées pendant et après une situation d'urgence. Les activités à plus long terme destinées à améliorer le niveau d'infrastructure ou de services sociaux doivent être rapportées sous les codes correspondants des secteurs économiques et sociaux pertinents. Voir également les orientations sur la distinction entre l'aide humanitaire et l'aide ventilable par secteur.</narrative>
             </description>
         </codelist-item>
         <codelist-item>
@@ -458,7 +458,7 @@
                 <narrative xml:lang="fr"/>
             </description>
         </codelist-item>
-        <codelist-item status="withdrawn" withdrawal-date="2012-12-31">
+        <codelist-item status="withdrawn" withdrawal-date="2020-02-28">
             <code>920</code>
             <name>
                 <narrative>SUPPORT TO NON- GOVERNMENTAL ORGANISATIONS (NGOs)</narrative>
