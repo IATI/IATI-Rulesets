@@ -34,7 +34,7 @@
   
   <xsl:template match="/*[starts-with(@version, '1.')]">
     <xsl:copy select=".">
-      <xsl:copy-of select="@*"/>
+      <xsl:copy-of select="attribute()"/>
       <me:feedback type="danger" class="documents" id="0.6.1">
         <me:src ref="iati" versions="1.0x" href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/"/>
         <me:message>Version {me:iati-version(@version)} of the IATI Standard is no longer supported. Please use version 2.</me:message>
@@ -42,7 +42,7 @@
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template match="@*|node()">
+  <xsl:template match="attribute()|node()">
     <xsl:param name="iati-version" tunnel="yes"/>
     <xsl:copy>
       <xsl:variable name="use-iati-version">
@@ -57,10 +57,10 @@
         <xsl:attribute name="me:schemaVersion">{$schemaVersion}</xsl:attribute>  
         <xsl:attribute name="me:iatiVersion">{$use-iati-version}</xsl:attribute>  
       </xsl:if>
-      <xsl:apply-templates select="@*|node()">
+      <xsl:apply-templates select="attribute()|node()">
         <xsl:with-param name="iati-version" select="$use-iati-version" tunnel="yes"/>
       </xsl:apply-templates>
-      <xsl:apply-templates select="@*" mode="rules">
+      <xsl:apply-templates select="attribute()" mode="rules">
         <xsl:with-param name="iati-version" select="$use-iati-version" tunnel="yes"/>
       </xsl:apply-templates>
       <xsl:apply-templates select="." mode="rules">
@@ -72,7 +72,7 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="@*|node()" mode="rules"/>
+  <xsl:template match="attribute()|node()" mode="rules"/>
 
   <xsl:variable name="iati-codelists">
     <codes version="2.03">
