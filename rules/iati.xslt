@@ -113,10 +113,11 @@
     <xsl:param name="code"/>
     <xsl:param name="codelist"/>
     <xsl:param name="iati-version"/>
+    <xsl:variable name="iati-codelist-version-codelist" select="$iati-codelists/codes[@version=$iati-version]/codelist[@name=$codelist]"/>
     
     <xsl:sequence select="$code and 
-      $iati-codelists/codes[@version=$iati-version]/codelist[@name=$codelist] and 
-      not(($code, lower-case($code), upper-case($code))=$iati-codelists/codes[@version=$iati-version]/codelist[@name=$codelist]/code)"/>
+      $iati-codelist-version-codelist and 
+      not(($code, lower-case($code), upper-case($code))=$iati-codelist-version-codelist/code)"/>
   </xsl:function>
   
 </xsl:stylesheet>
