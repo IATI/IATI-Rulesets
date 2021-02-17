@@ -6,6 +6,8 @@
   exclude-result-prefixes="functx"
   expand-text="yes">
 
+  <xsl:key name="activityByIdentifier" match="iati-identifier" use="text()" />
+
   <xsl:template match="iati-identifier" mode="rules" priority="1.1">
     <xsl:param name="iati-version" tunnel="yes"/>
     <xsl:param name="reporting-org" select="../reporting-org/@ref" />
@@ -38,15 +40,14 @@
         </me:feedback>
       </xsl:when>
     </xsl:choose>
-
-    <!-- TODO move this to an activity file-level test -->
-    <xsl:if test="../../iati-activity[iati-identifier=current()][2]">
+    
+    <xsl:if test="key('activityByIdentifier', .)[2]">
       <me:feedback type="danger" class="identifiers" id="1.1.2">
         <me:src ref="iati" versions="any" href="{me:iati-url('activity-standard/iati-activities/iati-activity/iati-identifier/')}"/>
         <me:message>The activity identifier must be unique for each activity.</me:message>
       </me:feedback>
     </xsl:if>
-    
+
     <xsl:next-match/>
   </xsl:template>
     
