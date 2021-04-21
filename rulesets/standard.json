@@ -8,7 +8,16 @@
     },
     "one_or_all": {
       "cases": [
-        { "one": "@xml:lang", "all": "lang" },
+        {
+          "one": "@xml:lang",
+          "all": "lang",
+          "ruleInfo": {
+            "id": "4.1.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The activity should specify a default language OR the language must be specified for each narrative element."
+          }
+        },
         { "one": "sector", "all": "sector" },
         { "one": "@default-currency", "all": "currency" }
       ]
@@ -25,7 +34,17 @@
       ]
     },
     "date_now": {
-      "cases": [{ "date": "@last-updated-datetime" }]
+      "cases": [
+        {
+          "date": "@last-updated-datetime",
+          "ruleInfo": {
+            "id": "11.1.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The last updated datetime of the activity must not be in the future."
+          }
+        }
+      ]
     },
     "date_order": {
       "cases": [
@@ -37,8 +56,22 @@
           "less": "activity-date[@type='2']/@iso-date",
           "more": "activity-date[@type='4']/@iso-date"
         },
-        { "less": "activity-date[@type='2']/@iso-date", "more": "NOW" },
-        { "less": "activity-date[@type='4']/@iso-date", "more": "NOW" }
+        {
+          "less": "activity-date[@type='2']/@iso-date",
+          "more": "NOW"
+        },
+        {
+          "less": "activity-date[@type='4']/@iso-date",
+          "more": "NOW"
+        },
+        {
+          "less": "transaction/transaction-date/@iso-date",
+          "more": "NOW"
+        },
+        {
+          "less": "transaction/value/@value-date",
+          "more": "NOW"
+        }
       ]
     },
     "regex_matches": {
@@ -52,17 +85,6 @@
             "transaction/provider-org/@ref",
             "transaction/receiver-org/@ref"
           ]
-        }
-      ]
-    },
-    "sum": {
-      "cases": [
-        {
-          "paths": [
-            "recipient-country/@percentage",
-            "recipient-region/@percentage"
-          ],
-          "sum": 100
         }
       ]
     },
@@ -81,6 +103,23 @@
             }
           },
           "subs": ["paths"]
+        },
+        {
+          "foreach": "recipient-region/@vocabulary",
+          "do": {
+            "strict_sum": {
+              "cases": [
+                {
+                  "paths": [
+                    "recipient-region[@vocabulary = '$1']/@percentage",
+                    "recipient-country/@percentage"
+                  ],
+                  "sum": 100
+                }
+              ]
+            }
+          },
+          "subs": ["paths"]
         }
       ]
     },
@@ -90,6 +129,11 @@
           "paths": [
             "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage"
           ],
+          "sum": 100
+        },
+        {
+          "condition": "not(recipient-region)",
+          "paths": ["recipient-country/@percentage"],
           "sum": 100
         }
       ]
@@ -127,14 +171,30 @@
       "cases": [
         {
           "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
-          "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
+          "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])",
+          "ruleInfo": {
+            "id": "2.2.1",
+            "severity": "error",
+            "category": "classifications",
+            "message": "When using a reporting organisation sector code (vocabulary 98 or 99), it must include a narrative."
+          }
         }
       ]
     }
   },
   "//iati-activity/other-identifier/owner-org": {
     "atleast_one": {
-      "cases": [{ "paths": ["@ref", "narrative"] }]
+      "cases": [
+        {
+          "paths": ["@ref", "narrative"],
+          "ruleInfo": {
+            "id": "6.8.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The owner organisation must have an identifier or a narrative."
+          }
+        }
+      ]
     }
   },
   "//iati-activity/transaction/provider-org": {
@@ -166,7 +226,17 @@
       "cases": [
         {
           "regex": "[^\\/\\&\\|\\?]+",
-          "paths": ["reporting-org/@ref", "organisation-identifier"]
+          "paths": ["organisation-identifier"]
+        },
+        {
+          "regex": "[^\\/\\&\\|\\?]+",
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.18.13",
+            "severity": "warning",
+            "category": "information",
+            "message": "The {{matchedPathValue}} must not contain any of the symbols /, &, | or ?."
+          }
         }
       ]
     },
@@ -175,7 +245,16 @@
     },
     "one_or_all": {
       "cases": [
-        { "one": "@xml:lang", "all": "lang" },
+        {
+          "one": "@xml:lang",
+          "all": "lang",
+          "ruleInfo": {
+            "id": "4.5.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The organisation should specify a default language, or the language should be specified for each narrative element."
+          }
+        },
         { "one": "@default-currency", "all": "currency" }
       ]
     }
@@ -183,14 +262,6 @@
   "//participating-org": {
     "atleast_one": {
       "cases": [{ "paths": ["@ref", "narrative"] }]
-    }
-  },
-  "//transaction": {
-    "date_order": {
-      "cases": [
-        { "less": "transaction-date/@iso-date", "more": "NOW" },
-        { "less": "value/@value-date", "more": "NOW" }
-      ]
     }
   },
   "//planned-disbursement": {
