@@ -1,300 +1,311 @@
 {
-    "//iati-activity": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "activity-date[@type='1' or @type='2']" ] },
-                { "paths": [ "sector", "transaction/sector" ] }
-            ]
+  "//iati-activity": {
+    "atleast_one": {
+      "cases": [
+        { "paths": ["activity-date[@type='1' or @type='2']"] },
+        { "paths": ["sector", "transaction/sector"] }
+      ]
+    },
+    "one_or_all": {
+      "cases": [
+        { "one": "@xml:lang", "all": "lang" },
+        { "one": "sector", "all": "sector" },
+        { "one": "@default-currency", "all": "currency" }
+      ]
+    },
+    "only_one_of": {
+      "cases": [
+        {
+          "excluded": ["recipient-region", "recipient-country"],
+          "paths": [
+            "transaction/recipient-country",
+            "transaction/recipient-region"
+          ]
+        }
+      ]
+    },
+    "date_now": {
+      "cases": [{ "date": "@last-updated-datetime" }]
+    },
+    "date_order": {
+      "cases": [
+        {
+          "less": "activity-date[@type='1']/@iso-date",
+          "more": "activity-date[@type='3']/@iso-date"
         },
-        "one_or_all": {
-            "cases": [
-                { "one":"@xml:lang", "all":"lang" },
-                { "one":"sector", "all":"sector" },
-                { "one":"@default-currency", "all":"currency" }
-            ]
+        {
+          "less": "activity-date[@type='2']/@iso-date",
+          "more": "activity-date[@type='4']/@iso-date"
         },
-        "only_one_of": {
-            "cases": [
+        { "less": "activity-date[@type='2']/@iso-date", "more": "NOW" },
+        { "less": "activity-date[@type='4']/@iso-date", "more": "NOW" }
+      ]
+    },
+    "regex_matches": {
+      "cases": [
+        {
+          "regex": "[^\\/\\&\\|\\?]+",
+          "paths": [
+            "reporting-org/@ref",
+            "iati-identifier",
+            "participating-org/@ref",
+            "transaction/provider-org/@ref",
+            "transaction/receiver-org/@ref"
+          ]
+        }
+      ]
+    },
+    "sum": {
+      "cases": [
+        {
+          "paths": [
+            "recipient-country/@percentage",
+            "recipient-region/@percentage"
+          ],
+          "sum": 100
+        }
+      ]
+    },
+    "loop": {
+      "cases": [
+        {
+          "foreach": "sector[@vocabulary != '1']/@vocabulary",
+          "do": {
+            "strict_sum": {
+              "cases": [
                 {
-                    "excluded": [ "recipient-region", "recipient-country" ],
-                    "paths": [ "transaction/recipient-country", "transaction/recipient-region" ]
+                  "paths": ["sector[@vocabulary = '$1']/@percentage"],
+                  "sum": 100
                 }
-            ]
+              ]
+            }
+          },
+          "subs": ["paths"]
+        }
+      ]
+    },
+    "strict_sum": {
+      "cases": [
+        {
+          "paths": [
+            "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage"
+          ],
+          "sum": 100
+        }
+      ]
+    },
+    "range": {
+      "cases": [
+        {
+          "paths": ["recipient-country/@percentage"],
+          "min": 0.0,
+          "max": 100.0
         },
-        "date_now": {
-            "cases": [
-                { "date": "@last-updated-datetime" }
-            ]
+        {
+          "paths": ["recipient-region/@percentage"],
+          "min": 0.0,
+          "max": 100.0
         },
-        "date_order": {
-            "cases": [
-                { "less": "activity-date[@type='1']/@iso-date", "more": "activity-date[@type='3']/@iso-date" },
-                { "less": "activity-date[@type='2']/@iso-date", "more": "activity-date[@type='4']/@iso-date" },
-                { "less": "activity-date[@type='2']/@iso-date", "more": "NOW" },
-                { "less": "activity-date[@type='4']/@iso-date", "more": "NOW" }
-            ]
+        {
+          "paths": ["sector/@percentage"],
+          "min": 0.0,
+          "max": 100.0
         },
-        "regex_matches": {
-            "cases": [
-                { "regex": "[^\\/\\&\\|\\?]+",
-                  "paths": [ "reporting-org/@ref", "iati-identifier", "participating-org/@ref", "transaction/provider-org/@ref", "transaction/receiver-org/@ref" ] }
-            ]
+        {
+          "paths": ["capital-spend/@percentage"],
+          "min": 0.0,
+          "max": 100.0
         },
-        "sum": {
-            "cases": [ {
-                "paths": [ "recipient-country/@percentage", "recipient-region/@percentage" ],
-                "sum": 100
-             } ]
-        },
-        "loop": {
-            "cases": [
-                {
-                    "foreach": "sector[@vocabulary != '1']/@vocabulary",
-                    "do": {
-                        "strict_sum": {
-                            "cases": [
-                                {
-                                    "paths": [ "sector[@vocabulary = '$1']/@percentage" ],
-                                    "sum": 100
-                                }
-                            ]
-                        }
-                    },
-                    "subs": ["paths"]
-                }
-            ]
-        },
-        "strict_sum": {
-            "cases": [
-                {
-                    "paths": [ "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage" ],
-                    "sum": 100
-                }
-            ]
-        },
-        "range": {
-            "cases": [
-                {
-                    "paths": ["recipient-country/@percentage"],
-                    "min": 0.0, "max": 100.0
-                },
-                {
-                    "paths": ["recipient-region/@percentage"],
-                    "min": 0.0, "max": 100.0
-                },
-                {
-                    "paths": ["sector/@percentage"],
-                    "min": 0.0, "max": 100.0
-                },
-                {
-                    "paths": ["capital-spend/@percentage"],
-                    "min": 0.0, "max": 100.0
-                },
-                {
-                    "paths": ["country-budget-items/budget-item/@percentage"],
-                    "min": 0.0, "max": 100.0
-                }
-            ]
-        },
-        "if_then": {
-            "cases":[
-                {
-                    "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
-                    "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
-                }
-            ]
+        {
+          "paths": ["country-budget-items/budget-item/@percentage"],
+          "min": 0.0,
+          "max": 100.0
         }
+      ]
     },
-    "//iati-activity/other-identifier/owner-org": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "@ref", "narrative" ]}
-            ]
+    "if_then": {
+      "cases": [
+        {
+          "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
+          "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
         }
-    },
-    "//iati-activity/transaction/provider-org": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "@ref", "narrative" ]}
-            ]
-        }
-    },
-    "//iati-activity/transaction/receiver-org": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "@ref", "narrative" ]}
-            ]
-        }
-    },
-    "//policy-marker": {
-        "atleast_one": {
-            "cases": [
-                {
-                    "condition": "@vocabulary='1' or not(@vocabulary)",
-                    "paths": [ "@significance" ]
-                },
-                {
-                    "condition": "@vocabulary='99'",
-                    "paths": [ "narrative" ]
-                }
-            ]
-        }
-    },
-    "//iati-organisation": {
-        "regex_matches": {
-            "cases": [
-                { "regex": "[^\\/\\&\\|\\?]+",
-                  "paths": [ "reporting-org/@ref", "organisation-identifier" ] }
-            ]
-        },
-        "date_now": {
-            "cases": [
-                { "date": "@last-updated-datetime" }
-            ]
-        },
-        "one_or_all": {
-            "cases": [
-                { "one":"@xml:lang", "all":"lang" },
-                { "one":"@default-currency", "all":"currency" }
-            ]
-        }
-    },
-    "//participating-org": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "@ref", "narrative" ] }
-            ]
-        }
-    },
-    "//transaction": {
-        "date_order": {
-            "cases": [
-                { "less": "transaction-date/@iso-date", "more": "NOW" },
-                { "less": "value/@value-date", "more": "NOW" }
-            ]
-        }
-    },
-    "//planned-disbursement": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        },
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//total-budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        },
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date"}
-            ]
-        }
-    },
-    "//recipient-country-budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        },
-        "between_dates": {
-            "cases": [
-                {
-                    "date": "budget-line/value/@value-date",
-                    "start": "period-start/@iso-date",
-                    "end": "period-end/@iso-date"
-                }
-            ]
-        },
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//recipient-org-budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        },
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//recipient-region-budget": {
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        },
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//result/indicator": {
-        "no_more_than_one": {
-            "cases": [
-                { "paths": [ "reference[1]", "../reference[1]" ] }
-            ]
-        }
-    },
-    "//result/indicator/period": {
-        "date_order": {
-            "cases": [
-                {  "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//total-expenditure": {
-        "time_limit": {
-            "cases": [
-                { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
-            ]
-        },
-        "date_order": {
-            "cases": [
-                { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
-            ]
-        }
-    },
-    "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/baseline": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "@value" ] }
-            ]
-        }
-    },
-    "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/target": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "@value" ] }
-            ]
-        }
-    },
-    "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/actual": {
-        "atleast_one": {
-            "cases": [
-                { "paths": [ "@value" ] }
-            ]
-        }
+      ]
     }
+  },
+  "//iati-activity/other-identifier/owner-org": {
+    "atleast_one": {
+      "cases": [{ "paths": ["@ref", "narrative"] }]
+    }
+  },
+  "//iati-activity/transaction/provider-org": {
+    "atleast_one": {
+      "cases": [{ "paths": ["@ref", "narrative"] }]
+    }
+  },
+  "//iati-activity/transaction/receiver-org": {
+    "atleast_one": {
+      "cases": [{ "paths": ["@ref", "narrative"] }]
+    }
+  },
+  "//policy-marker": {
+    "atleast_one": {
+      "cases": [
+        {
+          "condition": "@vocabulary='1' or not(@vocabulary)",
+          "paths": ["@significance"]
+        },
+        {
+          "condition": "@vocabulary='99'",
+          "paths": ["narrative"]
+        }
+      ]
+    }
+  },
+  "//iati-organisation": {
+    "regex_matches": {
+      "cases": [
+        {
+          "regex": "[^\\/\\&\\|\\?]+",
+          "paths": ["reporting-org/@ref", "organisation-identifier"]
+        }
+      ]
+    },
+    "date_now": {
+      "cases": [{ "date": "@last-updated-datetime" }]
+    },
+    "one_or_all": {
+      "cases": [
+        { "one": "@xml:lang", "all": "lang" },
+        { "one": "@default-currency", "all": "currency" }
+      ]
+    }
+  },
+  "//participating-org": {
+    "atleast_one": {
+      "cases": [{ "paths": ["@ref", "narrative"] }]
+    }
+  },
+  "//transaction": {
+    "date_order": {
+      "cases": [
+        { "less": "transaction-date/@iso-date", "more": "NOW" },
+        { "less": "value/@value-date", "more": "NOW" }
+      ]
+    }
+  },
+  "//planned-disbursement": {
+    "date_order": {
+      "cases": [
+        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+      ]
+    }
+  },
+  "//budget": {
+    "date_order": {
+      "cases": [
+        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+      ]
+    },
+    "time_limit": {
+      "cases": [
+        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+      ]
+    }
+  },
+  "//total-budget": {
+    "date_order": {
+      "cases": [
+        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+      ]
+    },
+    "time_limit": {
+      "cases": [
+        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+      ]
+    }
+  },
+  "//recipient-country-budget": {
+    "date_order": {
+      "cases": [
+        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+      ]
+    },
+    "between_dates": {
+      "cases": [
+        {
+          "date": "budget-line/value/@value-date",
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date"
+        }
+      ]
+    },
+    "time_limit": {
+      "cases": [
+        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+      ]
+    }
+  },
+  "//recipient-org-budget": {
+    "date_order": {
+      "cases": [
+        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+      ]
+    },
+    "time_limit": {
+      "cases": [
+        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+      ]
+    }
+  },
+  "//recipient-region-budget": {
+    "date_order": {
+      "cases": [
+        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+      ]
+    },
+    "time_limit": {
+      "cases": [
+        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+      ]
+    }
+  },
+  "//result/indicator": {
+    "no_more_than_one": {
+      "cases": [{ "paths": ["reference[1]", "../reference[1]"] }]
+    }
+  },
+  "//result/indicator/period": {
+    "date_order": {
+      "cases": [
+        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+      ]
+    }
+  },
+  "//total-expenditure": {
+    "time_limit": {
+      "cases": [
+        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+      ]
+    },
+    "date_order": {
+      "cases": [
+        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+      ]
+    }
+  },
+  "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/baseline": {
+    "atleast_one": {
+      "cases": [{ "paths": ["@value"] }]
+    }
+  },
+  "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/target": {
+    "atleast_one": {
+      "cases": [{ "paths": ["@value"] }]
+    }
+  },
+  "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/actual": {
+    "atleast_one": {
+      "cases": [{ "paths": ["@value"] }]
+    }
+  }
 }
