@@ -3,7 +3,17 @@
     "atleast_one": {
       "cases": [
         { "paths": ["activity-date[@type='1' or @type='2']"] },
-        { "paths": ["sector", "transaction/sector"] }
+        { "paths": ["sector", "transaction/sector"] },
+        {
+          "if": "count(sector[not(@vocabulary='')]) + count(sector[not(@vocabulary='1')]) > 0",
+          "then": "count(sector[@vocabulary='']) + count(sector[@vocabulary='1']) + count(sector[not(@vocabulary)]) > 0",
+          "ruleInfo": {
+            "id": "102.1.1",
+            "severity": "warning",
+            "category": "information",
+            "message": "When a non OECD DAC sector vocabulary is used, sector vocabulary 1 - OECD DAC should also be used."
+          }
+        }
       ]
     },
     "one_or_all": {
