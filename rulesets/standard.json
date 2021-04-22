@@ -24,6 +24,17 @@
             "category": "identifiers",
             "message": "The activity identifier should begin with the organisation identifier of the reporting organisation (or a previous version included in the other-identifier element)."
           }
+        },
+        {
+          "prefix": ["reporting-org/@ref", "other-identifier[@type='B1']/@ref"],
+          "separator": "-",
+          "paths": ["iati-identifier"],
+          "ruleInfo": {
+            "id": "1.1.21",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The activity identifier should be your IATI Organisation Identifier followed by a unique string for the activity separated by a hyphen e.g. COH-1234-activity1"
+          }
         }
       ]
     },
