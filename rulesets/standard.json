@@ -219,12 +219,24 @@
         {
           "paths": ["recipient-country/@percentage"],
           "min": 0.0,
-          "max": 100.0
+          "max": 100.0,
+          "ruleInfo": {
+            "id": "12.1.1",
+            "severity": "error",
+            "category": "geo",
+            "message": "The country/region percentage value must be between 0.0 and 100.0 (inclusive)."
+          }
         },
         {
           "paths": ["recipient-region/@percentage"],
           "min": 0.0,
-          "max": 100.0
+          "max": 100.0,
+          "ruleInfo": {
+            "id": "12.1.1",
+            "severity": "error",
+            "category": "geo",
+            "message": "The country/region percentage value must be between 0.0 and 100.0 (inclusive)."
+          }
         },
         {
           "paths": ["sector/@percentage"],
