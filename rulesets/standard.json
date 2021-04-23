@@ -252,12 +252,24 @@
         {
           "paths": ["capital-spend/@percentage"],
           "min": 0.0,
-          "max": 100.0
+          "max": 100.0,
+          "ruleInfo": {
+            "id": "12.2.1",
+            "severity": "error",
+            "category": "financial",
+            "message": "The percentage value must be between 0.0 and 100.0 (inclusive)."
+          }
         },
         {
           "paths": ["country-budget-items/budget-item/@percentage"],
           "min": 0.0,
-          "max": 100.0
+          "max": 100.0,
+          "ruleInfo": {
+            "id": "12.2.1",
+            "severity": "error",
+            "category": "financial",
+            "message": "The percentage value must be between 0.0 and 100.0 (inclusive)."
+          }
         }
       ]
     },
