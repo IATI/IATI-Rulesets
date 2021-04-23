@@ -135,7 +135,13 @@
               "cases": [
                 {
                   "paths": ["sector[@vocabulary = '$1']/@percentage"],
-                  "sum": 100
+                  "sum": 100,
+                  "ruleInfo": {
+                    "id": "2.1.2",
+                    "severity": "error",
+                    "category": "classifications",
+                    "message": "Percentage values for sectors, within a vocabulary (e.g. 1 - OECD DAC), must add up to 100%."
+                  }
                 }
               ]
             }
@@ -167,7 +173,13 @@
           "paths": [
             "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage"
           ],
-          "sum": 100
+          "sum": 100,
+          "ruleInfo": {
+            "id": "2.1.2",
+            "severity": "error",
+            "category": "classifications",
+            "message": "Percentage values for sectors, within a vocabulary (e.g. 1 - OECD DAC), must add up to 100%."
+          }
         },
         {
           "condition": "not(recipient-region)",
