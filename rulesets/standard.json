@@ -208,9 +208,15 @@
           }
         },
         {
-          "condition": "not(recipient-region)",
+          "condition": "recipient-country and not(recipient-region)",
           "paths": ["recipient-country/@percentage"],
-          "sum": 100
+          "sum": 100,
+          "ruleInfo": {
+            "id": "3.1.2",
+            "severity": "error",
+            "category": "geo",
+            "message": "Percentage values for recipient countries, must add up to 100%."
+          }
         }
       ]
     },
