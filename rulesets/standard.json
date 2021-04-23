@@ -74,7 +74,16 @@
             "message": "If sector is declared at transaction level, a sector must be declared for all transactions."
           }
         },
-        { "one": "@default-currency", "all": "currency" }
+        {
+          "one": "@default-currency",
+          "all": "currency",
+          "ruleInfo": {
+            "id": "7.8.1",
+            "severity": "error",
+            "category": "financial",
+            "message": "The activity should specify a default currency OR the currency must be specified for each monetary value."
+          }
+        }
       ]
     },
     "only_one_of": {
