@@ -278,11 +278,23 @@
       "cases": [
         {
           "condition": "@vocabulary='1' or not(@vocabulary)",
-          "paths": ["@significance"]
+          "paths": ["@significance"],
+          "ruleInfo": {
+            "id": "6.14.1",
+            "severity": "error",
+            "category": "classifications",
+            "message": "When using a policy marker code for vocabulary 1, it must include a significance."
+          }
         },
         {
           "condition": "@vocabulary='99'",
-          "paths": ["narrative"]
+          "paths": ["narrative"],
+          "ruleInfo": {
+            "id": "6.13.1",
+            "severity": "error",
+            "category": "classifications",
+            "message": "When using a reporting organisation policy marker code (vocabulary 99), it must include a narrative."
+          }
         }
       ]
     }
