@@ -191,7 +191,13 @@
         {
           "paths": ["sector/@percentage"],
           "min": 0.0,
-          "max": 100.0
+          "max": 100.0,
+          "ruleInfo": {
+            "id": "12.3.1",
+            "severity": "error",
+            "category": "classifications",
+            "message": "The sector percentage value must be between 0.0 and 100.0 (inclusive)."
+          }
         },
         {
           "paths": ["capital-spend/@percentage"],
