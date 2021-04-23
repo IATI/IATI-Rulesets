@@ -261,6 +261,16 @@
             "category": "information",
             "message": "When a non OECD DAC sector vocabulary is used, sector vocabulary 1 - OECD DAC should also be used."
           }
+        },
+        {
+          "if": "count(sector) > 0",
+          "then": "count(transaction/sector) < 1",
+          "ruleInfo": {
+            "id": "6.6.2",
+            "severity": "error",
+            "category": "classifications",
+            "message": "Sectors must only be declared at activity level OR for all transactions."
+          }
         }
       ]
     }
