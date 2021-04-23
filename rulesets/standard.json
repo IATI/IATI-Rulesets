@@ -64,7 +64,16 @@
             "message": "The activity should specify a default language OR the language must be specified for each narrative element."
           }
         },
-        { "one": "sector", "all": "sector" },
+        {
+          "one": "sector",
+          "all": "sector",
+          "ruleInfo": {
+            "id": "6.7.2",
+            "severity": "error",
+            "category": "classifications",
+            "message": "If sector is declared at transaction level, a sector must be declared for all transactions."
+          }
+        },
         { "one": "@default-currency", "all": "currency" }
       ]
     },
