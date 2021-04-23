@@ -41,7 +41,15 @@
     "atleast_one": {
       "cases": [
         { "paths": ["activity-date[@type='1' or @type='2']"] },
-        { "paths": ["sector", "transaction/sector"] }
+        {
+          "paths": ["sector", "transaction/sector"],
+          "ruleInfo": {
+            "id": "6.2.2",
+            "severity": "error",
+            "category": "classifications",
+            "message": "Each activity must have a specified sector, either at activity level OR for all transactions."
+          }
+        }
       ]
     },
     "one_or_all": {
