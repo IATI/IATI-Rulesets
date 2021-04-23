@@ -117,7 +117,7 @@
           "paths": ["recipient-country/@percentage"],
           "min": 0.0,
           "ruleInfo": {
-            "id": "12.1.1",
+            "id": "12.1.2",
             "severity": "error",
             "category": "geo",
             "message": "The country/region percentage value must be between 0.0 and 100.0 (inclusive)."
@@ -127,7 +127,7 @@
           "paths": ["recipient-region/@percentage"],
           "min": 0.0,
           "ruleInfo": {
-            "id": "12.1.1",
+            "id": "12.1.2",
             "severity": "error",
             "category": "geo",
             "message": "The country/region percentage value must be between 0.0 and 100.0 (inclusive)."
@@ -147,7 +147,7 @@
           "paths": ["capital-spend/@percentage"],
           "min": 0.0,
           "ruleInfo": {
-            "id": "12.2.1",
+            "id": "12.2.2",
             "severity": "error",
             "category": "financial",
             "message": "The percentage value must be between 0.0 and 100.0 (inclusive)."
@@ -157,7 +157,7 @@
           "paths": ["country-budget-items/budget-item/@percentage"],
           "min": 0.0,
           "ruleInfo": {
-            "id": "12.2.1",
+            "id": "12.2.2",
             "severity": "error",
             "category": "financial",
             "message": "The percentage value must be between 0.0 and 100.0 (inclusive)."
