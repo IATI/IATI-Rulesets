@@ -184,7 +184,13 @@
                     "recipient-region[@vocabulary = '$1']/@percentage",
                     "recipient-country/@percentage"
                   ],
-                  "sum": 100
+                  "sum": 100,
+                  "ruleInfo": {
+                    "id": "3.4.2",
+                    "severity": "error",
+                    "category": "geo",
+                    "message": "Percentage values for recipient countries or regions, must add up to 100%."
+                  }
                 }
               ]
             }
