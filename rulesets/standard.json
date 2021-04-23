@@ -272,6 +272,16 @@
           }
         },
         {
+          "if": "count(default-aid-type[not(@vocabulary='')]) + count(default-aid-type[not(@vocabulary='1')]) > 0",
+          "then": "count(default-aid-type[@vocabulary='']) + count(default-aid-type[@vocabulary='1']) + count(default-aid-type[not(@vocabulary)]) > 0",
+          "ruleInfo": {
+            "id": "107.1.1",
+            "severity": "warning",
+            "category": "information",
+            "message": "The activity should also declare an aid type code from aid type vocabulary 1 - OECD DAC."
+          }
+        },
+        {
           "if": "count(sector) > 0",
           "then": "count(transaction/sector) < 1",
           "ruleInfo": {
