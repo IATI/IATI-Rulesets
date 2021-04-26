@@ -13,7 +13,7 @@
         }
       ]
     },
-    "startsWith": {
+    "startswith": {
       "cases": [
         {
           "prefix": ["reporting-org/@ref", "other-identifier[@type='B1']/@ref"],
@@ -34,6 +34,132 @@
             "severity": "warning",
             "category": "identifiers",
             "message": "The activity identifier should be your IATI Organisation Identifier followed by a unique string for the activity separated by a hyphen e.g. COH-1234-activity1"
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["iati-identifier"],
+          "ruleInfo": {
+            "id": "1.3.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The iati-identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["planned-disbursement/provider-org/@ref"],
+          "ruleInfo": {
+            "id": "1.10.8",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["other-identifier/owner-org/@ref"],
+          "ruleInfo": {
+            "id": "1.11.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The owner organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.14.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["planned-disbursement/receiver-org/@ref"],
+          "ruleInfo": {
+            "id": "1.15.8",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiving organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["other-identifier[@type='B1']/@ref"],
+          "ruleInfo": {
+            "id": "1.16.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous reporting organisation identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["other-identifier[@type='A3']/@ref"],
+          "ruleInfo": {
+            "id": "1.6.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous activity identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": [
+            "planned-disbursement/provider-org/@provider-activity-id",
+            "transaction/provider-org/@provider-activity-id"
+          ],
+          "ruleInfo": {
+            "id": "1.4.8",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider activity identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": [
+            "planned-disbursement/receiver-org/@receiver-activity-id",
+            "/transaction/receiver-org/@receiver-activity-id"
+          ],
+          "ruleInfo": {
+            "id": "1.5.8",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver activity identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["related-activity/@ref"],
+          "ruleInfo": {
+            "id": "1.7.8",
+            "severity": "warning",
+            "category": "relations",
+            "message": "The related activity identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["participating-org/@ref"],
+          "ruleInfo": {
+            "id": "1.8.8",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The participating organisation identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["participating-org/@activity-id"],
+          "ruleInfo": {
+            "id": "1.9.8",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The participating organisation activity identifier must start with an approved agency code."
           }
         }
       ]
@@ -382,6 +508,40 @@
     }
   },
   "//iati-organisation": {
+    "startswith": {
+      "cases": [
+        {
+          "prefix": "ORG-ID",
+          "paths": ["organisation-identifier"],
+          "ruleInfo": {
+            "id": "1.12.8",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The organisation-identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["recipient-org-budget/recipient-org/@ref"],
+          "ruleInfo": {
+            "id": "1.17.8",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The recipient organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID",
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.18.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting organisation id must start with an approved agency code."
+          }
+        }
+      ]
+    },
     "regex_matches": {
       "cases": [
         {
