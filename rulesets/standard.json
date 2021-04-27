@@ -626,6 +626,21 @@
       ]
     }
   },
+  "//budget/value": {
+    "atleast_one": {
+      "cases": [
+        {
+          "paths": ["@value-date"],
+          "ruleInfo": {
+            "id": "7.5.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Value must include a Value Date."
+          }
+        }
+      ]
+    }
+  },
   "//total-budget": {
     "date_order": {
       "cases": [
