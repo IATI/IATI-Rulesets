@@ -587,7 +587,16 @@
   "//planned-disbursement": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     },
     "time_limit": {
@@ -608,7 +617,16 @@
   "//budget": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     },
     "time_limit": {
@@ -644,7 +662,16 @@
   "//total-budget": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     },
     "time_limit": {
@@ -665,7 +692,16 @@
   "//recipient-country-budget": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     },
     "between_dates": {
@@ -695,7 +731,16 @@
   "//recipient-org-budget": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     },
     "time_limit": {
@@ -716,7 +761,16 @@
   "//recipient-region-budget": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     },
     "time_limit": {
@@ -763,7 +817,16 @@
     },
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     }
   },
