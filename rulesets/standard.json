@@ -589,6 +589,20 @@
       "cases": [
         { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
       ]
+    },
+    "time_limit": {
+      "cases": [
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
+      ]
     }
   },
   "//budget": {
@@ -599,7 +613,16 @@
     },
     "time_limit": {
       "cases": [
-        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
       ]
     }
   },
@@ -611,7 +634,16 @@
     },
     "time_limit": {
       "cases": [
-        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
       ]
     }
   },
@@ -632,7 +664,16 @@
     },
     "time_limit": {
       "cases": [
-        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
       ]
     }
   },
@@ -644,7 +685,16 @@
     },
     "time_limit": {
       "cases": [
-        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
       ]
     }
   },
@@ -656,7 +706,16 @@
     },
     "time_limit": {
       "cases": [
-        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
       ]
     }
   },
@@ -675,7 +734,16 @@
   "//total-expenditure": {
     "time_limit": {
       "cases": [
-        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
       ]
     },
     "date_order": {
