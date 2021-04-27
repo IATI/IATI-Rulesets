@@ -278,6 +278,55 @@
         }
       ]
     },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["iati-identifier"],
+          "ruleInfo": {
+            "id": "1.3.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The iati-idenitifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.14.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting-org idenitifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["other-identifier[@type='B1']/@ref"],
+          "ruleInfo": {
+            "id": "1.16.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous reporting organisation identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["other-identifier[@type='A3']/@ref"],
+          "ruleInfo": {
+            "id": "1.6.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous activity identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["related-activity/@ref"],
+          "ruleInfo": {
+            "id": "1.7.1",
+            "severity": "warning",
+            "category": "relations",
+            "message": "The related activity identifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
+    },
     "loop": {
       "cases": [
         {
@@ -469,16 +518,73 @@
           }
         }
       ]
+    },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.11.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The owner organisation idenitifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
     }
   },
-  "//iati-activity/transaction/provider-org": {
+  "//provider-org": {
     "atleast_one": {
       "cases": [{ "paths": ["@ref", "narrative"] }]
+    },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.10.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider organisation idenitifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["@provider-activity-id"],
+          "ruleInfo": {
+            "id": "1.4.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider-org activity idenitifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
     }
   },
-  "//iati-activity/transaction/receiver-org": {
+  "//receiver-org": {
     "atleast_one": {
       "cases": [{ "paths": ["@ref", "narrative"] }]
+    },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.15.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver-org idenitifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["@receiver-activity-id"],
+          "ruleInfo": {
+            "id": "1.5.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver-org activity idenitifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
     }
   },
   "//policy-marker": {
@@ -560,6 +666,37 @@
         }
       ]
     },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["organisation-identifier"],
+          "ruleInfo": {
+            "id": "1.12.1",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The organisation-identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["recipient-org-budget/recipient-org/@ref"],
+          "ruleInfo": {
+            "id": "1.17.1",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The recipient organisation identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.18.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting-org identifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
+    },
     "date_now": {
       "cases": [{ "date": "@last-updated-datetime" }]
     },
@@ -582,6 +719,28 @@
   "//participating-org": {
     "atleast_one": {
       "cases": [{ "paths": ["@ref", "narrative"] }]
+    },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.8.1",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The participating-org identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["@activity-id"],
+          "ruleInfo": {
+            "id": "1.9.1",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The participating-org activity identifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
     }
   },
   "//planned-disbursement": {
