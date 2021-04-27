@@ -267,14 +267,54 @@
     "regex_matches": {
       "cases": [
         {
-          "regex": "[^\\/\\&\\|\\?]+",
-          "paths": [
-            "reporting-org/@ref",
-            "iati-identifier",
-            "participating-org/@ref",
-            "transaction/provider-org/@ref",
-            "transaction/receiver-org/@ref"
-          ]
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["iati-identifier"],
+          "ruleInfo": {
+            "id": "1.3.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The iati-identifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.14.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting-org idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["other-identifier[@type='B1']/@ref"],
+          "ruleInfo": {
+            "id": "1.16.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous reporting organisation identifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["other-identifier[@type='A3']/@ref"],
+          "ruleInfo": {
+            "id": "1.6.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous activity identifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["related-activity/@ref"],
+          "ruleInfo": {
+            "id": "1.7.13",
+            "severity": "warning",
+            "category": "relations",
+            "message": "The related activity identifier must not contain any of the symbols /, &, | or ?."
+          }
         }
       ]
     },
@@ -286,7 +326,7 @@
             "id": "1.3.1",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The iati-idenitifier should not start or end with spaces or newlines."
+            "message": "The iati-identifier should not start or end with spaces or newlines."
           }
         },
         {
@@ -526,8 +566,22 @@
           "ruleInfo": {
             "id": "1.11.1",
             "severity": "warning",
-            "category": "financial",
+            "category": "identifiers",
             "message": "The owner organisation idenitifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
+    },
+    "regex_matches": {
+      "cases": [
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.11.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The owner organisation idenitifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
@@ -536,6 +590,30 @@
   "//provider-org": {
     "atleast_one": {
       "cases": [{ "paths": ["@ref", "narrative"] }]
+    },
+    "regex_matches": {
+      "cases": [
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.10.13",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider organisation idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@provider-activity-id"],
+          "ruleInfo": {
+            "id": "1.4.13",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider-org activity idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        }
+      ]
     },
     "no_spaces": {
       "cases": [
@@ -582,6 +660,30 @@
             "severity": "warning",
             "category": "financial",
             "message": "The receiver-org activity idenitifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
+    },
+    "regex_matches": {
+      "cases": [
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.15.13",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver-org idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@receiver-activity-id"],
+          "ruleInfo": {
+            "id": "1.5.13",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver-org activity idenitifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
@@ -651,17 +753,33 @@
     "regex_matches": {
       "cases": [
         {
-          "regex": "[^\\/\\&\\|\\?]+",
-          "paths": ["organisation-identifier"]
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["organisation-identifier"],
+          "ruleInfo": {
+            "id": "1.12.13",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The organisation-idenitifer must not contain any of the symbols /, &, | or ?."
+          }
         },
         {
-          "regex": "[^\\/\\&\\|\\?]+",
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["recipient-org-budget/recipient-org/@ref"],
+          "ruleInfo": {
+            "id": "1.17.13",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The recipient organisation identifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["reporting-org/@ref"],
           "ruleInfo": {
             "id": "1.18.13",
             "severity": "warning",
-            "category": "information",
-            "message": "The {{matchedPathValue}} must not contain any of the symbols /, &, | or ?."
+            "category": "identifiers",
+            "message": "The reporting-org identifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
@@ -720,28 +838,52 @@
     "atleast_one": {
       "cases": [{ "paths": ["@ref", "narrative"] }]
     },
-    "no_spaces": {
+    "regex_matches": {
       "cases": [
         {
+          "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["@ref"],
           "ruleInfo": {
-            "id": "1.8.1",
+            "id": "1.8.13",
             "severity": "warning",
             "category": "participating",
-            "message": "The participating-org identifier should not start or end with spaces or newlines."
+            "message": "The receiver-org idenitifier must not contain any of the symbols /, &, | or ?."
           }
         },
         {
+          "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["@activity-id"],
           "ruleInfo": {
-            "id": "1.9.1",
+            "id": "1.9.13",
             "severity": "warning",
             "category": "participating",
-            "message": "The participating-org activity identifier should not start or end with spaces or newlines."
+            "message": "The participating-org activity identifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
     }
+  },
+  "no_spaces": {
+    "cases": [
+      {
+        "paths": ["@ref"],
+        "ruleInfo": {
+          "id": "1.8.1",
+          "severity": "warning",
+          "category": "participating",
+          "message": "The participating-org identifier should not start or end with spaces or newlines."
+        }
+      },
+      {
+        "paths": ["@activity-id"],
+        "ruleInfo": {
+          "id": "1.9.1",
+          "severity": "warning",
+          "category": "participating",
+          "message": "The participating-org activity identifier should not start or end with spaces or newlines."
+        }
+      }
+    ]
   },
   "//planned-disbursement": {
     "date_order": {
