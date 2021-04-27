@@ -772,14 +772,62 @@
       "cases": [{ "paths": ["@value"] }]
     }
   },
+  "//result/indicator[@measure='5']/baseline": {
+    "if_then": {
+      "cases": [
+        {
+          "if": "@value",
+          "then": "not(@value)",
+          "ruleInfo": {
+            "id": "8.8.3",
+            "severity": "warning",
+            "category": "performance",
+            "message": "The baseline value should be omitted for qualitative measures."
+          }
+        }
+      ]
+    }
+  },
   "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/target": {
     "atleast_one": {
       "cases": [{ "paths": ["@value"] }]
     }
   },
+  "//result/indicator[@measure='5']/period/target": {
+    "if_then": {
+      "cases": [
+        {
+          "if": "@value",
+          "then": "not(@value)",
+          "ruleInfo": {
+            "id": "8.9.3",
+            "severity": "warning",
+            "category": "performance",
+            "message": "The target value should be omitted for qualitative measures."
+          }
+        }
+      ]
+    }
+  },
   "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/actual": {
     "atleast_one": {
       "cases": [{ "paths": ["@value"] }]
+    }
+  },
+  "//result/indicator[@measure='5']/period/actual": {
+    "if_then": {
+      "cases": [
+        {
+          "if": "@value",
+          "then": "not(@value)",
+          "ruleInfo": {
+            "id": "8.10.3",
+            "severity": "warning",
+            "category": "performance",
+            "message": "The actual value should be omitted for qualitative indicator measures."
+          }
+        }
+      ]
     }
   }
 }
