@@ -674,6 +674,16 @@
           }
         },
         {
+          "if": "count(transaction/aid-type[not(@vocabulary='')]) + count(transaction/aid-type[not(@vocabulary='1')]) > 0",
+          "then": "count(transaction/aid-type[@vocabulary='']) + count(transaction/aid-type[@vocabulary='1']) + count(default-aid-type[not(@vocabulary)]) > 0",
+          "ruleInfo": {
+            "id": "107.2.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The transaction should also contain a code from the OECD DAC aid type vocabulary."
+          }
+        },
+        {
           "if": "count(sector) > 0",
           "then": "count(transaction/sector) < 1",
           "ruleInfo": {
