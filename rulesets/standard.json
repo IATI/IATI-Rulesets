@@ -580,6 +580,26 @@
             }
           },
           "subs": ["if", "then"]
+        },
+        {
+          "foreach": "sector[@vocabulary != '1']/@vocabulary",
+          "do": {
+            "if_then": {
+              "cases": [
+                {
+                  "if": "count(sector[@vocabulary = '$1']) = 1",
+                  "then": "not(sector[@vocabulary = '$1']/@percentage) or sector[@vocabulary = '$1']/@percentage = 100",
+                  "ruleInfo": {
+                    "id": "2.1.4",
+                    "severity": "",
+                    "category": "classifications",
+                    "message": "When a single sector is declared, the percentage must either be omitted, or set to 100."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["if", "then"]
         }
       ]
     },
@@ -610,6 +630,7 @@
     "strict_sum": {
       "cases": [
         {
+          "condition": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage) > 1",
           "paths": [
             "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage"
           ],
@@ -723,6 +744,16 @@
             "severity": "error",
             "category": "classifications",
             "message": "When multiple sectors, within a vocabulary (e.g. 1 - OECD DAC) are declared, each must have a percentage."
+          }
+        },
+        {
+          "if": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) = 1",
+          "then": "not(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage) or sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage = 100",
+          "ruleInfo": {
+            "id": "2.1.4",
+            "severity": "error",
+            "category": "classifications",
+            "message": "When a single sector is declared, the percentage must either be omitted, or set to 100."
           }
         },
         {
