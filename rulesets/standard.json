@@ -539,6 +539,25 @@
             }
           },
           "subs": ["paths"]
+        },
+        {
+          "foreach": "transaction/aid-type[@vocabulary != 1]/@vocabulary",
+          "do": {
+            "no_more_than_one": {
+              "cases": [
+                {
+                  "paths": ["transaction/aid-type[@vocabulary = '$1']"],
+                  "ruleInfo": {
+                    "id": "107.2.2",
+                    "severity": "warning",
+                    "category": "financial",
+                    "message": "Each transaction should only contain one aid type code per aid type vocabulary (e.g. 1 - OECD DAC)"
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["paths"]
         }
       ]
     },
@@ -551,6 +570,17 @@
             "severity": "warning",
             "category": "financial",
             "message": "Each activity should only contain one default aid type code per aid type vocabulary (e.g. 1 - OECD DAC)"
+          }
+        },
+        {
+          "paths": [
+            "transaction/aid-type[@vocabulary = '1' or not(@vocabulary)]"
+          ],
+          "ruleInfo": {
+            "id": "107.2.2",
+            "severity": "warning",
+            "category": "financial",
+            "message": "Each transaction should only contain one aid type code per aid type vocabulary (e.g. 1 - OECD DAC)"
           }
         }
       ]
