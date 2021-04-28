@@ -1253,6 +1253,20 @@
           }
         }
       ]
+    },
+    "if_then": {
+      "cases": [
+        {
+          "if": "@value",
+          "then": "number(@value) = @value",
+          "ruleInfo": {
+            "id": "8.8.2",
+            "severity": "warning",
+            "category": "performance",
+            "message": "The baseline value should be a valid number for all non-qualitative measures (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
+          }
+        }
+      ]
     }
   },
   "//result/indicator[@measure='5']/baseline": {
@@ -1284,6 +1298,20 @@
           }
         }
       ]
+    },
+    "if_then": {
+      "cases": [
+        {
+          "if": "@value",
+          "then": "number(@value) = @value",
+          "ruleInfo": {
+            "id": "8.9.2",
+            "severity": "warning",
+            "category": "performance",
+            "message": "The target value should be a valid number for all non-qualitative measures (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
+          }
+        }
+      ]
     }
   },
   "//result/indicator[@measure='5']/period/target": {
@@ -1312,6 +1340,20 @@
             "severity": "error",
             "category": "performance",
             "message": "The actual must have a value when the indicator measure is non-qualitative (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
+          }
+        }
+      ]
+    },
+    "if_then": {
+      "cases": [
+        {
+          "if": "@value",
+          "then": "number(@value) = @value",
+          "ruleInfo": {
+            "id": "8.10.2",
+            "severity": "warning",
+            "category": "performance",
+            "message": "The actual value should be a valid number for all non-qualitative indicator measures (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
           }
         }
       ]
