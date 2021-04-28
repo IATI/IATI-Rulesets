@@ -728,7 +728,7 @@
         },
         {
           "if": "count(sector[not(@vocabulary='')]) + count(sector[not(@vocabulary='1')]) > 0",
-          "then": "count(sector[@vocabulary='']) + count(sector[@vocabulary='1']) + count(sector[not(@vocabulary)]) > 0",
+          "then": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 0",
           "ruleInfo": {
             "id": "102.1.1",
             "severity": "warning",
@@ -737,8 +737,8 @@
           }
         },
         {
-          "if": "count(sector[@vocabulary='']) + count(sector[@vocabulary='1']) + count(sector[not(@vocabulary)]) > 1",
-          "then": "count(sector[@vocabulary='']) + count(sector[@vocabulary='1']) + count(sector[not(@vocabulary)]) = count(sector[@vocabulary='']/@percentage) + count(sector[@vocabulary='1']/@percentage) + count(sector[not(@vocabulary)]/@percentage)",
+          "if": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 1",
+          "then": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) = count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage)",
           "ruleInfo": {
             "id": "2.1.1",
             "severity": "error",
@@ -758,7 +758,7 @@
         },
         {
           "if": "count(default-aid-type[not(@vocabulary='')]) + count(default-aid-type[not(@vocabulary='1')]) > 0",
-          "then": "count(default-aid-type[@vocabulary='']) + count(default-aid-type[@vocabulary='1']) + count(default-aid-type[not(@vocabulary)]) > 0",
+          "then": "count(default-aid-type[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 0",
           "ruleInfo": {
             "id": "107.1.1",
             "severity": "warning",
@@ -768,7 +768,7 @@
         },
         {
           "if": "count(transaction/aid-type[not(@vocabulary='')]) + count(transaction/aid-type[not(@vocabulary='1')]) > 0",
-          "then": "count(transaction/aid-type[@vocabulary='']) + count(transaction/aid-type[@vocabulary='1']) + count(default-aid-type[not(@vocabulary)]) > 0",
+          "then": "count(transaction/aid-type[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 0",
           "ruleInfo": {
             "id": "107.2.1",
             "severity": "warning",
