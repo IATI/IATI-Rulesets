@@ -220,17 +220,6 @@
         }
       ]
     },
-    "only_one_of": {
-      "cases": [
-        {
-          "excluded": ["recipient-region", "recipient-country"],
-          "paths": [
-            "transaction/recipient-country",
-            "transaction/recipient-region"
-          ]
-        }
-      ]
-    },
     "date_now": {
       "cases": [
         {
@@ -824,6 +813,36 @@
             "severity": "error",
             "category": "classifications",
             "message": "Sectors must only be declared at activity level OR for all transactions."
+          }
+        },
+        {
+          "if": "recipient-country or recipient-region",
+          "then": "not(transaction/recipient-country or transaction/recipient-region)",
+          "ruleInfo": {
+            "id": "3.6.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "Recipient countries or regions must only be declared at activity level OR for all transactions."
+          }
+        },
+        {
+          "if": "not(recipient-country or recipient-region)",
+          "then": "transaction[recipient-country or recipient-region]",
+          "ruleInfo": {
+            "id": "3.7.1",
+            "severity": "error",
+            "category": "financial",
+            "message": "Recipient country or recipient region should be declared for either the activity or for all transactions."
+          }
+        },
+        {
+          "if": "not(recipient-country or recipient-region)",
+          "then": "not(transaction[not(recipient-country or recipient-region)])",
+          "ruleInfo": {
+            "id": "3.7.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "Recipient country or recipient region should be declared for either the activity or for all transactions."
           }
         }
       ]
