@@ -465,9 +465,30 @@
         {
           "foreach": "recipient-region/@vocabulary",
           "do": {
+            "if_then": {
+              "cases": [
+                {
+                  "if": "count(recipient-region[@vocabulary = '$1']) = 1 and not(recipient-country)",
+                  "then": "not(recipient-region[@vocabulary = '$1']/@percentage) or recipient-region[@vocabulary = '$1']/@percentage = 100",
+                  "ruleInfo": {
+                    "id": "3.4.4",
+                    "severity": "error",
+                    "category": "geo",
+                    "message": "When a single recipient region in a vocabulary is declared, the percentage must either be omitted, or set to 100."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["if", "then"]
+        },
+        {
+          "foreach": "recipient-region/@vocabulary",
+          "do": {
             "strict_sum": {
               "cases": [
                 {
+                  "condition": "count(recipient-region[@vocabulary = '$1']) > 1",
                   "paths": [
                     "recipient-region[@vocabulary = '$1']/@percentage",
                     "recipient-country/@percentage"
@@ -483,7 +504,7 @@
               ]
             }
           },
-          "subs": ["paths"]
+          "subs": ["paths", "condition"]
         },
         {
           "foreach": "country-budget-items/@vocabulary",
@@ -672,7 +693,7 @@
           }
         },
         {
-          "condition": "recipient-country and not(recipient-region)",
+          "condition": "count(recipient-country) > 1 and not(recipient-region)",
           "paths": ["recipient-country/@percentage"],
           "sum": 100,
           "ruleInfo": {
@@ -866,13 +887,23 @@
           }
         },
         {
-          "if": "count(recipient-country) > 0",
+          "if": "count(recipient-country) > 1",
           "then": "count(recipient-country) = count(recipient-country/@percentage)",
           "ruleInfo": {
             "id": "3.4.1",
             "severity": "error",
             "category": "geo",
             "message": "When multiple recipient countries or regions are declared, each must have a percentage."
+          }
+        },
+        {
+          "if": "count(recipient-country) = 1 and not(recipient-region)",
+          "then": "not(recipient-country/@percentage) or recipient-country/@percentage = 100",
+          "ruleInfo": {
+            "id": "3.1.4",
+            "severity": "error",
+            "category": "geo",
+            "message": "When a single recipient country is declared, the percentage must either be omitted, or set to 100."
           }
         }
       ]
