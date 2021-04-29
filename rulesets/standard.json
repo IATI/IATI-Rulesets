@@ -414,6 +414,26 @@
     "loop": {
       "cases": [
         {
+          "foreach": "description/@type",
+          "do": {
+            "if_then": {
+              "cases": [
+                {
+                  "if": "description[@type = '$1']/narrative",
+                  "then": "string(description[@type = '$1']//narrative) != ''",
+                  "ruleInfo": {
+                    "id": "4.4.1",
+                    "severity": "error",
+                    "category": "information",
+                    "message": "The description must contain narrative content."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["if", "then"]
+        },
+        {
           "foreach": "sector[@vocabulary != '1']/@vocabulary",
           "do": {
             "strict_sum": {
@@ -716,6 +736,26 @@
     },
     "if_then": {
       "cases": [
+        {
+          "if": "title/narrative",
+          "then": "string(title//narrative) != ''",
+          "ruleInfo": {
+            "id": "4.3.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The title must contain narrative content."
+          }
+        },
+        {
+          "if": "count(description[not(@type) or @type = '']/narrative) > 0",
+          "then": "string(description[not(@type) or @type = '']//narrative) != ''",
+          "ruleInfo": {
+            "id": "4.4.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The description must contain narrative content."
+          }
+        },
         {
           "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
           "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])",
