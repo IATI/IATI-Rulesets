@@ -887,13 +887,13 @@
           }
         },
         {
-          "if": "count(recipient-country) > 1",
+          "if": "count(recipient-country) > 1 and not(recipient-region)",
           "then": "count(recipient-country) = count(recipient-country/@percentage)",
           "ruleInfo": {
-            "id": "3.4.1",
+            "id": "3.1.1",
             "severity": "error",
             "category": "geo",
-            "message": "When multiple recipient countries or regions are declared, each must have a percentage."
+            "message": "When multiple recipient countries are declared, each must have a percentage."
           }
         },
         {
