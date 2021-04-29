@@ -445,6 +445,26 @@
         {
           "foreach": "recipient-region/@vocabulary",
           "do": {
+            "if_then": {
+              "cases": [
+                {
+                  "if": "count(recipient-region[@vocabulary = '$1']) > 1",
+                  "then": "count(recipient-region[@vocabulary = '$1']) = count(recipient-region[@vocabulary = '$1']/@percentage)",
+                  "ruleInfo": {
+                    "id": "3.4.1",
+                    "severity": "error",
+                    "category": "geo",
+                    "message": "Percentage values for recipient countries or regions, must add up to 100%."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["if", "then"]
+        },
+        {
+          "foreach": "recipient-region/@vocabulary",
+          "do": {
             "strict_sum": {
               "cases": [
                 {
@@ -843,6 +863,16 @@
             "severity": "error",
             "category": "financial",
             "message": "Recipient country or recipient region should be declared for either the activity or for all transactions."
+          }
+        },
+        {
+          "if": "count(recipient-country) > 0",
+          "then": "count(recipient-country) = count(recipient-country/@percentage)",
+          "ruleInfo": {
+            "id": "3.4.1",
+            "severity": "error",
+            "category": "geo",
+            "message": "When multiple recipient countries or regions are declared, each must have a percentage."
           }
         }
       ]
