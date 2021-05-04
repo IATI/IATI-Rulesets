@@ -1,82 +1,416 @@
 {
   "//iati-activity": {
+    "unique": {
+      "cases": [
+        {
+          "paths": ["reporting-org/@ref", "iati-identifier"],
+          "ruleInfo": {
+            "id": "1.1.3",
+            "severity": "error",
+            "category": "identifiers",
+            "message": "The activity identifier must be different to the organisation identifier of the reporting organisation."
+          }
+        }
+      ]
+    },
+    "startswith": {
+      "cases": [
+        {
+          "prefix": ["reporting-org/@ref", "other-identifier[@type='B1']/@ref"],
+          "paths": ["iati-identifier"],
+          "ruleInfo": {
+            "id": "1.1.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The activity identifier should begin with the organisation identifier of the reporting organisation (or a previous version included in the other-identifier element)."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["iati-identifier"],
+          "ruleInfo": {
+            "id": "1.3.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The iati-identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["planned-disbursement/provider-org/@ref"],
+          "ruleInfo": {
+            "id": "1.10.8",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["other-identifier/owner-org/@ref"],
+          "ruleInfo": {
+            "id": "1.11.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The owner organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.14.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["planned-disbursement/receiver-org/@ref"],
+          "ruleInfo": {
+            "id": "1.15.8",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiving organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["other-identifier[@type='B1']/@ref"],
+          "ruleInfo": {
+            "id": "1.16.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous reporting organisation identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["other-identifier[@type='A3']/@ref"],
+          "ruleInfo": {
+            "id": "1.6.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous activity identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": [
+            "planned-disbursement/provider-org/@provider-activity-id",
+            "transaction/provider-org/@provider-activity-id"
+          ],
+          "ruleInfo": {
+            "id": "1.4.8",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider activity identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": [
+            "planned-disbursement/receiver-org/@receiver-activity-id",
+            "/transaction/receiver-org/@receiver-activity-id"
+          ],
+          "ruleInfo": {
+            "id": "1.5.8",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver activity identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["related-activity/@ref"],
+          "ruleInfo": {
+            "id": "1.7.8",
+            "severity": "warning",
+            "category": "relations",
+            "message": "The related activity identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["participating-org/@ref"],
+          "ruleInfo": {
+            "id": "1.8.8",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The participating organisation identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["participating-org/@activity-id"],
+          "ruleInfo": {
+            "id": "1.9.8",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The participating organisation activity identifier must start with an approved agency code."
+          }
+        }
+      ]
+    },
     "atleast_one": {
       "cases": [
-        { "paths": ["activity-date[@type='1' or @type='2']"] },
-        { "paths": ["sector", "transaction/sector"] }
+        {
+          "paths": ["activity-date[@type='1' or @type='2']"],
+          "ruleInfo": {
+            "id": "6.11.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The activity must have a planned start date or an actual start date."
+          }
+        },
+        {
+          "paths": ["sector", "transaction/sector"],
+          "ruleInfo": {
+            "id": "6.2.2",
+            "severity": "error",
+            "category": "classifications",
+            "message": "Each activity must have a specified sector, either at activity level OR for all transactions."
+          }
+        }
       ]
     },
     "one_or_all": {
       "cases": [
-        { "one": "@xml:lang", "all": "lang" },
-        { "one": "sector", "all": "sector" },
-        { "one": "@default-currency", "all": "currency" }
-      ]
-    },
-    "only_one_of": {
-      "cases": [
         {
-          "excluded": ["recipient-region", "recipient-country"],
-          "paths": [
-            "transaction/recipient-country",
-            "transaction/recipient-region"
-          ]
+          "one": "@xml:lang",
+          "all": "lang",
+          "ruleInfo": {
+            "id": "4.1.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The activity should specify a default language OR the language must be specified for each narrative element."
+          }
+        },
+        {
+          "one": "sector",
+          "all": "sector",
+          "ruleInfo": {
+            "id": "6.7.2",
+            "severity": "error",
+            "category": "classifications",
+            "message": "If sector is declared at transaction level, a sector must be declared for all transactions."
+          }
+        },
+        {
+          "one": "@default-currency",
+          "all": "currency",
+          "ruleInfo": {
+            "id": "7.8.1",
+            "severity": "error",
+            "category": "financial",
+            "message": "The activity should specify a default currency OR the currency must be specified for each monetary value."
+          }
         }
       ]
     },
     "date_now": {
-      "cases": [{ "date": "@last-updated-datetime" }]
+      "cases": [
+        {
+          "date": "@last-updated-datetime",
+          "ruleInfo": {
+            "id": "11.1.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The last updated datetime of the activity must not be in the future."
+          }
+        }
+      ]
     },
     "date_order": {
       "cases": [
         {
           "less": "activity-date[@type='1']/@iso-date",
-          "more": "activity-date[@type='3']/@iso-date"
+          "more": "activity-date[@type='3']/@iso-date",
+          "ruleInfo": {
+            "id": "11.1.2",
+            "severity": "error",
+            "category": "iati",
+            "message": "The planned start date of the activity must be before the planned end date."
+          }
         },
         {
           "less": "activity-date[@type='2']/@iso-date",
-          "more": "activity-date[@type='4']/@iso-date"
+          "more": "activity-date[@type='4']/@iso-date",
+          "ruleInfo": {
+            "id": "11.1.3",
+            "severity": "error",
+            "category": "iati",
+            "message": "The actual start date of the activity must be before the actual end date."
+          }
         },
-        { "less": "activity-date[@type='2']/@iso-date", "more": "NOW" },
-        { "less": "activity-date[@type='4']/@iso-date", "more": "NOW" }
-      ]
-    },
-    "time_limit": {
-      "cases": [
         {
-          "start": "budget/period-start/@iso-date",
-          "end": "budget/period-end/@iso-date"
+          "less": "activity-date[@type='2']/@iso-date",
+          "more": "NOW",
+          "ruleInfo": {
+            "id": "11.1.4",
+            "severity": "error",
+            "category": "iati",
+            "message": "The actual start date of the activity must not be in the future."
+          }
+        },
+        {
+          "less": "activity-date[@type='4']/@iso-date",
+          "more": "NOW",
+          "ruleInfo": {
+            "id": "11.1.5",
+            "severity": "error",
+            "category": "iati",
+            "message": "The actual end date of the activity must not be in the future."
+          }
+        },
+        {
+          "less": "transaction/transaction-date/@iso-date",
+          "more": "NOW",
+          "ruleInfo": {
+            "id": "11.2.1",
+            "severity": "error",
+            "category": "financial",
+            "message": "The transaction date must not be in the future."
+          }
+        },
+        {
+          "less": "transaction/value/@value-date",
+          "more": "NOW",
+          "ruleInfo": {
+            "id": "11.2.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "The transaction value date must not be in the future."
+          }
         }
       ]
     },
-
     "regex_matches": {
       "cases": [
         {
-          "regex": "[^\\/\\&\\|\\?]+",
-          "paths": [
-            "reporting-org/@ref",
-            "iati-identifier",
-            "participating-org/@ref",
-            "transaction/provider-org/@ref",
-            "transaction/receiver-org/@ref"
-          ]
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["iati-identifier"],
+          "ruleInfo": {
+            "id": "1.3.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The iati-identifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.14.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting-org idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["other-identifier[@type='B1']/@ref"],
+          "ruleInfo": {
+            "id": "1.16.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous reporting organisation identifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["other-identifier[@type='A3']/@ref"],
+          "ruleInfo": {
+            "id": "1.6.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous activity identifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["related-activity/@ref"],
+          "ruleInfo": {
+            "id": "1.7.13",
+            "severity": "warning",
+            "category": "relations",
+            "message": "The related activity identifier must not contain any of the symbols /, &, | or ?."
+          }
         }
       ]
     },
-    "sum": {
+    "no_spaces": {
       "cases": [
         {
-          "paths": [
-            "recipient-country/@percentage",
-            "recipient-region/@percentage"
-          ],
-          "sum": 100
+          "paths": ["iati-identifier"],
+          "ruleInfo": {
+            "id": "1.3.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The iati-identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.14.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting-org idenitifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["other-identifier[@type='B1']/@ref"],
+          "ruleInfo": {
+            "id": "1.16.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous reporting organisation identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["other-identifier[@type='A3']/@ref"],
+          "ruleInfo": {
+            "id": "1.6.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The previous activity identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["related-activity/@ref"],
+          "ruleInfo": {
+            "id": "1.7.1",
+            "severity": "warning",
+            "category": "relations",
+            "message": "The related activity identifier should not start or end with spaces or newlines."
+          }
         }
       ]
     },
     "loop": {
       "cases": [
+        {
+          "foreach": "description/@type",
+          "do": {
+            "if_then": {
+              "cases": [
+                {
+                  "if": "description[@type = '$1']/narrative",
+                  "then": "string(description[@type = '$1']//narrative) != ''",
+                  "ruleInfo": {
+                    "id": "4.4.1",
+                    "severity": "error",
+                    "category": "information",
+                    "message": "The description must contain narrative content."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["if", "then"]
+        },
         {
           "foreach": "sector[@vocabulary != '1']/@vocabulary",
           "do": {
@@ -84,30 +418,190 @@
               "cases": [
                 {
                   "paths": ["sector[@vocabulary = '$1']/@percentage"],
-                  "sum": 100
+                  "sum": 100,
+                  "ruleInfo": {
+                    "id": "2.1.2",
+                    "severity": "error",
+                    "category": "classifications",
+                    "message": "Percentage values for sectors, within a vocabulary (e.g. 1 - OECD DAC), must add up to 100%."
+                  }
                 }
               ]
             }
           },
           "subs": ["paths"]
+        },
+        {
+          "foreach": "recipient-region/@vocabulary",
+          "do": {
+            "if_then": {
+              "cases": [
+                {
+                  "if": "count(recipient-region[@vocabulary = '$1']) > 1",
+                  "then": "count(recipient-region[@vocabulary = '$1']) = count(recipient-region[@vocabulary = '$1']/@percentage)",
+                  "ruleInfo": {
+                    "id": "3.4.1",
+                    "severity": "error",
+                    "category": "geo",
+                    "message": "Percentage values for recipient countries or regions, must add up to 100%."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["if", "then"]
+        },
+        {
+          "foreach": "recipient-region/@vocabulary",
+          "do": {
+            "if_then": {
+              "cases": [
+                {
+                  "if": "count(recipient-region[@vocabulary = '$1']) = 1 and not(recipient-country)",
+                  "then": "not(recipient-region[@vocabulary = '$1']/@percentage) or recipient-region[@vocabulary = '$1']/@percentage = 100",
+                  "ruleInfo": {
+                    "id": "3.4.4",
+                    "severity": "error",
+                    "category": "geo",
+                    "message": "When a single recipient region in a vocabulary is declared, the percentage must either be omitted, or set to 100."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["if", "then"]
+        },
+        {
+          "foreach": "recipient-region/@vocabulary",
+          "do": {
+            "strict_sum": {
+              "cases": [
+                {
+                  "condition": "count(recipient-region[@vocabulary = '$1']) > 1",
+                  "paths": [
+                    "recipient-region[@vocabulary = '$1']/@percentage",
+                    "recipient-country/@percentage"
+                  ],
+                  "sum": 100,
+                  "ruleInfo": {
+                    "id": "3.4.2",
+                    "severity": "error",
+                    "category": "geo",
+                    "message": "Percentage values for recipient countries or regions, must add up to 100%."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["paths", "condition"]
+        },
+        {
+          "foreach": "default-aid-type[@vocabulary != 1]/@vocabulary",
+          "do": {
+            "no_more_than_one": {
+              "cases": [
+                {
+                  "paths": ["default-aid-type[@vocabulary = '$1']"],
+                  "ruleInfo": {
+                    "id": "107.1.2",
+                    "severity": "warning",
+                    "category": "financial",
+                    "message": "Each activity should only contain one default aid type code per aid type vocabulary (e.g. 1 - OECD DAC)"
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["paths"]
+        },
+        {
+          "foreach": "transaction/aid-type[@vocabulary != 1]/@vocabulary",
+          "do": {
+            "no_more_than_one": {
+              "cases": [
+                {
+                  "paths": ["transaction/aid-type[@vocabulary = '$1']"],
+                  "ruleInfo": {
+                    "id": "107.2.2",
+                    "severity": "warning",
+                    "category": "financial",
+                    "message": "Each transaction should only contain one aid type code per aid type vocabulary (e.g. 1 - OECD DAC)"
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["paths"]
+        },
+        {
+          "foreach": "sector[@vocabulary != '1']/@vocabulary",
+          "do": {
+            "if_then": {
+              "cases": [
+                {
+                  "if": "count(sector[@vocabulary = '$1']) > 1",
+                  "then": [
+                    "count(sector[@vocabulary = '$1']) = count(sector[@vocabulary = '$1']/@percentage)"
+                  ],
+                  "ruleInfo": {
+                    "id": "2.1.1",
+                    "severity": "error",
+                    "category": "classifications",
+                    "message": "When multiple sectors, within a vocabulary (e.g. 1 - OECD DAC) are declared, each must have a percentage."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["if", "then"]
+        },
+        {
+          "foreach": "sector[@vocabulary != '1']/@vocabulary",
+          "do": {
+            "if_then": {
+              "cases": [
+                {
+                  "if": "count(sector[@vocabulary = '$1']) = 1",
+                  "then": "not(sector[@vocabulary = '$1']/@percentage) or sector[@vocabulary = '$1']/@percentage = 100",
+                  "ruleInfo": {
+                    "id": "2.1.4",
+                    "severity": "",
+                    "category": "classifications",
+                    "message": "When a single sector is declared, the percentage must either be omitted, or set to 100."
+                  }
+                }
+              ]
+            }
+          },
+          "subs": ["if", "then"]
         }
       ]
     },
     "strict_sum": {
       "cases": [
         {
+          "condition": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage) > 1",
           "paths": [
-            "sector[@vocabulary = '1' or not(@vocabulary)]/@percentage"
+            "sector[@vocabulary = '1' or @vocabulary = '' or not(@vocabulary)]/@percentage"
           ],
-          "sum": 100
-        }
-      ]
-    },
-    "if_then": {
-      "cases": [
+          "sum": 100,
+          "ruleInfo": {
+            "id": "2.1.2",
+            "severity": "error",
+            "category": "classifications",
+            "message": "Percentage values for sectors, within a vocabulary (e.g. 1 - OECD DAC), must add up to 100%."
+          }
+        },
         {
-          "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
-          "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])"
+          "condition": "count(recipient-country) > 1 and not(recipient-region)",
+          "paths": ["recipient-country/@percentage"],
+          "sum": 100,
+          "ruleInfo": {
+            "id": "3.1.2",
+            "severity": "error",
+            "category": "geo",
+            "message": "Percentage values for recipient countries, must add up to 100%."
+          }
         }
       ]
     },
@@ -164,99 +658,639 @@
           }
         }
       ]
+    },
+    "if_then": {
+      "cases": [
+        {
+          "if": "title/narrative",
+          "then": "string(title//narrative) != ''",
+          "ruleInfo": {
+            "id": "4.3.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The title must contain narrative content."
+          }
+        },
+        {
+          "if": "count(description[not(@type) or @type = '']/narrative) > 0",
+          "then": "string(description[not(@type) or @type = '']//narrative) != ''",
+          "ruleInfo": {
+            "id": "4.4.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The description must contain narrative content."
+          }
+        },
+        {
+          "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
+          "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])",
+          "ruleInfo": {
+            "id": "2.2.1",
+            "severity": "error",
+            "category": "classifications",
+            "message": "When using a reporting organisation sector code (vocabulary 98 or 99), it must include a narrative."
+          }
+        },
+        {
+          "if": "count(sector[not(@vocabulary='')]) + count(sector[not(@vocabulary='1')]) > 0",
+          "then": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 0",
+          "ruleInfo": {
+            "id": "102.1.1",
+            "severity": "warning",
+            "category": "information",
+            "message": "When a non OECD DAC sector vocabulary is used, sector vocabulary 1 - OECD DAC should also be used."
+          }
+        },
+        {
+          "if": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 1",
+          "then": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) = count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage)",
+          "ruleInfo": {
+            "id": "2.1.1",
+            "severity": "error",
+            "category": "classifications",
+            "message": "When multiple sectors, within a vocabulary (e.g. 1 - OECD DAC) are declared, each must have a percentage."
+          }
+        },
+        {
+          "if": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) = 1",
+          "then": "not(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage) or sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage = 100",
+          "ruleInfo": {
+            "id": "2.1.4",
+            "severity": "error",
+            "category": "classifications",
+            "message": "When a single sector is declared, the percentage must either be omitted, or set to 100."
+          }
+        },
+        {
+          "if": "count(sector) > 0",
+          "then": "count(transaction/sector) < 1",
+          "ruleInfo": {
+            "id": "6.6.2",
+            "severity": "error",
+            "category": "classifications",
+            "message": "Sectors must only be declared at activity level OR for all transactions."
+          }
+        },
+        {
+          "if": "recipient-country or recipient-region",
+          "then": "not(transaction/recipient-country or transaction/recipient-region)",
+          "ruleInfo": {
+            "id": "3.6.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "Recipient countries or regions must only be declared at activity level OR for all transactions."
+          }
+        },
+        {
+          "if": "not(recipient-country or recipient-region)",
+          "then": "transaction[recipient-country or recipient-region]",
+          "ruleInfo": {
+            "id": "3.7.1",
+            "severity": "error",
+            "category": "financial",
+            "message": "Recipient country or recipient region should be declared for either the activity or for all transactions."
+          }
+        },
+        {
+          "if": "not(recipient-country or recipient-region)",
+          "then": "not(transaction[not(recipient-country or recipient-region)])",
+          "ruleInfo": {
+            "id": "3.7.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "Recipient country or recipient region should be declared for either the activity or for all transactions."
+          }
+        },
+        {
+          "if": "count(recipient-country) > 1 and not(recipient-region)",
+          "then": "count(recipient-country) = count(recipient-country/@percentage)",
+          "ruleInfo": {
+            "id": "3.1.1",
+            "severity": "error",
+            "category": "geo",
+            "message": "When multiple recipient countries are declared, each must have a percentage."
+          }
+        },
+        {
+          "if": "count(recipient-country) = 1 and not(recipient-region)",
+          "then": "not(recipient-country/@percentage) or recipient-country/@percentage = 100",
+          "ruleInfo": {
+            "id": "3.1.4",
+            "severity": "error",
+            "category": "geo",
+            "message": "When a single recipient country is declared, the percentage must either be omitted, or set to 100."
+          }
+        }
+      ]
     }
   },
   "//iati-activity/other-identifier/owner-org": {
     "atleast_one": {
-      "cases": [{ "paths": ["@ref", "narrative"] }]
+      "cases": [
+        {
+          "paths": ["@ref", "narrative"],
+          "ruleInfo": {
+            "id": "6.8.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The owner organisation must have an identifier or a narrative."
+          }
+        }
+      ]
+    },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.11.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The owner organisation idenitifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
+    },
+    "regex_matches": {
+      "cases": [
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.11.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The owner organisation idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        }
+      ]
     }
   },
-  "//iati-activity/transaction/provider-org": {
+  "//provider-org": {
     "atleast_one": {
-      "cases": [{ "paths": ["@ref", "narrative"] }]
+      "cases": [
+        {
+          "paths": ["@ref", "narrative"],
+          "ruleInfo": {
+            "id": "6.9.1",
+            "severity": "error",
+            "category": "financial",
+            "message": "The provider organisation must have an organisation identifier or a narrative."
+          }
+        }
+      ]
+    },
+    "regex_matches": {
+      "cases": [
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.10.13",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider organisation idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@provider-activity-id"],
+          "ruleInfo": {
+            "id": "1.4.13",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider-org activity idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        }
+      ]
+    },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.10.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider organisation idenitifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["@provider-activity-id"],
+          "ruleInfo": {
+            "id": "1.4.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The provider-org activity idenitifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
     }
   },
-  "//iati-activity/transaction/receiver-org": {
+  "//receiver-org": {
     "atleast_one": {
-      "cases": [{ "paths": ["@ref", "narrative"] }]
+      "cases": [
+        {
+          "paths": ["@ref", "narrative"],
+          "ruleInfo": {
+            "id": "6.9.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "The receiver organisation must have an organisation identifier or a narrative."
+          }
+        }
+      ]
+    },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.15.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver-org idenitifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["@receiver-activity-id"],
+          "ruleInfo": {
+            "id": "1.5.1",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver-org activity idenitifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
+    },
+    "regex_matches": {
+      "cases": [
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.15.13",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver-org idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@receiver-activity-id"],
+          "ruleInfo": {
+            "id": "1.5.13",
+            "severity": "warning",
+            "category": "financial",
+            "message": "The receiver-org activity idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        }
+      ]
     }
   },
   "//policy-marker": {
     "atleast_one": {
       "cases": [
         {
-          "condition": "@vocabulary='1' or not(@vocabulary)",
-          "paths": ["@significance"]
+          "condition": "@vocabulary='1' or @vocabulary = '' or not(@vocabulary)",
+          "paths": ["@significance"],
+          "ruleInfo": {
+            "id": "6.14.1",
+            "severity": "error",
+            "category": "classifications",
+            "message": "When using a policy marker code for vocabulary 1, it must include a significance."
+          }
         },
         {
           "condition": "@vocabulary='99'",
-          "paths": ["narrative"]
+          "paths": ["narrative"],
+          "ruleInfo": {
+            "id": "6.13.1",
+            "severity": "error",
+            "category": "classifications",
+            "message": "When using a reporting organisation policy marker code (vocabulary 99), it must include a narrative."
+          }
         }
       ]
     }
   },
   "//iati-organisation": {
+    "startswith": {
+      "cases": [
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["organisation-identifier"],
+          "ruleInfo": {
+            "id": "1.12.8",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The organisation-identifier must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["recipient-org-budget/recipient-org/@ref"],
+          "ruleInfo": {
+            "id": "1.17.8",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The recipient organisation id must start with an approved agency code."
+          }
+        },
+        {
+          "prefix": "ORG-ID-PREFIX",
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.18.8",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting organisation id must start with an approved agency code."
+          }
+        }
+      ]
+    },
     "regex_matches": {
       "cases": [
         {
-          "regex": "[^\\/\\&\\|\\?]+",
-          "paths": ["reporting-org/@ref", "organisation-identifier"]
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["organisation-identifier"],
+          "ruleInfo": {
+            "id": "1.12.13",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The organisation-idenitifer must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["recipient-org-budget/recipient-org/@ref"],
+          "ruleInfo": {
+            "id": "1.17.13",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The recipient organisation identifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.18.13",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting-org identifier must not contain any of the symbols /, &, | or ?."
+          }
+        }
+      ]
+    },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["organisation-identifier"],
+          "ruleInfo": {
+            "id": "1.12.1",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The organisation-identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["recipient-org-budget/recipient-org/@ref"],
+          "ruleInfo": {
+            "id": "1.17.1",
+            "severity": "warning",
+            "category": "organisation",
+            "message": "The recipient organisation identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["reporting-org/@ref"],
+          "ruleInfo": {
+            "id": "1.18.1",
+            "severity": "warning",
+            "category": "identifiers",
+            "message": "The reporting-org identifier should not start or end with spaces or newlines."
+          }
         }
       ]
     },
     "date_now": {
-      "cases": [{ "date": "@last-updated-datetime" }]
+      "cases": [
+        {
+          "date": "@last-updated-datetime",
+          "ruleInfo": {
+            "id": "11.4.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The last updated datetime of the organisation must not be in the future."
+          }
+        }
+      ]
     },
     "one_or_all": {
       "cases": [
-        { "one": "@xml:lang", "all": "lang" },
-        { "one": "@default-currency", "all": "currency" }
+        {
+          "one": "@xml:lang",
+          "all": "lang",
+          "ruleInfo": {
+            "id": "4.5.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The organisation should specify a default language, or the language should be specified for each narrative element."
+          }
+        },
+        {
+          "one": "@default-currency",
+          "all": "currency",
+          "ruleInfo": {
+            "id": "7.8.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "The financial value must have a specified currency, or the organisation must declare a default currency."
+          }
+        }
       ]
     }
   },
   "//participating-org": {
     "atleast_one": {
-      "cases": [{ "paths": ["@ref", "narrative"] }]
-    }
-  },
-  "//transaction": {
-    "date_order": {
       "cases": [
-        { "less": "transaction-date/@iso-date", "more": "NOW" },
-        { "less": "value/@value-date", "more": "NOW" }
+        {
+          "paths": ["@ref", "narrative"],
+          "ruleInfo": {
+            "id": "6.10.1",
+            "severity": "error",
+            "category": "participating",
+            "message": "The participating organisation must have an identifier or a narrative."
+          }
+        }
+      ]
+    },
+    "regex_matches": {
+      "cases": [
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.8.13",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The receiver-org idenitifier must not contain any of the symbols /, &, | or ?."
+          }
+        },
+        {
+          "regex": "^[^\\/\\&\\|\\?]+$",
+          "paths": ["@activity-id"],
+          "ruleInfo": {
+            "id": "1.9.13",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The participating-org activity identifier must not contain any of the symbols /, &, | or ?."
+          }
+        }
       ]
     }
+  },
+  "no_spaces": {
+    "cases": [
+      {
+        "paths": ["@ref"],
+        "ruleInfo": {
+          "id": "1.8.1",
+          "severity": "warning",
+          "category": "participating",
+          "message": "The participating-org identifier should not start or end with spaces or newlines."
+        }
+      },
+      {
+        "paths": ["@activity-id"],
+        "ruleInfo": {
+          "id": "1.9.1",
+          "severity": "warning",
+          "category": "participating",
+          "message": "The participating-org activity identifier should not start or end with spaces or newlines."
+        }
+      }
+    ]
   },
   "//planned-disbursement": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
+      ]
+    },
+    "time_limit": {
+      "cases": [
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
       ]
     }
   },
   "//budget": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
+      ]
+    },
+    "time_limit": {
+      "cases": [
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
+      ]
+    }
+  },
+  "//budget/value": {
+    "atleast_one": {
+      "cases": [
+        {
+          "paths": ["@value-date"],
+          "ruleInfo": {
+            "id": "7.5.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Value must include a Value Date."
+          }
+        }
       ]
     }
   },
   "//total-budget": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     },
     "time_limit": {
       "cases": [
-        { "start": "period-start/@iso-date", "end": "period-end/@iso-date" }
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
       ]
     }
   },
   "//recipient-country-budget": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     },
     "between_dates": {
@@ -264,7 +1298,13 @@
         {
           "date": "budget-line/value/@value-date",
           "start": "period-start/@iso-date",
-          "end": "period-end/@iso-date"
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "11.3.1",
+            "severity": "error",
+            "category": "financial",
+            "message": "The budget line value date must be within the budget period."
+          }
         }
       ]
     },
@@ -272,7 +1312,13 @@
       "cases": [
         {
           "start": "period-start/@iso-date",
-          "end": "period-end/@iso-date"
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
         }
       ]
     }
@@ -280,24 +1326,90 @@
   "//recipient-org-budget": {
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     },
     "time_limit": {
       "cases": [
         {
           "start": "period-start/@iso-date",
-          "end": "period-end/@iso-date"
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
         }
       ]
     }
   },
   "//recipient-region-budget": {
+    "date_order": {
+      "cases": [
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
+      ]
+    },
     "time_limit": {
       "cases": [
         {
           "start": "period-start/@iso-date",
-          "end": "period-end/@iso-date"
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
+        }
+      ]
+    }
+  },
+  "//result/indicator": {
+    "no_more_than_one": {
+      "cases": [
+        {
+          "paths": ["reference[1]", "../reference[1]"],
+          "ruleInfo": {
+            "id": "8.11.1",
+            "severity": "error",
+            "category": "performance",
+            "message": "A reference code must only be declared at result OR result indicator level."
+          }
+        }
+      ]
+    }
+  },
+  "//result/indicator/period": {
+    "date_order": {
+      "cases": [
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.1",
+            "severity": "error",
+            "category": "performance",
+            "message": "The start date of the indicator period must be before the end date of the indicator period."
+          }
         }
       ]
     }
@@ -307,15 +1419,28 @@
       "cases": [
         {
           "start": "period-start/@iso-date",
-          "end": "period-end/@iso-date"
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year."
+          }
         }
       ]
-    }
-  },
-  "//result/indicator/period": {
+    },
     "date_order": {
       "cases": [
-        { "less": "period-start/@iso-date", "more": "period-end/@iso-date" }
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period."
+          }
+        }
       ]
     }
   }
