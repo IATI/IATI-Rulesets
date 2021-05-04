@@ -1226,7 +1226,16 @@
             "message": "The organisation should specify a default language, or the language should be specified for each narrative element."
           }
         },
-        { "one": "@default-currency", "all": "currency" }
+        {
+          "one": "@default-currency",
+          "all": "currency",
+          "ruleInfo": {
+            "id": "7.8.2",
+            "severity": "error",
+            "category": "financial",
+            "message": "The financial value must have a specified currency, or the organisation must declare a default currency."
+          }
+        }
       ]
     }
   },
