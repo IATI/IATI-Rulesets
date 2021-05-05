@@ -38,128 +38,12 @@
         },
         {
           "prefix": "ORG-ID-PREFIX",
-          "paths": ["iati-identifier"],
-          "ruleInfo": {
-            "id": "1.3.8",
-            "severity": "warning",
-            "category": "identifiers",
-            "message": "The iati-identifier must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": ["planned-disbursement/provider-org/@ref"],
-          "ruleInfo": {
-            "id": "1.10.8",
-            "severity": "warning",
-            "category": "financial",
-            "message": "The provider organisation id must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": ["other-identifier/owner-org/@ref"],
-          "ruleInfo": {
-            "id": "1.11.8",
-            "severity": "warning",
-            "category": "identifiers",
-            "message": "The owner organisation id must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
           "paths": ["reporting-org/@ref"],
           "ruleInfo": {
             "id": "1.14.8",
             "severity": "warning",
             "category": "identifiers",
             "message": "The reporting organisation id must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": ["planned-disbursement/receiver-org/@ref"],
-          "ruleInfo": {
-            "id": "1.15.8",
-            "severity": "warning",
-            "category": "financial",
-            "message": "The receiving organisation id must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": ["other-identifier[@type='B1']/@ref"],
-          "ruleInfo": {
-            "id": "1.16.8",
-            "severity": "warning",
-            "category": "identifiers",
-            "message": "The previous reporting organisation identifier must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": ["other-identifier[@type='A3']/@ref"],
-          "ruleInfo": {
-            "id": "1.6.8",
-            "severity": "warning",
-            "category": "identifiers",
-            "message": "The previous activity identifier must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": [
-            "planned-disbursement/provider-org/@provider-activity-id",
-            "transaction/provider-org/@provider-activity-id"
-          ],
-          "ruleInfo": {
-            "id": "1.4.8",
-            "severity": "warning",
-            "category": "financial",
-            "message": "The provider activity identifier must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": [
-            "planned-disbursement/receiver-org/@receiver-activity-id",
-            "/transaction/receiver-org/@receiver-activity-id"
-          ],
-          "ruleInfo": {
-            "id": "1.5.8",
-            "severity": "warning",
-            "category": "financial",
-            "message": "The receiver activity identifier must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": ["related-activity/@ref"],
-          "ruleInfo": {
-            "id": "1.7.8",
-            "severity": "warning",
-            "category": "relations",
-            "message": "The related activity identifier must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": ["participating-org/@ref"],
-          "ruleInfo": {
-            "id": "1.8.8",
-            "severity": "warning",
-            "category": "participating",
-            "message": "The participating organisation identifier must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": ["participating-org/@activity-id"],
-          "ruleInfo": {
-            "id": "1.9.8",
-            "severity": "warning",
-            "category": "participating",
-            "message": "The participating organisation activity identifier must start with an approved agency code."
           }
         }
       ]
@@ -317,36 +201,6 @@
             "severity": "warning",
             "category": "identifiers",
             "message": "The reporting-org idenitifier must not contain any of the symbols /, &, | or ?."
-          }
-        },
-        {
-          "regex": "^[^\\/\\&\\|\\?]+$",
-          "paths": ["other-identifier[@type='B1']/@ref"],
-          "ruleInfo": {
-            "id": "1.16.13",
-            "severity": "warning",
-            "category": "identifiers",
-            "message": "The previous reporting organisation identifier must not contain any of the symbols /, &, | or ?."
-          }
-        },
-        {
-          "regex": "^[^\\/\\&\\|\\?]+$",
-          "paths": ["other-identifier[@type='A3']/@ref"],
-          "ruleInfo": {
-            "id": "1.6.13",
-            "severity": "warning",
-            "category": "identifiers",
-            "message": "The previous activity identifier must not contain any of the symbols /, &, | or ?."
-          }
-        },
-        {
-          "regex": "^[^\\/\\&\\|\\?]+$",
-          "paths": ["related-activity/@ref"],
-          "ruleInfo": {
-            "id": "1.7.13",
-            "severity": "warning",
-            "category": "relations",
-            "message": "The related activity identifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
@@ -978,16 +832,6 @@
             "category": "financial",
             "message": "The provider organisation idenitifier must not contain any of the symbols /, &, | or ?."
           }
-        },
-        {
-          "regex": "^[^\\/\\&\\|\\?]+$",
-          "paths": ["@provider-activity-id"],
-          "ruleInfo": {
-            "id": "1.4.13",
-            "severity": "warning",
-            "category": "financial",
-            "message": "The provider-org activity idenitifier must not contain any of the symbols /, &, | or ?."
-          }
         }
       ]
     },
@@ -1061,16 +905,6 @@
             "category": "financial",
             "message": "The receiver-org idenitifier must not contain any of the symbols /, &, | or ?."
           }
-        },
-        {
-          "regex": "^[^\\/\\&\\|\\?]+$",
-          "paths": ["@receiver-activity-id"],
-          "ruleInfo": {
-            "id": "1.5.13",
-            "severity": "warning",
-            "category": "financial",
-            "message": "The receiver-org activity idenitifier must not contain any of the symbols /, &, | or ?."
-          }
         }
       ]
     }
@@ -1106,26 +940,6 @@
       "cases": [
         {
           "prefix": "ORG-ID-PREFIX",
-          "paths": ["organisation-identifier"],
-          "ruleInfo": {
-            "id": "1.12.8",
-            "severity": "warning",
-            "category": "organisation",
-            "message": "The organisation-identifier must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
-          "paths": ["recipient-org-budget/recipient-org/@ref"],
-          "ruleInfo": {
-            "id": "1.17.8",
-            "severity": "warning",
-            "category": "organisation",
-            "message": "The recipient organisation id must start with an approved agency code."
-          }
-        },
-        {
-          "prefix": "ORG-ID-PREFIX",
           "paths": ["reporting-org/@ref"],
           "ruleInfo": {
             "id": "1.18.8",
@@ -1146,16 +960,6 @@
             "severity": "warning",
             "category": "organisation",
             "message": "The organisation-idenitifer must not contain any of the symbols /, &, | or ?."
-          }
-        },
-        {
-          "regex": "^[^\\/\\&\\|\\?]+$",
-          "paths": ["recipient-org-budget/recipient-org/@ref"],
-          "ruleInfo": {
-            "id": "1.17.13",
-            "severity": "warning",
-            "category": "organisation",
-            "message": "The recipient organisation identifier must not contain any of the symbols /, &, | or ?."
           }
         },
         {
@@ -1263,16 +1067,6 @@
             "severity": "warning",
             "category": "participating",
             "message": "The receiver-org idenitifier must not contain any of the symbols /, &, | or ?."
-          }
-        },
-        {
-          "regex": "^[^\\/\\&\\|\\?]+$",
-          "paths": ["@activity-id"],
-          "ruleInfo": {
-            "id": "1.9.13",
-            "severity": "warning",
-            "category": "participating",
-            "message": "The participating-org activity identifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
