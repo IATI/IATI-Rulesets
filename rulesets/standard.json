@@ -345,7 +345,7 @@
             "strict_sum": {
               "cases": [
                 {
-                  "condition": "count(recipient-region[@vocabulary = '$1']) > 1",
+                  "condition": "count(recipient-region[@vocabulary = '$1']) + count(recipient-country) > 1",
                   "paths": [
                     "recipient-region[@vocabulary = '$1']/@percentage",
                     "recipient-country/@percentage"
