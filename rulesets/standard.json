@@ -37,6 +37,7 @@
           }
         },
         {
+          "idCondition": "NOT_EXISTING_ORG_ID",
           "prefix": "ORG-ID-PREFIX",
           "paths": ["reporting-org/@ref"],
           "ruleInfo": {
@@ -184,6 +185,7 @@
     "regex_matches": {
       "cases": [
         {
+          "idCondition": "NOT_EXISTING_ORG_ID_PREFIX",
           "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["iati-identifier"],
           "ruleInfo": {
@@ -194,6 +196,7 @@
           }
         },
         {
+          "idCondition": "NOT_EXISTING_ORG_ID",
           "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["reporting-org/@ref"],
           "ruleInfo": {
@@ -795,6 +798,7 @@
     "regex_matches": {
       "cases": [
         {
+          "idCondition": "NOT_EXISTING_ORG_ID",
           "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["@ref"],
           "ruleInfo": {
@@ -824,6 +828,7 @@
     "regex_matches": {
       "cases": [
         {
+          "idCondition": "NOT_EXISTING_ORG_ID",
           "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["@ref"],
           "ruleInfo": {
@@ -897,6 +902,7 @@
     "regex_matches": {
       "cases": [
         {
+          "idCondition": "NOT_EXISTING_ORG_ID",
           "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["@ref"],
           "ruleInfo": {
@@ -939,6 +945,7 @@
     "startswith": {
       "cases": [
         {
+          "idCondition": "NOT_EXISTING_ORG_ID",
           "prefix": "ORG-ID-PREFIX",
           "paths": ["reporting-org/@ref"],
           "ruleInfo": {
@@ -953,6 +960,7 @@
     "regex_matches": {
       "cases": [
         {
+          "idCondition": "NOT_EXISTING_ORG_ID",
           "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["organisation-identifier"],
           "ruleInfo": {
@@ -963,6 +971,7 @@
           }
         },
         {
+          "idCondition": "NOT_EXISTING_ORG_ID",
           "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["reporting-org/@ref"],
           "ruleInfo": {
@@ -1060,6 +1069,7 @@
     "regex_matches": {
       "cases": [
         {
+          "idCondition": "NOT_EXISTING_ORG_ID",
           "regex": "^[^\\/\\&\\|\\?]+$",
           "paths": ["@ref"],
           "ruleInfo": {
