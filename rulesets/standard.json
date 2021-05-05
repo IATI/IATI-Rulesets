@@ -1118,20 +1118,6 @@
           }
         }
       ]
-    },
-    "time_limit": {
-      "cases": [
-        {
-          "start": "period-start/@iso-date",
-          "end": "period-end/@iso-date",
-          "ruleInfo": {
-            "id": "7.5.3",
-            "severity": "error",
-            "category": "financial",
-            "message": "Budget Period must not be longer than one year."
-          }
-        }
-      ]
     }
   },
   "//budget": {
