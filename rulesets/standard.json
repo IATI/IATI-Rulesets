@@ -267,6 +267,7 @@
                 {
                   "if": "description[@type = '$1']/narrative",
                   "then": "string(description[@type = '$1']//narrative) != ''",
+                  "paths": ["description[@type = '$1']/narrative"],
                   "ruleInfo": {
                     "id": "4.4.1",
                     "severity": "error",
@@ -277,7 +278,7 @@
               ]
             }
           },
-          "subs": ["if", "then"]
+          "subs": ["if", "then", "paths"]
         },
         {
           "foreach": "sector[@vocabulary != '1']/@vocabulary",
@@ -307,6 +308,7 @@
                 {
                   "if": "count(recipient-region[@vocabulary = '$1']) > 1",
                   "then": "count(recipient-region[@vocabulary = '$1']) = count(recipient-region[@vocabulary = '$1']/@percentage)",
+                  "paths": ["recipient-region[@vocabulary = '$1']"],
                   "ruleInfo": {
                     "id": "3.4.1",
                     "severity": "error",
@@ -317,7 +319,7 @@
               ]
             }
           },
-          "subs": ["if", "then"]
+          "subs": ["if", "then", "paths"]
         },
         {
           "foreach": "recipient-region/@vocabulary",
@@ -327,6 +329,10 @@
                 {
                   "if": "count(recipient-region[@vocabulary = '$1']) = 1 and not(recipient-country)",
                   "then": "not(recipient-region[@vocabulary = '$1']/@percentage) or recipient-region[@vocabulary = '$1']/@percentage = 100",
+                  "paths": [
+                    "recipient-region[@vocabulary = '$1']",
+                    "recipient-country"
+                  ],
                   "ruleInfo": {
                     "id": "3.4.4",
                     "severity": "error",
@@ -337,7 +343,7 @@
               ]
             }
           },
-          "subs": ["if", "then"]
+          "subs": ["if", "then", "paths"]
         },
         {
           "foreach": "recipient-region/@vocabulary",
@@ -416,6 +422,9 @@
                 {
                   "if": "count(country-budget-items[@vocabulary = '$1']/budget-item) = 1",
                   "then": "not(country-budget-items[@vocabulary = '$1']/budget-item/@percentage) or country-budget-items[@vocabulary = '$1']/budget-item/@percentage = 100",
+                  "paths": [
+                    "country-budget-items[@vocabulary = '$1']/budget-item"
+                  ],
                   "ruleInfo": {
                     "id": "7.9.4",
                     "severity": "warning",
@@ -426,7 +435,7 @@
               ]
             }
           },
-          "subs": ["if", "then"]
+          "subs": ["if", "then", "paths"]
         },
         {
           "foreach": "default-aid-type[@vocabulary != 1]/@vocabulary",
@@ -476,6 +485,7 @@
                   "then": [
                     "count(sector[@vocabulary = '$1']) = count(sector[@vocabulary = '$1']/@percentage)"
                   ],
+                  "paths": ["sector[@vocabulary = '$1']"],
                   "ruleInfo": {
                     "id": "2.1.1",
                     "severity": "error",
@@ -486,7 +496,7 @@
               ]
             }
           },
-          "subs": ["if", "then"]
+          "subs": ["if", "then", "paths"]
         },
         {
           "foreach": "sector[@vocabulary != '1']/@vocabulary",
@@ -496,6 +506,7 @@
                 {
                   "if": "count(sector[@vocabulary = '$1']) = 1",
                   "then": "not(sector[@vocabulary = '$1']/@percentage) or sector[@vocabulary = '$1']/@percentage = 100",
+                  "paths": ["sector[@vocabulary = '$1']"],
                   "ruleInfo": {
                     "id": "2.1.4",
                     "severity": "",
@@ -506,7 +517,7 @@
               ]
             }
           },
-          "subs": ["if", "then"]
+          "subs": ["if", "then", "paths"]
         }
       ]
     },
@@ -628,6 +639,7 @@
         {
           "if": "title/narrative",
           "then": "string(title//narrative) != ''",
+          "paths": ["title/narrative"],
           "ruleInfo": {
             "id": "4.3.1",
             "severity": "error",
@@ -638,6 +650,7 @@
         {
           "if": "count(description[not(@type) or @type = '']/narrative) > 0",
           "then": "string(description[not(@type) or @type = '']//narrative) != ''",
+          "paths": ["description[not(@type) or @type = '']/narrative"],
           "ruleInfo": {
             "id": "4.4.1",
             "severity": "error",
@@ -648,6 +661,10 @@
         {
           "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
           "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])",
+          "paths": [
+            "sector[@vocabulary=98 or @vocabulary=99]",
+            "sector[@vocabulary=98 or @vocabulary=99]/narrative"
+          ],
           "ruleInfo": {
             "id": "2.2.1",
             "severity": "error",
@@ -658,6 +675,11 @@
         {
           "if": "count(sector[not(@vocabulary='')]) + count(sector[not(@vocabulary='1')]) > 0",
           "then": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 0",
+          "paths": [
+            "sector[not(@vocabulary='')]",
+            "sector[not(@vocabulary='1')]",
+            "sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]"
+          ],
           "ruleInfo": {
             "id": "102.1.1",
             "severity": "warning",
@@ -668,6 +690,9 @@
         {
           "if": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 1",
           "then": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) = count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage)",
+          "paths": [
+            "sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]"
+          ],
           "ruleInfo": {
             "id": "2.1.1",
             "severity": "error",
@@ -678,6 +703,9 @@
         {
           "if": "count(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) = 1",
           "then": "not(sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage) or sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]/@percentage = 100",
+          "paths": [
+            "sector[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]"
+          ],
           "ruleInfo": {
             "id": "2.1.4",
             "severity": "error",
@@ -688,6 +716,11 @@
         {
           "if": "count(default-aid-type[not(@vocabulary='')]) + count(default-aid-type[not(@vocabulary='1')]) > 0",
           "then": "count(default-aid-type[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 0",
+          "paths": [
+            "default-aid-type[not(@vocabulary='')]",
+            "default-aid-type[not(@vocabulary='1')]",
+            "default-aid-type[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]"
+          ],
           "ruleInfo": {
             "id": "107.1.1",
             "severity": "warning",
@@ -698,6 +731,11 @@
         {
           "if": "count(transaction/aid-type[not(@vocabulary='')]) + count(transaction/aid-type[not(@vocabulary='1')]) > 0",
           "then": "count(transaction/aid-type[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]) > 0",
+          "paths": [
+            "transaction/aid-type[not(@vocabulary='')]",
+            "transaction/aid-type[not(@vocabulary='1')]",
+            "transaction/aid-type[@vocabulary='' or @vocabulary='1' or not(@vocabulary)]"
+          ],
           "ruleInfo": {
             "id": "107.2.1",
             "severity": "warning",
@@ -708,6 +746,7 @@
         {
           "if": "count(sector) > 0",
           "then": "count(transaction/sector) < 1",
+          "paths": ["sector", "transaction/sector"],
           "ruleInfo": {
             "id": "6.6.2",
             "severity": "error",
@@ -718,6 +757,12 @@
         {
           "if": "recipient-country or recipient-region",
           "then": "not(transaction/recipient-country or transaction/recipient-region)",
+          "paths": [
+            "recipient-country",
+            "recipient-region",
+            "transaction/recipient-country",
+            "transaction/recipient-region"
+          ],
           "ruleInfo": {
             "id": "3.6.2",
             "severity": "error",
@@ -728,6 +773,11 @@
         {
           "if": "not(recipient-country or recipient-region)",
           "then": "transaction[recipient-country or recipient-region]",
+          "paths": [
+            "recipient-country",
+            "recipient-region",
+            "transaction[recipient-country or recipient-region]"
+          ],
           "ruleInfo": {
             "id": "3.7.1",
             "severity": "error",
@@ -738,6 +788,11 @@
         {
           "if": "not(recipient-country or recipient-region)",
           "then": "not(transaction[not(recipient-country or recipient-region)])",
+          "paths": [
+            "recipient-country",
+            "recipient-region",
+            "transaction[not(recipient-country or recipient-region)]"
+          ],
           "ruleInfo": {
             "id": "3.7.2",
             "severity": "error",
@@ -748,6 +803,7 @@
         {
           "if": "count(recipient-country) > 1 and not(recipient-region)",
           "then": "count(recipient-country) = count(recipient-country/@percentage)",
+          "paths": ["recipient-country", "recipient-region"],
           "ruleInfo": {
             "id": "3.1.1",
             "severity": "error",
@@ -758,6 +814,7 @@
         {
           "if": "count(recipient-country) = 1 and not(recipient-region)",
           "then": "not(recipient-country/@percentage) or recipient-country/@percentage = 100",
+          "paths": ["recipient-country", "recipient-region"],
           "ruleInfo": {
             "id": "3.1.4",
             "severity": "error",
@@ -1380,6 +1437,7 @@
         {
           "if": "@value",
           "then": "number(@value) = @value",
+          "paths": ["@value"],
           "ruleInfo": {
             "id": "8.8.2",
             "severity": "warning",
@@ -1396,6 +1454,7 @@
         {
           "if": "@value",
           "then": "not(@value)",
+          "paths": ["@value"],
           "ruleInfo": {
             "id": "8.8.3",
             "severity": "warning",
@@ -1425,6 +1484,7 @@
         {
           "if": "@value",
           "then": "number(@value) = @value",
+          "paths": ["@value"],
           "ruleInfo": {
             "id": "8.9.2",
             "severity": "warning",
@@ -1441,6 +1501,7 @@
         {
           "if": "@value",
           "then": "not(@value)",
+          "paths": ["@value"],
           "ruleInfo": {
             "id": "8.9.3",
             "severity": "warning",
@@ -1470,6 +1531,7 @@
         {
           "if": "@value",
           "then": "number(@value) = @value",
+          "paths": ["@value"],
           "ruleInfo": {
             "id": "8.10.2",
             "severity": "warning",
@@ -1486,6 +1548,7 @@
         {
           "if": "@value",
           "then": "not(@value)",
+          "paths": ["@value"],
           "ruleInfo": {
             "id": "8.10.3",
             "severity": "warning",
