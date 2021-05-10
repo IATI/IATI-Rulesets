@@ -313,7 +313,7 @@
                     "id": "3.4.1",
                     "severity": "error",
                     "category": "geo",
-                    "message": "Percentage values for recipient countries or regions, must add up to 100%."
+                    "message": "When multiple recipient countries or regions are declared, each must have a percentage."
                   }
                 }
               ]
