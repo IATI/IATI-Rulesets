@@ -1137,29 +1137,29 @@
           }
         }
       ]
+    },
+    "no_spaces": {
+      "cases": [
+        {
+          "paths": ["@ref"],
+          "ruleInfo": {
+            "id": "1.8.1",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The participating-org identifier should not start or end with spaces or newlines."
+          }
+        },
+        {
+          "paths": ["@activity-id"],
+          "ruleInfo": {
+            "id": "1.9.1",
+            "severity": "warning",
+            "category": "participating",
+            "message": "The participating-org activity identifier should not start or end with spaces or newlines."
+          }
+        }
+      ]
     }
-  },
-  "no_spaces": {
-    "cases": [
-      {
-        "paths": ["@ref"],
-        "ruleInfo": {
-          "id": "1.8.1",
-          "severity": "warning",
-          "category": "participating",
-          "message": "The participating-org identifier should not start or end with spaces or newlines."
-        }
-      },
-      {
-        "paths": ["@activity-id"],
-        "ruleInfo": {
-          "id": "1.9.1",
-          "severity": "warning",
-          "category": "participating",
-          "message": "The participating-org activity identifier should not start or end with spaces or newlines."
-        }
-      }
-    ]
   },
   "//planned-disbursement": {
     "date_order": {
