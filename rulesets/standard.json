@@ -27,7 +27,7 @@
         },
         {
           "idCondition": "NOT_EXISTING_ORG_ID",
-          "prefix": "ORG-ID-PREFIX",
+          "prefix": ["ORG-ID-PREFIX"],
           "paths": ["reporting-org/@ref"],
           "ruleInfo": {
             "id": "1.14.8",
@@ -365,9 +365,7 @@
               "cases": [
                 {
                   "if": "count(sector[@vocabulary = '$1']) > 1",
-                  "then": [
-                    "count(sector[@vocabulary = '$1']) = count(sector[@vocabulary = '$1']/@percentage)"
-                  ],
+                  "then": "count(sector[@vocabulary = '$1']) = count(sector[@vocabulary = '$1']/@percentage)",
                   "paths": ["sector[@vocabulary = '$1']"],
                   "ruleInfo": {
                     "id": "2.1.1",
@@ -392,7 +390,7 @@
                   "paths": ["sector[@vocabulary = '$1']"],
                   "ruleInfo": {
                     "id": "2.1.4",
-                    "severity": "",
+                    "severity": "error",
                     "category": "classifications",
                     "message": "When a single sector is declared, the percentage must either be omitted, or set to 100."
                   }
@@ -825,7 +823,7 @@
       "cases": [
         {
           "idCondition": "NOT_EXISTING_ORG_ID",
-          "prefix": "ORG-ID-PREFIX",
+          "prefix": ["ORG-ID-PREFIX"],
           "paths": ["reporting-org/@ref"],
           "ruleInfo": {
             "id": "1.18.8",
