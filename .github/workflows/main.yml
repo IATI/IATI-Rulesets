@@ -3,9 +3,13 @@
 
 name: CI_version-2.02
 
+env:
+  DEV_DEFAULT_KEY: ${{ secrets.DEV_CACHER_DEFAULT_KEY }} # Azure Functions default API Key for Redis-cacher
+  VERSION: 2.02
+
 on:
   push:
-    branches: [version-2.02]
+    branches: [version-2.02, v2.02/validatorV2]
   pull_request:
     branches: [version-2.02]
 
@@ -48,3 +52,26 @@ jobs:
         run: |
           python -m jsonschema -i rulesets/standard.json schema.json
           ./meta_tests.sh python testrules.py
+
+  cache-ruleset:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }} # only push to the redis cache on PUSH
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: POST ruleset/standard.json to redis-cacher
+        run: |
+          HTTP_CODE=$(curl --write-out "%{http_code}\n" \
+          --location --request POST 'https://func-iati-redis-cacher-dev.azurewebsites.net/api/pvt/cache?key=ruleset'$VERSION \
+          --header 'x-functions-key: '$DEV_DEFAULT_KEY \
+          --header 'Content-Type: application/json' \
+          --data-binary '@./rulesets/standard.json' \
+          --output curl_out.txt \
+          --silent )
+          echo $HTTP_CODE
+          if [[ $HTTP_CODE != '200' ]] ; then
+            echo "Reponse is not 200 from redis-cacher, check error logs"
+            cat curl_out.txt
+            exit 1
+          fi
