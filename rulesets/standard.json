@@ -844,7 +844,7 @@
             "id": "1.12.13",
             "severity": "warning",
             "category": "organisation",
-            "message": "The organisation-idenitifer must not contain any of the symbols /, &, | or ?."
+            "message": "The organisation-identifier must not contain any of the symbols /, &, | or ?."
           }
         },
         {
