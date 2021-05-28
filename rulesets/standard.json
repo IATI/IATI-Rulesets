@@ -192,7 +192,7 @@
             "id": "1.14.13",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The reporting-org idenitifier must not contain any of the symbols /, &, | or ?."
+            "message": "The reporting-org identifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
@@ -214,7 +214,7 @@
             "id": "1.14.1",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The reporting-org idenitifier should not start or end with spaces or newlines."
+            "message": "The reporting-org identifier should not start or end with spaces or newlines."
           }
         },
         {
@@ -667,7 +667,7 @@
             "id": "1.11.1",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The owner organisation idenitifier should not start or end with spaces or newlines."
+            "message": "The owner organisation identifier should not start or end with spaces or newlines."
           }
         }
       ]
@@ -682,7 +682,7 @@
             "id": "1.11.13",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The owner organisation idenitifier must not contain any of the symbols /, &, | or ?."
+            "message": "The owner organisation identifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
@@ -712,7 +712,7 @@
             "id": "1.10.13",
             "severity": "warning",
             "category": "financial",
-            "message": "The provider organisation idenitifier must not contain any of the symbols /, &, | or ?."
+            "message": "The provider organisation identifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
@@ -725,7 +725,7 @@
             "id": "1.10.1",
             "severity": "warning",
             "category": "financial",
-            "message": "The provider organisation idenitifier should not start or end with spaces or newlines."
+            "message": "The provider organisation identifier should not start or end with spaces or newlines."
           }
         },
         {
@@ -734,7 +734,7 @@
             "id": "1.4.1",
             "severity": "warning",
             "category": "financial",
-            "message": "The provider-org activity idenitifier should not start or end with spaces or newlines."
+            "message": "The provider-org activity identifier should not start or end with spaces or newlines."
           }
         }
       ]
@@ -762,7 +762,7 @@
             "id": "1.15.1",
             "severity": "warning",
             "category": "financial",
-            "message": "The receiver-org idenitifier should not start or end with spaces or newlines."
+            "message": "The receiver-org identifier should not start or end with spaces or newlines."
           }
         },
         {
@@ -771,7 +771,7 @@
             "id": "1.5.1",
             "severity": "warning",
             "category": "financial",
-            "message": "The receiver-org activity idenitifier should not start or end with spaces or newlines."
+            "message": "The receiver-org activity identifier should not start or end with spaces or newlines."
           }
         }
       ]
@@ -786,7 +786,7 @@
             "id": "1.15.13",
             "severity": "warning",
             "category": "financial",
-            "message": "The receiver-org idenitifier must not contain any of the symbols /, &, | or ?."
+            "message": "The receiver-org identifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
@@ -953,7 +953,7 @@
             "id": "1.8.13",
             "severity": "warning",
             "category": "participating",
-            "message": "The receiver-org idenitifier must not contain any of the symbols /, &, | or ?."
+            "message": "The receiver-org identifier must not contain any of the symbols /, &, | or ?."
           }
         }
       ]
