@@ -350,7 +350,10 @@
                     "type": "array",
                     "items": { "type": "string" }
                   },
-                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" },
+                  "separator": {
+                    "type": "string"
+                  }
                 }
               }
             }
