@@ -69,7 +69,7 @@ jobs:
       - name: POST ruleset/standard.json to redis-cacher
         run: |
           HTTP_CODE=$(curl --write-out "%{http_code}\n" \
-          --location --request POST 'https://func-iati-redis-cacher-dev.azurewebsites.net/api/pvt/cache?key=ruleset'$VERSION \
+          --location --request POST 'https://func-iati-redis-cacher-dev.azurewebsites.net/api/pvt/cache?key=ruleset'$VERSION'&commitsha='$GITHUB_SHA \
           --header 'x-functions-key: '$DEV_DEFAULT_KEY \
           --header 'Content-Type: application/json' \
           --data-binary '@./rulesets/standard.json' \
