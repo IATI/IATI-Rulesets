@@ -65,6 +65,9 @@ jobs:
     if: ${{ github.event_name == 'push' }} # only push to the redis cache on PUSH
     steps:
       - uses: actions/checkout@v2
+        with:
+          # Number of commits to fetch. 0 indicates all history for all branches and tags.
+          fetch-depth: 0
 
       - name: POST ruleset/standard.json to redis-cacher
         run: |
