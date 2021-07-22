@@ -68,7 +68,7 @@ jobs:
 
       - name: POST ruleset/standard.json to redis-cacher
         run: |
-          FILE_COMMIT_SHA=$(git log -1 --format='%H' ./rulesets/standard.json)
+          FILE_COMMIT_SHA=$(git log -1 --format='%H' -- './rulesets/standard.json')
           echo $FILE_COMMIT_SHA
           HTTP_CODE=$(curl --write-out "%{http_code}\n" \
           --location --request POST 'https://func-iati-redis-cacher-dev.azurewebsites.net/api/pvt/cache?key=ruleset'$VERSION'&commitsha='$FILE_COMMIT_SHA \
