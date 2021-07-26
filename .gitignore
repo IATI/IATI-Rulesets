@@ -6,3 +6,4 @@ pyenv*
 doc/_build
 build
 .DS_Store
+.vscode

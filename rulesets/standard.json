@@ -8,7 +8,10 @@
             "id": "1.1.3",
             "severity": "error",
             "category": "identifiers",
-            "message": "The activity identifier must be different to the organisation identifier of the reporting organisation."
+            "message": "The activity identifier must be different to the organisation identifier of the reporting organisation.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/iati-identifier/"
+            }
           }
         }
       ]
@@ -23,7 +26,10 @@
             "id": "1.1.21",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The activity identifier should begin with your IATI organisation identifier (either the current IATI Organisation identifier for the reporting organisation or a previous version included in other-identifier element) followed by a unique string for the activity separated by a hyphen"
+            "message": "The activity identifier should begin with your IATI organisation identifier (either the current IATI Organisation identifier for the reporting organisation or a previous version included in other-identifier element) followed by a unique string for the activity separated by a hyphen",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/iati-identifier/"
+            }
           }
         },
         {
@@ -34,7 +40,10 @@
             "id": "1.14.8",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The reporting organisation id must start with an approved agency code."
+            "message": "The reporting organisation id must start with an approved agency code.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/"
+            }
           }
         }
       ]
@@ -47,7 +56,10 @@
             "id": "6.11.1",
             "severity": "error",
             "category": "information",
-            "message": "The activity must have a planned start date or an actual start date."
+            "message": "The activity must have a planned start date or an actual start date.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/"
+            }
           }
         },
         {
@@ -56,7 +68,10 @@
             "id": "6.2.2",
             "severity": "error",
             "category": "classifications",
-            "message": "Each activity must have a specified sector, either at activity level OR for all transactions."
+            "message": "Each activity must have a specified sector, either at activity level OR for all transactions.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+            }
           }
         }
       ]
@@ -70,7 +85,8 @@
             "id": "4.1.1",
             "severity": "error",
             "category": "information",
-            "message": "The activity should specify a default language OR the language must be specified for each narrative element."
+            "message": "The activity should specify a default language OR the language must be specified for each narrative element.",
+            "link": { "path": "codelists/Language/" }
           }
         },
         {
@@ -80,7 +96,10 @@
             "id": "6.7.2",
             "severity": "error",
             "category": "classifications",
-            "message": "If sector is declared at transaction level, a sector must be declared for all transactions."
+            "message": "If sector is declared at transaction level, a sector must be declared for all transactions.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+            }
           }
         },
         {
@@ -90,7 +109,8 @@
             "id": "7.8.1",
             "severity": "error",
             "category": "financial",
-            "message": "The activity should specify a default currency OR the currency must be specified for each monetary value."
+            "message": "The activity should specify a default currency OR the currency must be specified for each monetary value.",
+            "link": { "path": "codelists/Currency/" }
           }
         }
       ]
@@ -103,7 +123,10 @@
             "id": "11.1.1",
             "severity": "error",
             "category": "information",
-            "message": "The last updated datetime of the activity must not be in the future."
+            "message": "The last updated datetime of the activity must not be in the future.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/"
+            }
           }
         }
       ]
@@ -117,7 +140,10 @@
             "id": "11.1.2",
             "severity": "error",
             "category": "iati",
-            "message": "The planned start date of the activity must be before the planned end date."
+            "message": "The planned start date of the activity must be before the planned end date.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/"
+            }
           }
         },
         {
@@ -127,7 +153,10 @@
             "id": "11.1.3",
             "severity": "error",
             "category": "iati",
-            "message": "The actual start date of the activity must be before the actual end date."
+            "message": "The actual start date of the activity must be before the actual end date.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/"
+            }
           }
         },
         {
@@ -137,7 +166,10 @@
             "id": "11.1.4",
             "severity": "error",
             "category": "iati",
-            "message": "The actual start date of the activity must not be in the future."
+            "message": "The actual start date of the activity must not be in the future.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/"
+            }
           }
         },
         {
@@ -147,7 +179,10 @@
             "id": "11.1.5",
             "severity": "error",
             "category": "iati",
-            "message": "The actual end date of the activity must not be in the future."
+            "message": "The actual end date of the activity must not be in the future.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/"
+            }
           }
         },
         {
@@ -157,7 +192,10 @@
             "id": "11.2.1",
             "severity": "error",
             "category": "financial",
-            "message": "The transaction date must not be in the future."
+            "message": "The transaction date must not be in the future.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/financial-transactions/"
+            }
           }
         },
         {
@@ -167,7 +205,10 @@
             "id": "11.2.2",
             "severity": "error",
             "category": "financial",
-            "message": "The transaction value date must not be in the future."
+            "message": "The transaction value date must not be in the future.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/financial-transactions/"
+            }
           }
         }
       ]
@@ -193,7 +234,10 @@
             "id": "1.14.13",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The reporting-org identifier must not contain any of the symbols /, &, | or ?."
+            "message": "The reporting-org identifier must not contain any of the symbols /, &, | or ?.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/"
+            }
           }
         }
       ]
@@ -215,7 +259,10 @@
             "id": "1.14.1",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The reporting-org identifier should not start or end with spaces or newlines."
+            "message": "The reporting-org identifier should not start or end with spaces or newlines.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/"
+            }
           }
         },
         {
@@ -262,7 +309,10 @@
                     "id": "4.4.1",
                     "severity": "error",
                     "category": "information",
-                    "message": "The description must contain narrative content."
+                    "message": "The description must contain narrative content.",
+                    "link": {
+                      "path": "activity-standard/iati-activities/iati-activity/title/"
+                    }
                   }
                 }
               ]
@@ -282,7 +332,10 @@
                     "id": "2.1.2",
                     "severity": "error",
                     "category": "classifications",
-                    "message": "Percentage values for sectors, within a vocabulary (e.g. 1 - OECD DAC), must add up to 100%."
+                    "message": "Percentage values for sectors, within a vocabulary (e.g. 1 - OECD DAC), must add up to 100%.",
+                    "link": {
+                      "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+                    }
                   }
                 }
               ]
@@ -303,7 +356,10 @@
                     "id": "3.4.1",
                     "severity": "error",
                     "category": "geo",
-                    "message": "When multiple recipient countries or regions are declared, each must have a percentage."
+                    "message": "When multiple recipient countries or regions are declared, each must have a percentage.",
+                    "link": {
+                      "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+                    }
                   }
                 }
               ]
@@ -327,7 +383,10 @@
                     "id": "3.4.4",
                     "severity": "error",
                     "category": "geo",
-                    "message": "When a single recipient region in a vocabulary is declared, the percentage must either be omitted, or set to 100."
+                    "message": "When a single recipient region in a vocabulary is declared, the percentage must either be omitted, or set to 100.",
+                    "link": {
+                      "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+                    }
                   }
                 }
               ]
@@ -351,7 +410,10 @@
                     "id": "3.4.2",
                     "severity": "error",
                     "category": "geo",
-                    "message": "Percentage values for recipient countries or regions, must add up to 100%."
+                    "message": "Percentage values for recipient countries or regions, must add up to 100%.",
+                    "link": {
+                      "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+                    }
                   }
                 }
               ]
@@ -374,7 +436,10 @@
                     "id": "7.9.2",
                     "severity": "warning",
                     "category": "financial",
-                    "message": "Percentage values for budget items, should add up to 100%."
+                    "message": "Percentage values for budget items, should add up to 100%.",
+                    "link": {
+                      "path": "activity-standard/iati-activities/iati-activity/country-budget-items/budget-item/"
+                    }
                   }
                 }
               ]
@@ -396,7 +461,10 @@
                     "id": "7.9.1",
                     "severity": "warning",
                     "category": "financial",
-                    "message": "When multiple budget items are declared, each must have a percentage."
+                    "message": "When multiple budget items are declared, each must have a percentage.",
+                    "link": {
+                      "path": "activity-standard/iati-activities/iati-activity/country-budget-items/budget-item/"
+                    }
                   }
                 }
               ]
@@ -419,7 +487,10 @@
                     "id": "7.9.4",
                     "severity": "warning",
                     "category": "financial",
-                    "message": "When a single budget item is declared, the percentage must either be omitted, or set to 100."
+                    "message": "When a single budget item is declared, the percentage must either be omitted, or set to 100.",
+                    "link": {
+                      "path": "activity-standard/iati-activities/iati-activity/country-budget-items/budget-item/"
+                    }
                   }
                 }
               ]
@@ -459,7 +530,10 @@
                     "id": "2.1.1",
                     "severity": "error",
                     "category": "classifications",
-                    "message": "When multiple sectors, within a vocabulary (e.g. 1 - OECD DAC) are declared, each must have a percentage."
+                    "message": "When multiple sectors, within a vocabulary (e.g. 1 - OECD DAC) are declared, each must have a percentage.",
+                    "link": {
+                      "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+                    }
                   }
                 }
               ]
@@ -480,7 +554,10 @@
                     "id": "2.1.4",
                     "severity": "error",
                     "category": "classifications",
-                    "message": "When a single sector is declared, the percentage must either be omitted, or set to 100."
+                    "message": "When a single sector is declared, the percentage must either be omitted, or set to 100.",
+                    "link": {
+                      "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+                    }
                   }
                 }
               ]
@@ -517,7 +594,10 @@
             "id": "2.1.2",
             "severity": "error",
             "category": "classifications",
-            "message": "Percentage values for sectors, within a vocabulary (e.g. 1 - OECD DAC), must add up to 100%."
+            "message": "Percentage values for sectors, within a vocabulary (e.g. 1 - OECD DAC), must add up to 100%.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+            }
           }
         },
         {
@@ -528,7 +608,10 @@
             "id": "3.1.2",
             "severity": "error",
             "category": "geo",
-            "message": "Percentage values for recipient countries, must add up to 100%."
+            "message": "Percentage values for recipient countries, must add up to 100%.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+            }
           }
         }
       ]
@@ -543,7 +626,10 @@
             "id": "12.1.1",
             "severity": "error",
             "category": "geo",
-            "message": "The country/region percentage value must be between 0.0 and 100.0 (inclusive)."
+            "message": "The country/region percentage value must be between 0.0 and 100.0 (inclusive).",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+            }
           }
         },
         {
@@ -554,7 +640,10 @@
             "id": "12.1.1",
             "severity": "error",
             "category": "geo",
-            "message": "The country/region percentage value must be between 0.0 and 100.0 (inclusive)."
+            "message": "The country/region percentage value must be between 0.0 and 100.0 (inclusive).",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+            }
           }
         },
         {
@@ -565,7 +654,10 @@
             "id": "12.3.1",
             "severity": "error",
             "category": "classifications",
-            "message": "The sector percentage value must be between 0.0 and 100.0 (inclusive)."
+            "message": "The sector percentage value must be between 0.0 and 100.0 (inclusive).",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+            }
           }
         },
         {
@@ -576,7 +668,10 @@
             "id": "12.2.1",
             "severity": "error",
             "category": "financial",
-            "message": "The percentage value must be between 0.0 and 100.0 (inclusive)."
+            "message": "The percentage value must be between 0.0 and 100.0 (inclusive).",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/capital-spend/"
+            }
           }
         },
         {
@@ -587,7 +682,10 @@
             "id": "12.2.1",
             "severity": "error",
             "category": "financial",
-            "message": "The percentage value must be between 0.0 and 100.0 (inclusive)."
+            "message": "The percentage value must be between 0.0 and 100.0 (inclusive).",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/capital-spend/"
+            }
           }
         }
       ]
@@ -602,7 +700,10 @@
             "id": "4.3.1",
             "severity": "error",
             "category": "information",
-            "message": "The title must contain narrative content."
+            "message": "The title must contain narrative content.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/title/"
+            }
           }
         },
         {
@@ -613,7 +714,10 @@
             "id": "4.4.1",
             "severity": "error",
             "category": "information",
-            "message": "The description must contain narrative content."
+            "message": "The description must contain narrative content.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/title/"
+            }
           }
         },
         {
@@ -627,7 +731,10 @@
             "id": "2.2.1",
             "severity": "error",
             "category": "classifications",
-            "message": "When using a reporting organisation sector code (vocabulary 98 or 99), it must include a narrative."
+            "message": "When using a reporting organisation sector code (vocabulary 98 or 99), it must include a narrative.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+            }
           }
         },
         {
@@ -642,7 +749,10 @@
             "id": "102.1.1",
             "severity": "warning",
             "category": "information",
-            "message": "When a non OECD DAC sector vocabulary is used, sector vocabulary 1 - OECD DAC should also be used."
+            "message": "When a non OECD DAC sector vocabulary is used, sector vocabulary 1 - OECD DAC should also be used.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+            }
           }
         },
         {
@@ -655,7 +765,10 @@
             "id": "2.1.1",
             "severity": "error",
             "category": "classifications",
-            "message": "When multiple sectors, within a vocabulary (e.g. 1 - OECD DAC) are declared, each must have a percentage."
+            "message": "When multiple sectors, within a vocabulary (e.g. 1 - OECD DAC) are declared, each must have a percentage.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+            }
           }
         },
         {
@@ -668,7 +781,10 @@
             "id": "2.1.4",
             "severity": "error",
             "category": "classifications",
-            "message": "When a single sector is declared, the percentage must either be omitted, or set to 100."
+            "message": "When a single sector is declared, the percentage must either be omitted, or set to 100.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+            }
           }
         },
         {
@@ -709,7 +825,10 @@
             "id": "6.6.2",
             "severity": "error",
             "category": "classifications",
-            "message": "Sectors must only be declared at activity level OR for all transactions."
+            "message": "Sectors must only be declared at activity level OR for all transactions.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
+            }
           }
         },
         {
@@ -725,7 +844,10 @@
             "id": "3.6.2",
             "severity": "error",
             "category": "financial",
-            "message": "Recipient countries or regions must only be declared at activity level OR for all transactions."
+            "message": "Recipient countries or regions must only be declared at activity level OR for all transactions.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/financial-transactions/"
+            }
           }
         },
         {
@@ -740,7 +862,10 @@
             "id": "3.7.1",
             "severity": "error",
             "category": "financial",
-            "message": "Recipient country or recipient region should be declared for either the activity or for all transactions."
+            "message": "Recipient country or recipient region should be declared for either the activity or for all transactions.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+            }
           }
         },
         {
@@ -755,7 +880,10 @@
             "id": "3.7.2",
             "severity": "error",
             "category": "financial",
-            "message": "Recipient country or recipient region should be declared for either the activity or for all transactions."
+            "message": "Recipient country or recipient region should be declared for either the activity or for all transactions.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+            }
           }
         },
         {
@@ -766,7 +894,10 @@
             "id": "3.1.1",
             "severity": "error",
             "category": "geo",
-            "message": "When multiple recipient countries are declared, each must have a percentage."
+            "message": "When multiple recipient countries are declared, each must have a percentage.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+            }
           }
         },
         {
@@ -777,7 +908,10 @@
             "id": "3.1.4",
             "severity": "error",
             "category": "geo",
-            "message": "When a single recipient country is declared, the percentage must either be omitted, or set to 100."
+            "message": "When a single recipient country is declared, the percentage must either be omitted, or set to 100.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/countries-regions/"
+            }
           }
         }
       ]
@@ -980,7 +1114,10 @@
             "id": "6.14.1",
             "severity": "error",
             "category": "classifications",
-            "message": "When using a policy marker code for vocabulary 1, it must include a significance."
+            "message": "When using a policy marker code for vocabulary 1, it must include a significance.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-classifications/"
+            }
           }
         },
         {
@@ -990,7 +1127,10 @@
             "id": "6.13.1",
             "severity": "error",
             "category": "classifications",
-            "message": "When using a reporting organisation policy marker code (vocabulary 99), it must include a narrative."
+            "message": "When using a reporting organisation policy marker code (vocabulary 99), it must include a narrative.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-classifications/"
+            }
           }
         }
       ]
@@ -1007,7 +1147,10 @@
             "id": "1.18.8",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The reporting organisation id must start with an approved agency code."
+            "message": "The reporting organisation id must start with an approved agency code.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/"
+            }
           }
         }
       ]
@@ -1022,7 +1165,10 @@
             "id": "1.12.13",
             "severity": "warning",
             "category": "organisation",
-            "message": "The organisation-identifier must not contain any of the symbols /, &, | or ?."
+            "message": "The organisation-identifier must not contain any of the symbols /, &, | or ?.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/"
+            }
           }
         },
         {
@@ -1033,7 +1179,10 @@
             "id": "1.18.13",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The reporting-org identifier must not contain any of the symbols /, &, | or ?."
+            "message": "The reporting-org identifier must not contain any of the symbols /, &, | or ?.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/"
+            }
           }
         }
       ]
@@ -1046,7 +1195,10 @@
             "id": "1.12.1",
             "severity": "warning",
             "category": "organisation",
-            "message": "The organisation-identifier should not start or end with spaces or newlines."
+            "message": "The organisation-identifier should not start or end with spaces or newlines.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/"
+            }
           }
         },
         {
@@ -1064,7 +1216,10 @@
             "id": "1.18.1",
             "severity": "warning",
             "category": "identifiers",
-            "message": "The reporting-org identifier should not start or end with spaces or newlines."
+            "message": "The reporting-org identifier should not start or end with spaces or newlines.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/preparing-organisation/organisation-account/how-to-create-your-iati-organisation-identifier/"
+            }
           }
         }
       ]
@@ -1091,7 +1246,8 @@
             "id": "4.5.1",
             "severity": "error",
             "category": "information",
-            "message": "The organisation should specify a default language, or the language should be specified for each narrative element."
+            "message": "The organisation should specify a default language, or the language should be specified for each narrative element.",
+            "link": { "path": "codelists/Language/" }
           }
         },
         {
@@ -1101,7 +1257,8 @@
             "id": "7.8.2",
             "severity": "error",
             "category": "financial",
-            "message": "The financial value must have a specified currency, or the organisation must declare a default currency."
+            "message": "The financial value must have a specified currency, or the organisation must declare a default currency.",
+            "link": { "path": "codelists/Currency/" }
           }
         }
       ]
@@ -1116,7 +1273,10 @@
             "id": "6.10.1",
             "severity": "error",
             "category": "participating",
-            "message": "The participating organisation must have an identifier or a narrative."
+            "message": "The participating organisation must have an identifier or a narrative.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-participants/"
+            }
           }
         }
       ]
@@ -1169,7 +1329,10 @@
             "id": "8.6.3",
             "severity": "error",
             "category": "financial",
-            "message": "The start of the period must be before the end of the period."
+            "message": "The start of the period must be before the end of the period.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
+            }
           }
         }
       ]
@@ -1185,7 +1348,10 @@
             "id": "8.6.3",
             "severity": "error",
             "category": "financial",
-            "message": "The start of the period must be before the end of the period."
+            "message": "The start of the period must be before the end of the period.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
+            }
           }
         }
       ]
@@ -1199,7 +1365,10 @@
             "id": "7.5.3",
             "severity": "error",
             "category": "financial",
-            "message": "Budget Period must not be longer than one year."
+            "message": "Budget Period must not be longer than one year.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-budgets/"
+            }
           }
         }
       ]
@@ -1215,7 +1384,10 @@
             "id": "8.6.3",
             "severity": "error",
             "category": "financial",
-            "message": "The start of the period must be before the end of the period."
+            "message": "The start of the period must be before the end of the period.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
+            }
           }
         }
       ]
@@ -1229,7 +1401,10 @@
             "id": "7.5.3",
             "severity": "error",
             "category": "financial",
-            "message": "Budget Period must not be longer than one year."
+            "message": "Budget Period must not be longer than one year.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-budgets/"
+            }
           }
         }
       ]
@@ -1245,7 +1420,10 @@
             "id": "8.6.3",
             "severity": "error",
             "category": "financial",
-            "message": "The start of the period must be before the end of the period."
+            "message": "The start of the period must be before the end of the period.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
+            }
           }
         }
       ]
@@ -1260,7 +1438,10 @@
             "id": "11.3.1",
             "severity": "error",
             "category": "financial",
-            "message": "The budget line value date must be within the budget period."
+            "message": "The budget line value date must be within the budget period.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
+            }
           }
         }
       ]
@@ -1274,7 +1455,10 @@
             "id": "7.5.3",
             "severity": "error",
             "category": "financial",
-            "message": "Budget Period must not be longer than one year."
+            "message": "Budget Period must not be longer than one year.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-budgets/"
+            }
           }
         }
       ]
@@ -1290,7 +1474,10 @@
             "id": "8.6.3",
             "severity": "error",
             "category": "financial",
-            "message": "The start of the period must be before the end of the period."
+            "message": "The start of the period must be before the end of the period.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
+            }
           }
         }
       ]
@@ -1304,7 +1491,10 @@
             "id": "7.5.3",
             "severity": "error",
             "category": "financial",
-            "message": "Budget Period must not be longer than one year."
+            "message": "Budget Period must not be longer than one year.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-budgets/"
+            }
           }
         }
       ]
@@ -1320,7 +1510,10 @@
             "id": "8.6.3",
             "severity": "error",
             "category": "financial",
-            "message": "The start of the period must be before the end of the period."
+            "message": "The start of the period must be before the end of the period.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
+            }
           }
         }
       ]
@@ -1334,7 +1527,10 @@
             "id": "7.5.3",
             "severity": "error",
             "category": "financial",
-            "message": "Budget Period must not be longer than one year."
+            "message": "Budget Period must not be longer than one year.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-budgets/"
+            }
           }
         }
       ]
@@ -1349,7 +1545,10 @@
             "id": "8.11.1",
             "severity": "error",
             "category": "performance",
-            "message": "A reference code must only be declared at result OR result indicator level."
+            "message": "A reference code must only be declared at result OR result indicator level.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/reference/"
+            }
           }
         }
       ]
@@ -1365,7 +1564,10 @@
             "id": "8.6.1",
             "severity": "error",
             "category": "performance",
-            "message": "The start date of the indicator period must be before the end date of the indicator period."
+            "message": "The start date of the indicator period must be before the end date of the indicator period.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/period/period-start/"
+            }
           }
         }
       ]
@@ -1381,7 +1583,10 @@
             "id": "7.5.3",
             "severity": "error",
             "category": "financial",
-            "message": "Budget Period must not be longer than one year."
+            "message": "Budget Period must not be longer than one year.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-budgets/"
+            }
           }
         }
       ]
@@ -1395,7 +1600,10 @@
             "id": "8.6.3",
             "severity": "error",
             "category": "financial",
-            "message": "The start of the period must be before the end of the period."
+            "message": "The start of the period must be before the end of the period.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
+            }
           }
         }
       ]
@@ -1410,7 +1618,10 @@
             "id": "8.8.1",
             "severity": "error",
             "category": "performance",
-            "message": "The baseline must have a value when the indicator measure is non-qualitative (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
+            "message": "The baseline must have a value when the indicator measure is non-qualitative (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal).",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/baseline/"
+            }
           }
         }
       ]
@@ -1425,7 +1636,10 @@
             "id": "8.8.2",
             "severity": "warning",
             "category": "performance",
-            "message": "The baseline value should be a valid number for all non-qualitative measures (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
+            "message": "The baseline value should be a valid number for all non-qualitative measures (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal).",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/baseline/"
+            }
           }
         }
       ]
@@ -1442,7 +1656,10 @@
             "id": "8.8.3",
             "severity": "warning",
             "category": "performance",
-            "message": "The baseline value should be omitted for qualitative measures."
+            "message": "The baseline value should be omitted for qualitative measures.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/baseline/"
+            }
           }
         }
       ]
@@ -1457,7 +1674,10 @@
             "id": "8.9.1",
             "severity": "error",
             "category": "performance",
-            "message": "The target must have a value when indicator measure is non-qualitative (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
+            "message": "The target must have a value when indicator measure is non-qualitative (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal).",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/period/target/"
+            }
           }
         }
       ]
@@ -1472,7 +1692,10 @@
             "id": "8.9.2",
             "severity": "warning",
             "category": "performance",
-            "message": "The target value should be a valid number for all non-qualitative measures (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
+            "message": "The target value should be a valid number for all non-qualitative measures (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal).",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/period/target/"
+            }
           }
         }
       ]
@@ -1489,7 +1712,10 @@
             "id": "8.9.3",
             "severity": "warning",
             "category": "performance",
-            "message": "The target value should be omitted for qualitative measures."
+            "message": "The target value should be omitted for qualitative measures.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/period/target/"
+            }
           }
         }
       ]
@@ -1504,7 +1730,10 @@
             "id": "8.10.1",
             "severity": "error",
             "category": "performance",
-            "message": "The actual must have a value when the indicator measure is non-qualitative (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
+            "message": "The actual must have a value when the indicator measure is non-qualitative (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal).",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/period/actual/"
+            }
           }
         }
       ]
@@ -1519,7 +1748,10 @@
             "id": "8.10.2",
             "severity": "warning",
             "category": "performance",
-            "message": "The actual value should be a valid number for all non-qualitative indicator measures (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal)."
+            "message": "The actual value should be a valid number for all non-qualitative indicator measures (e.g. 1 = unit, 2 = percentage, 3 = nominal, 4 = ordinal).",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/period/actual/"
+            }
           }
         }
       ]
@@ -1536,7 +1768,10 @@
             "id": "8.10.3",
             "severity": "warning",
             "category": "performance",
-            "message": "The actual value should be omitted for qualitative indicator measures."
+            "message": "The actual value should be omitted for qualitative indicator measures.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/result/indicator/period/actual/"
+            }
           }
         }
       ]
