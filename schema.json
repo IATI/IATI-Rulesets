@@ -492,6 +492,20 @@
         "message": {
           "type": "string",
           "description": "The informational message about the validation error"
+        },
+        "link": {
+          "type": "object",
+          "description": "Link to related website guidance on the error",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "Full url to the guidance"
+            },
+            "path": {
+              "type": "string",
+              "description": "Path to be added on the the base url of the iati standard documentation e.g. https://iatistandard.org/en/iati-standard/{version}/{path}"
+            }
+          }
         }
       }
     },

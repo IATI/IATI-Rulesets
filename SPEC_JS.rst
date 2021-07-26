@@ -1,8 +1,8 @@
 
-IATI Ruleset Spec
+IATI Ruleset Spec - JS Edition
 =================
 
-An IATI Ruleset is a JSON document. The structure is described below.
+An IATI Ruleset is a JSON document. The structure is described below. This specification is specific to the new JavaScript implementation of the Ruleset validator which is part of the 2021 Validator.
 
 A `JSON schema <https://github.com/IATI/IATI-Rulesets/blob/version-2.02/schema.json>`_ is availible to test that the structure of a Ruleset is correct.
 
@@ -25,7 +25,11 @@ Where ``CONTEXT`` is an xpath expression. This will be used to select the XML el
 The possible keys in a case dictionary are:
 
 ``condition``
-    An xpath string. If this evaluates to True, the rule will be ignored.
+    An xpath string. If this evaluates to False, the rule will be ignored.
+``idCondition``
+    If this evaluates to False, the rule will be ignored.
+    NOT_EXISTING_ORG_ID - Checks that values in ``paths`` are NOT an existing Publisher Organisation ID from the Registry
+    NOT_EXISTING_ORG_ID_PREFIX - Checks that values in ``paths`` are NOT prefixed with an existing Publisher Organisation ID from the Registry
 ``eval``
     An xpath string. Can evaluate to True or False.
 ``paths``
@@ -37,7 +41,7 @@ The possible keys in a case dictionary are:
 ``regex``
     A string containing a perl style regular expression.
 ``sum``
-    A number.
+    A number that is the expected sum.
 ``excluded``
     An array of xpath strings. Evaluate which elements should not coexist with other elements.
 ``date``
@@ -51,108 +55,112 @@ The possible keys in a case dictionary are:
 ``all``
     A string containing the condition that must be met for all elements if ``one`` is not met.
 ``foreach``
-    An array of xpath strings. Containing a set of xpaths to be evaluated under a different rule.
+    An xpath string to group the loop by and evalute each ``do`` with the substituted result. 
 ``do``
-    An array of rules. To evaluate with ``foreach``.
+    An array of rules. To evaluate with ``foreach``. Available rules include: ``strict_sum``, ``if_then``, ``atleast_one``, ``no_more_than_one`` 
 ``subs``
-    An array of xpath strings. These are to be evaluated with the rules in ``do``.
+    An array of keys where the value matched in ``foreach`` should be substituded for the ``$1`` values in the ``do`` cases.
+``prefix``
+    An array of xpath strings. The matches of which, contain the possible prefixes for a path. If set to "ORG-ID-PREFIX" for startsWith, checks against provided list of prefixes in ``idSets.ORG-ID-PREFIX``. ``idSets`` are passed to the Rule evaluation code.
 
 Rule Names
 ----------
 
-
 **Rule names are listed in bold**
-    Keys: The keys for each rule are then listed.
+    Keys: The keys for each rule are then listed. The are listed in **snake-case**/**camel-case**.
 
     Followed by a brief description of the rule's function.
 
 
-**no_more_than_one**
+**no_more_than_one**/**noMoreThanOne**
     Keys: ``condition``, ``paths``
 
     There must be no more than one element described by the given paths.
 
-**atleast_one**
+**atleast_one**/**atLeastOne**
     Keys: ``condition``, ``paths``
 
     There must be at least one element described by the given paths.
 
-**only_one_of**
+**only_one_of**/**onlyOneOf**
     Keys: ``excluded``, ``paths``
 
     If there's a match of the elements in ``excluded``, there must not be any matches in ``paths``, if there are no matches in ``excluded``, there must be exactly one element from ``paths``.
 
-**one_or_all**
+**one_or_all**/**oneOrAll**
     Keys: ``one``, ``all``
 
-    ``one`` must exist otherwise ``all`` other attributes or elements must exist.
+    ``one`` must exist otherwise ``all`` other attributes or elements must exist. 
 
-**dependent**
+**dependent**/**NOT IMPLEMENTED IN JS**
     Keys: ``condition``, ``paths``
 
     If one of the provided paths exists, they must all exist.
 
-**sum**
+**sum**/**sum**
     Keys: ``condition``, ``paths``, ``sum``
 
     The numerical sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key
 
-**date_order**
+**date_order**/**dateOrder**
     Keys: ``condition``, ``less``, ``more``
 
-    The date matched by ``less`` must not be after the date matched by ``more``. If either of these dates is not found, the rule is ignored.
-
-**date_now**
+    The date matched by ``less`` must not be after the date matched by ``more``. If they are equal, the are valid. If either of these dates is not found, the rule is ignored.
+    https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view
+    
+**date_now**/**dateNow**
     Keys: ``date``
 
     The ``date`` must not be after the current date.
 
-**time_limit**
+**time_limit**/**timeLimit**
     Keys: ``start``, ``end``
 
     The difference between the ``start`` date and the ``end`` date must not be greater than a year.
 
-**between_dates**
+**between_dates**/**betweenDates**
     Keys: ``date``, ``start``, ``end``
 
     The ``date`` must be between the ``start`` and ``end`` dates.
 
-**regex_matches**
+**regex_matches**/**regexMatches**
+    Keys: ``condition``, ``idCondition``, ``paths``, ``regex``
+
+    The provided ``regex`` must match the text of all elements matched by ``paths``. ``idCondition`` is also an optional parameter.
+
+**regex_no_matches**/**regexNoMatches**
     Keys: ``condition``, ``paths``, ``regex``
 
-    The provided ``regex`` must match the text of all elements matched by ``paths``
+    The provided ``regex`` must match the text of none of the elements matched by ``paths``.
 
-**regex_no_matches**
-    Keys: ``condition``, ``paths``, ``regex``
+**startswith**/**startsWith**
+    Keys: ``condition``, ``idCondition``, ``paths``, ``start``, ``separator``
 
-    The provided ``regex`` must match the text of none of the elements matched by ``paths``
+    The text of each element matched by ``paths`` must start with the text of one of the elements matched by ``prefix`` (or a list of prefixed provided in ``idSets``) with an optional ``separator`` in between
+    ``prefix````separator````pathMatchText``. ``idCondition`` is also an optional parameter.
 
-**startswith**
-    Keys: ``condition``, ``paths``, ``start``
-
-    The text of each element matched by ``paths`` must start with the text of the element matched by ``start``
-
-**unique**
+**unique**/**unique**
     Keys: ``condition``, ``paths``
 
     The text of each of the elements described by ``paths`` must be unique
 
-**evaluates_to_true**
-    Keys: ``cases``, ``eval``
-
-    Each expression defined in ``eval`` must resolve to true
-
-**if_then**
-    Keys: ``condition``, ``cases``, ``if``, ``then``
+**if_then**/**ifThen**
+    Keys: ``condition``, ``cases``, ``if``, ``then``, ``paths``
 
     If the condition evaluated in ``if`` is true, then ``then`` must resolve to true as well
+    ``paths`` can be defined to provide additional context data in the output if a rule fails, but had no bearing on the pass/fail of the rule 
 
-**loop**
+**loop**/**loop**
     Keys: ``foreach``, ``do``, ``cases``, ``subs``
 
     All elements in ``foreach`` are evaluated under the rules inside ``do``
 
-**strict_sum**
+**strict_sum**/**strictSum**
     Keys: ``paths``, ``sum``
 
     The decimal sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key
+
+**no_spaces**/**noSpaces**
+    Keys: ``paths``
+
+    The text of each of the elements described by ``paths`` should not start or end with spaces or newlines 
