@@ -12,18 +12,18 @@ IATI-Rulesets
 Introduction
 ============
 
-This is the source repository for the rulesets, more general information can be found on the IATIStandard website: https://iatistandard.org/rulesets/
+This is the source repository for the rulesets, more general information can be found on the IATI Standard website: https://iatistandard.org/en/iati-standard/202/rulesets/
 
-These rulesets are part of IATI Standard Single Source of Truth (SSOT). For more detailed information about the SSOT, please see https://iatistandard.org/developer/ssot/
+These rulesets are part of IATI Standard Single Source of Truth (SSOT). For more detailed information about the SSOT, please see https://iatistandard.org/en/guidance/developer/ssot/
 
 
-As part of the **V1 Validator work**, the JSON-based rules have been migrated to an XSLT-based system, and some additional checks and feedback messages have been added in line with the IATI Standard.
-Please see D4D's `IATI data validator <https://github.com/data4development/IATI-data-validator>`_  repository for information about the new tool and to report bugs, issues, and other feedback.
-IATI's Reference Site will be updated as the testing period progresses. Please refer to the new Validator's `XSLT-based Ruleset <https://github.com/data4development/IATI-Rulesets>`_ repository for an up-to-date version of each rule's narrative.
+As part of the **V1 Validator work**, the JSON-based rules were migrated to an XSLT-based system, and some additional checks and feedback messages have been added in line with the IATI Standard.
+Please see `IATI Validator Actual <https://github.com/IATI/IATI-Validator-Actual>`_  repository for information about the V1 tool and to report bugs, issues, and other feedback.
+Please refer to the new Validator's `XSLT-based Ruleset <https://github.com/IATI/IATI-Rulesets#master>`_ repository for an up-to-date version of each rule's narrative.
 Email us on support@iatistandard.org for further clarification.
 
 As part of the **V2 Validator work**, the JSON-based rules have been enhanced and some additional checks and feedback messages have been added in line with the IATI Standard. See `SPEC_JS <SPEC_JS.rst>`_ for more detail.
-A new JavaScript (Node) implementation of the Ruleset validator has been developed as well. Please see IATI's `IATI js validator api <https://github.com/IATI/js-validator-api>`_  repository for information about the new tool and to report bugs, issues, and other feedback.
+A new JavaScript (Node) implementation of the Ruleset validator has been developed as well. Please see `IATI Validator API <https://github.com/IATI/js-validator-api>`_  repository for information about the new tool and to report bugs, issues, and other feedback.
 Email us on support@iatistandard.org for further clarification.
 
 Information for developers
@@ -96,7 +96,7 @@ Tests for Testers
 Different Rulesets
 ==================
 
-* ``standard.json`` is a ruleset that tries to describe compliance to the standard
+* ``standard.json`` is a ruleset that tries to describe compliance to the standard, this is used by the `IATI js validator api <https://github.com/IATI/js-validator-api>`_
 * ``dfid.json`` is a more comprehensive set of rules based on DFID's requirements for organisations it works with
 * ``ti-fallbacks.json`` finds problems with data that had to be worked around (using fallbacks) in transparency indicator tests
 
@@ -107,3 +107,4 @@ Rules not describable by a Ruleset
 
 * Testing whether identifier are correct (e.g. uniqueness etc) - this requires information outside the scope of a single activity/file, whereas currently the rulesets operate in just this context. This may change in the future.
 
+Both the above rules are included as part of the `IATI js validator api <https://github.com/IATI/js-validator-api>`_. Please see that repository for more information.
