@@ -11,12 +11,10 @@ env:
 on:
   push:
     paths-ignore: # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
-      - "**/README.md"
       - "**/*.rst"
     branches: [version-2.03, v2.03/validatorV2]
   pull_request:
     paths-ignore:
-      - "**/README.md"
       - "**/*.rst"
     branches: [version-2.03]
 
