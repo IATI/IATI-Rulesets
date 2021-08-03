@@ -38,7 +38,7 @@ This tool supports Python 3.x. To use this script, we recommend the use of a vir
 Ruleset Structure
 =================
 
-A ruleset is a JSON file which applies different rules to various paths in different elements. Structure:
+A ruleset is a JSON file which applies different rules to various paths in different elements. Example Structure:
 
 .. code-block:: json
     
@@ -46,16 +46,17 @@ A ruleset is a JSON file which applies different rules to various paths in diffe
         "//iati-activity": {
             "atleast_one": {
                 "cases": [
-                    { "paths": ["iati-identifier"],
-                      "ruleInfo": {
-                        "id": "6.11.1",
-                        "severity": "error",
-                        "category": "information",
-                        "message": "The activity must have a planned start date or an actual start date.",
-                        "link": {
-                            "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/"
-                        } 
-                      }
+                    { 
+                        "paths": ["iati-identifier"],
+                        "ruleInfo": {
+                            "id": "6.11.1",
+                            "severity": "error",
+                            "category": "information",
+                            "message": "The activity must have a planned start date or an actual start date.",
+                            "link": {
+                                "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/"
+                            } 
+                        }
                     }
                 ]
             },
@@ -80,7 +81,13 @@ A ruleset is a JSON file which applies different rules to various paths in diffe
         }
     }
 
-Here we have a context: ``iati-activity``, with a single name rule `atleast_one` which is applied in a number of cases - here just one, with a single path.
+Here we have a context: ``iati-activity``, with a two named rules `atleast_one` and `range` which is applied in a number of cases - here just one each, with a single path each.
+
+The full JSON Schema is defined in `<schema.json>`__. 
+
+A more thorough description of this, along with a list of all rule names can be found in the `Spec <SPEC_JS.rst>`_.
+
+A description of the earlier Python based implementation can be found in the `Spec <SPEC.rst>`_.
 
 The ``ruleInfo`` object includes metadata about the rule which is used in the `IATI js validator api <https://github.com/IATI/js-validator-api>`_.
 
@@ -88,9 +95,6 @@ The ``link`` object can contain 2 possible keys which represent the Guidance Lin
 * ``url`` is a full URL to the guidance
 * ``path`` is the path to be added to the end of the reference documentation url for the version of standard. (e.g. https://iatistandard.org/en/iati-standard/{version}/{path})
 
-A more thorough description of this, along with a list of all rule names can be found in the `Spec <SPEC_JS.rst>`_.
-
-A description of the earlier Python based implementation can be found in the `Spec <SPEC.rst>`_.
 
 Ruleset Tester
 ==============
