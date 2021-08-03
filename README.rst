@@ -38,7 +38,7 @@ This tool supports Python 3.x. To use this script, we recommend the use of a vir
 Ruleset Structure
 =================
 
-A ruleset is a JSON file which applies different rules to various paths in different elements. Structure:
+A ruleset is a JSON file which applies different rules to various paths in different elements. Example Structure:
 
 .. code-block:: json
     
@@ -46,29 +46,55 @@ A ruleset is a JSON file which applies different rules to various paths in diffe
         "//iati-activity": {
             "atleast_one": {
                 "cases": [
-                    { "paths": ["iati-identifier"],
-                      "ruleInfo": {
-                        "id": "6.11.1",
-                        "severity": "error",
-                        "category": "information",
-                        "message": "The activity must have a planned start date or an actual start date.",
-                        "link": {
-                            "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/"
-                        } 
-                      }
+                    { 
+                        "paths": ["iati-identifier"],
+                        "ruleInfo": {
+                            "id": "6.11.1",
+                            "severity": "error",
+                            "category": "information",
+                            "message": "The activity must have a planned start date or an actual start date.",
+                            "link": {
+                                "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/"
+                            } 
+                        }
+                    }
+                ]
+            },
+            "range": {
+                "cases": [
+                    {
+                        "paths": ["capital-spend/@percentage"],
+                        "min": 0.0,
+                        "max": 100.0,
+                        "ruleInfo": {
+                            "id": "12.2.1",
+                            "severity": "error",
+                            "category": "financial",
+                            "message": "The percentage value must be between 0.0 and 100.0 (inclusive).",
+                            "link": {
+                                "path": "activity-standard/iati-activities/iati-activity/capital-spend/"
+                            }
+                        }
                     }
                 ]
             }
         }
     }
 
-Here we have a context: ``iati-activity``, with a single name rule `atleast_one` which is applied in a number of cases - here just one, with a single path.
+Here we have a context: ``iati-activity``, with a two named rules `atleast_one` and `range` which is applied in a number of cases - here just one each, with a single path each.
 
-The ``ruleInfo`` object includes metadata about the rule which is used in the `IATI js validator api <https://github.com/IATI/js-validator-api>`_
+The full JSON Schema is defined in `<schema.json>`__. 
 
 A more thorough description of this, along with a list of all rule names can be found in the `Spec <SPEC_JS.rst>`_.
 
 A description of the earlier Python based implementation can be found in the `Spec <SPEC.rst>`_.
+
+The ``ruleInfo`` object includes metadata about the rule which is used in the `IATI js validator api <https://github.com/IATI/js-validator-api>`_.
+
+The ``link`` object can contain 2 possible keys which represent the Guidance Links for the rule:
+* ``url`` is a full URL to the guidance
+* ``path`` is the path to be added to the end of the reference documentation url for the version of standard. (e.g. https://iatistandard.org/en/iati-standard/{version}/{path})
+
 
 Ruleset Tester
 ==============
@@ -108,3 +134,14 @@ Rules not describable by a Ruleset
 * Testing whether identifier are correct (e.g. uniqueness etc) - this requires information outside the scope of a single activity/file, whereas currently the rulesets operate in just this context. This may change in the future.
 
 Both the above rules are included as part of the `IATI js validator api <https://github.com/IATI/js-validator-api>`_. Please see that repository for more information.
+
+GitHub Actions workflows
+=========================
+
+``.github/workflows/main.yml`` does a few things when new code is pushed to  version-2.0X branches. 
+
+* Runs flake8 linting 
+* Tests that ``rulesets/standard.json`` adheres to the JSON schema defined in ``schema.json``
+* Runs `<meta_tests.sh>`__ 
+* Pushes ``rulesets/standard.json`` to the Redis cache used by the `IATI js validator api <https://github.com/IATI/js-validator-api>`__
+* Triggers a workflow to update the .csv Validator rules in `Validator Rule Tracker <https://github.com/IATI/validator-rule-tracker>`__
