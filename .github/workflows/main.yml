@@ -10,8 +10,12 @@ env:
 
 on:
   push:
+    paths-ignore: # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+      - "**/*.rst"
     branches: [version-2.02, v2.02/validatorV2]
   pull_request:
+    paths-ignore: # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+      - "**/*.rst"
     branches: [version-2.02]
 
 jobs:
