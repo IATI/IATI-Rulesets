@@ -580,7 +580,10 @@
             "id": "107.1.2",
             "severity": "warning",
             "category": "financial",
-            "message": "Each activity should only contain one default aid type code per aid type vocabulary (e.g. 1 - OECD DAC)"
+            "message": "Each activity should only contain one default aid type code per aid type vocabulary (e.g. 1 - OECD DAC)",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-classifications/"
+            }
           }
         }
       ]
