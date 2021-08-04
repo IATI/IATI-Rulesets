@@ -780,7 +780,10 @@
             "id": "6.8.1",
             "severity": "error",
             "category": "information",
-            "message": "The owner organisation must have an identifier or a narrative."
+            "message": "The owner organisation must have an identifier or a narrative.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/other-identifier/owner-org/narrative"
+            }
           }
         }
       ]
@@ -823,7 +826,10 @@
             "id": "6.9.1",
             "severity": "error",
             "category": "financial",
-            "message": "The provider organisation must have an organisation identifier or a narrative."
+            "message": "The provider organisation must have an organisation identifier or a narrative.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/transaction/provider-org/narrative/"
+            }
           }
         }
       ]
@@ -875,7 +881,10 @@
             "id": "6.9.2",
             "severity": "error",
             "category": "financial",
-            "message": "The receiver organisation must have an organisation identifier or a narrative."
+            "message": "The receiver organisation must have an organisation identifier or a narrative.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/transaction/receiver-org/narrative/"
+            }
           }
         }
       ]
@@ -1046,7 +1055,10 @@
             "id": "11.4.1",
             "severity": "error",
             "category": "information",
-            "message": "The last updated datetime of the organisation must not be in the future."
+            "message": "The last updated datetime of the organisation must not be in the future.",
+            "link": {
+              "path": "organisation-standard/iati-organisations/iati-organisation/"
+            }
           }
         }
       ]
