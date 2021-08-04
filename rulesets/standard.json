@@ -509,7 +509,10 @@
                     "id": "107.1.2",
                     "severity": "warning",
                     "category": "financial",
-                    "message": "Each activity should only contain one default aid type code per aid type vocabulary (e.g. 1 - OECD DAC)"
+                    "message": "Each activity should only contain one default aid type code per aid type vocabulary (e.g. 1 - OECD DAC)",
+                    "link": {
+                      "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-classifications/"
+                    }
                   }
                 }
               ]
@@ -799,7 +802,10 @@
             "id": "107.1.1",
             "severity": "warning",
             "category": "information",
-            "message": "The activity should also declare an aid type code from aid type vocabulary 1 - OECD DAC."
+            "message": "The activity should also declare an aid type code from aid type vocabulary 1 - OECD DAC.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-classifications/"
+            }
           }
         },
         {
@@ -814,7 +820,10 @@
             "id": "107.2.1",
             "severity": "warning",
             "category": "financial",
-            "message": "The transaction should also contain a code from the OECD DAC aid type vocabulary."
+            "message": "The transaction should also contain a code from the OECD DAC aid type vocabulary.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-classifications/"
+            }
           }
         },
         {
@@ -928,7 +937,10 @@
             "id": "107.2.2",
             "severity": "warning",
             "category": "financial",
-            "message": "Each transaction should only contain one aid type code per aid type vocabulary (e.g. 1 - OECD DAC)"
+            "message": "Each transaction should only contain one aid type code per aid type vocabulary (e.g. 1 - OECD DAC)",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-classifications/"
+            }
           }
         }
       ]
@@ -946,7 +958,10 @@
                     "id": "107.2.2",
                     "severity": "warning",
                     "category": "financial",
-                    "message": "Each transaction should only contain one aid type code per aid type vocabulary (e.g. 1 - OECD DAC)"
+                    "message": "Each transaction should only contain one aid type code per aid type vocabulary (e.g. 1 - OECD DAC)",
+                    "link": {
+                      "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-classifications/"
+                    }
                   }
                 }
               ]
@@ -966,7 +981,10 @@
             "id": "6.8.1",
             "severity": "error",
             "category": "information",
-            "message": "The owner organisation must have an identifier or a narrative."
+            "message": "The owner organisation must have an identifier or a narrative.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/other-identifier/owner-org/narrative"
+            }
           }
         }
       ]
@@ -1009,7 +1027,10 @@
             "id": "6.9.1",
             "severity": "error",
             "category": "financial",
-            "message": "The provider organisation must have an organisation identifier or a narrative."
+            "message": "The provider organisation must have an organisation identifier or a narrative.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/transaction/provider-org/narrative/"
+            }
           }
         }
       ]
@@ -1061,7 +1082,10 @@
             "id": "6.9.2",
             "severity": "error",
             "category": "financial",
-            "message": "The receiver organisation must have an organisation identifier or a narrative."
+            "message": "The receiver organisation must have an organisation identifier or a narrative.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/transaction/receiver-org/narrative/"
+            }
           }
         }
       ]
@@ -1232,7 +1256,10 @@
             "id": "11.4.1",
             "severity": "error",
             "category": "information",
-            "message": "The last updated datetime of the organisation must not be in the future."
+            "message": "The last updated datetime of the organisation must not be in the future.",
+            "link": {
+              "path": "organisation-standard/iati-organisations/iati-organisation/"
+            }
           }
         }
       ]
