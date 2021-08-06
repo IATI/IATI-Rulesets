@@ -297,30 +297,6 @@
     "loop": {
       "cases": [
         {
-          "foreach": "description/@type",
-          "do": {
-            "if_then": {
-              "cases": [
-                {
-                  "if": "description[@type = '$1']/narrative",
-                  "then": "string(description[@type = '$1']//narrative) != ''",
-                  "paths": ["description[@type = '$1']/narrative"],
-                  "ruleInfo": {
-                    "id": "4.4.1",
-                    "severity": "error",
-                    "category": "information",
-                    "message": "The description must contain narrative content.",
-                    "link": {
-                      "path": "activity-standard/iati-activities/iati-activity/title/"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "subs": ["if", "then", "paths"]
-        },
-        {
           "foreach": "sector[@vocabulary != '1']/@vocabulary",
           "do": {
             "strict_sum": {
@@ -698,34 +674,6 @@
     },
     "if_then": {
       "cases": [
-        {
-          "if": "title/narrative",
-          "then": "string(title//narrative) != ''",
-          "paths": ["title/narrative"],
-          "ruleInfo": {
-            "id": "4.3.1",
-            "severity": "error",
-            "category": "information",
-            "message": "The title must contain narrative content.",
-            "link": {
-              "path": "activity-standard/iati-activities/iati-activity/title/"
-            }
-          }
-        },
-        {
-          "if": "count(description[not(@type) or @type = '']/narrative) > 0",
-          "then": "string(description[not(@type) or @type = '']//narrative) != ''",
-          "paths": ["description[not(@type) or @type = '']/narrative"],
-          "ruleInfo": {
-            "id": "4.4.1",
-            "severity": "error",
-            "category": "information",
-            "message": "The description must contain narrative content.",
-            "link": {
-              "path": "activity-standard/iati-activities/iati-activity/title/"
-            }
-          }
-        },
         {
           "if": "count(sector[@vocabulary=98 or @vocabulary=99]) > 0",
           "then": "count(sector[@vocabulary=98 or @vocabulary=99]/narrative) >= count(sector[@vocabulary=98 or @vocabulary=99])",
@@ -1801,6 +1749,42 @@
             "message": "The actual value should be omitted for qualitative indicator measures.",
             "link": {
               "path": "activity-standard/iati-activities/iati-activity/result/indicator/period/actual/"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "//title": {
+    "atleast_one": {
+      "cases": [
+        {
+          "paths": ["narrative/text()"],
+          "ruleInfo": {
+            "id": "4.3.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The title must contain narrative content.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/title/"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "//description": {
+    "atleast_one": {
+      "cases": [
+        {
+          "paths": ["narrative/text()"],
+          "ruleInfo": {
+            "id": "4.4.1",
+            "severity": "error",
+            "category": "information",
+            "message": "The description must contain narrative content.",
+            "link": {
+              "path": "activity-standard/iati-activities/iati-activity/description/"
             }
           }
         }
