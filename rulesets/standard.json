@@ -1,5 +1,5 @@
 {
-  "//iati-activity": {
+  "/iati-activities/iati-activity": {
     "unique": {
       "cases": [
         {
@@ -877,7 +877,7 @@
       ]
     }
   },
-  "//transaction": {
+  "/iati-activities/iati-activity/transaction": {
     "no_more_than_one": {
       "cases": [
         {
@@ -923,7 +923,7 @@
       ]
     }
   },
-  "//iati-activity/other-identifier/owner-org": {
+  "/iati-activities/iati-activity/other-identifier/owner-org": {
     "atleast_one": {
       "cases": [
         {
@@ -969,7 +969,7 @@
       ]
     }
   },
-  "//provider-org": {
+  "/iati-activities/iati-activity/transaction/provider-org | /iati-activities/iati-activity/planned-disbursement/provider-org": {
     "atleast_one": {
       "cases": [
         {
@@ -1024,7 +1024,7 @@
       ]
     }
   },
-  "//receiver-org": {
+  "/iati-activities/iati-activity/transaction/receiver-org | /iati-activities/iati-activity/planned-disbursement/receiver-org": {
     "atleast_one": {
       "cases": [
         {
@@ -1079,7 +1079,7 @@
       ]
     }
   },
-  "//policy-marker": {
+  "/iati-activities/iati-activity/policy-marker": {
     "atleast_one": {
       "cases": [
         {
@@ -1111,7 +1111,7 @@
       ]
     }
   },
-  "//iati-organisation": {
+  "/iati-organisations/iati-organisation": {
     "startswith": {
       "cases": [
         {
@@ -1242,7 +1242,7 @@
       ]
     }
   },
-  "//participating-org": {
+  "/iati-activities/iati-activity/participating-org": {
     "atleast_one": {
       "cases": [
         {
@@ -1297,7 +1297,7 @@
       ]
     }
   },
-  "//planned-disbursement": {
+  "/iati-activities/iati-activity/planned-disbursement": {
     "date_order": {
       "cases": [
         {
@@ -1316,43 +1316,7 @@
       ]
     }
   },
-  "//budget": {
-    "date_order": {
-      "cases": [
-        {
-          "less": "period-start/@iso-date",
-          "more": "period-end/@iso-date",
-          "ruleInfo": {
-            "id": "8.6.3",
-            "severity": "error",
-            "category": "financial",
-            "message": "The start of the period must be before the end of the period.",
-            "link": {
-              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
-            }
-          }
-        }
-      ]
-    },
-    "time_limit": {
-      "cases": [
-        {
-          "start": "period-start/@iso-date",
-          "end": "period-end/@iso-date",
-          "ruleInfo": {
-            "id": "7.5.3",
-            "severity": "error",
-            "category": "financial",
-            "message": "Budget Period must not be longer than one year.",
-            "link": {
-              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-budgets/"
-            }
-          }
-        }
-      ]
-    }
-  },
-  "//total-budget": {
+  "/iati-activities/iati-activity/budget": {
     "date_order": {
       "cases": [
         {
@@ -1388,7 +1352,43 @@
       ]
     }
   },
-  "//recipient-country-budget": {
+  "/iati-organisations/iati-organisation/total-budget": {
+    "date_order": {
+      "cases": [
+        {
+          "less": "period-start/@iso-date",
+          "more": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "8.6.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "The start of the period must be before the end of the period.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/organisation-budgets-spend/"
+            }
+          }
+        }
+      ]
+    },
+    "time_limit": {
+      "cases": [
+        {
+          "start": "period-start/@iso-date",
+          "end": "period-end/@iso-date",
+          "ruleInfo": {
+            "id": "7.5.3",
+            "severity": "error",
+            "category": "financial",
+            "message": "Budget Period must not be longer than one year.",
+            "link": {
+              "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-budgets/"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "/iati-organisations/iati-organisation/recipient-country-budget": {
     "date_order": {
       "cases": [
         {
@@ -1442,7 +1442,7 @@
       ]
     }
   },
-  "//recipient-org-budget": {
+  "/iati-organisations/iati-organisation/recipient-org-budget": {
     "date_order": {
       "cases": [
         {
@@ -1478,7 +1478,7 @@
       ]
     }
   },
-  "//recipient-region-budget": {
+  "/iati-organisations/iati-organisation/recipient-region-budget": {
     "date_order": {
       "cases": [
         {
@@ -1514,7 +1514,7 @@
       ]
     }
   },
-  "//result/indicator": {
+  "/iati-activities/iati-activity/result/indicator": {
     "no_more_than_one": {
       "cases": [
         {
@@ -1532,7 +1532,7 @@
       ]
     }
   },
-  "//result/indicator/period": {
+  "/iati-activities/iati-activity/result/indicator/period": {
     "date_order": {
       "cases": [
         {
@@ -1551,7 +1551,7 @@
       ]
     }
   },
-  "//total-expenditure": {
+  "/iati-organisations/iati-organisation/total-expenditure": {
     "time_limit": {
       "cases": [
         {
@@ -1587,7 +1587,7 @@
       ]
     }
   },
-  "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/baseline": {
+  "/iati-activities/iati-activity/result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/baseline": {
     "atleast_one": {
       "cases": [
         {
@@ -1623,7 +1623,7 @@
       ]
     }
   },
-  "//result/indicator[@measure='5']/baseline": {
+  "/iati-activities/iati-activity/result/indicator[@measure='5']/baseline": {
     "if_then": {
       "cases": [
         {
@@ -1643,7 +1643,7 @@
       ]
     }
   },
-  "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/target": {
+  "/iati-activities/iati-activity/result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/target": {
     "atleast_one": {
       "cases": [
         {
@@ -1679,7 +1679,7 @@
       ]
     }
   },
-  "//result/indicator[@measure='5']/period/target": {
+  "/iati-activities/iati-activity/result/indicator[@measure='5']/period/target": {
     "if_then": {
       "cases": [
         {
@@ -1699,7 +1699,7 @@
       ]
     }
   },
-  "//result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/actual": {
+  "/iati-activities/iati-activity/result/indicator[@measure='1' or @measure='2' or @measure='3' or @measure='4']/period/actual": {
     "atleast_one": {
       "cases": [
         {
@@ -1735,7 +1735,7 @@
       ]
     }
   },
-  "//result/indicator[@measure='5']/period/actual": {
+  "/iati-activities/iati-activity/result/indicator[@measure='5']/period/actual": {
     "if_then": {
       "cases": [
         {
