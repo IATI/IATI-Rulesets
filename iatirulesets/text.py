@@ -1,7 +1,6 @@
 from __future__ import print_function
 import os
 import re
-import copy
 
 
 def human_list(other_paths, separator='or'):
@@ -64,6 +63,4 @@ def rules_text(rules, reduced_path=None):
                                         out.append((sub_case['ruleInfo']['id'], sub_case['ruleInfo']['message'], rule_link(sub_case['ruleInfo']['id'])))
                         else:
                             out.append((sub_case['ruleInfo']['id'], sub_case['ruleInfo']['message'], rule_link(sub_case['ruleInfo']['id'])))
-
-
     return out
