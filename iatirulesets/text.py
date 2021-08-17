@@ -39,6 +39,7 @@ def rule_link(rule_id):
 
 
 def rules_text(rules, reduced_path=None):
+    possible_path_keys = ['less', 'more', 'start', 'end', 'date', 'one']
     out = []
     for rule in rules:
         cases = rules[rule]['cases']
@@ -48,6 +49,11 @@ def rules_text(rules, reduced_path=None):
                     if 'paths' in case:
                         for case_path in case['paths']:
                             if simplify_xpath(case_path) == reduced_path:
+                                out.append((case['ruleInfo']['id'], case['ruleInfo']['message'], rule_link(case['ruleInfo']['id'])))
+                    included_path_keys = [path_key for path_key in possible_path_keys if path_key in case.keys()]
+                    for included_path_key in included_path_keys:
+                        case_path = case[included_path_key]
+                        if simplify_xpath(case_path) == reduced_path:
                                 out.append((case['ruleInfo']['id'], case['ruleInfo']['message'], rule_link(case['ruleInfo']['id'])))
                 else:
                     out.append((case['ruleInfo']['id'], case['ruleInfo']['message'], rule_link(case['ruleInfo']['id'])))
@@ -61,6 +67,13 @@ def rules_text(rules, reduced_path=None):
                                 for sub_case_path in sub_case['paths']:
                                     if simplify_xpath(sub_case_path) == reduced_path:
                                         out.append((sub_case['ruleInfo']['id'], sub_case['ruleInfo']['message'], rule_link(sub_case['ruleInfo']['id'])))
+                            included_path_keys = [path_key for path_key in possible_path_keys if path_key in sub_case.keys()]
+                            for included_path_key in included_path_keys:
+                                case_path = sub_case[included_path_key]
+                                if simplify_xpath(case_path) == reduced_path:
+                                    out.append((sub_case['ruleInfo']['id'], sub_case['ruleInfo']['message'], rule_link(sub_case['ruleInfo']['id'])))
                         else:
                             out.append((sub_case['ruleInfo']['id'], sub_case['ruleInfo']['message'], rule_link(sub_case['ruleInfo']['id'])))
-    return out
+    unique_rules = [tup for tup in (set(tuple(i) for i in out))]
+    unique_rules.sort(key=lambda x: x[0])
+    return unique_rules
