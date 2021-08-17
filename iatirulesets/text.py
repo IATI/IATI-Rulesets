@@ -54,7 +54,7 @@ def rules_text(rules, reduced_path=None):
                     for included_path_key in included_path_keys:
                         case_path = case[included_path_key]
                         if simplify_xpath(case_path) == reduced_path:
-                                out.append((case['ruleInfo']['id'], case['ruleInfo']['message'], rule_link(case['ruleInfo']['id'])))
+                            out.append((case['ruleInfo']['id'], case['ruleInfo']['message'], rule_link(case['ruleInfo']['id'])))
                 else:
                     out.append((case['ruleInfo']['id'], case['ruleInfo']['message'], rule_link(case['ruleInfo']['id'])))
             else:
