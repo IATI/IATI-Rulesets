@@ -75,5 +75,5 @@ def rules_text(rules, reduced_path=None):
                         else:
                             out.append((sub_case['ruleInfo']['id'], sub_case['ruleInfo']['message'], rule_link(sub_case['ruleInfo']['id'])))
     unique_rules = [tup for tup in (set(tuple(i) for i in out))]
-    unique_rules.sort(key=lambda x: x[0])
+    unique_rules.sort(key=lambda x: list(map(int, x[0].split('.'))))
     return unique_rules
