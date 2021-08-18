@@ -24,7 +24,7 @@ def simplify_xpath(xpath):
 
 def rule_link(rule_id):
     """Returns a Github link given a rule ID"""
-    default_url = 'https://github.com/IATI/IATI-Rulesets/blob/v2.03/validatorV2/rulesets/standard.json'
+    default_url = 'https://github.com/IATI/IATI-Rulesets/blob/v2.01/validatorV2/rulesets/standard.json'
     base_url = default_url + '#L'
     file_dirname = os.path.dirname(__file__)
     if 'IATI-Rulesets' in file_dirname:
