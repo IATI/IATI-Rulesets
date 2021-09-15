@@ -302,6 +302,7 @@
             "strict_sum": {
               "cases": [
                 {
+                  "condition": "count(sector[@vocabulary = '$1']) > 1",
                   "paths": ["sector[@vocabulary = '$1']/@percentage"],
                   "sum": 100,
                   "ruleInfo": {
