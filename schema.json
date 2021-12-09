@@ -1,469 +1,565 @@
 {
-    "title": "Ruleset",
-    "description": "A set of rules describing constraints on an XML document",
-    "type": "object",
-    "patternProperties": {
-        ".+": {
-            "properties": {
-                "no_more_than_one": {
-                    "description": "There must be no more than one element described by the given paths.",
+  "title": "Ruleset",
+  "description": "A set of rules describing constraints on an XML document",
+  "type": "object",
+  "patternProperties": {
+    ".+": {
+      "properties": {
+        "no_more_than_one": {
+          "description": "There must be no more than one element described by the given paths.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "condition": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "atleast_one": {
+          "description": "There must be at least one element described by the given paths.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "condition": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "one_or_all": {
+          "description": "One must be present or all of the others must be.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "one": {
+                    "type": "string"
+                  },
+                  "all": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "only_one_of": {
+          "description": "Excluded elements must not coexist with selected elements, and only one of these elements must exist.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "excluded": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "if_then": { "$ref": "#/definitions/if_then" },
+        "dependent": {
+          "description": "If one of the provided paths exists, they must all exist.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "condition": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "sum": {
+          "description": "The numerical sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "condition": {
+                    "type": "string"
+                  },
+                  "sum": {
+                    "type": "number"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "loop": {
+          "description": "Loops through different values of an attribute or element.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "foreach": {
+                    "type": "string"
+                  },
+                  "do": {
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "condition": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
+                      "strict_sum": { "$ref": "#/definitions/strict_sum" },
+                      "if_then": { "$ref": "#/definitions/if_then" }
                     }
-                },
-                "atleast_one": {
-                    "description": "There must be at least one element described by the given paths.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "condition": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "one_or_all": {
-                    "description": "One must be present or all of the others must be.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "one": {
-                                        "type": "string"
-                                    },
-                                    "all": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "only_one_of": {
-                    "description": "Excluded elements must not coexist with selected elements, and only one of these elements must exist.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "excluded": {
-                                        "type": "array",
-                                        "items": {"type":"string"}
-                                    },
-                                    "paths": {
-                                        "type": "array",
-                                        "items": {"type":"string"}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "dependent": {
-                    "description": "If one of the provided paths exists, they must all exist.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "condition": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "sum": {
-                    "description": "The numerical sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "condition": {
-                                        "type": "string"
-                                    },
-                                    "sum": {
-                                        "type": "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "loop": {
-                    "description": "Loops through different values of an attribute or element.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "foreach":{
-                                        "type":"string"
-                                    },
-                                    "do":{
-                                        "type": "object",
-                                        "additionalProperties": false,
-                                        "properties": {
-                                            "strict_sum": {
-                                                "type":"object",
-                                                "additionalProperties": false,
-                                                "properties": {
-                                                    "cases":{
-                                                        "type": "array",
-                                                        "items": {
-                                                            "type": "object",
-                                                            "additionalProperties": false,
-                                                            "properties": {
-                                                                "paths": {
-                                                                    "type": "array",
-                                                                    "items":{"type":"string"}
-                                                                },
-                                                                "sum": {
-                                                                    "type": "number"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "subs":{
-                                        "type": "array",
-                                        "items": {"type":"string"}
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "strict_sum": {
-                    "description": "The Decimal sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "sum": {
-                                        "type": "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "date_order": {
-                    "description": "The date matched by ``less`` must be less than the date matched by ``more``. If either of these dates is not found, the rule is ignored.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "condition": {
-                                        "type": "string"
-                                    },
-                                    "less": {
-                                        "type": "string"
-                                    },
-                                    "more": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "date_now": {
-                    "description": "Date must not be more recent than the current date.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "date": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "time_limit": {
-                    "description": "Length must be under a year.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "start": {
-                                        "type": "string"
-                                    },
-                                    "end": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "between_dates": {
-                    "description": "Date must be within a defined time period.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "start": {
-                                        "type": "string"
-                                    },
-                                    "end": {
-                                        "type": "string"
-                                    },
-                                    "date": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "regex_matches": {
-                    "description": "The provided ``regex`` must match the text of all elements matched by ``paths``",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "condition": {
-                                        "type": "string"
-                                    },
-                                    "regex": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "regex_no_matches": {
-                    "description": "The provided ``regex`` must match the text of none of the elements matched by ``paths``",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "condition": {
-                                        "type": "string"
-                                    },
-                                    "regex": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "startswith": {
-                    "description": "The text of the each element matched by ``paths`` must start with the text of the element matched by ``start``",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "condition": {
-                                        "type": "string"
-                                    },
-                                    "start": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "if_then": {
-                    "description": "The ``if`` condition must evaluate to true, otherwise ``then`` must evaluate to true.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "if": {
-                                        "type": "string"
-                                    },
-                                    "then": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "evaluates_to_true": {
-                    "description": "The condition in ``eval`` must evaluate to true.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "eval": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "unique": {
-                    "description": "The text of each of the elements described by ``paths`` must be unique",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "condition": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "range": {
-                    "description": "The value of each of the elements described by ``paths`` must be between the values of ```min`` and ```max```. Min/max can be excluded, to check that the value is at least or no more the specified key.",
-                    "type": "object",
-                    "properties": {
-                        "cases": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "paths": {
-                                        "type": "array",
-                                        "items":{"type":"string"}
-                                    },
-                                    "min": {
-                                        "type": "number"
-                                    },
-                                    "max": {
-                                        "type": "number"
-                                    }
-                                }
-                            }
-                        }
-                    }
+                  },
+                  "subs": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
                 }
-            },
-            "additionalProperties": false
+              }
+            }
+          }
+        },
+        "strict_sum": { "$ref": "#/definitions/strict_sum" },
+        "date_order": {
+          "description": "The date matched by ``less`` must be less than the date matched by ``more``. If either of these dates is not found, the rule is ignored.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "condition": {
+                    "type": "string"
+                  },
+                  "less": {
+                    "type": "string"
+                  },
+                  "more": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "date_now": {
+          "description": "Date must not be more recent than the current date.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "date": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "time_limit": {
+          "description": "Length must be under a year.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "start": {
+                    "type": "string"
+                  },
+                  "end": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "between_dates": {
+          "description": "Date must be within a defined time period.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "start": {
+                    "type": "string"
+                  },
+                  "end": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "regex_matches": {
+          "description": "The provided ``regex`` must match the text of all elements matched by ``paths``",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "condition": {
+                    "type": "string"
+                  },
+                  "regex": {
+                    "type": "string"
+                  },
+                  "idCondition": { "$ref": "#/definitions/idCondition" },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "regex_no_matches": {
+          "description": "The provided ``regex`` must match the text of none of the elements matched by ``paths``",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "condition": {
+                    "type": "string"
+                  },
+                  "regex": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "startswith": {
+          "description": "The text of the each element matched by ``paths`` must start with the text of the element matched by ``start``",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "condition": {
+                    "type": "string"
+                  },
+                  "start": {
+                    "type": "string"
+                  },
+                  "idCondition": {
+                    "$ref": "#/definitions/idCondition"
+                  },
+                  "prefix": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" },
+                  "separator": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "evaluates_to_true": {
+          "description": "The condition in ``eval`` must evaluate to true.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "eval": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "unique": {
+          "description": "The text of each of the elements described by ``paths`` must be unique",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "condition": {
+                    "type": "string"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "range": {
+          "description": "The value of each of the elements described by ``paths`` must be between the values of ```min`` and ```max```. Min/max can be excluded, to check that the value is at least or no more the specified key.",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "min": {
+                    "type": "number"
+                  },
+                  "max": {
+                    "type": "number"
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
+        },
+        "no_spaces": {
+          "description": "The text of each of the elements described by ``paths`` should not start or end with spaces or newlines",
+          "type": "object",
+          "properties": {
+            "cases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+                }
+              }
+            }
+          }
         }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "idCondition": {
+      "type": "string",
+      "enum": ["NOT_EXISTING_ORG_ID_PREFIX", "NOT_EXISTING_ORG_ID"]
     },
-    "additionalProperties": false
+    "ruleInfo": {
+      "type": "object",
+      "description": "Information about the rule used by the validator",
+      "required": ["id", "severity", "category", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the error",
+          "examples": ["9.26.1", "9.42.1"]
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["critical", "error", "warning"],
+          "description": "The severity level of the error"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "iati",
+            "identifiers",
+            "organisation",
+            "information",
+            "participating",
+            "geo",
+            "classifications",
+            "financial",
+            "documents",
+            "relations",
+            "performance"
+          ],
+          "description": "The category of the validation error"
+        },
+        "message": {
+          "type": "string",
+          "description": "The informational message about the validation error"
+        },
+        "link": {
+          "type": "object",
+          "description": "Link to related website guidance on the error",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "Full url to the guidance"
+            },
+            "path": {
+              "type": "string",
+              "description": "Path to be added on the the base url of the iati standard documentation e.g. https://iatistandard.org/en/iati-standard/{version}/{path}"
+            }
+          }
+        }
+      }
+    },
+    "if_then": {
+      "description": "The ``if`` condition must evaluate to true, otherwise ``then`` must evaluate to true.",
+      "type": "object",
+      "properties": {
+        "cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "if": {
+                "type": "string"
+              },
+              "then": {
+                "type": "string"
+              },
+              "paths": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+            }
+          }
+        }
+      }
+    },
+    "strict_sum": {
+      "description": "The Decimal sum of the values of elements matched by ``paths`` must match the value for the ``sum`` key.",
+      "type": "object",
+      "properties": {
+        "cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "paths": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "sum": {
+                "type": "number"
+              },
+              "condition": {
+                "type": "string"
+              },
+              "ruleInfo": { "$ref": "#/definitions/ruleInfo" }
+            }
+          }
+        }
+      }
+    }
+  }
 }
