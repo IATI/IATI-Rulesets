@@ -86,33 +86,33 @@ jobs:
             exit 1
           fi
 
-  cache-ruleset-prod:
-    needs: cache-ruleset-dev
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' }} # only push to the redis cache on PUSH
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          # Number of commits to fetch. 0 indicates all history for all branches and tags.
-          fetch-depth: 0
+  # cache-ruleset-prod:
+  #   needs: cache-ruleset-dev
+  #   runs-on: ubuntu-latest
+  #   if: ${{ github.event_name == 'push' }} # only push to the redis cache on PUSH
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         # Number of commits to fetch. 0 indicates all history for all branches and tags.
+  #         fetch-depth: 0
 
-      - name: POST ruleset/standard.json to func-iati-redis-cacher-PROD
-        run: |
-          FILE_COMMIT_SHA=$(git log -1 --format='%H' -- './rulesets/standard.json')
-          echo $FILE_COMMIT_SHA
-          HTTP_CODE=$(curl --write-out "%{http_code}\n" \
-          --location --request POST 'https://func-iati-redis-cacher-prod.azurewebsites.net/api/pvt/cache?key=ruleset'$VERSION'&commitsha='$FILE_COMMIT_SHA \
-          --header 'x-functions-key: '$PROD_DEFAULT_KEY \
-          --header 'Content-Type: application/json' \
-          --data-binary '@./rulesets/standard.json' \
-          --output curl_out.txt \
-          --silent )
-          echo $HTTP_CODE
-          if [[ $HTTP_CODE != '200' ]] ; then
-            echo "Reponse is not 200 from func-iati-redis-cacher-PROD, check error logs"
-            cat curl_out.txt
-            exit 1
-          fi
+  #     - name: POST ruleset/standard.json to func-iati-redis-cacher-PROD
+  #       run: |
+  #         FILE_COMMIT_SHA=$(git log -1 --format='%H' -- './rulesets/standard.json')
+  #         echo $FILE_COMMIT_SHA
+  #         HTTP_CODE=$(curl --write-out "%{http_code}\n" \
+  #         --location --request POST 'https://func-iati-redis-cacher-prod.azurewebsites.net/api/pvt/cache?key=ruleset'$VERSION'&commitsha='$FILE_COMMIT_SHA \
+  #         --header 'x-functions-key: '$PROD_DEFAULT_KEY \
+  #         --header 'Content-Type: application/json' \
+  #         --data-binary '@./rulesets/standard.json' \
+  #         --output curl_out.txt \
+  #         --silent )
+  #         echo $HTTP_CODE
+  #         if [[ $HTTP_CODE != '200' ]] ; then
+  #           echo "Reponse is not 200 from func-iati-redis-cacher-PROD, check error logs"
+  #           cat curl_out.txt
+  #           exit 1
+  #         fi
 
   update-rule-tracker:
     needs: build
