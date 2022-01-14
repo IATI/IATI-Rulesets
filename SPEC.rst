@@ -6,7 +6,7 @@ An IATI Ruleset is a JSON document. The structure is described below.
 
 This specification of rules is used by V2 of the IATI Validator forward. See `Validator API <https://github.com/IATI/js-validator-api>`_ for more information on the programmatic use of the rules.
 
-A `JSON schema <https://github.com/IATI/IATI-Rulesets/blob/version-2.03/schema.json>`_ is available to test that the structure of a Ruleset is correct.
+A `JSON schema <https://github.com/IATI/IATI-Rulesets/blob/version-2.01/schema.json>`_ is available to test that the structure of a Ruleset is correct.
 
 Each JSON document has the form.::
 

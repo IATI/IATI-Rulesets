@@ -1,13 +1,13 @@
 IATI-Rulesets
 ^^^^^^^^^^^^^
-.. image:: https://github.com/IATI/IATI-Rulesets/workflows/CI_version-2.03/badge.svg
+.. image:: https://github.com/IATI/IATI-Rulesets/workflows/CI_version-2.01/badge.svg
     :target: https://github.com/IATI/IATI-Rulesets/actions
 
-.. image:: https://requires.io/github/IATI/IATI-Rulesets/requirements.svg?branch=version-2.03
-    :target: https://requires.io/github/IATI/IATI-Rulesets/requirements/?branch=version-2.03
+.. image:: https://requires.io/github/IATI/IATI-Rulesets/requirements.svg?branch=version-2.01
+    :target: https://requires.io/github/IATI/IATI-Rulesets/requirements/?branch=version-2.01
     :alt: Requirements Status
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
-    :target: https://github.com/IATI/IATI-Rulesets/blob/version-2.03/LICENSE
+    :target: https://github.com/IATI/IATI-Rulesets/blob/version-2.01/LICENSE
 
 Introduction
 ============
@@ -41,7 +41,7 @@ Different Rulesets
 Rules not describable by a Ruleset
 ==================================
 
-* Testing whether an element is on a certain codelist - this belongs in the IATI-Codelists (see `testcodelists.py <https://github.com/IATI/IATI-Codelists/blob/version-2.03/testcodelists.py>`_)
+* Testing whether an element is on a certain codelist - this belongs in the IATI-Codelists (see `testcodelists.py <https://github.com/IATI/IATI-Codelists/blob/version-2.01/testcodelists.py>`_)
 
 * Testing whether identifier are correct (e.g. uniqueness etc) - this requires information outside the scope of a single activity/file, whereas currently the rulesets operate in just this context. This may change in the future.
 
@@ -72,7 +72,7 @@ Ruleset Tester - Python version
 
 **NOTE** : The following Python tests have not been updated for the new JavaScript implementation of the rulesets and therefore are not comprehensive in testing IATI XML. Use the `IATI js validator api <https://github.com/IATI/js-validator-api>`_ for comprehensive testing.
 
-A program is required to test whether a given xml file conforms to the rules in a ruleset JSON file. The rulesets is designed such that implementations of this can be made in multiple programming languages, so long as they implement the `Spec <https://github.com/IATI/IATI-Rulesets/blob/version-2.03/SPEC.rst>`_.
+A program is required to test whether a given xml file conforms to the rules in a ruleset JSON file. The rulesets is designed such that implementations of this can be made in multiple programming languages, so long as they implement the `Spec <https://github.com/IATI/IATI-Rulesets/blob/version-2.01/SPEC.rst>`_.
 
 Currently, a Python `<testrules.py>`_ tester is available. E.g.
 
