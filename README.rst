@@ -12,7 +12,7 @@ IATI-Rulesets
 Introduction
 ============
 
-This is the source repository for the IATI Rulesets, more general information can be found on the IATI Standard website: https://iatistandard.org/en/iati-standard/203/rulesets/
+This is the source repository for the IATI Rulesets, more general information can be found on the IATI Standard website: https://iatistandard.org/en/iati-standard/201/rulesets/
 
 These rulesets are part of IATI Standard Single Source of Truth (SSOT). For more detailed information about the SSOT, please see https://iatistandard.org/en/guidance/developer/ssot/
 
