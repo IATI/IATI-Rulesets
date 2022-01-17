@@ -1,6 +1,6 @@
 
 IATI Ruleset Spec - JS Edition
-=================
+==============================
 
 An IATI Ruleset is a JSON document. The structure is described below. 
 
