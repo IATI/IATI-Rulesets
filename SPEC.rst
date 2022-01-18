@@ -32,7 +32,7 @@ The possible keys in a case dictionary are:
 ``condition``
     An xpath string
     
-    If this evaluates to False, the rule will be ignored.
+    If this evaluates to False, the rule will be ignored
     
 ``idCondition``
     If this evaluates to False, the rule will be ignored
@@ -64,7 +64,9 @@ The possible keys in a case dictionary are:
     A number that is the expected sum
     
 ``excluded``
-    An array of xpath strings. Evaluate which elements should not coexist with other elements
+    An array of xpath strings
+    
+    Evaluate which elements should not coexist with other elements
     
 ``date``
     A string containing the xpath to a date
