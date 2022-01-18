@@ -4,7 +4,7 @@ IATI Ruleset Spec - JS Edition
 
 An IATI Ruleset is a JSON document. The structure is described below. 
 
-This specification of rules is used by V2 of the IATI Validator forward. See `Validator API <https://github.com/IATI/js-validator-api>`_ for more information on the programmatic use of the rules.
+This specification is used by the IATI Validator starting with `version 2 <https://github.com/IATI/js-validator-api/releases/tag/v2.0.1>`_. See `Validator API <https://github.com/IATI/js-validator-api>`_ for more information on the programmatic use of the rules.
 
 A `JSON schema <https://github.com/IATI/IATI-Rulesets/blob/version-2.01/schema.json>`_ is available to test that the structure of a Ruleset is correct.
 
@@ -30,6 +30,7 @@ The possible keys in a case dictionary are:
     An xpath string. If this evaluates to False, the rule will be ignored.
 ``idCondition``
     If this evaluates to False, the rule will be ignored.
+    
     NOT_EXISTING_ORG_ID - Checks that values in ``paths`` are NOT an existing Publisher Organisation ID from the Registry
     NOT_EXISTING_ORG_ID_PREFIX - Checks that values in ``paths`` are NOT prefixed with an existing Publisher Organisation ID from the Registry
 ``eval``
@@ -108,7 +109,7 @@ Rule Names
     Keys: ``condition``, ``less``, ``more``
 
     The date matched by ``less`` must not be after the date matched by ``more``. If they are equal, the are valid. If either of these dates is not found, the rule is ignored.
-    https://drive.google.com/file/d/1-R-xGMCrAKiadMBIHsNc4Xvl75CB0IV1/view
+    `Guidance - Activity dates and status <https://iatistandard.org/en/guidance/standard-guidance/activity-dates-status/>`_
     
 **date_now**/**dateNow**
     Keys: ``date``
@@ -217,4 +218,4 @@ The ``ruleInfo`` object includes metadata about the rule which is used in the `V
 
 The ``link`` object can contain 2 possible keys which represent the Guidance Links for the rule:
 * ``url`` is a full URL to the guidance
-* ``path`` is the path to be added to the end of the reference documentation url for the version of standard. (e.g. https://iatistandard.org/en/iati-standard/{version}/{path})
+* ``path`` is the path to be added to the end of the reference documentation url for the version of standard. (e.g. ``https://iatistandard.org/en/iati-standard/{version}/{path}``)
