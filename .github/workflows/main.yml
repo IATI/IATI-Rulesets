@@ -13,7 +13,7 @@ on:
     paths-ignore: # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
       - "**/*.rst"
       - "**/dependabot.yml"
-    branches: [version-2.01, v2.01/validatorV2]
+    branches: [version-2.01]
   pull_request:
     paths-ignore: # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
       - "**/*.rst"
