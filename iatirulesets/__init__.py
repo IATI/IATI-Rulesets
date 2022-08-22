@@ -92,7 +92,7 @@ class Rules(object):
         return True
 
     def sum(self, case):
-        return not(len(self.path_matches)) or sum(map(Decimal, map(get_text, self.path_matches))) == Decimal(case['sum'])
+        return (not len(self.path_matches)) or sum(map(Decimal, map(get_text, self.path_matches))) == Decimal(case['sum'])
 
     def _parse_date(self, date_xpath):
         if date_xpath == 'TODAY':
