@@ -704,7 +704,7 @@
             "id": "102.1.1",
             "severity": "warning",
             "category": "information",
-            "message": "When a non OECD DAC sector vocabulary is used, sector vocabulary 1 - OECD DAC should also be used.",
+            "message": "An OECD DAC 5-digit sector vocabulary 1 is expected for any activity, even if other sector vocabularies (including OECD DAC 3-digit) are used.",
             "link": {
               "url": "https://iatistandard.org/en/guidance/standard-guidance/activity-thematic-focus/"
             }
